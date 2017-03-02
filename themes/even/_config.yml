@@ -3,15 +3,15 @@
 # ===========================================
 
 # Site creation time
-since: 2015
+since: 2011
 
 # Custom your favicon.ico in `site/source`
-favicon: /favicon.ico
+favicon: /favicon.png
 
 # Set feed link (false | default | your feed link)
 # false: disable
 # default: use `atom.xml`, generator for `hexo-generator-feed`
-rss: false
+rss: default
 
 # ===========================================
 # Menu Settings
