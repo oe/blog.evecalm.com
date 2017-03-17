@@ -9211,7 +9211,7 @@ return jQuery;
 ;/*!
  * fancyBox - jQuery Plugin
  * version: 2.1.5 (Fri, 14 Jun 2013)
- * @requires jQuery v1.6 or later
+ * requires jQuery v1.6 or later
  *
  * Examples at http://fancyapps.com/fancybox/
  * License: www.fancyapps.com/fancybox/#license
@@ -9220,7 +9220,7 @@ return jQuery;
  *
  */
 
-(function (window, document, $, undefined) {
+;(function (window, document, $, undefined) {
 	"use strict";
 
 	var H = $("html"),
@@ -9353,7 +9353,8 @@ return jQuery;
 				error    : '<p class="fancybox-error">The requested content cannot be loaded.<br/>Please try again later.</p>',
 				closeBtn : '<a title="Close" class="fancybox-item fancybox-close" href="javascript:;"></a>',
 				next     : '<a title="Next" class="fancybox-nav fancybox-next" href="javascript:;"><span></span></a>',
-				prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>'
+				prev     : '<a title="Previous" class="fancybox-nav fancybox-prev" href="javascript:;"><span></span></a>',
+				loading  : '<div id="fancybox-loading"><div></div></div>'
 			},
 
 			// Properties for each animation type
@@ -9471,7 +9472,7 @@ return jQuery;
 					if (isQuery(element)) {
 						obj = {
 							href    : element.data('fancybox-href') || element.attr('href'),
-							title   : element.data('fancybox-title') || element.attr('title'),
+							title   : $('<div/>').text( element.data('fancybox-title') || element.attr('title') || '' ).html(),
 							isDom   : true,
 							element : element
 						};
@@ -9573,11 +9574,15 @@ return jQuery;
 		cancel: function () {
 			var coming = F.coming;
 
-			if (!coming || false === F.trigger('onCancel')) {
+			if (coming && false === F.trigger('onCancel')) {
 				return;
 			}
 
 			F.hideLoading();
+
+			if (!coming) {
+				return;
+			}
 
 			if (F.ajaxLoad) {
 				F.ajaxLoad.abort();
@@ -9756,7 +9761,7 @@ return jQuery;
 		},
 
 		update: function (e) {
-			var type = (e && e.type),
+			var type = (e && e.originalEvent && e.originalEvent.type),
 				anyway = !type || type === 'orientationchange';
 
 			if (anyway) {
@@ -9820,7 +9825,7 @@ return jQuery;
 
 			F.hideLoading();
 
-			el = $('<div id="fancybox-loading"><div></div></div>').click(F.cancel).appendTo('body');
+			el = $(F.opts.tpl.loading).click(F.cancel).appendTo('body');
 
 			// If user will press the escape-button, the request will be canceled
 			D.bind('keydown.loading', function(e) {
@@ -9840,6 +9845,8 @@ return jQuery;
 					left : (viewport.w * 0.5) + viewport.x
 				});
 			}
+
+			F.trigger('onLoading');
 		},
 
 		getViewport: function () {
@@ -9849,7 +9856,7 @@ return jQuery;
 					y: W.scrollTop()
 				};
 
-			if (locked) {
+			if (locked && locked.length) {
 				rez.w = locked[0].clientWidth;
 				rez.h = locked[0].clientHeight;
 
@@ -9951,24 +9958,22 @@ return jQuery;
 		trigger: function (event, o) {
 			var ret, obj = o || F.coming || F.current;
 
-			if (!obj) {
-				return;
-			}
+			if (obj) {
+				if ($.isFunction( obj[event] )) {
+					ret = obj[event].apply(obj, Array.prototype.slice.call(arguments, 1));
+				}
 
-			if ($.isFunction( obj[event] )) {
-				ret = obj[event].apply(obj, Array.prototype.slice.call(arguments, 1));
-			}
+				if (ret === false) {
+					return false;
+				}
 
-			if (ret === false) {
-				return false;
-			}
-
-			if (obj.helpers) {
-				$.each(obj.helpers, function (helper, opts) {
-					if (opts && F.helpers[helper] && $.isFunction(F.helpers[helper][event])) {
-						F.helpers[helper][event]($.extend(true, {}, F.helpers[helper].defaults, opts), obj);
-					}
-				});
+				if (obj.helpers) {
+					$.each(obj.helpers, function (helper, opts) {
+						if (opts && F.helpers[helper] && $.isFunction(F.helpers[helper][event])) {
+							F.helpers[helper][event]($.extend(true, {}, F.helpers[helper].defaults, opts), obj);
+						}
+					});
+				}
 			}
 
 			D.trigger(event);
@@ -10327,7 +10332,7 @@ return jQuery;
 				break;
 
 				case 'image':
-					content = current.tpl.image.replace('{href}', href);
+					content = current.tpl.image.replace(/\{href\}/g, href);
 				break;
 
 				case 'swf':
@@ -10427,7 +10432,7 @@ return jQuery;
 			if (current.type === 'iframe') {
 				iframe = current.content;
 
-				if (current.autoHeight && iframe.data('ready') === 1) {
+				if (current.autoHeight && iframe && iframe.data('ready') === 1) {
 					try {
 						if (iframe[0].contentWindow.document.location) {
 							inner.width( origWidth ).height(9999);
@@ -10636,7 +10641,7 @@ return jQuery;
 
 			F.isOpen = F.isOpened = true;
 
-			F.wrap.css('overflow', 'visible').addClass('fancybox-opened');
+			F.wrap.css('overflow', 'visible').addClass('fancybox-opened').hide().show(0);
 
 			F.update();
 
@@ -10675,12 +10680,13 @@ return jQuery;
 
 			// Stop the slideshow if this is the last item
 			if (!current.loop && current.index === current.group.length - 1) {
+
 				F.play( false );
 
 			} else if (F.opts.autoPlay && !F.player.isActive) {
 				F.opts.autoPlay = false;
 
-				F.play();
+				F.play(true);
 			}
 		},
 
@@ -10913,13 +10919,17 @@ return jQuery;
 
 		// Public methods
 		create : function(opts) {
+			var parent;
+
 			opts = $.extend({}, this.defaults, opts);
 
 			if (this.overlay) {
 				this.close();
 			}
 
-			this.overlay = $('<div class="fancybox-overlay"></div>').appendTo( F.coming ? F.coming.parent : opts.parent );
+			parent = F.coming ? F.coming.parent : opts.parent;
+
+			this.overlay = $('<div class="fancybox-overlay"></div>').appendTo( parent && parent.length ? parent : 'body' );
 			this.fixed   = false;
 
 			if (opts.fixed && F.defaults.fixed) {
@@ -10965,19 +10975,14 @@ return jQuery;
 		},
 
 		close : function() {
-			var scrollV, scrollH;
-
 			W.unbind('resize.overlay');
 
 			if (this.el.hasClass('fancybox-lock')) {
 				$('.fancybox-margin').removeClass('fancybox-margin');
 
-				scrollV = W.scrollTop();
-				scrollH = W.scrollLeft();
-
 				this.el.removeClass('fancybox-lock');
 
-				W.scrollTop( scrollV ).scrollLeft( scrollH );
+				W.scrollTop( this.scrollV ).scrollLeft( this.scrollH );
 			}
 
 			$('.fancybox-overlay').remove().hide();
@@ -11022,10 +11027,6 @@ return jQuery;
 			}
 
 			if (opts.locked && this.fixed && obj.fixed) {
-				if (!overlay) {
-					this.margin = D.height() > W.height() ? $('html').css('margin-right').replace("px", "") : false;
-				}
-
 				obj.locked = this.overlay.append( obj.wrap );
 				obj.fixed  = false;
 			}
@@ -11036,23 +11037,21 @@ return jQuery;
 		},
 
 		beforeShow : function(opts, obj) {
-			var scrollV, scrollH;
-
-			if (obj.locked) {
-				if (this.margin !== false) {
-					$('*').filter(function(){
+			if (obj.locked && !this.el.hasClass('fancybox-lock')) {
+				if (this.fixPosition !== false) {
+					$('*:not(object)').filter(function(){
 						return ($(this).css('position') === 'fixed' && !$(this).hasClass("fancybox-overlay") && !$(this).hasClass("fancybox-wrap") );
 					}).addClass('fancybox-margin');
-
-					this.el.addClass('fancybox-margin');
 				}
 
-				scrollV = W.scrollTop();
-				scrollH = W.scrollLeft();
+				this.el.addClass('fancybox-margin');
+
+				this.scrollV = W.scrollTop();
+				this.scrollH = W.scrollLeft();
 
 				this.el.addClass('fancybox-lock');
 
-				W.scrollTop( scrollV ).scrollLeft( scrollH );
+				W.scrollTop( this.scrollV ).scrollLeft( this.scrollH );
 			}
 
 			this.open(opts);
@@ -11067,7 +11066,6 @@ return jQuery;
 		afterClose: function (opts) {
 			// Remove overlay if exists and fancyBox is not opening
 			// (e.g., it is not being open using afterClose callback)
-			//if (this.overlay && !F.isActive) {
 			if (this.overlay && !F.coming) {
 				this.overlay.fadeOut(opts.speedOut, $.proxy( this.close, this ));
 			}
@@ -11227,7 +11225,8 @@ return jQuery;
 		$("<style type='text/css'>.fancybox-margin{margin-right:" + (w2 - w1) + "px;}</style>").appendTo("head");
 	});
 
-}(window, document, jQuery));; /*!
+}(window, document, jQuery));
+; /*!
  * Thumbnail helper for fancyBox
  * version: 1.0.7 (Mon, 01 Oct 2012)
  * @requires fancyBox v2.0 or later
@@ -11243,7 +11242,7 @@ return jQuery;
  *     });
  *
  */
-(function ($) {
+;(function ($) {
 	//Shortcut for fancyBox object
 	var F = $.fancybox;
 
@@ -11291,13 +11290,14 @@ return jQuery;
 
 			//Load each thumbnail
 			$.each(obj.group, function (i) {
-				var href = thumbSource( obj.group[ i ] );
+				var el   = obj.group[ i ],
+					href = thumbSource( el );
 
 				if (!href) {
 					return;
 				}
 
-				$("<img />").load(function () {
+				$("<img />").on("load", function () {
 					var width  = this.width,
 						height = this.height,
 						widthRatio, heightRatio, parent;
@@ -11334,7 +11334,9 @@ return jQuery;
 
 					$(this).hide().appendTo(parent).fadeIn(300);
 
-				}).attr('src', href);
+				})
+				.attr('src',   href)
+				.attr('title', el.title);
 			});
 
 			//Set initial width
@@ -11388,129 +11390,7 @@ return jQuery;
 		}
 	}
 
-}(jQuery));;(function($) {
-  'use strict';
-
-  // Fade out the blog and let drop the about card of the author and vice versa
-
-  /**
-   * AboutCard
-   * @constructor
-   */
-  var AboutCard = function() {
-    this.$openBtn = $("#sidebar, #header").find("a[href*='#about']");
-    this.$closeBtn = $('#about-btn-close');
-    this.$blog = $('#blog');
-    this.$about = $('#about');
-    this.$aboutCard = $('#about-card');
-  };
-
-  AboutCard.prototype = {
-
-    /**
-     * Run AboutCard feature
-     * @return {void}
-     */
-    run: function() {
-      var self = this;
-      // Detect click on open button
-      self.$openBtn.click(function(e) {
-        e.preventDefault();
-        self.play();
-      });
-      // Detect click on close button
-      self.$closeBtn.click(function(e) {
-        e.preventDefault();
-        self.playBack();
-      });
-    },
-
-    /**
-     * Play the animation
-     * @return {void}
-     */
-    play: function() {
-      var self = this;
-      // Fade out the blog
-      self.$blog.fadeOut();
-      // Fade in the about card
-      self.$about.fadeIn();
-      // Small timeout to drop the about card after that
-      // the about card fade in and the blog fade out
-      setTimeout(function() {
-        self.dropAboutCard();
-      }, 300);
-    },
-
-    /**
-     * Play back the animation
-     * @return {void}
-     */
-    playBack: function() {
-      var self = this;
-      // Lift the about card
-      self.liftAboutCard();
-      // Fade in the blog after that the about card lifted up
-      setTimeout(function() {
-        self.$blog.fadeIn();
-      }, 500);
-      // Fade out the about card after that the about card lifted up
-      setTimeout(function() {
-        self.$about.fadeOut();
-      }, 500);
-    },
-
-    /**
-     * Slide the card to the middle
-     * @return {void}
-     */
-    dropAboutCard: function() {
-      var self = this;
-      var aboutCardHeight = self.$aboutCard.innerHeight();
-      // default offset from top
-      var offsetTop = ($(window).height() / 2) - (aboutCardHeight / 2) + aboutCardHeight;
-      // if card is longer than the window
-      // scroll is enable
-      // and re-define offsetTop
-      if (aboutCardHeight + 30 > $(window).height()) {
-        offsetTop = aboutCardHeight;
-      }
-      self.$aboutCard
-        .css('top', '0px')
-        .css('top', '-' + aboutCardHeight + 'px')
-        .show(500, function() {
-          self.$aboutCard.animate({
-            top: '+=' + offsetTop + 'px'
-          });
-        });
-    },
-
-    /**
-     * Slide the card to the top
-     * @return {void}
-     */
-    liftAboutCard: function() {
-      var self = this;
-      var aboutCardHeight = self.$aboutCard.innerHeight();
-      // default offset from top
-      var offsetTop = ($(window).height() / 2) - (aboutCardHeight / 2) + aboutCardHeight;
-      if (aboutCardHeight + 30 > $(window).height()) {
-        offsetTop = aboutCardHeight;
-      }
-      self.$aboutCard.animate({
-        top: '-=' + offsetTop + 'px'
-      }, 500, function() {
-        self.$aboutCard.hide();
-        self.$aboutCard.removeAttr('style');
-      });
-    }
-  };
-
-  $(document).ready(function() {
-    var aboutCard = new AboutCard();
-    aboutCard.run();
-  });
-})(jQuery);
+}(jQuery));
 ;(function($) {
   'use strict';
 

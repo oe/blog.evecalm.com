@@ -80,12 +80,13 @@ algolia:
   indexName: "blog-evecalm-com"
   fields:
     - title
+    - date
+    - permalink
+    - thumbnailImageUrl
     - tags
-    - slug
+    - categories
     - excerpt
     - excerpt:strip
-    - photos
-    - gallery
 plugin:
 - hexo-generator-feed
 #Feed Atom

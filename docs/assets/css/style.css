@@ -1878,6 +1878,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
 	z-index: 8020;
 }
 
@@ -1933,7 +1935,7 @@
 }
 
 #fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-	background-image: url('../images/fancybox_sprite.png');
+	background-image: url(fancybox_sprite.png);
 }
 
 #fancybox-loading {
@@ -1951,7 +1953,7 @@
 #fancybox-loading div {
 	width: 44px;
 	height: 44px;
-	background: url('../images/fancybox_loading.gif') center center no-repeat;
+	background: url(fancybox_loading.gif) center center no-repeat;
 }
 
 .fancybox-close {
@@ -1971,7 +1973,7 @@
 	height: 100%;
 	cursor: pointer;
 	text-decoration: none;
-	background: transparent url('../images/blank.gif'); /* helps IE */
+	background: transparent url(blank.gif); /* helps IE */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	z-index: 8040;
 }
@@ -2013,7 +2015,6 @@
 	position: absolute;
 	top: -99999px;
 	left: -99999px;
-	visibility: hidden;
 	max-width: 99999px;
 	max-height: 99999px;
 	overflow: visible !important;
@@ -2022,7 +2023,7 @@
 /* Overlay helper */
 
 .fancybox-lock {
-    overflow: hidden !important;
+    overflow: visible !important;
     width: auto;
 }
 
@@ -2041,7 +2042,7 @@
 	overflow: hidden;
 	display: none;
 	z-index: 8010;
-	background: url('../images/fancybox_overlay.png');
+	background: url(fancybox_overlay.png);
 }
 
 .fancybox-overlay-fixed {
@@ -2120,60 +2121,18 @@
 	   only screen and (min-device-pixel-ratio: 1.5){
 
 	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
-		background-image: url('../images/fancybox_sprite@2x.png');
+		background-image: url(fancybox_sprite@2x.png);
 		background-size: 44px 152px; /*The size of the normal image, half the size of the hi-res image*/
 	}
 
 	#fancybox-loading div {
-		background-image: url('../images/fancybox_loading@2x.gif');
+		background-image: url(fancybox_loading@2x.gif);
 		background-size: 24px 24px; /*The size of the normal image, half the size of the hi-res image*/
 	}
 }
 @charset "UTF-8";
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Open Sans"), local("OpenSans"), url(https://fonts.gstatic.com/s/opensans/v10/cJZKeOuBrn4kERxqtaUH3SZ2oysoEQEeKwjgmXLRnTc.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(https://fonts.gstatic.com/s/opensans/v10/k3k702ZOKiLJc3WVjuplzJS3E-kSBmtLoNJPDtbj2Pk.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Merriweather Light"), local("Merriweather-Light"), url(https://fonts.gstatic.com/s/merriweather/v8/ZvcMqxEwPfh2qDWBPxn6nk7nEl83IKQRaQwpv_tz1Eg.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Merriweather"), url(https://fonts.gstatic.com/s/merriweather/v8/RFda8w1V0eDZheqfcyQ4EJS3E-kSBmtLoNJPDtbj2Pk.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(https://fonts.gstatic.com/s/merriweather/v8/ZvcMqxEwPfh2qDWBPxn6nv83cGrqhiQgWmjXfohD0fc.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: italic;
-  font-weight: 300;
-  src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"), url(https://fonts.gstatic.com/s/merriweather/v8/EYh7Vl4ywhowqULgRdYwIGrKw6K5wsYdxr6rUL2ZGaM.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: italic;
-  font-weight: 700;
-  src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(https://fonts.gstatic.com/s/merriweather/v8/EYh7Vl4ywhowqULgRdYwII1kRdeHIFWYEsp6A2f99b0.ttf) format("truetype"); }
-
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
   font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -2187,7 +2146,7 @@ body {
   margin: 0;
   padding: 0;
   background: white;
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
   font-size: 1.6rem;
   line-height: 1.9em;
   letter-spacing: 0.01em;
@@ -2203,7 +2162,7 @@ h4,
 h5,
 h6 {
   letter-spacing: -0.04em;
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
   font-weight: 700;
   line-height: 1.45em;
   color: #4a4a4a; }
@@ -2765,7 +2724,7 @@ blockquote {
       transform: translate3d(75px, 0, 0); } }
 
 #sidebar {
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
   height: 100%;
   position: fixed;
   top: 0;
@@ -3787,7 +3746,7 @@ figure.highlight,
     position: absolute;
     bottom: 0;
     width: calc(100% - (1.5em) * 2);
-    font-family: "Open Sans";
+    font-family: sans-serif;
     font-style: italic;
     background: rgba(0, 0, 0, 0.75);
     font-size: 1.3rem;
@@ -3996,7 +3955,7 @@ a.fancybox {
       text-decoration: none; }
   .post .post-meta {
     line-height: 1.5em;
-    font-family: "Open Sans", sans-serif;
+    font-family: sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
     color: #9eabb3; }
@@ -4130,7 +4089,7 @@ a.fancybox {
         text-decoration: none; }
     .post-header-cover .post-header .post-meta {
       max-width: 750px;
-      font-family: "Open Sans", sans-serif;
+      font-family: sans-serif;
       font-size: 1.6rem;
       color: white !important;
       font-weight: 400;
@@ -4278,7 +4237,7 @@ a.fancybox {
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime,
   .postShorten .postShorten-excerpt_link {
-    font-family: "Open Sans", sans-serif;
+    font-family: sans-serif;
     font-size: 1.3rem;
     font-weight: 400; }
   .postShorten .postShorten-excerpt,
@@ -4543,7 +4502,7 @@ a.tag--small,
   color: #349ef3 !important; }
 
 .font-merryweather {
-  font-family: "Merriweather", serif; }
+  font-family: serif; }
 
 .tooltip, [data-tooltip] {
   position: relative;
