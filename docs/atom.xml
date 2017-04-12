@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://blog.evecalm.com/"/>
+  <link href="https://blog.evecalm.com/"/>
   <updated>2017-03-04T07:55:36.000Z</updated>
-  <id>http://blog.evecalm.com/</id>
+  <id>https://blog.evecalm.com/</id>
   
   <author>
     <name>Saiya</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>[个人作品]Chrome扩展 My Webrequest</title>
-    <link href="http://blog.evecalm.com/2013/11/my-webrequest.html"/>
-    <id>http://blog.evecalm.com/2013/11/my-webrequest.html</id>
+    <link href="https://blog.evecalm.com/2013/11/my-webrequest.html"/>
+    <id>https://blog.evecalm.com/2013/11/my-webrequest.html</id>
     <published>2013-11-11T07:05:01.000Z</published>
     <updated>2017-03-04T07:55:36.000Z</updated>
     
@@ -35,19 +35,19 @@
     
     </summary>
     
-      <category term="个人作品" scheme="http://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+      <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
     
     
-      <category term="应用" scheme="http://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+      <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
     
-      <category term="谷歌浏览器" scheme="http://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+      <category term="谷歌浏览器" scheme="https://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>[建站]博客网站减少垃圾留言的简单办法</title>
-    <link href="http://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html"/>
-    <id>http://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html</id>
+    <link href="https://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html"/>
+    <id>https://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html</id>
     <published>2013-09-01T07:42:21.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -74,21 +74,21 @@
     
     </summary>
     
-      <category term="建站" scheme="http://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
     
     
-      <category term="技巧" scheme="http://blog.evecalm.com/tags/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="https://blog.evecalm.com/tags/%E6%8A%80%E5%B7%A7/"/>
     
-      <category term="网站" scheme="http://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
     
-      <category term="垃圾留言" scheme="http://blog.evecalm.com/tags/%E5%9E%83%E5%9C%BE%E7%95%99%E8%A8%80/"/>
+      <category term="垃圾留言" scheme="https://blog.evecalm.com/tags/%E5%9E%83%E5%9C%BE%E7%95%99%E8%A8%80/"/>
     
   </entry>
   
   <entry>
     <title>[建站]博客域名已重定向至blog.evecalm.com</title>
-    <link href="http://blog.evecalm.com/2013/07/blog-domain-modified.html"/>
-    <id>http://blog.evecalm.com/2013/07/blog-domain-modified.html</id>
+    <link href="https://blog.evecalm.com/2013/07/blog-domain-modified.html"/>
+    <id>https://blog.evecalm.com/2013/07/blog-domain-modified.html</id>
     <published>2013-07-22T15:22:26.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -104,19 +104,19 @@
     
     </summary>
     
-      <category term="建站" scheme="http://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
     
     
-      <category term="网站" scheme="http://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
     
-      <category term="域名" scheme="http://blog.evecalm.com/tags/%E5%9F%9F%E5%90%8D/"/>
+      <category term="域名" scheme="https://blog.evecalm.com/tags/%E5%9F%9F%E5%90%8D/"/>
     
   </entry>
   
   <entry>
     <title>[个人作品]综合搜索</title>
-    <link href="http://blog.evecalm.com/2013/04/union-search.html"/>
-    <id>http://blog.evecalm.com/2013/04/union-search.html</id>
+    <link href="https://blog.evecalm.com/2013/04/union-search.html"/>
+    <id>https://blog.evecalm.com/2013/04/union-search.html</id>
     <published>2013-04-14T15:09:47.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -170,19 +170,19 @@
     
     </summary>
     
-      <category term="个人作品" scheme="http://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+      <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
     
     
-      <category term="应用" scheme="http://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+      <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
     
-      <category term="搜索" scheme="http://blog.evecalm.com/tags/%E6%90%9C%E7%B4%A2/"/>
+      <category term="搜索" scheme="https://blog.evecalm.com/tags/%E6%90%9C%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>[个人作品]书签分割线 &amp; 特殊符号大全</title>
-    <link href="http://blog.evecalm.com/2012/10/bookmark-sort-special-chars.html"/>
-    <id>http://blog.evecalm.com/2012/10/bookmark-sort-special-chars.html</id>
+    <link href="https://blog.evecalm.com/2012/10/bookmark-sort-special-chars.html"/>
+    <id>https://blog.evecalm.com/2012/10/bookmark-sort-special-chars.html</id>
     <published>2012-10-03T08:48:32.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -202,21 +202,21 @@
     
     </summary>
     
-      <category term="个人作品" scheme="http://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+      <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
     
     
-      <category term="应用" scheme="http://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+      <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
     
-      <category term="书签整理" scheme="http://blog.evecalm.com/tags/%E4%B9%A6%E7%AD%BE%E6%95%B4%E7%90%86/"/>
+      <category term="书签整理" scheme="https://blog.evecalm.com/tags/%E4%B9%A6%E7%AD%BE%E6%95%B4%E7%90%86/"/>
     
-      <category term="特殊符号" scheme="http://blog.evecalm.com/tags/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7/"/>
+      <category term="特殊符号" scheme="https://blog.evecalm.com/tags/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7/"/>
     
   </entry>
   
   <entry>
     <title>[思想]为什么要有大学</title>
-    <link href="http://blog.evecalm.com/2011/12/why-threre-is-a-university.html"/>
-    <id>http://blog.evecalm.com/2011/12/why-threre-is-a-university.html</id>
+    <link href="https://blog.evecalm.com/2011/12/why-threre-is-a-university.html"/>
+    <id>https://blog.evecalm.com/2011/12/why-threre-is-a-university.html</id>
     <published>2011-12-29T07:16:46.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -237,19 +237,19 @@
     
     </summary>
     
-      <category term="思想" scheme="http://blog.evecalm.com/categories/%E6%80%9D%E6%83%B3/"/>
+      <category term="思想" scheme="https://blog.evecalm.com/categories/%E6%80%9D%E6%83%B3/"/>
     
     
-      <category term="大学" scheme="http://blog.evecalm.com/tags/%E5%A4%A7%E5%AD%A6/"/>
+      <category term="大学" scheme="https://blog.evecalm.com/tags/%E5%A4%A7%E5%AD%A6/"/>
     
-      <category term="思想" scheme="http://blog.evecalm.com/tags/%E6%80%9D%E6%83%B3/"/>
+      <category term="思想" scheme="https://blog.evecalm.com/tags/%E6%80%9D%E6%83%B3/"/>
     
   </entry>
   
   <entry>
     <title>[建站]为自己的网站在Chrome中添加语音输入</title>
-    <link href="http://blog.evecalm.com/2011/12/chrome-speech-to-text.html"/>
-    <id>http://blog.evecalm.com/2011/12/chrome-speech-to-text.html</id>
+    <link href="https://blog.evecalm.com/2011/12/chrome-speech-to-text.html"/>
+    <id>https://blog.evecalm.com/2011/12/chrome-speech-to-text.html</id>
     <published>2011-12-15T11:00:08.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -273,23 +273,23 @@
     
     </summary>
     
-      <category term="建站" scheme="http://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
     
     
-      <category term="谷歌浏览器" scheme="http://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+      <category term="谷歌浏览器" scheme="https://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
     
-      <category term="教程" scheme="http://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
+      <category term="教程" scheme="https://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-      <category term="语音" scheme="http://blog.evecalm.com/tags/%E8%AF%AD%E9%9F%B3/"/>
+      <category term="语音" scheme="https://blog.evecalm.com/tags/%E8%AF%AD%E9%9F%B3/"/>
     
-      <category term="网站" scheme="http://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
     
   </entry>
   
   <entry>
     <title>[建站]自定义微博来源，巧用微博增加网站流量</title>
-    <link href="http://blog.evecalm.com/2011/12/microblog-source-of-web.html"/>
-    <id>http://blog.evecalm.com/2011/12/microblog-source-of-web.html</id>
+    <link href="https://blog.evecalm.com/2011/12/microblog-source-of-web.html"/>
+    <id>https://blog.evecalm.com/2011/12/microblog-source-of-web.html</id>
     <published>2011-12-08T13:49:39.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -310,21 +310,21 @@
     
     </summary>
     
-      <category term="建站" scheme="http://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
     
     
-      <category term="教程" scheme="http://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
+      <category term="教程" scheme="https://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
     
-      <category term="网站" scheme="http://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
     
-      <category term="博客" scheme="http://blog.evecalm.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="博客" scheme="https://blog.evecalm.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒</title>
-    <link href="http://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"/>
-    <id>http://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html</id>
+    <link href="https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"/>
+    <id>https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html</id>
     <published>2011-11-28T13:38:47.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -426,21 +426,21 @@
     
     </summary>
     
-      <category term="建站" scheme="http://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
     
     
-      <category term="主机" scheme="http://blog.evecalm.com/tags/%E4%B8%BB%E6%9C%BA/"/>
+      <category term="主机" scheme="https://blog.evecalm.com/tags/%E4%B8%BB%E6%9C%BA/"/>
     
-      <category term="网站" scheme="http://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
     
-      <category term="邮件" scheme="http://blog.evecalm.com/tags/%E9%82%AE%E4%BB%B6/"/>
+      <category term="邮件" scheme="https://blog.evecalm.com/tags/%E9%82%AE%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>[音乐]梦的朵雅-《Sous Les Branches》</title>
-    <link href="http://blog.evecalm.com/2011/11/sous-les-branches.html"/>
-    <id>http://blog.evecalm.com/2011/11/sous-les-branches.html</id>
+    <link href="https://blog.evecalm.com/2011/11/sous-les-branches.html"/>
+    <id>https://blog.evecalm.com/2011/11/sous-les-branches.html</id>
     <published>2011-11-15T14:41:42.000Z</published>
     <updated>2017-03-03T19:46:42.000Z</updated>
     
@@ -460,14 +460,14 @@
     
     </summary>
     
-      <category term="音乐" scheme="http://blog.evecalm.com/categories/%E9%9F%B3%E4%B9%90/"/>
+      <category term="音乐" scheme="https://blog.evecalm.com/categories/%E9%9F%B3%E4%B9%90/"/>
     
     
-      <category term="音乐" scheme="http://blog.evecalm.com/tags/%E9%9F%B3%E4%B9%90/"/>
+      <category term="音乐" scheme="https://blog.evecalm.com/tags/%E9%9F%B3%E4%B9%90/"/>
     
-      <category term="安静" scheme="http://blog.evecalm.com/tags/%E5%AE%89%E9%9D%99/"/>
+      <category term="安静" scheme="https://blog.evecalm.com/tags/%E5%AE%89%E9%9D%99/"/>
     
-      <category term="轻音乐" scheme="http://blog.evecalm.com/tags/%E8%BD%BB%E9%9F%B3%E4%B9%90/"/>
+      <category term="轻音乐" scheme="https://blog.evecalm.com/tags/%E8%BD%BB%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   

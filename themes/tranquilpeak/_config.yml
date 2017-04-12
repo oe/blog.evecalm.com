@@ -55,7 +55,7 @@ sidebar:
             class: open-algolia-search
         about:
             title: global.about
-            url: http://evecalm.com/about/
+            url: https://evecalm.com/about/
             icon: question
     author_links:
         github:
@@ -104,7 +104,7 @@ sidebar:
 #     class: open-algolia-search
 header:
     right_link:
-        url: http://evecalm.com/about/
+        url: https://evecalm.com/about/
         icon: 
         class:
 
@@ -118,7 +118,7 @@ author:
     # or in `source/assets/images/` (production)
     # or you can use an external url
     # Overwritten by your gravatar image if `gravatar_email` is filled
-    picture: "http://evecalm.com/css/avatar.jpg"
+    picture: "//evecalm.com/css/avatar.jpg"
     # Your Twitter username without the @. E.g : `tranquilpeak`
     twitter:
     # Your personal google plus profile id, not your blog or business page id.

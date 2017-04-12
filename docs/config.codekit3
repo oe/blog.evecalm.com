@@ -7,7 +7,7 @@
 		"uuidString": "890372D7-5E59-4634-B613-9A50D96B1140"
 		}
 	],
-"creatorBuild": "25704",
+"creatorBuild": "25813",
 "files": {
 	"\/2011\/05\/about-love-william-shakespeare.html": {
 		"ft": 8192,
@@ -501,6 +501,16 @@
 		"oF": 0,
 		"oS": 0
 		},
+	"\/assets\/css\/style-nfa2kkcttfekrrtgmj69zlnkkmsub1lnbgwx4avnbdbqqrvhvpstobhz8k5z.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "\/assets\/css\/style-nfa2kkcttfekrrtgmj69zlnkkmsub1lnbgwx4avnbdbqqrvhvpstobhz8k5z.min-min.css",
+		"oF": 0,
+		"oS": 0
+		},
 	"\/assets\/css\/style-yrst5vo1nxaxbp2g3v9na2wg1lixlpr3ghbjdvskeixmu79deycecx3rh4bt.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -585,6 +595,7 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/cover-v1.2.0.jpg",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
@@ -594,6 +605,7 @@
 		"oA": 0,
 		"oAP": "\/assets\/images\/cover.jpg",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
 		"q": 100
 		},
@@ -616,41 +628,45 @@
 	"\/assets\/images\/fancybox_overlay.png": {
 		"ft": 32768,
 		"iS": 1003,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/assets\/images\/fancybox_overlay.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/assets\/images\/fancybox_sprite.png": {
 		"ft": 32768,
 		"iS": 1362,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/assets\/images\/fancybox_sprite.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/assets\/images\/fancybox_sprite@2x.png": {
 		"ft": 32768,
 		"iS": 6553,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/assets\/images\/fancybox_sprite@2x.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/assets\/images\/favicon.png": {
 		"ft": 32768,
 		"iS": 10721,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/assets\/images\/favicon.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/assets\/js\/jquery.fancybox-thumbs.js": {
@@ -676,6 +692,24 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/assets\/js\/min\/jquery-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/jquery.mousewheel.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/jquery.mousewheel-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"\/assets\/js\/script-edl7ayeqf8gyxkuvrydicmnshyzap63hobliwhyf5n9u60banykbhkytklzf.min.js": {
+		"ft": 64,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "\/assets\/js\/min\/script-edl7ayeqf8gyxkuvrydicmnshyzap63hobliwhyf5n9u60banykbhkytklzf.min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -851,10 +885,10 @@
 		"oAP": "\/categories\/音乐\/page\/2\/index.html",
 		"oF": 0
 		},
-	"\/cname": {
+	"\/CNAME": {
 		"ft": 8192,
 		"oA": 2,
-		"oAP": "\/cname",
+		"oAP": "\/CNAME",
 		"oF": 0
 		},
 	"\/css\/style.css": {
@@ -876,11 +910,12 @@
 	"\/favicon.png": {
 		"ft": 32768,
 		"iS": 10721,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/favicon.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/fonts\/chancery\/apple-chancery-webfont.eot": {
@@ -920,21 +955,23 @@
 	"\/image\/reward\/alipay.png": {
 		"ft": 32768,
 		"iS": 111430,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/image\/reward\/alipay.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/image\/reward\/wechat.png": {
 		"ft": 32768,
 		"iS": 147681,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/image\/reward\/wechat.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/index.html": {
@@ -988,41 +1025,45 @@
 	"\/lib\/fancybox\/fancybox_overlay.png": {
 		"ft": 32768,
 		"iS": 1003,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/lib\/fancybox\/fancybox_overlay.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/lib\/fancybox\/fancybox_sprite.png": {
 		"ft": 32768,
 		"iS": 1362,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/lib\/fancybox\/fancybox_sprite.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/lib\/fancybox\/fancybox_sprite@2x.png": {
 		"ft": 32768,
 		"iS": 6553,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/lib\/fancybox\/fancybox_sprite@2x.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/lib\/fancybox\/helpers\/fancybox_buttons.png": {
 		"ft": 32768,
 		"iS": 1080,
-		"l": 1,
 		"oA": 0,
 		"oAP": "\/lib\/fancybox\/helpers\/fancybox_buttons.png",
 		"oF": 0,
+		"oIPL": 0,
 		"opt": 0,
+		"oT": 1,
 		"q": 100
 		},
 	"\/lib\/fancybox\/helpers\/jquery.fancybox-buttons.css": {
@@ -2750,6 +2791,10 @@
 			"active": 0,
 			"optionString": ""
 			},
+		"no-prototype-builtins": {
+			"active": 0,
+			"optionString": ""
+			},
 		"no-redeclare": {
 			"active": 1,
 			"optionString": "{'builtinGlobals': false}"
@@ -3574,14 +3619,6 @@
 		"orderOutput": 0,
 		"outputStyle": 1
 		},
-	"languageDefaultsJSX": {
-		"autoOutputAction": 0,
-		"autoOutputPathFilenamePattern": "*.js",
-		"autoOutputPathRelativePath": "",
-		"autoOutputPathReplace1": "jsx",
-		"autoOutputPathReplace2": "js",
-		"autoOutputPathStyle": 0
-		},
 	"languageDefaultsKIT": {
 		"autoOutputAction": 0,
 		"autoOutputPathFilenamePattern": "*.html",
@@ -3644,7 +3681,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
-		"enableLossy": 1,
+		"optimizerType": 1,
 		"quality": 100
 		},
 	"languageDefaultsPUG": {
