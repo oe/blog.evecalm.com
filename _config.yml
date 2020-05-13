@@ -94,4 +94,5 @@ feed:
   type: atom
   path: atom.xml
   limit: 10
+  icon: /assets/images/favicon.png
 
