@@ -10,26 +10,34 @@
     <meta name="author" content="Saiya">
     
     
-        <link rel="icon" href="https://blog.evecalm.com/assets/images/favicon.png">
     
+        
+            <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+        
     
-        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
-    
-    <meta name="description" content="注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^ 很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。 1、开启即时搜索 进入浏览器设置菜单：在地址栏输入chrome://settings（如果你安装了ChromeAccess ，点击ChromeAccess">
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/css/avatar.jpg"},"articleBody":"\n注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^\n很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。\n1、开启即时搜索\n进入浏览器设置菜单：在地址栏输入chrome://settings（如果你安装了ChromeAccess ，点击ChromeAccess 图标，选择“Settings”即可，更多精选扩展请点击这里） ，或者点击地址栏最右侧的扳手菜单，选择“选项”，在“搜索”条目中勾选“启用即搜即得，实现更快速的搜索和浏览，第一次选中时会有提示，确认即可。（这个或许大家已经知道了，下面有更精彩的！）\n\n2、开启浏览器同步功能\n进入浏览器设置菜单，然后选择右侧的“个人资料”，在同步条目中点击“设置同步”，然后输入自己的gmail邮箱帐号密码（如果你没有gmail，请点击这里创建gmail帐号。即使你不用谷歌的gmail邮箱，为了谷歌那么多优秀的服务，你也值得拥有一个gmail帐号），登录之后默认同步所有浏览器资料，包括设置、书签、扩展等，你也可以自定义的。这样，你重装谷歌浏览器，或者在别的电脑上使用谷歌浏览器，你都可以使用你的gmail来同步浏览器资料！\n\n3、开启实验性功能\n在地址栏输入about:flags（如果你安装了ChromeAccess ，点击ChromeAccess 图标，选择“Flags”即可，更多精选扩展请点击这里）。每个实验性功能默认是禁用的，如果有你需要的功能，点击启用，然后重启浏览器就可以使用了。建议只开启自己会用到的功能，实验性功能可能会导致浏览器不稳定，开启太多的实验性功能会增加浏览器的崩溃频率，所以要慎重！如果你开启了实验性功能，并且不慎让浏览器打不开了（一打开就自动关闭），不用担心，进入谷歌的安装目录（win7路径X:UsersadminAppDataLocalGoogleChrome 将admim换成你系统管理员名字；xp路径X:Documents and SettingsAdministratorLocal SettingsApplication DataGoogleChrome 其中X为你的系统盘），删除User Data目录就OK了！删除User Data目录会删除所有的用户数据，包括扩展、书签、偏好设置等，建议先备份，或者使用2里介绍的浏览器的同步功能！\n4、转移浏览器缓存文件位置\n谷歌浏览器安装时会静默的安装在系统盘，而且还不是安装在一般软件都会安装的Program Files文件夹内，这个已经让很多人不满了，再加上缓存文件的位置在浏览器选项里也找不到设置的地方，这更叫很多使用谷歌浏览器的人抓狂了。其实可以通过在快捷方式中追加参数的方式来设置缓存位置的。\n右击谷歌浏览器快捷方式图标，选择“属性”，在“目标”里的末尾追加参数\n–disk-cache-dir=”G:TempChrome”\n（注意：参数是以两个英文状态下的“-”开头，并且全为英文字符，由于博客问题，只显示为一个“-”，请见谅，下同！）\nG:TempChrome即为你所设置的新的缓存位置。\n每次你都通过这个快捷方式打开浏览器，缓存文件就会放在G:TempChrome目录下了！\n你也可以使用参数\n–user-data-dir=”G:TempChrome”\n（注意：参数是以两个英文状态下的“-”开头，由于博客问题，只显示为一个“-”，请见谅，下同！）\n将你的用户资料（包括缓存）放到G:TempChrome目录下。\n同时你也可以用同样的方法，添加\n–disk-cache-size=**\n（注意：参数是以两个英文状态下的“-”开头，并且全为英文字符，由于博客问题，只显示为一个“-”，请见谅，下同！）\n来设置缓存文件的大小（将**换为数字，单位为字节）\n还有一个通过命令行方式来设置缓存位置的方法，不推荐。\n5、使用谷歌浏览器浏览wap手机网站（更改浏览器UA）\n5.1新方法(updated at 2013-4-13 18:50:01)\n\n打开chrome,新建一个标签(快捷键Ctrl+T\n\n使用快捷键Ctrl+Shift+I或Ctrl+Shift+J(也可以点击地址栏右侧的chrome菜单-&gt;工具-&gt;开发人员工具)打开开发人员工\n\n按下F1键(也可以点击弹出的开发人员工具面板右下角的小齿轮图标)打开设\n\n选择左侧的Overrides,选中“User Agent”复选框，在下拉列表中选择移动设备的UA(iPhone iOS5)，也可以选择“Other…”然后在右侧输入5.2列出的其他U\n\n在地址栏输入你想访问的网站，即可以伪装成移动设备来访问网站。\n\n\n\n使用本方法修改UA只影响当前标签，推荐使用该方法。\n5.2旧方法\n同 4 所说放的方法一样，通过在快捷方式后添加参数的方式实现。\n你可以将已有的快捷方式复制一个，方便自己浏览网页！\n\n将浏览器伪装成iPhone3来浏览手机网页，在快捷方式末尾添加参数：\n–user-agent=”Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293”\n（注意:参数是以两个英文状态下的“-”开头，并且全为英文字符，由于博客问题，只显示为一个“-”，请见谅）\n其他UA（将以下内容替换上面引号里的东东就可以了）\nChrome 5：\nMozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN) AppleWebKit/531.0 (KHTML, like Gecko) Chrome/5.0.195.0 Safari/531.0\nchrome 13 dev:\nMozilla/5.0 (Windows NT 6.0) AppleWebKit/534.36 (KHTML, like Gecko) Chrome/13.0.767.0 Safari/534.36\nIE6:\nMozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)\nIE7:\nMozilla/4.0 (compatible; MSIE 7.0b; Windows NT 6.0)\nIE8:\nMozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0; Trident/4.0)\nIE9:\nMozilla/4.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)\nopera 10.54:\nOpera/9.80 (Windows NT 6.1; U; Opera Now!; zh-cn) Presto/2.5.24 Version/10.54\n6、其他的一些快捷方式参数\n参数：–Firstrun\n（注意:参数是以两个英文状态下的“-”开头，并且全为英文字符，由于博客问题，只显示为一个“-”，请见谅.下同）\n将浏览器设置为首次运行状态，将浏览器设置为首次运行状态可以实现导入IE、Firefox最新数据的功能(这个在新版本中已经失效)。\n参数：–incognito\n设置浏览器直接从隐身模式启动，设置浏览器直接从隐身模式启动\n参数：–force-https\n只允许加载HTTPS安全站点，只允许加载HTTPS安全站点，普通HTTP站点不加载\n参数：–disable-javascript\n禁止Javascript运行，通过禁止Javascript脚本运行，可以屏蔽页面上的很多广告，但是谷歌日语输入法下载也可能导致一些非广告的单元不能显示。\n参数：–disable-images\n禁止显示页面图像，网速慢的可考虑\n参数：–disable-Java\n禁止Java程序运行\n参数：–omnibox-popup-count=”num”\n将地址栏弹出菜单的数量改为num个。注意num只能是一个阿拉伯数字，如30，则为–omnibox-popup-count=”30″ ，让一框多用更加强大\n","dateCreated":"2011-05-21T15:34:34+00:00","dateModified":"2020-05-13T14:35:18+00:00","datePublished":"2011-05-21T15:34:34+00:00","description":" 注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^ 很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。 1、开启即时搜索 进入浏览器设置菜单：在地址栏输入chrome://settings（如果你安装了ChromeAccess ，点击ChromeAccess...","headline":"[技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/css/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/css/avatar.jpg"}},"url":"https://blog.evecalm.com/2011/05/chrome-advanced-settings.html","keywords":"谷歌浏览器, 软件, 下载, 谷歌, 技巧, 设置"}</script>
+    <meta name="description" content="注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^ 很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。 1、开启即时搜索 进入浏览器设置菜单：在地址栏输入chrome:&#x2F;&#x2F;settings（如果你安装了ChromeAccess ，点击ChromeAccess">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)">
 <meta property="og:url" content="https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
 <meta property="og:site_name" content="夏影の博客">
-<meta property="og:description" content="注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^ 很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。 1、开启即时搜索 进入浏览器设置菜单：在地址栏输入chrome://settings（如果你安装了ChromeAccess ，点击ChromeAccess">
+<meta property="og:description" content="注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^ 很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。 1、开启即时搜索 进入浏览器设置菜单：在地址栏输入chrome:&#x2F;&#x2F;settings（如果你安装了ChromeAccess ，点击ChromeAccess">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pm0ZNWtFCX8uKM1E5itS4h5DkRyvdPwLlRWKGSC6GRiWyJNsojsRB5NvyBG0v3l1gSY0EiT4ipNLULVLPf242FB61ZGtKGrwtZgLm2d_5ZwM/chromest1.jpg?psid=1">
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pdODXGjCwE4Ox0RNF7dtWrHtqChkqYwRUiydgrYzuFZliUXm6Ed5Q5WW-gn96JJ1NgPdantwWJnYmo-3cbCES3-2JAOgfkdJDEvZu-syYG-U/chromest2.jpg?psid=1">
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2ph83hcy2jLb4W-Fq6oquzxix6X4h24XQxwXBuuObGuK43ckdv1SNo3NgHs8f5Lz26FZrORGCqNjhWkkxfPTOQmvm00Qw0rSTAAAS_XRGEcq8/chromest3.jpg?psid=1">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/a74eed94jw1e3o6gg9v8uj.jpg">
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pAhPHEN8kpKHRCdsgZkHF8icO4w3BG6j1ICp_4EUzUBU8SRmEPF-SIzF3IEYgOX0vg9VEdwEuusDZV9qaEePcNp37jWukWy2hp4gpbZpBRXk/chromest4.jpg?psid=1">
-<meta property="og:updated_time" content="2017-03-03T19:46:42.000Z">
+<meta property="article:published_time" content="2011-05-21T15:34:34.000Z">
+<meta property="article:modified_time" content="2020-05-13T14:35:18.541Z">
+<meta property="article:author" content="Saiya">
+<meta property="article:tag" content="谷歌浏览器">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="下载">
+<meta property="article:tag" content="谷歌">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="设置">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)">
-<meta name="twitter:description" content="注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^ 很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击这里下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。 1、开启即时搜索 进入浏览器设置菜单：在地址栏输入chrome://settings（如果你安装了ChromeAccess ，点击ChromeAccess">
 <meta name="twitter:image" content="https://yqmfyg.bn1.livefilestore.com/y2pm0ZNWtFCX8uKM1E5itS4h5DkRyvdPwLlRWKGSC6GRiWyJNsojsRB5NvyBG0v3l1gSY0EiT4ipNLULVLPf242FB61ZGtKGrwtZgLm2d_5ZwM/chromest1.jpg?psid=1">
     
     
@@ -42,13 +50,29 @@
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/assets/css/style-nfa2kkcttfekrrtgmj69zlnkkmsub1lnbgwx4avnbdbqqrvhvpstobhz8k5z.min.css">
+    
+<link rel="stylesheet" href="/assets/css/style-ar2gcwdkr5jmadkf7fzwfynizb6si5jxmntwl8e5fxjp1z8dvkvvunlgscuv.min.css">
+
     <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23144132-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23144132-1');
+    </script>
+
+
+    
+
+    
+        
+    
 </head>
 
     <body>
-        
-<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <div id="blog">
             <!-- Define author's picture -->
 
@@ -62,12 +86,21 @@
 <header id="header" data-behavior="5">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
-        <a class="header-title-link" href="/ ">夏影の博客</a>
+        <a
+            class="header-title-link"
+            href="/%20"
+            aria-label=""
+        >
+            夏影の博客
+        </a>
     </div>
     
         
-            <a  class="header-right-picture "
-                href="https://evecalm.com/about/" target="_blank">
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="打开链接: /#about"
+            >
         
         
             <img class="header-picture" src="//evecalm.com/css/avatar.jpg" alt="作者的图片"/>
@@ -87,12 +120,15 @@
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
-                <a href="###">
+                <a
+                    href="/#about"
+                    aria-label="阅读有关作者的更多信息"
+                >
                     <img class="sidebar-profile-picture" src="//evecalm.com/css/avatar.jpg" alt="作者的图片"/>
                 </a>
                 <h4 class="sidebar-profile-name">Saiya</h4>
                 
-                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+                    <h5 class="sidebar-profile-bio"><p>with Sunny</p>
 </h5>
                 
             </div>
@@ -102,69 +138,86 @@
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link "
-                             href="/ "
+                        <a
+                            class="sidebar-button-link "
+                            href="/"
                             
+                            rel="noopener"
+                            title="首页"
                         >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">首页</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link "
-                             href="/categories"
+                        <a
+                            class="sidebar-button-link "
+                            href="/categories"
                             
+                            rel="noopener"
+                            title="分类"
                         >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">分类</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link "
-                             href="/tags"
+                        <a
+                            class="sidebar-button-link "
+                            href="/tags"
                             
+                            rel="noopener"
+                            title="标签"
                         >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">标签</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link "
-                             href="/archives"
+                        <a
+                            class="sidebar-button-link "
+                            href="/archives"
                             
+                            rel="noopener"
+                            title="归档"
                         >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">归档</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link open-algolia-search"
-                             href="#search"
+                        <a
+                            class="sidebar-button-link open-algolia-search"
+                            href="#search"
                             
+                            rel="noopener"
+                            title="搜索"
                         >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <i class="sidebar-button-icon fa fa-search" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">搜索</span>
                     </a>
             </li>
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link " href="https://evecalm.com/about/" target="_blank">
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <a
+                            class="sidebar-button-link "
+                            href="https://evecalm.com/about/"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="关于"
+                        >
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">关于</span>
                     </a>
             </li>
@@ -175,9 +228,16 @@
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link " href="https://github.com/evecalm" target="_blank">
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <a
+                            class="sidebar-button-link "
+                            href="https://github.com/oe"
+                            
+                                target="_blank"
+                            
+                            rel="noopener"
+                            title="GitHub"
+                        >
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">GitHub</span>
                     </a>
             </li>
@@ -188,12 +248,14 @@
             
                 <li class="sidebar-button">
                     
-                        <a  class="sidebar-button-link "
-                             href="/atom.xml"
+                        <a
+                            class="sidebar-button-link "
+                            href="/atom.xml"
                             
+                            rel="noopener"
+                            title="RSS"
                         >
-                    
-                        <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                        <i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i>
                         <span class="sidebar-button-desc">RSS</span>
                     </a>
             </li>
@@ -209,17 +271,18 @@
                         hasCoverMetaIn
                         ">
                 
-<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+<article class="post">
     
     
         <div class="post-header main-content-wrap text-left">
     
-        <h1 class="post-title" itemprop="headline">
+        <h1 class="post-title">
             [技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)
         </h1>
     
-    <div class="post-meta">
-    <time itemprop="datePublished" datetime="2011-05-21T23:34:34+08:00">
+    
+        <div class="post-meta">
+    <time datetime="2011-05-21T15:34:34+00:00">
 	
 		    5月 21, 2011
     	
@@ -227,27 +290,29 @@
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/categories/技巧/">技巧</a>
+    <a class="category-link" href="/categories/%E6%8A%80%E5%B7%A7/">技巧</a>
 
 
     
 </div>
 
-</div>
     
-    <div class="post-content markdown" itemprop="articleBody">
+</div>
+
+    
+    <div class="post-content markdown">
         <div class="main-content-wrap">
             <p><img src="https://yqmfyg.bn1.livefilestore.com/y2pm0ZNWtFCX8uKM1E5itS4h5DkRyvdPwLlRWKGSC6GRiWyJNsojsRB5NvyBG0v3l1gSY0EiT4ipNLULVLPf242FB61ZGtKGrwtZgLm2d_5ZwM/chromest1.jpg?psid=1" alt=""></p>
 <p>注：该文字系本人使用经验，部分收集自网络，如若转载，请注明出自本站，谢谢^_^</p>
-<p>很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击<a href="http://www.evecalm.com/2011/05/chrome-download.html" title="谷歌浏览器各个版本下载" target="_blank" rel="external">这里</a>下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。</p>
+<p>很多人都在用谷歌浏览器了吧（如果没有，或者还不是最新版，请点击<a href="http://www.evecalm.com/2011/05/chrome-download.html" target="_blank" rel="noopener" title="谷歌浏览器各个版本下载">这里</a>下载最新版谷歌浏览器），不知你有没有深入研究谷歌浏览器呢？下面我介绍下谷歌浏览器的一些高级设置。</p>
 <p>1、开启即时搜索</p>
-<p>进入浏览器设置菜单：在地址栏输入<a href="chrome://settings" title="设置" target="_blank" rel="external">chrome://settings</a>（如果你安装了<a href="https://chrome.google.com/webstore/detail/aeoigbhkilbllfomkmmilbfochhlgdmh" target="_blank" rel="external"><strong>ChromeAccess</strong></a> ，点击<strong>ChromeAccess</strong> 图标，选择“Settings”即可，更多精选扩展请点击<a href="http://www.evecalm.com/2011/05/chrome-extention-recommend.html" title="谷歌浏览器精选扩展" target="_blank" rel="external">这里</a>） ，或者点击地址栏最右侧的扳手菜单，选择“选项”，在“搜索”条目中勾选“启用即搜即得，实现更快速的搜索和浏览，第一次选中时会有提示，确认即可。（这个或许大家已经知道了，下面有更精彩的！）</p>
+<p>进入浏览器设置菜单：在地址栏输入<a href="chrome://settings" title="设置">chrome://settings</a>（如果你安装了<a href="https://chrome.google.com/webstore/detail/aeoigbhkilbllfomkmmilbfochhlgdmh" target="_blank" rel="noopener"><strong>ChromeAccess</strong></a> ，点击<strong>ChromeAccess</strong> 图标，选择“Settings”即可，更多精选扩展请点击<a href="http://www.evecalm.com/2011/05/chrome-extention-recommend.html" target="_blank" rel="noopener" title="谷歌浏览器精选扩展">这里</a>） ，或者点击地址栏最右侧的扳手菜单，选择“选项”，在“搜索”条目中勾选“启用即搜即得，实现更快速的搜索和浏览，第一次选中时会有提示，确认即可。（这个或许大家已经知道了，下面有更精彩的！）</p>
 <p><img src="https://yqmfyg.bn1.livefilestore.com/y2pdODXGjCwE4Ox0RNF7dtWrHtqChkqYwRUiydgrYzuFZliUXm6Ed5Q5WW-gn96JJ1NgPdantwWJnYmo-3cbCES3-2JAOgfkdJDEvZu-syYG-U/chromest2.jpg?psid=1" alt=""></p>
 <p>2、开启浏览器同步功能</p>
-<p>进入浏览器设置菜单，然后选择右侧的“个人资料”，在同步条目中点击“设置同步”，然后输入自己的gmail邮箱帐号密码（如果你没有gmail，请点击<a href="https://www.google.com/accounts/NewAccount" title="gmail注册" target="_blank" rel="external">这里</a>创建gmail帐号。即使你不用谷歌的gmail邮箱，为了谷歌那么多优秀的服务，你也值得拥有一个gmail帐号），登录之后默认同步所有浏览器资料，包括设置、书签、扩展等，你也可以自定义的。这样，你重装谷歌浏览器，或者在别的电脑上使用谷歌浏览器，你都可以使用你的gmail来同步浏览器资料！</p>
+<p>进入浏览器设置菜单，然后选择右侧的“个人资料”，在同步条目中点击“设置同步”，然后输入自己的gmail邮箱帐号密码（如果你没有gmail，请点击<a href="https://www.google.com/accounts/NewAccount" target="_blank" rel="noopener" title="gmail注册">这里</a>创建gmail帐号。即使你不用谷歌的gmail邮箱，为了谷歌那么多优秀的服务，你也值得拥有一个gmail帐号），登录之后默认同步所有浏览器资料，包括设置、书签、扩展等，你也可以自定义的。这样，你重装谷歌浏览器，或者在别的电脑上使用谷歌浏览器，你都可以使用你的gmail来同步浏览器资料！</p>
 <p><img src="https://yqmfyg.bn1.livefilestore.com/y2ph83hcy2jLb4W-Fq6oquzxix6X4h24XQxwXBuuObGuK43ckdv1SNo3NgHs8f5Lz26FZrORGCqNjhWkkxfPTOQmvm00Qw0rSTAAAS_XRGEcq8/chromest3.jpg?psid=1" alt=""></p>
 <p>3、开启实验性功能</p>
-<p>在地址栏输入<a href="about:flags" title="实验性功能" target="_blank" rel="external">about:flags</a>（如果你安装了<a href="https://chrome.google.com/webstore/detail/aeoigbhkilbllfomkmmilbfochhlgdmh" target="_blank" rel="external"><strong>ChromeAccess</strong></a> ，点击<strong>ChromeAccess</strong> 图标，选择“Flags”即可，更多精选扩展请点击<a href="http://www.evecalm.com/2011/05/chrome-extention-recommend.html" title="谷歌浏览器精选扩展" target="_blank" rel="external">这里</a>）。每个实验性功能默认是禁用的，如果有你需要的功能，点击启用，然后重启浏览器就可以使用了。建议只开启自己会用到的功能，实验性功能可能会导致浏览器不稳定，开启太多的实验性功能会增加浏览器的崩溃频率，所以要慎重！如果你开启了实验性功能，并且不慎让浏览器打不开了（一打开就自动关闭），不用担心，进入谷歌的安装目录（win7路径X:UsersadminAppDataLocalGoogleChrome 将admim换成你系统管理员名字；xp路径X:Documents and SettingsAdministratorLocal SettingsApplication DataGoogleChrome 其中X为你的系统盘），删除User Data目录就OK了！删除User Data目录会删除所有的用户数据，包括扩展、书签、偏好设置等，建议先备份，或者使用2里介绍的浏览器的同步功能！</p>
+<p>在地址栏输入<a href="about:flags" title="实验性功能">about:flags</a>（如果你安装了<a href="https://chrome.google.com/webstore/detail/aeoigbhkilbllfomkmmilbfochhlgdmh" target="_blank" rel="noopener"><strong>ChromeAccess</strong></a> ，点击<strong>ChromeAccess</strong> 图标，选择“Flags”即可，更多精选扩展请点击<a href="http://www.evecalm.com/2011/05/chrome-extention-recommend.html" target="_blank" rel="noopener" title="谷歌浏览器精选扩展">这里</a>）。每个实验性功能默认是禁用的，如果有你需要的功能，点击启用，然后重启浏览器就可以使用了。建议只开启自己会用到的功能，实验性功能可能会导致浏览器不稳定，开启太多的实验性功能会增加浏览器的崩溃频率，所以要慎重！如果你开启了实验性功能，并且不慎让浏览器打不开了（一打开就自动关闭），不用担心，进入谷歌的安装目录（win7路径X:UsersadminAppDataLocalGoogleChrome 将admim换成你系统管理员名字；xp路径X:Documents and SettingsAdministratorLocal SettingsApplication DataGoogleChrome 其中X为你的系统盘），删除User Data目录就OK了！删除User Data目录会删除所有的用户数据，包括扩展、书签、偏好设置等，建议先备份，或者使用2里介绍的浏览器的同步功能！</p>
 <p>4、转移浏览器缓存文件位置</p>
 <p>谷歌浏览器安装时会静默的安装在系统盘，而且还不是安装在一般软件都会安装的Program Files文件夹内，这个已经让很多人不满了，再加上缓存文件的位置在浏览器选项里也找不到设置的地方，这更叫很多使用谷歌浏览器的人抓狂了。其实可以通过在快捷方式中追加参数的方式来设置缓存位置的。</p>
 <p>右击谷歌浏览器快捷方式图标，选择“属性”，在“目标”里的末尾追加参数</p>
@@ -320,6 +385,8 @@
 <p>将地址栏弹出菜单的数量改为num个。注意num只能是一个阿拉伯数字，如30，则为–omnibox-popup-count=”30″ ，让一框多用更加强大</p>
 
             
+
+
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
@@ -327,64 +394,138 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/下载/">下载</a> <a class="tag tag--primary tag--small t-link" href="/tags/技巧/">技巧</a> <a class="tag tag--primary tag--small t-link" href="/tags/设置/">设置</a> <a class="tag tag--primary tag--small t-link" href="/tags/谷歌/">谷歌</a> <a class="tag tag--primary tag--small t-link" href="/tags/谷歌浏览器/">谷歌浏览器</a> <a class="tag tag--primary tag--small t-link" href="/tags/软件/">软件</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/%E4%B8%8B%E8%BD%BD/" rel="tag">下载</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag">技巧</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E8%AE%BE%E7%BD%AE/" rel="tag">设置</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E8%B0%B7%E6%AD%8C/" rel="tag">谷歌</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">谷歌浏览器</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag">软件</a>
 
             </div>
         
-        <div class="post-actions-wrap">
+        
+            <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2011/05/yanni-with-an-orchid.html"  data-tooltip="[音乐]雅尼—《和兰花在一起》">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-                </a>
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2011/05/yanni-with-an-orchid.html"
+                    data-tooltip="[音乐]雅尼—《和兰花在一起》"
+                    aria-label="上一篇: [音乐]雅尼—《和兰花在一起》"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2011/05/do-not-be-your-lover.html" data-tooltip="[音乐]冯曦妤 — 《不做你的情人》">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2011/05/do-not-be-your-lover.html"
+                    data-tooltip="[音乐]冯曦妤 — 《不做你的情人》"
+                    aria-label="下一篇: [音乐]冯曦妤 — 《不做你的情人》"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
             </li>
         </ul>
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-twitter"></i>
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Diesen Beitrag teilen"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
         
-            <li class="post-action">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
         
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Weibo"
+                    aria-label="分享到 Weibo"
+                >
+                    <i class="fab fa-weibo" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html&amp;title=[技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)"
+                    title="分享到 QQ"
+                    aria-label="分享到 QQ"
+                >
+                    <i class="fab fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Qzone"
+                    aria-label="分享到 Qzone"
+                >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Kommentieren"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
-                <i class="fa fa-list"></i>
+                <i class="fa fa-list" aria-hidden="true"></i>
             </a>
         </li>
     </ul>
@@ -392,9 +533,10 @@
 
 
         
+        
             
                 <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
 </div>
             
         
@@ -405,21 +547,9 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2017 Saiya. All Rights Reserved.
+        Copyrights &copy; 2020 Saiya. All Rights Reserved.
     </span>
 </footer>
-
-    <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-23144132-1']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-
 
             </div>
             
@@ -429,55 +559,128 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2011/05/yanni-with-an-orchid.html"  data-tooltip="[音乐]雅尼—《和兰花在一起》">
-                
-                    <i class="fa fa-angle-left"></i>
-                    <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
-                </a>
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2011/05/yanni-with-an-orchid.html"
+                    data-tooltip="[音乐]雅尼—《和兰花在一起》"
+                    aria-label="上一篇: [音乐]雅尼—《和兰花在一起》"
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                    </a>
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2011/05/do-not-be-your-lover.html" data-tooltip="[音乐]冯曦妤 — 《不做你的情人》">
-                
-                    <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
-                    <i class="fa fa-angle-right"></i>
-                </a>
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2011/05/do-not-be-your-lover.html"
+                    data-tooltip="[音乐]冯曦妤 — 《不做你的情人》"
+                    aria-label="下一篇: [音乐]冯曦妤 — 《不做你的情人》"
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
             </li>
         </ul>
     </nav>
     <ul class="post-actions post-action-share">
         <li class="post-action hide-lg hide-md hide-sm">
-            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
-                <i class="fa fa-share-alt"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-google-plus"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-facebook-official"></i>
-            </a>
-        </li>
-        <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-twitter"></i>
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Diesen Beitrag teilen"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
             </a>
         </li>
         
-            <li class="post-action">
-                <a class="post-action-btn btn btn--default" href="#disqus_thread">
-                    <i class="fa fa-comment-o"></i>
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Facebook"
+                    aria-label="分享到 Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
             </li>
         
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Twitter"
+                    aria-label="分享到 Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Weibo"
+                    aria-label="分享到 Weibo"
+                >
+                    <i class="fab fa-weibo" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html&amp;title=[技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)"
+                    title="分享到 QQ"
+                    aria-label="分享到 QQ"
+                >
+                    <i class="fab fa-qq" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                    title="分享到 Qzone"
+                    aria-label="分享到 Qzone"
+                >
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Kommentieren"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default" href="#">
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben">
             
-                <i class="fa fa-list"></i>
+                <i class="fa fa-list" aria-hidden="true"></i>
             </a>
         </li>
     </ul>
@@ -485,26 +688,79 @@
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="5">
-    <ul class="share-options">
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-google-plus"></i><span>分享到 Google+</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
-            </a>
-        </li>
-        <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html">
-                <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
-            </a>
-        </li>
-    </ul>
-</div>
-<div id="share-options-mask" class="share-options-mask"></div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                        aria-label="分享到 Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                        aria-label="分享到 Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                        aria-label="分享到 Weibo"
+                    >
+                        <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html&amp;title=[技巧]谷歌浏览器之高级设置(让谷歌浏览器也能打开手机网页)"
+                        aria-label="分享到 QQ"
+                    >
+                        <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.evecalm.com/2011/05/chrome-advanced-settings.html"
+                        aria-label="分享到 Qzone"
+                    >
+                        <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
 
             
         </div>
@@ -518,14 +774,14 @@
 <div id="about">
     <div id="about-card">
         <div id="about-btn-close">
-            <i class="fa fa-remove"></i>
+            <i class="fa fa-times"></i>
         </div>
         
             <img id="about-card-picture" src="//evecalm.com/css/avatar.jpg" alt="作者的图片"/>
         
             <h4 id="about-card-name">Saiya</h4>
         
-            <div id="about-card-bio"><p>author.bio</p>
+            <div id="about-card-bio"><p>with Sunny</p>
 </div>
         
         
@@ -540,19 +796,20 @@
     </div>
 </div>
 
-        <div id="algolia-search-modal" class="modal-container">
+        
+            <div id="algolia-search-modal" class="modal-container">
     <div class="modal">
         <div class="modal-header">
-            <span class="close-button"><i class="fa fa-close"></i></span>
-            <a href="https://algolia.com" target="_blank" class="searchby-algolia text-color-light link-unstyled">
+            <span class="close-button"><i class="fa fa-times"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
                 <span class="searchby-algolia-text text-color-light text-small">by</span>
-                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+                <img class="searchby-algolia-logo" src="/assets/images/logo-algolia-nebula-blue-full.svg">
             </a>
             <i class="search-icon fa fa-search"></i>
             <form id="algolia-search-form">
                 <input type="text" id="algolia-search-input" name="search"
                     class="form-control input--large search-input" placeholder="Search "
-                    autofocus="autofocus"/>
+                    />
             </form>
         </div>
         <div class="modal-body">
@@ -562,13 +819,17 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html"
+                            aria-label=": [建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程"
+                        >
                             <h3 class="media-heading">[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2011年5月2日
+                                    2011年5月1日
                                 
                             </span>
                         </span>
@@ -581,13 +842,17 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/red-toe-nails.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/red-toe-nails.html"
+                            aria-label=": [音乐]Aspidistrafly —《Red toe nails》"
+                        >
                             <h3 class="media-heading">[音乐]Aspidistrafly —《Red toe nails》</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2011年5月2日
+                                    2011年5月1日
                                 
                             </span>
                         </span>
@@ -600,17 +865,21 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/friends-of-july.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/friends-of-july.html"
+                            aria-label=": [音乐]熊木杏里 —《七月の友だち》"
+                        >
                             <h3 class="media-heading">[音乐]熊木杏里 —《七月の友だち》</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2011年5月2日
+                                    2011年5月1日
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p></p> <p>七月の友だち（七月之友）是由日本的熊杏木里演唱的。在前一段时间，小丽不开心时介绍给了她，结果她说很喜欢。到现在，每次听到这首歌的时候就会想起她，也许是因为觉得这首歌和她比较像吧，淡淡的，淡淡的忧伤。</p> <p>在线试听：</p> <p><a href="http://dl.dbank.com/c011a8nxcz" title="数据银行" target="_blank" rel="external">音乐下载</a></p> </div>
+                        <div class="media-content hide-xs font-merryweather"><p></p> <p>七月の友だち（七月之友）是由日本的熊杏木里演唱的。在前一段时间，小丽不开心时介绍给了她，结果她说很喜欢。到现在，每次听到这首歌的时候就会想起她，也许是因为觉得这首歌和她比较像吧，淡淡的，淡淡的忧伤。</p> <p>在线试听：</p> <p><a href="http://dl.dbank.com/c011a8nxcz" target="_blank" rel="noopener" title="数据银行">音乐下载</a></p> </div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -619,17 +888,21 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/i-cry.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/i-cry.html"
+                            aria-label=": [音乐]有里知花 —《I Cry》"
+                        >
                             <h3 class="media-heading">[音乐]有里知花 —《I Cry》</h3>
                         </a>
                         <span class="media-meta">
                             <span class="media-date text-small">
                                 
-                                    2011年5月2日
+                                    2011年5月1日
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p></p> <p>《I Cry》是由日本歌手有里知花演唱的。第一次听到这首歌的时候，被美妙的声音吸引，真的是一首很不错的英文歌，歌词也很美！</p> <p><a href="http://dl.dbank.com/c03jlmmbzr" title="数据银行" target="_blank" rel="external">音乐下载</a></p> <p>歌词：</p> <p>Every night I find it’s so hard to sleep</p> <p>每一夜我都觉得很难入睡</p> <p>‘Cause I keep thinking of you</p> <p>是因为我很想你</p> <p>And these feelings run deep</p> <p>这种感觉很强烈</p> <p>O...</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p></p> <p>《I Cry》是由日本歌手有里知花演唱的。第一次听到这首歌的时候，被美妙的声音吸引，真的是一首很不错的英文歌，歌词也很美！</p> <p><a href="http://dl.dbank.com/c03jlmmbzr" target="_blank" rel="noopener" title="数据银行">音乐下载</a></p> <p>歌词：</p> <p>Every night I find it’s so hard to sleep</p> <p>每一夜我都觉得很难入睡</p> <p>‘Cause I keep thinking of you</p> <p>是因为我很想你</p> <p>And these feelings run deep</p> <p>这种感觉很强烈</p> <p>O...</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -638,7 +911,11 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/the-wandering-ideal.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/the-wandering-ideal.html"
+                            aria-label=": [诗]流浪的理想"
+                        >
                             <h3 class="media-heading">[诗]流浪的理想</h3>
                         </a>
                         <span class="media-meta">
@@ -648,7 +925,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p></p> <p>当阳光还没有羞红第一缕朝阳</p> <p>疲惫的心又开始流浪</p> <p>挂在拥挤的公车上</p> <p>满目睡眼惺忪的脸庞</p> <p>窗外人车熙攘</p> <p>可有谁会注意你的悲伤</p> <p>渐少的纯真负重了青春的翅膀</p> <p>梦想</p> <p>还能否让你充满力量</p> <p>将别的校园是最后的天堂</p> <p>努力</p> <p>你能看到多少希望</p> <p>越是准备却越彷徨</p> <p>未来</p> <p>不是可以选择的鱼和熊掌</p> <p>看着前辈的白发苍苍</p> <p>就像看到了自己的模样</p> <p>只是爱情</p> <p>在某个未知的地方</p> <p>依然在生长</p> <p>简单</p> <p>却几乎只能成为一种信仰</p> <p>文/记得 <a href="http://521xuan.diandian.com/" target="_blank" rel="external">ht...</a></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p></p> <p>当阳光还没有羞红第一缕朝阳</p> <p>疲惫的心又开始流浪</p> <p>挂在拥挤的公车上</p> <p>满目睡眼惺忪的脸庞</p> <p>窗外人车熙攘</p> <p>可有谁会注意你的悲伤</p> <p>渐少的纯真负重了青春的翅膀</p> <p>梦想</p> <p>还能否让你充满力量</p> <p>将别的校园是最后的天堂</p> <p>努力</p> <p>你能看到多少希望</p> <p>越是准备却越彷徨</p> <p>未来</p> <p>不是可以选择的鱼和熊掌</p> <p>看着前辈的白发苍苍</p> <p>就像看到了自己的模样</p> <p>只是爱情</p> <p>在某个未知的地方</p> <p>依然在生长</p> <p>简单</p> <p>却几乎只能成为一种信仰</p> <p>文/记得 <a href="http://521xuan.diandian.com/" target="_blank" rel="noopener">ht...</a></p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -657,7 +934,11 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/preamble-on-sophies-world.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/preamble-on-sophies-world.html"
+                            aria-label=": [哲思]〇 序言——关于《苏菲的世界》"
+                        >
                             <h3 class="media-heading">[哲思]〇 序言——关于《苏菲的世界》</h3>
                         </a>
                         <span class="media-meta">
@@ -676,7 +957,11 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/one-who-you-are-on-the-self.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/one-who-you-are-on-the-self.html"
+                            aria-label=": [哲思]一 你是谁——关于自我"
+                        >
                             <h3 class="media-heading">[哲思]一 你是谁——关于自我</h3>
                         </a>
                         <span class="media-meta">
@@ -695,7 +980,11 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/second-the-world-come-from-on-the-world.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/second-the-world-come-from-on-the-world.html"
+                            aria-label=": [哲思]二 世界从哪里来——关于世界"
+                        >
                             <h3 class="media-heading">[哲思]二 世界从哪里来——关于世界</h3>
                         </a>
                         <span class="media-meta">
@@ -714,7 +1003,11 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/about-love-william-shakespeare.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/about-love-william-shakespeare.html"
+                            aria-label=": [诗]关于爱--莎士比亚"
+                        >
                             <h3 class="media-heading">[诗]关于爱--莎士比亚</h3>
                         </a>
                         <span class="media-meta">
@@ -733,7 +1026,11 @@
                 <div class="media">
                     
                     <div class="media-body">
-                        <a class="link-unstyled" href="https://blog.evecalm.com/2011/05/touching-the-top-ten-advertising.html">
+                        <a
+                            class="link-unstyled"
+                            href="https://blog.evecalm.com/2011/05/touching-the-top-ten-advertising.html"
+                            aria-label=": [视频]全球十大感人广告"
+                        >
                             <h3 class="media-heading">[视频]全球十大感人广告</h3>
                         </a>
                         <span class="media-meta">
@@ -761,37 +1058,49 @@
         </div>
     </div>
 </div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
-<script src="/assets/js/script-edl7ayeqf8gyxkuvrydicmnshyzap63hobliwhyf5n9u60banykbhkytklzf.min.js"></script>
+
+<script src="/assets/js/script-kxf7jf6zdlaricxe8mq0vr0qmbntcsmp5vn7rvpyyp0kbdv0b8tk7mttaw1n.min.js"></script>
+
 <!--SCRIPTS END-->
+
 
     
         <script>
-             var disqus_config = function () {
-                 this.page.url = 'https://blog.evecalm.com/2011/05/chrome-advanced-settings.html';
-                 
-                    this.page.identifier = '2011/05/chrome-advanced-settings.html';
-                 
-             };
-            (function() {
-                var d = document, s = d.createElement('script');
-                var disqus_shortname = 'kalm';
-                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          var disqus_config = function() {
+            this.page.url = 'https://blog.evecalm.com/2011/05/chrome-advanced-settings.html';
+              
+            this.page.identifier = '2011/05/chrome-advanced-settings.html';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'kalm';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
-                s.setAttribute('data-timestamp', +new Date());
-                (d.head || d.body).appendChild(s);
-            })();
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
         </script>
     
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.min.js"></script>
-    <script src="//cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    
+<script src="/assets/js/moment-with-locales.js"></script>
+
+    
+<script src="/assets/js/algoliasearch.js"></script>
+
     <script>
-        var algoliaClient = algoliasearch('1QD7WF16CP', 'c5f8df1b5eb6749ca8cfb68d3768b703');
-        var algoliaIndex = algoliaClient.initIndex('blog-evecalm-com');
+      var algoliaClient = algoliasearch('1QD7WF16CP', 'c5f8df1b5eb6749ca8cfb68d3768b703');
+      var algoliaIndex = algoliaClient.initIndex('blog-evecalm-com');
     </script>
+
 
     </body>
 </html>
