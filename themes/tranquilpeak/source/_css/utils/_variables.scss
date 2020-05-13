@@ -2,10 +2,10 @@
 // --------------------------------------------
 
 // Font families
-$open-sans:            sans-serif;
-$open-sans-sans-serif: sans-serif;
+$open-sans:            'Open Sans';
+$open-sans-sans-serif: 'Open Sans', sans-serif;
 $merriweather-serif:   'Merriweather', serif;
-$menlo:                 Menlo;
+$monospace:             Menlo, Consolas, monospace;
 
 $font-family-base: $open-sans-sans-serif;
 
@@ -13,14 +13,14 @@ $font-families: (
    // base
    'headings':          $open-sans-sans-serif,
    // components
-   'code':              $menlo,
+   'code':              $monospace,
    'caption':           $merriweather-serif,
    'image-gallery':     $open-sans,
    'post-header-cover': $merriweather-serif,
    'post-meta':         $open-sans-sans-serif,
    'post-content':      $merriweather-serif,
    'post-excerpt-link': $open-sans-sans-serif,
-   'highlight':         $menlo,
+   'highlight':         $monospace,
    // layout
    'sidebar':           $open-sans-sans-serif
 );
@@ -244,6 +244,7 @@ $pagination-height: 60px;
 // Post thumbnail image
 // Width and height of post's thumbnail image
 $post-thumbnail-image-width: 140px;
+$post-bottom-thumbnail-image-max-height: 250px;
 
 // Tooltip
 $tooltip: (
