@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>夏影の博客</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.evecalm.com/"/>
+  <updated>2017-03-04T07:55:36.000Z</updated>
+  <id>https://blog.evecalm.com/</id>
+  
+  <author>
+    <name>Saiya</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[个人作品]Chrome扩展 My Webrequest</title>
+    <link href="https://blog.evecalm.com/2013/11/my-webrequest.html"/>
+    <id>https://blog.evecalm.com/2013/11/my-webrequest.html</id>
+    <published>2013-11-11T07:05:01.000Z</published>
+    <updated>2017-03-04T07:55:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近业余写了一款Chrome扩展，可以用来屏蔽请求，强制使用加密连接，浏览盗链图，监控web请求，另外还增加了二维码功能。本扩展支持中英文。从开始开发到完成，共花了两个多月的时间。其实，扩展的核心部分半天时间就写完了，选项页的UI花了半个多月的时间，最后是扩展的英文翻译，拖拖拉拉花了一个多月，自己翻译的，可能还有很多语法错误。</p>
+<p>扩展已经发布至Chrome Web Store，记得使用前阅读下选项页的帮助内容。</p>
+<p><strong><a href="https://chrome.google.com/webstore/detail/my-webrequest/ojodgdaaholkmelbddlhnfdgamohijhk?utm_source=chrome-ntp-icon" title="进入Chrome Web Store安装" target="_blank" rel="external">点此安装</a></strong></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pRhSy2kcLPf49ik65LU3VZLpiYX7kDqXSro5IMloJahgkTtF3QdmiPX8D1f3TRdVxAU6ezAQsLpG6yRHAd1Mm9HME7Zm0K6ffMhtfTztYYAo/QQ20131115-1.png?psid=1" alt="My webrequest"></p>
+<p>扩展源码托管在github，<a href="https://github.com/evecalm/MyWebrequest" title="Github" target="_blank" rel="external">https://github.com/evecalm/MyWebrequest</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近业余写了一款Chrome扩展，可以用来屏蔽请求，强制使用加密连接，浏览盗链图，监控web请求，另外还增加了二维码功能。本扩展支持中英文。从开始开发到完成，共花了两个多月的时间。其实，扩展的核心部分半天时间就写完了，选项页的UI花了半个多月的时间，最后是扩展的英文翻译，拖拖拉拉花了一个多月，自己翻译的，可能还有很多语法错误。&lt;/p&gt; &lt;p&gt;扩展已经发布至Chrome Web Store，记得使用前阅读下选项页...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+    
+    
+      <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="谷歌浏览器" scheme="https://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[建站]博客网站减少垃圾留言的简单办法</title>
+    <link href="https://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html"/>
+    <id>https://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html</id>
+    <published>2013-09-01T07:42:21.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在流行的博客程序有wordpress，zblog，typecho等等，使用这些流行的程序搭建网站快速方便，但是垃圾留言也同样随之而来。每天查看和清理成百上千条垃圾评论总是一件让人头疼的事情，虽然有垃圾评论检测插件（如wordpress下的Akismet），但不是能百分百检测正确，总有漏网之鱼，也有被误判的，所以即使使用了垃圾评论检测插件，评论队列（包括垃圾评论队列）还是得仔细看一遍。</p>
+<p>那么，有没有什么好办法减少甚至完全屏蔽掉垃圾评论呢？这先得从垃圾评论的留言机制上说起。</p>
+<p>流行的博客程序都有良好的内部结构，功能模块分的都很清晰。例如有专门负责输出rss的文件，专门负责处理提交的评论的文件等等，这些文件相对于网站的位置都是固定的，并且评论表单中用来标识昵称、邮箱及网站输入框的名称都一样！一般提交一条评论所需要的数据除了昵称、邮箱、网站地址及评论外，还需要知道文章的ID，以及这些数据提交到什么地方。而通过以上介绍，只要知道了你网站地址及博客程序类型，就知道了评论表单中几个输入框的标识名称，RSS的地址（wordpress的是<a href="http://域名/feed）也知道了，通过解析网站的rss就知道了文章ID，这些数据要提交到的地方当然就是处理评论的文件的地址（wordpress的是http://域名/wp-comments-post.php）了。所以知道了这些发送一条评论就够了，根本无需打开你的文章页面，甚至无需打开浏览器！对于使用C++、.Net编写的刷评论软件，一分钟刷个上百条评论是没有问题的。由于wordpress在全球范围内非常流行，所以使用wordpress搭建的博客经常会有英文、日文、俄文等外文垃圾留言的光顾。" target="_blank" rel="external">http://域名/feed）也知道了，通过解析网站的rss就知道了文章ID，这些数据要提交到的地方当然就是处理评论的文件的地址（wordpress的是http://域名/wp-comments-post.php）了。所以知道了这些发送一条评论就够了，根本无需打开你的文章页面，甚至无需打开浏览器！对于使用C++、.Net编写的刷评论软件，一分钟刷个上百条评论是没有问题的。由于wordpress在全球范围内非常流行，所以使用wordpress搭建的博客经常会有英文、日文、俄文等外文垃圾留言的光顾。</a></p>
+<p>现在，既然知道了垃圾评论的留言机制，那就可以对症下药了！最简单的办法就是让刷评论的软件找不到评论的提交地址！步骤如下:</p>
+<ol>
+<li><p>将网站根目录下的<code>wp-comments-post.php</code>文件复制一份，随便改一个名字（如abc.php），文件后缀不能改。</p>
+</li>
+<li><p>修改<code>wp-comments-post.php</code>文件，在文件第一行<code>&amp;lt;?php</code> 后换行插入如下代码:</p>
+</li>
+</ol>
+<p><code>die();</code></p>
+<ol>
+<li>修改当前主题的<code>comments.php</code>文件，该文件位置在<code>[网站根目录]/wp-content/themes/[主题名]</code>,在该文件中找到<code>wp-comments-post.php</code>，将其改成第一步改后的那个名字（这里就是abc.php了）。</li>
+</ol>
+<p>使用改方法能屏蔽掉大部分的垃圾评论。需要注意的是wordpress升级会在网站根目录下再次生成<code>wp-comments-post.php</code>文件，升级后需要将步骤1和2重新操作一遍；切换主题后应按步骤3操作一遍。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;现在流行的博客程序有wordpress，zblog，typecho等等，使用这些流行的程序搭建网站快速方便，但是垃圾留言也同样随之而来。每天查看和清理成百上千条垃圾评论总是一件让人头疼的事情，虽然有垃圾评论检测插件（如wordpress下的Akismet），但不是能百分百检测正确，总有漏网之鱼，也有被误判的，所以即使使用了垃圾评论检测插件，评论队列（包括垃圾评论队列）还是得仔细看一遍。&lt;/p&gt; &lt;p&gt;那么，有没...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="技巧" scheme="https://blog.evecalm.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="垃圾留言" scheme="https://blog.evecalm.com/tags/%E5%9E%83%E5%9C%BE%E7%95%99%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[建站]博客域名已重定向至blog.evecalm.com</title>
+    <link href="https://blog.evecalm.com/2013/07/blog-domain-modified.html"/>
+    <id>https://blog.evecalm.com/2013/07/blog-domain-modified.html</id>
+    <published>2013-07-22T15:22:26.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>由于个人的发展，主域名将做它用，届时会发布一些公共服务，敬请期待。原博客内容已重定向至二级域名blog.evecalm.com，目前您仍可使用以前的地址访问，过一段时间可能会取消重定向。</p>
+<p>在这样一个喧嚣浮躁的社会，世界以及内心的宁静显得遥不可及。故向大家推荐一个网站，聆听大自然的声音，静享片刻安宁，放松自我。该网站和本人无关啊。</p>
+<p><a href="http://www.calm.com/" title="calm.com" target="_blank" rel="external">http://www.calm.com/</a>(请使用支持HTML5的浏览器，如Chrome，Firefox等)</p>
+<p><img src="http://ww3.sinaimg.cn/large/6d442bf5gw1e6w0ciqf7mj20hs0daab3.jpg" alt="安静"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于个人的发展，主域名将做它用，届时会发布一些公共服务，敬请期待。原博客内容已重定向至二级域名blog.evecalm.com，目前您仍可使用以前的地址访问，过一段时间可能会取消重定向。&lt;/p&gt; &lt;p&gt;在这样一个喧嚣浮躁的社会，世界以及内心的宁静显得遥不可及。故向大家推荐一个网站，聆听大自然的声音，静享片刻安宁，放松自我。该网站和本人无关啊。&lt;/p&gt; &lt;p&gt;&lt;a href=&quot;http://www.calm.com/&quot; title=&quot;calm.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.calm.com/&lt;/a&gt;(请使用支持HTML5的浏览...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="域名" scheme="https://blog.evecalm.com/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[个人作品]综合搜索</title>
+    <link href="https://blog.evecalm.com/2013/04/union-search.html"/>
+    <id>https://blog.evecalm.com/2013/04/union-search.html</id>
+    <published>2013-04-14T15:09:47.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>工作之后，有了压力，一切不再像以前一样简单轻松，人也变得倦怠，博客也因此停止更新许久。</p>
+<p>目前的工作是在做Web开发，PHP、JS、CSS涉及的很多，于是业余便写下了这么一个综合搜索的小工具来练练手。经测试，已兼容IE7，IE8，最新版火狐及Chrome。</p>
+<p>应用地址：<a href="http://app.evecalm.com/search" target="_blank" rel="external">http://app.evecalm.com/search</a></p>
+<p><img src="http://ww4.sinaimg.cn/large/a74ecc4cjw1e3pjjbp0l3j.jpg" alt="union search"></p>
+<p>应用特色：</p>
+<ol>
+<li><p>支持多语言切换，目前支持中英</p>
+</li>
+<li><p>支持多种类型的搜索包括普通搜索、音乐、视频、图片、问答、地图、购物、文</p>
+</li>
+<li><p>支持自动搜索自动提示(使用百度及阿里的数据</p>
+</li>
+<li><p>使用HTML5离线存储,对于支持HTML5的浏览器,本应用的加载速会得到度急速提升</p>
+</li>
+</ol>
+<p>使用说明：</p>
+<ol>
+<li>设置语言</li>
+</ol>
+<p>点击右上角的“English/中文”来切换应用语言，第一次进入时应用会依据浏览器的语言的自动选择</p>
+<ol>
+<li>设置背景图片</li>
+</ol>
+<p>点击右上角的“☸”来设置背景图片，推荐上<a href="http://desk.zol.com.cn/" target="_blank" rel="external">中关村壁纸</a>找适合自己屏幕分辨率的图片，将图片的地址复制到输入框，点击“OK”即可</p>
+<ol>
+<li><p>快捷键</p>
+<ul>
+<li><p>HOME键(如果光标不在搜索输入框则可以快速定位到搜索输入框</p>
+</li>
+<li><p>TAB键(切换搜索引擎,需光标在搜索输入框</p>
+</li>
+<li><p>SHIFT+TAB(切换搜索类型,需光标在搜索输入框)</p>
+</li>
+</ul>
+</li>
+<li><p>其他</p>
+</li>
+</ol>
+<p>在搜索框输入一个空格，按回车可以进入当前搜索引擎的主页</p>
+<p>使用中如有任何问题或者有什么好的建议，请到本页反馈。</p>
+<p>另，由于平时使用谷歌搜索比较多，通过加密方式可以正常访问<a href="https://www.google.com.hk/" target="_blank" rel="external">谷歌</a>，但是却经常无法打开搜索结果，因为谷歌的搜索结果均需要再经过其服务器跳转一次。于是我写了一个小扩展，去掉搜索结果链接上的二次跳转，点击搜索结果就可以直接进入对应页面。顺便将“网页快照”的链接改为加密链接，如果你可以使用加密方式查看谷歌快照的话，这会方便许多。该扩展支持Chrome及火狐。Chrome用户请先下载下面的扩展(右击链接，选择链接另存为)，再打开Chrome的扩展页(在地址栏输入<a href="chrome://extensions/" target="_blank" rel="external">chrome://extensions/</a>)，将下载的扩展拖入改页面即可安装。火狐用户需安装扩展<a href="https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/" target="_blank" rel="external">Greasemonkey</a>后再点击下面的扩展链接才可安装。</p>
+<p>扩展地址：<a href="http://app.evecalm.com/search/googlelink.user.js" target="_blank" rel="external">http://app.evecalm.com/search/googlelink.user.js</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作之后，有了压力，一切不再像以前一样简单轻松，人也变得倦怠，博客也因此停止更新许久。&lt;/p&gt; &lt;p&gt;目前的工作是在做Web开发，PHP、JS、CSS涉及的很多，于是业余便写下了这么一个综合搜索的小工具来练练手。经测试，已兼容IE7，IE8，最新版火狐及Chrome。&lt;/p&gt; &lt;p&gt;应用地址：&lt;a href=&quot;http://app.evecalm.com/search&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://app.evecalm.com/search&lt;/a&gt;&lt;/p&gt; &lt;p&gt;&lt;/p&gt; &lt;p&gt;应用特色：&lt;/p&gt; &lt;ol&gt; &lt;li&gt;&lt;p&gt;支持多语言切换，目前支持中英&lt;/p&gt; &lt;/li&gt; &lt;li&gt;&lt;p&gt;支持多种类型的搜索包括普通...&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+    
+    
+      <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="搜索" scheme="https://blog.evecalm.com/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[个人作品]书签分割线 &amp; 特殊符号大全</title>
+    <link href="https://blog.evecalm.com/2012/10/bookmark-sort-special-chars.html"/>
+    <id>https://blog.evecalm.com/2012/10/bookmark-sort-special-chars.html</id>
+    <published>2012-10-03T08:48:32.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>博客已经沉寂很久了，这段时间我在忙着毕业设计、工作等等，如今已经安然工作了。感谢大家一直以来对本站的支持，在此我小小的宣布下：我复出了！</p>
+<p>工作单调而又枯燥，不甘寂寞的我自然不愿如何颓废下去，业余学习了PHP、CSS、JS，并制作了几个小工具，其中之一便是这个书签整理工具。本应用的创意源自<a href="http://separatethis.com/" target="_blank" rel="external">separatethis.com</a>。使用本工具可以让你的书签更加有条理（前提是你也和我一样有数十个书签），可以达到如下效果：</p>
+<p><img src="http://app.evecalm.com/bookmark/img/03.jpg" alt="书签整理"></p>
+<p>应用地址：<a href="http://app.evecalm.com/bookmark" target="_blank" rel="external">http://app.evecalm.com/bookmark</a></p>
+<p>使用方法很简单，将网页存入书签并放置在合适的位置即可，还可以先自定义分割线再存入书签。</p>
+<p>本应用同时还提供了二百多个有趣的字符，您可以用来设置书签分割线，也可作他用。以下是部分特殊符号的截图：</p>
+<p><img src="http://m1.img.libdd.com/farm5/2012/1003/16/0FC4CBC334E691C079FB0119832F5E7FE2960E5EF698_448_297.JPEG" alt="特殊符号大全"></p>
+<p>希望本应用给您带来了便利，祝您使用愉快^^</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;博客已经沉寂很久了，这段时间我在忙着毕业设计、工作等等，如今已经安然工作了。感谢大家一直以来对本站的支持，在此我小小的宣布下：我复出了！&lt;/p&gt; &lt;p&gt;工作单调而又枯燥，不甘寂寞的我自然不愿如何颓废下去，业余学习了PHP、CSS、JS，并制作了几个小工具，其中之一便是这个书签整理工具。本应用的创意源自&lt;a href=&quot;http://separatethis.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;separatethis.com&lt;/a&gt;。使用本工具可以让你的书签更加有条理（前提是你也和我一样有数十个书签），可以达到...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+    
+    
+      <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+    
+      <category term="书签整理" scheme="https://blog.evecalm.com/tags/%E4%B9%A6%E7%AD%BE%E6%95%B4%E7%90%86/"/>
+    
+      <category term="特殊符号" scheme="https://blog.evecalm.com/tags/%E7%89%B9%E6%AE%8A%E7%AC%A6%E5%8F%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[思想]为什么要有大学</title>
+    <link href="https://blog.evecalm.com/2011/12/why-threre-is-a-university.html"/>
+    <id>https://blog.evecalm.com/2011/12/why-threre-is-a-university.html</id>
+    <published>2011-12-29T07:16:46.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pH6lb8kEoNx-rsgn8GR490aPcrp00ftH2xb4a8XlmECyi32-3jubwvYG4_9lOfzadZsc2nlcr4PwDxcw5dQwP2hjhZQSvNBQVDts31VwLljw/whyuniversity.jpg" alt=""></p>
+<p>当欧洲中世纪末期出现大学的时候，大学无非是神学院的变种。当欧洲步入现代之际，洪堡的改革，不仅让大学世俗化，而且种下了职业化的种子。虽然，此时的大学，依然强调人格培养和心灵的完善。但只要大学走下神坛，就势必要跟社会融合，回应社会的需要。尽管大学在很长一段时间里，还是文理学院当家，并没有根据社会的分工设置专业。但文理学院的毕业生，毕竟都进入了社会，能在社会上找到自己的职业。毕业生固然有从事所学“专业”的，但越来越多的人，从事的职业，跟专业并没有直接关系，他们从大学得到的只是学养和素质。</p>
+<p>当然，随着世界现代化的进程，大学仅仅作为人格和素质教育的基地，是远远不能符合社会需要了，必须在基本的文理教育之外，有一些专业性的知识和技能。随着工、商、农、医和法科的兴盛，大学逐渐面目皆非，越来越像职业技术学院，专业分工越来越细，对专业知识和职业技能的要求越来越多。一度存在的社会主义阵营，走得最远，在这些国家，大学基本上都变成了苏联式的专业学院。除了一些政治课学习之外，就是通过狭窄的专业口径，迅速把学生培养成可以从事某一专业的技术人才，很类似一台大机器上的齿轮和螺丝钉。</p>
+<p>无疑，走到苏式学院的境地，大学的职业化实际上异化了，从培养人，变成制造国家机器的零件。这就是所谓苏式大学和美式大学的分野，好听一点地说，是专才教育和通才教育的不同。从本质上讲，前者的目的是国家，而后者的目的是个人，反映的是政治和社会制度的不同。其实，以培养人为目的的教育，从长远看，更符合国家的利益。冷战时代苏美竞争中苏联的失败，实际上也是苏式教育的失败。</p>
+<p>当今的世界，意识形态已经退位。中国和以美国为首的西方的所谓对立，除了一点残存的意识形态碎片之外，实际上是利益之争。即使从国家利益考量，中国大学的变革，理应回归美式教育的方向。但是，在中国，基于意识形态顾虑，却使得这样的变革半途而废，只学了一点皮相的内容。在官僚政治的主导下，中国的大学，不仅没有了培养人的目标，连以往的国家目标，也变得模糊。大学的规模在迅速扩展，但大学生的素质却在急速下降，甚至连几所顶尖的所谓“研究型”大学也是如此。有些大学，专业设置完全跟着市场走，市场热什么，就设置什么专业，有的专业或者专业方向，几乎就是社会和市场某种职位的转义，比如市场营销、劳动人事，甚至出现纪检和城管专业。但是，大学培养出来的人，往往既没有人格素养，也没有专业技能。上不着天，下不挨地，悬在半空，百无一用。</p>
+<p>人的培养，无疑是大学的目的。大学里出来的，应该是综合发展、人格健全的人。这样的人，当然也得走向社会，走向市场，找到自己喜欢的工作，寻出一条适合自己发展的路径。所以，大学肯定会有职业化的内涵，传统的文理学院，注定没有工程、医疗、法学和商科兴盛。但是，大学却不是职业技术学院，不应把技术培训作为主要的内容。大学的职业化成分，只是为学生日后的职业训练打基础，让他们有一个更高的起点，具有科学化做事的素质，与人合作的基本能力。在很多情况下，人在大学里学什么专业，不见得就非得是为了日后从事跟这个专业有关的工作，可能仅仅是满足自己对某些知识和理论的爱好。所以，凡是只能从事技术培训的大学，都应该回归本位，改成技术学院或者学校。那些连技术培训都做不好的大学，就应该撤销。所谓研究型大学，如果连本科生都培养不好，就应该退回去，撤掉自己众多的博士点和硕士点，老老实实办专科和本科。</p>
+<p>中国的大学，正在非常迅速的发展中迷失自己，丢掉了苏式的学院，也没有得到美式的大学，仅仅沦落为一个为利益集团牟利的场所，一种官办垄断市场里的学店。这样的大学，其实既不是大学，也不是别的什么东西，如果非要定义的话，有两个中国字庶几近之：累赘。</p>
+<p>以上文字转载自<a href="http://blog.sina.com.cn/s/blog_4ac7a2f50102dree.html" target="_blank" rel="external">张鸣的博客。</a></p>
+<p>个人关于大学的低见：大学让我很失望。大学没有解答我的疑惑，高中就很迷茫的我，到了大学变得更加的困惑。大学的目的仅仅只让大家可以找到一份工作，能为我朝时常拿出来炫耀的一堆数字作出贡献，和职校无异，甚至还不及职校。而我朝教育部最近也扬言要取消就业率低的专业，这意味着哲学、文学、历史等文化思想类专业将很有可能被取消，国人也将变得更加愚昧而缺乏思想。大学的教育可以让人觉得高人一等，在各个方面上都有优势，人生将平步青云，这和封建王朝的科举制度有着异曲同工之妙（你的学历越高，证书越多，这种感觉应该就更甚）。其实，仔细看看“现代”社会，并非真正进入了“初级文明”，依旧停留在封建社会，只是表现形式不同罢了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt; &lt;p&gt;当欧洲中世纪末期出现大学的时候，大学无非是神学院的变种。当欧洲步入现代之际，洪堡的改革，不仅让大学世俗化，而且种下了职业化的种子。虽然，此时的大学，依然强调人格培养和心灵的完善。但只要大学走下神坛，就势必要跟社会融合，回应社会的需要。尽管大学在很长一段时间里，还是文理学院当家，并没有根据社会的分工设置专业。但文理学院的毕业生，毕竟都进入了社会，能在社会上找到自己的职业。毕业生固然有从事所学“专业...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="思想" scheme="https://blog.evecalm.com/categories/%E6%80%9D%E6%83%B3/"/>
+    
+    
+      <category term="大学" scheme="https://blog.evecalm.com/tags/%E5%A4%A7%E5%AD%A6/"/>
+    
+      <category term="思想" scheme="https://blog.evecalm.com/tags/%E6%80%9D%E6%83%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[建站]为自己的网站在Chrome中添加语音输入</title>
+    <link href="https://blog.evecalm.com/2011/12/chrome-speech-to-text.html"/>
+    <id>https://blog.evecalm.com/2011/12/chrome-speech-to-text.html</id>
+    <published>2011-12-15T11:00:08.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在用<a href="http://www.evecalm.com/2011/05/chrome-download.html" target="_blank" rel="external">谷歌浏览器（Chrome）</a>浏览网站时，你会发现有些网站（比如1616网站导航）的文本输入框的右侧有一个麦克风，点击之后可以进行语音输入（Speech to Text）。其实这是使用了谷歌浏览器的语音输入API。如果要为自己的网站也加入语音，只需要在需要输入文本的地方加入以下一行代码即可：</p>
+<blockquote>
+<p>speech=”speech” x-webkit-speech=”x-webkit-speech” x-webkit-grammar=”builtin:translate”</p>
+</blockquote>
+<p>范例如下：</p>
+<blockquote>
+<p>&lt;input type=”text” class=”gspeech” name=”test” speech=”speech” x-webkit-speech=”x-webkit-speech” x-webkit-grammar=”builtin:translate” /&gt;</p>
+</blockquote>
+<p>效果如图：</p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pCidhySRybvDRG6Hj0pWXi-UkS9QtNoUTwNgJf5vg9DSGeRXBv_Q2i2b_FPdQtAiL9X5kaF2GHwMsvrLEQIgu3JZ7RH2xI4euCzABfeqaktw/voiceinput.jpg?psid=1" alt=""></p>
+<p>只能在谷歌浏览器中才可以使用语音输入，非谷歌浏览器则会忽略所添加的属性，不会影响网页显示。</p>
+<p>在使用谷歌浏览器时，如果也想在其他网站也使用语音输入，则可以安装<a href="http://www.evecalm.com/2011/06/chrome-plugin-voice-input.html" target="_blank" rel="external">语音输入扩展</a>。更多谷歌浏览器精选扩展，请<a href="http://www.evecalm.com/2011/05/chrome-extention-recommend.html" target="_blank" rel="external">点击这里</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在用&lt;a href=&quot;http://www.evecalm.com/2011/05/chrome-download.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;谷歌浏览器（Chrome）&lt;/a&gt;浏览网站时，你会发现有些网站（比如1616网站导航）的文本输入框的右侧有一个麦克风，点击之后可以进行语音输入（Speech to Text）。其实这是使用了谷歌浏览器的语音输入API。如果要为自己的网站也加入语音，只需要在需要输入文本的地方加入以下一行代码即可：&lt;/p&gt; &lt;blockquote&gt; &lt;p&gt;speech=”speech” x-webkit-speech=”x-webkit-speech” x-...&lt;/p&gt;&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="谷歌浏览器" scheme="https://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+      <category term="教程" scheme="https://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="语音" scheme="https://blog.evecalm.com/tags/%E8%AF%AD%E9%9F%B3/"/>
+    
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[建站]自定义微博来源，巧用微博增加网站流量</title>
+    <link href="https://blog.evecalm.com/2011/12/microblog-source-of-web.html"/>
+    <id>https://blog.evecalm.com/2011/12/microblog-source-of-web.html</id>
+    <published>2011-12-08T13:49:39.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>经常用微博的童鞋会发现微博的来源（即“来自手机腾讯网”“来自iPhone”“来自皮皮精灵”等字样）各种各样，这些来源都是带有超链接的，点击可以打开和来源相关的网页。其实来源和超链接都是可以自定义的，你可以将自己的微博来源设置为自己的网站名，超链接则改为自己的网站链接，这样你每发一条微博都可以为自己的网站做宣传，而微博的内容则不必再添加自己的网站链接。以下是我在腾讯微博下的测试效果，点击来源文字可以打开本站：</p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pTwoHlUqXmutCMmt4Q20fCFG7ECHKwPAPtsxzXjB74lf4q2YvuA7MVS2UL-_z5a3uEmjjYTOl6RcLErKuv7lHhKQ-wAR3SQg7Ky58jPUkz_g/weibosource.jpg?psid=1" alt=""></p>
+<p>我们所需要的是下载并使用周博通企业版（微博桌面应用，免费的），申请微博的AppKey（很容易申请的），然后在周博通里填入自己的AppKey。</p>
+<p>周博通及AppKey申请教程下载：</p>
+<p><a href="http://www.chouboto.com/cbt_soft/v2.0.14260_qy.rar" target="_blank" rel="external">周博通企业版最新版下载(2011-12-6更新)</a>|<a href="http://www.chouboto.com/qy/" target="_blank" rel="external">官网</a>|<a href="http://www.chouboto.com/qy/App%20Key%E7%94%B3%E8%AF%B7%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.doc" target="_blank" rel="external">AppKey申请教程下载</a>|<a href="https://skydrive.live.com/redir.aspx?cid=c8e47483d91bc8f6&amp;resid=C8E47483D91BC8F6!107&amp;parid=C8E47483D91BC8F6!102&amp;authkey=!AHsF8iAj16wF-Og" target="_blank" rel="external">教程在线查看</a></p>
+<p>周博通支持新浪、搜狐、腾讯、Twitter、网易的微博来源自定义，支持多微博同步，支持定时微博。</p>
+<p>最新版的周博通在使用腾讯微博时有一个bug：微博会自动分享到QQ空间。</p>
+<p>注意：申请AppKey必须填入自己的真实信息才能认证来源并且在微博上显示出来。腾讯微博只需要填入姓名、身份证号即可，并且验证会很快通过，而新浪则需要更多信息，验证时间也稍微长一些。其他微博要求也类似（没有尝试过Twitter，因为它不在墙内，翻墙也很少上Twitter）。</p>
+<p>P.S.最近博主在忙着课程设计，没有太多时间更新网站，希望大家见谅。祝大家天天好心情❤</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;经常用微博的童鞋会发现微博的来源（即“来自手机腾讯网”“来自iPhone”“来自皮皮精灵”等字样）各种各样，这些来源都是带有超链接的，点击可以打开和来源相关的网页。其实来源和超链接都是可以自定义的，你可以将自己的微博来源设置为自己的网站名，超链接则改为自己的网站链接，这样你每发一条微博都可以为自己的网站做宣传，而微博的内容则不必再添加自己的网站链接。以下是我在腾讯微博下的测试效果，点击来源文字可以...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="教程" scheme="https://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
+    
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="博客" scheme="https://blog.evecalm.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒</title>
+    <link href="https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"/>
+    <id>https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html</id>
+    <published>2011-11-28T13:38:47.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。</p>
+<p>对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail-SMTP插件，但是其功能差强人意，并不能实现评论邮件提醒访客，只能提醒站长。而SAE本身就封装了一个邮件函数，使用该函数的范例代码如下</p>
+<blockquote>
+<p>最大可发送1MB大小的邮件（含附件</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>&lt;?ph</p>
+<p>$mail = new SaeMail()</p>
+<p>$mail-&gt;setAttach( array( ‘my_photo’ =&gt; ‘照片的二进制数据’ ) )</p>
+<p>$ret = $mail-&gt;quickSend( ‘to@sina.cn’ , ‘邮件标题’ , ‘邮件内容’ , ‘smtpaccount@gmail.com’ , ‘password’ )</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>//发送失败时输出错误码和错误信</p>
+<p>if ($ret === false</p>
+<p>var_dump($mail-&gt;errno(), $mail-&gt;errmsg())</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>$mail-&gt;clean(); // 重用此对</p>
+<p>$ret = $mail-&gt;quickSend( ‘to@sina.cn’ , ‘邮件标题’ , ‘邮件内容’ , ‘smtpaccount@unknown.com’ , ‘password’ , ‘smtp.unknown.com’ , 25 ); // 指定smtp和端</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>//发送失败时输出错误码和错误信</p>
+<p>if ($ret === false</p>
+<p>var_dump($mail-&gt;errno(), $mail-&gt;errmsg())</p>
+<p>?&amp;gt</p>
+<p>更多相关说明可以看[官方文档](<a href="http://apidoc.sinaapp.com/sae/SaeMail.html" target="_blank" rel="external">http://apidoc.sinaapp.com/sae/SaeMail.html</a></p>
+</blockquote>
+<p>如果你对php比较了解的话，完全可以参照以上代码为自己的Wordpress for SAE添加邮件评论提醒功能，否则的话，可以使用下面的代码(本站的邮件提醒即用以下代码实现的)</p>
+<blockquote>
+<p>//comment_mail_notify(所有的回复都会发邮件通知</p>
+<p>function comment_mail_notify($comment_id) </p>
+<p>$admin_email = get_bloginfo (‘admin_email’); // $admin_email 可改為你指定的 e-mail</p>
+<p>$comment = get_comment($comment_id)</p>
+<p>$comment_author_email = trim($comment-&gt;comment_author_email)</p>
+<p>$parent_id = $comment-&gt;comment_parent ? $comment-&gt;comment_parent : ‘’</p>
+<p>$to = $parent_id ? trim(get_comment($parent_id)-&gt;comment_author_email) : ‘’</p>
+<p>$spam_confirmed = $comment-&gt;comment_approved</p>
+<p>if (($parent_id != ‘’) &amp;&amp; ($spam_confirmed != ‘spam’) &amp;&amp; ($to != $admin_email)&amp;&amp;isset($_POST[‘comment_mail_notify’])) </p>
+<p>/* 上面是判断是否发出邮件</p>
+<p>($spam_confirmed != ‘spam’): 不给垃圾评论发送邮件提醒，必需!</p>
+<p>($to != $admin_email) : 不发送邮件给站</p>
+<p>($comment_author_email == $admin_email) : 只有站长评论时才发送邮件提</p>
+<p>isset($_POST[‘comment_mail_notify’]) :接收邮件提醒的复选框被选中则发送邮</p>
+<p>以上可视个人情况修</p>
+<p>*</p>
+<p>$wp_email = ‘你的邮箱地址’;// . preg_replace(‘#^www.#’, ‘’, strtolower($_SERVER[‘SERVER_NAME’])); // e-mail 發出點, no-reply 可改為可用的 e-mail</p>
+<p>$subject = ‘您在[‘ . get_option(“blogname”) . ‘]的留言有新回复’</p>
+<p>$message = </p>
+<p>&lt;div style=”margin: 1em 40px 1em 40px;background-color:#eef2fa;border:1px solid #d8e3e8;color:#111;padding: 0 15px;-moz-border-radius:5px;-webkit-border-radius:5px;-khtml-border-radius:5px;border-radius:5px;”&amp;gt</p>
+<p>&lt;p&gt;’ . trim(get_comment($parent_id)-&gt;comment_author) . ‘，您好！&lt;/p&amp;gt</p>
+<p>&lt;p&gt;您在&lt;strong&gt;《’ . get_the_title($comment-&gt;comment_post_ID) . ‘》&lt;/strong&gt;的留言：&lt;/p&amp;gt</p>
+<p>&lt;p&gt; ‘ . trim(get_comment($parent_id)-&gt;comment_content) . ‘&lt;/p&amp;gt</p>
+<p>&lt;p&gt;&lt;strong&gt;’ . trim($comment-&gt;comment_author) . ‘&lt;/strong&gt;给您的回复：&lt;/p&amp;gt</p>
+<p>&lt;p&gt; ‘ . trim($comment-&gt;comment_content) . ‘&lt;/p&amp;gt</p>
+<p>&lt;p&gt;您可以点击&lt;a href=”‘ . htmlspecialchars(get_comment_link($parent_id)) . ‘“&gt;查看完整的內容&lt;/a&gt;&lt;/p&amp;gt</p>
+<p>&lt;p&gt;欢迎再度光临 &lt;a href=”‘ . get_option(‘home’) . ‘“&gt;’ . get_option(‘blogname’) . ‘&lt;/a&gt;&lt;/p&amp;gt</p>
+<p>&lt;p&gt;来自’ . get_option(‘blogname’) . ‘的诚挚问候.&lt;/p&gt;&lt;/div&amp;gt</p>
+<p>‘</p>
+<p>$mail = new SaeMail()</p>
+<p>$options = array(“from”=&gt;$wp_email, “to”=&gt;$to, “smtp_host”=&gt;’邮箱的smtp服务器地址’,”smtp_username”=&gt;’你的邮箱地址’,”smtp_password”=&gt;’邮箱密码’,”subject”=&gt;$subject,”content”=&gt;$message,”content_type”=&gt;’HTML’)</p>
+<p>$ret=false</p>
+<p>if($mail-&gt;setOpt($options)</p>
+<p>$ret=$mail-&gt;send()</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>//发送失败时输出错误码和错误信</p>
+<p>if ($ret === false</p>
+<p>var_dump($mail-&gt;errno(), $mail-&gt;errmsg())</p>
+<p>add_action(‘comment_post’, ‘comment_mail_notify’)</p>
+<p>// – END —————————————</p>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>//在评论框下面添加一个复选框,由访客决定是否接收邮件提醒，默认选</p>
+<p>function add_checkbox() </p>
+<p>echo </p>
+<p>&lt;input id=”comment_mail_notify” style=”margin-left: 20px;” type=”checkbox” name=”comment_mail_notify” value=”comment_mail_notify” checked=”true” /&gt;&lt;label for=”comment_mail_notify”&gt;邮件通知对方&lt;/label&gt;’</p>
+<p>add_action(‘comment_form’, ‘add_checkbox’)</p>
+</blockquote>
+<p>以上代码转自<a href="http://hanolex.org/archives/420.html" target="_blank" rel="external">hanolex</a>，代码相关说明:</p>
+<p>1、需要修改的地方有四处，“你的邮箱地址 ”（两处必须一致），“邮箱的smtp服务器地址”（需邮箱支持smtp，并已启用，smtp地址形如smtp.qq.com）和“邮箱密码</p>
+<p> 2、如果想去掉复选框，可以删除最后七行代码，然后去掉以上代码第八行中的“&amp;&amp;isset($_POST[‘comment_mail_notify’])”</p>
+<p>注意,请不要将以上代码与其他有类似功能的代码或者插件一起启用,会产生冲突导致功能失效.如果你确定要使用本代码,请删除相关代码,停用相关插件,并上传Clean Options插件，清理因启用相关插件而残留下来的信息。</p>
+<p>祝你好运！如还有任何疑问，请<a href="#respond">留言</a>。</p>
+<p>最后，再次劝告大家，SAE已经修改了云豆赠送规则，完全商业运营了，不再适合普通的小网站，而我在不久的将来也会再次搬家。不过，如果你是一个高级的程序开发者，那么你可以为新浪微博开发一款应用（最好是客户端应用），并申请新浪开发者认证，这样每个月都可以补足一万个豆豆，可以让你在SAE长久呆着，除非新浪再次修改规则。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。&lt;/p&gt; &lt;p&gt;对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+      <category term="主机" scheme="https://blog.evecalm.com/tags/%E4%B8%BB%E6%9C%BA/"/>
+    
+      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="邮件" scheme="https://blog.evecalm.com/tags/%E9%82%AE%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[音乐]梦的朵雅-《Sous Les Branches》</title>
+    <link href="https://blog.evecalm.com/2011/11/sous-les-branches.html"/>
+    <id>https://blog.evecalm.com/2011/11/sous-les-branches.html</id>
+    <published>2011-11-15T14:41:42.000Z</published>
+    <updated>2017-03-03T19:46:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pb6O4zWQnV68-RE7lQJCu0nTzJsrEk5xhZz3zTXo3VQ0zwCtWPO_qNvpESieh5uOP3KMuzmbL_81s3sCajnDAIp_8mqpR89sTT2lwjXxCJ50/mengdeduoya.jpg?psid=1" alt=""></p>
+<p>来自东京的梦的雅朵(Mondialito)，2002年组成后即以优美的歌声惊艳乐坛，广受法国、日本、香港、台湾乐评一致推荐，更被誉为在日本的Club 8！“梦的雅朵Mondialito”由女生Junko填词演唱，男生Toshiya作曲并弹奏所有乐器，不仅在日本有多场巡回，更是受到韩国、香港、台湾地区歌迷的强烈喜爱，频频受邀到香港与韩国巡回演唱；同时也受到各国专业乐评与音乐杂志的大力推荐。2005年10月梦的雅朵更以《Notre Chec》获得法国广播电台DJ票选为不听会后悔一生的好歌！</p>
+<p>Junko作为主唱有着令人怜惜的女性魅力， 如清风拂面般的质感。 Mondialito不独是一支Acoustic乐团 因他们也采用电音的配方。 主创ToshiyFuaeoka在15岁的时候就开始了创作歌曲 两人都对欧洲非常的迷恋温暖的音色，乾净而流畅的旋律 精细而琢感强烈的配器明显来自欧洲独立流行乐的影响。 而自资制作发行唱片的做法也体现出他们执着音乐的精神。 Mondialito的迷人之处， 是其音乐在优雅的乐韵间每每是散落着幽悒而神伤的思绪淡淡的诠释，浓浓的诗意 仿如在你耳边细说其私密情感 可听得到Junko和Toshiya二人的多愁善感。 毕竟在他们的音乐里你所感受到是Mondialito的哀愁而多於甜美可人。</p>
+<p>音乐试听：</p>
+<p>音乐下载：</p>
+<p><a href="http://dl.dbank.com/c0tld4q50i" target="_blank" rel="external">数据银行</a>|<a href="http://115.com/file/dn9r15e" target="_blank" rel="external">115网盘</a></p>
+<p>这首歌源自他们在07年发行的专辑《Cher Mon Amoureux》（中文译名《恋人絮语》），专辑名来则来自于法国作家罗兰・巴特的同名著作，甚至小说的每一个章节都激发对应着八首歌，有兴趣的话，可以看看^_^</p>
+<p>更多他们的<a href="http://www.evecalm.com/music" target="_blank" rel="external">音乐</a>，请点击<a href="http://www.xiami.com/artist/23227" target="_blank" rel="external">这里</a>。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt; &lt;p&gt;来自东京的梦的雅朵(Mondialito)，2002年组成后即以优美的歌声惊艳乐坛，广受法国、日本、香港、台湾乐评一致推荐，更被誉为在日本的Club 8！“梦的雅朵Mondialito”由女生Junko填词演唱，男生Toshiya作曲并弹奏所有乐器，不仅在日本有多场巡回，更是受到韩国、香港、台湾地区歌迷的强烈喜爱，频频受邀到香港与韩国巡回演唱；同时也受到各国专业乐评与音乐杂志的大力推荐。2005...&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="音乐" scheme="https://blog.evecalm.com/categories/%E9%9F%B3%E4%B9%90/"/>
+    
+    
+      <category term="音乐" scheme="https://blog.evecalm.com/tags/%E9%9F%B3%E4%B9%90/"/>
+    
+      <category term="安静" scheme="https://blog.evecalm.com/tags/%E5%AE%89%E9%9D%99/"/>
+    
+      <category term="轻音乐" scheme="https://blog.evecalm.com/tags/%E8%BD%BB%E9%9F%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+</feed>
