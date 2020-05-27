@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.evecalm.com/"/>
-  <updated>2020-05-16T03:10:45.073Z</updated>
+  <updated>2020-05-27T17:08:19.171Z</updated>
   <id>https://blog.evecalm.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>[知识分享]关于字体及字符的小思考</title>
+    <link href="https://blog.evecalm.com/2020/05/about-font-and-character.html"/>
+    <id>https://blog.evecalm.com/2020/05/about-font-and-character.html</id>
+    <published>2020-05-17T07:55:42.000Z</published>
+    <updated>2020-05-27T17:08:19.171Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近开发小软件的时候, 发现两个有意思的问题:</p><ol><li>如果让时间表示形式 <code>aa:bb</code> 中的 <code>:</code> 垂直居中显示</li><li>在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间</li></ol><h2 id="连字"><a href="#连字" class="headerlink" title="连字"></a>连字</h2><p>针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般的标点字符都有多种变体以适用于不同场景, 总有一款能适合我的吧. </p><p>查阅<a href="https://en.wikipedia.org/wiki/Colon_(punctuation)#Computing" target="_blank" rel="noopener">百科</a>发现, 冒号的确有十多种变体, 如宽度不一样的, 形状奇特的, 位置有偏移的, 等等. 可没有一个符号满足我的这个简单需求. 在尝试中, 偶然发现, 冒号两边是数字时, 冒号自然就垂直居中了, 如下图所示</p><p><img src="https://yqlgmg.bn.files.1drv.com/y4mRDAovIeNXMjZ4D6PHmHqwOw0Yu8WcnbjXSaVHJ7AyvKXFNA47Dh7BbS-0-1H95FfZKWbeZyOXoCakLXn34nI5SMcCDPt-aC17Z4UL4UYcosFJQM6BYMzRvimXKfF9HH78xO5hc4cTAyBznTVDiKHhCCQH_liabO4lc8NanghuZJgBk83TjwcMCuyPziG0yoQ3C0rUCd2uKyDh0eBh-SElg" alt="time-colon"></p><p>(如果你想自己验证该现象, 可以在最新的macOS 上安装最新版钉钉, 在输入框中输入上述文字即可)</p><p>一切就豁然开朗了, 这就是<a href="https://zh.wikipedia.org/wiki/%E5%90%88%E5%AD%97" target="_blank" rel="noopener">连字</a> 现象, 不禁觉得苹果用户体验做的很好, 极大的缓解了强迫症症状.</p><p>连字就是将两个及以上字符合成一个字符, 连字需要在下述两种条件均满足时才会显示出效果.</p><ul><li>需要字体支持(至于哪些字符支持连字, 有字体自己控制)</li><li>需要文字渲染引擎支持连字, 操作系统均以支持连字, 但是部分软件可能会将连字功能关闭, 例如, 前端可以使用 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures" target="_blank" rel="noopener">font-variant-ligatures</a> 控制是否启用连字</li></ul><h3 id="编程字体"><a href="#编程字体" class="headerlink" title="编程字体"></a>编程字体</h3><p>连字应用其实非常普遍, 对程序员来说影响最大的就是一些编程专用字体了. 所谓编程字体, 就是:</p><ul><li>将一些不容易区分的字符(如0oOLIil等)显著区分开</li><li>借助连字特性, 将一些常用的符号组合(如 =&gt;, !=, ==, ===) 合成一个符号提供可读性</li><li>适当调整不同字符之间的间距, 使其容易阅读识别</li></ul><p><img src="https://bn1305files.storage.live.com/y4mXcm-u8WWUgw1rDHJZjoBPc6nj3wXvJAO59wIu2ZE4FSCrKfPXAbVittLHpZyiebyqYChqqAo5IrSIUJEfM31jDVsD4U_y4pYLH8Ks3F71M1iwmCef-I-p33yB3tpL7LVoFYXQXsTehfOOXavhZEegnVgF3Vht5d8XQTBEJb9utxijXXWUct0hqbuF4WZe8FlMyFStAmcUF0h6DFzkwsppw/fira-code.svg?psid=1&width=1360&height=2048" alt="fira code"></p><p>编程字体推荐: <a href="https://github.com/ProgrammingFonts/ProgrammingFonts" target="_blank" rel="noopener">ProgrammingFonts</a><br>代码编辑器(IDE)开启连字功能的方法: <a href="https://github.com/tonsky/FiraCode/wiki" target="_blank" rel="noopener">How to enable ligatures</a></p><h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h2><p>再回到第二个问题, 其实问题的本质是: 「当我们设置 字体大小 时, 设置的是字体的宽还是高?」</p><p>经过一番试验测量(使用了<a href="https://getpixelsnap.com/" target="_blank" rel="noopener">PixelSnap</a>测量, 该软件为付费用软件, 但已经包含在了<a href="https://setapp.com/" target="_blank" rel="noopener">SetApp</a>中)后发现:</p><ol><li>大部分西文字符在不同字体下, 字体宽度总小于 字体大小 的值(大约为 字体大小 的 0.6 ~ 0.8), 但是高度与 字体大小 一致</li><li>中文字符(包括标点符号,即全角符号)在不同字体基本上宽高均与 字体大小 一致, 此谓 「字正腔圆」</li></ol><p>通过查阅资料<a href="https://en.wikipedia.org/wiki/Typeface_anatomy" target="_blank" rel="noopener">字体解剖</a>得知, 字体大小 所指的就是字体高度, 字体宽度是随字符及字体而变的</p><h2 id="字体类型"><a href="#字体类型" class="headerlink" title="字体类型"></a>字体类型</h2><p>在显示时间时, 秒数时刻在变, 不经过特殊设置, 会明显的发现整个时间显示区域一直在不停变化, 对强迫症来说是一种煎熬. 这时候, 把字体换成一种「等宽字体」即可解决问题.</p><p>一般设置字体时, 可以设置为某一种特定字体, 比如 <code>Helvetica</code>、<code>微软雅黑</code>, 也可以是某一种字体类型(一种字体类型会包含多种字体, 若指定为字体类型, 则由系统底层自行决定使用哪一个字体渲染). 一般字体类型有:</p><ol><li><a href="https://zh.wikipedia.org/wiki/%E8%A1%AC%E7%BA%BF%E4%BD%93" target="_blank" rel="noopener">衬线体</a> <code>serif</code>: 中文字体中也称「白体」, 此类字体会有很多点缀修饰, 如 宋体、楷体. 衬线体由于多了边角修饰, 会相对美观, 但是也多了信息噪音, 容易使用户产生视觉疲劳, 一般建议仅针对需要着重强调的文字(比如 文章标题)采用该类型的字体. 同时由于衬线体的修饰元素不规则, 会产生锯齿现象, 实际使用时应结合反锯齿技术才能达到较好的显示效果.</li><li><a href="https://zh.wikipedia.org/zh-cn/%E6%97%A0%E8%A1%AC%E7%BA%BF%E4%BD%93" target="_blank" rel="noopener">无衬线体</a> <code>sans-serif</code>: 中文字体中也称「黑体」, 与衬线体相对, 该类字体没有多余的修饰, 如 微软雅黑 等. 无衬线体 适合屏幕中大量使用, 不会导致用户产生视觉疲劳问题.</li><li><a href="https://zh.wikipedia.org/wiki/%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93" target="_blank" rel="noopener">等宽字体</a> <code>monospace</code>: 此类字体每个字符宽度一致. 由于东亚的字体的字符本身基本都是等宽的, 所以一般在说等宽字体时, 都是指西文字体. 该字体的可读性较好, 一般在 代码编辑器 及 Terminal 中使用比较普遍.</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近开发小软件的时候, 发现两个有意思的问题:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如果让时间表示形式 &lt;code&gt;aa:bb&lt;/code&gt; 中的 &lt;code&gt;:&lt;/code&gt; 垂直居中显示&lt;/li&gt;
+&lt;li&gt;在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好
+      
+    
+    </summary>
+    
+    
+      <category term="知识分享" scheme="https://blog.evecalm.com/categories/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="字体" scheme="https://blog.evecalm.com/tags/%E5%AD%97%E4%BD%93/"/>
+    
+  </entry>
   
   <entry>
     <title>[知识分享]在浏览器中调整百度网盘播放速度的尝试</title>
@@ -276,36 +305,6 @@
       <category term="语音" scheme="https://blog.evecalm.com/tags/%E8%AF%AD%E9%9F%B3/"/>
     
       <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>[建站]自定义微博来源，巧用微博增加网站流量</title>
-    <link href="https://blog.evecalm.com/2011/12/microblog-source-of-web.html"/>
-    <id>https://blog.evecalm.com/2011/12/microblog-source-of-web.html</id>
-    <published>2011-12-08T13:49:39.000Z</published>
-    <updated>2020-05-13T14:35:18.545Z</updated>
-    
-    <content type="html"><![CDATA[<p>经常用微博的童鞋会发现微博的来源（即“来自手机腾讯网”“来自iPhone”“来自皮皮精灵”等字样）各种各样，这些来源都是带有超链接的，点击可以打开和来源相关的网页。其实来源和超链接都是可以自定义的，你可以将自己的微博来源设置为自己的网站名，超链接则改为自己的网站链接，这样你每发一条微博都可以为自己的网站做宣传，而微博的内容则不必再添加自己的网站链接。以下是我在腾讯微博下的测试效果，点击来源文字可以打开本站：</p><p><img src="https://yqmfyg.bn1.livefilestore.com/y2pTwoHlUqXmutCMmt4Q20fCFG7ECHKwPAPtsxzXjB74lf4q2YvuA7MVS2UL-_z5a3uEmjjYTOl6RcLErKuv7lHhKQ-wAR3SQg7Ky58jPUkz_g/weibosource.jpg?psid=1" alt=""></p><p>我们所需要的是下载并使用周博通企业版（微博桌面应用，免费的），申请微博的AppKey（很容易申请的），然后在周博通里填入自己的AppKey。</p><p>周博通及AppKey申请教程下载：</p><p><a href="http://www.chouboto.com/cbt_soft/v2.0.14260_qy.rar" target="_blank" rel="noopener">周博通企业版最新版下载(2011-12-6更新)</a>|<a href="http://www.chouboto.com/qy/" target="_blank" rel="noopener">官网</a>|<a href="http://www.chouboto.com/qy/App%20Key%E7%94%B3%E8%AF%B7%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B.doc" target="_blank" rel="noopener">AppKey申请教程下载</a>|<a href="https://skydrive.live.com/redir.aspx?cid=c8e47483d91bc8f6&amp;resid=C8E47483D91BC8F6!107&amp;parid=C8E47483D91BC8F6!102&amp;authkey=!AHsF8iAj16wF-Og" target="_blank" rel="noopener">教程在线查看</a></p><p>周博通支持新浪、搜狐、腾讯、Twitter、网易的微博来源自定义，支持多微博同步，支持定时微博。</p><p>最新版的周博通在使用腾讯微博时有一个bug：微博会自动分享到QQ空间。</p><p>注意：申请AppKey必须填入自己的真实信息才能认证来源并且在微博上显示出来。腾讯微博只需要填入姓名、身份证号即可，并且验证会很快通过，而新浪则需要更多信息，验证时间也稍微长一些。其他微博要求也类似（没有尝试过Twitter，因为它不在墙内，翻墙也很少上Twitter）。</p><p>P.S.最近博主在忙着课程设计，没有太多时间更新网站，希望大家见谅。祝大家天天好心情❤</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;经常用微博的童鞋会发现微博的来源（即“来自手机腾讯网”“来自iPhone”“来自皮皮精灵”等字样）各种各样，这些来源都是带有超链接的，点击可以打开和来源相关的网页。其实来源和超链接都是可以自定义的，你可以将自己的微博来源设置为自己的网站名，超链接则改为自己的网站链接，这样你
-      
-    
-    </summary>
-    
-    
-      <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
-    
-    
-      <category term="教程" scheme="https://blog.evecalm.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
-    
-      <category term="博客" scheme="https://blog.evecalm.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
