@@ -36,7 +36,7 @@ external_link:
   enable: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
@@ -44,10 +44,6 @@ highlight:
   line_number: true
   auto_detect: false
   tab_replace:
-
-# marked:
-#   root: ./
-#   postAsset: true
 
 # Category & Tag
 default_category: uncategorized

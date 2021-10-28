@@ -18,8 +18,9 @@
     "truncate-html": "^1.0.3"
   },
   "devDependencies": {
-    "hexo-cli": "^4.3.0",
+    "fs-extra": "^10.0.0",
     "hexo": "^5.0.0",
+    "hexo-cli": "^4.3.0",
     "hexo-generator-archive": "^1.0.0",
     "hexo-generator-category": "^1.0.0",
     "hexo-generator-index": "^2.0.0",
