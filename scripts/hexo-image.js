@@ -2,7 +2,7 @@ const isDev = process.env.npm_lifecycle_script === 'hexo server'
 const path = require('path')
 const fs = require('fs-extra')
 
-const CDN_PREFIX = 'https://cdn.jsdelivr.net/gh/oe/blog.evecalm.com/'
+const CDN_PREFIX = 'https://cdn.jsdelivr.net/gh/oe/blog.evecalm.com@gh-pages/'
 
 // match markdown image and covert to asset_img 
 hexo.extend.filter.register('before_post_render', function (data) {
