@@ -809,6 +809,13 @@ hexo-i18n@^1.0.0:
   dependencies:
     sprintf-js "^1.0.3"
 
+hexo-intuitive-image@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/hexo-intuitive-image/-/hexo-intuitive-image-1.0.0.tgz#4a44d2e0cd37135a112816f8680fa74f69b2e5a8"
+  integrity sha512-GyYJys7bwdXAXjZvKm8cpxZR9Jqvn6DmWcgYt9YXhV8d1TEHtOWicu9f0VQxxasKRPYcTB2oULNKieLOV1SVZA==
+  dependencies:
+    fs-extra "^10.0.0"
+
 hexo-log@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/hexo-log/-/hexo-log-2.0.0.tgz#1dcc8e960029b08b21994fe2c56c4e3d6346e893"
