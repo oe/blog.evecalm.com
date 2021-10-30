@@ -17,7 +17,7 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/css/avatar.jpg"},"articleBody":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。\nblog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。\n最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很容易就打开的是一个未激活的的广告网页，而非自己绑定的博客。而dot.tk支持自定义域名解析服务器，于是想使用第三方免费的dns服务器。在网上搜了一下很多人推荐使用免费的DnsPod（dnspod.com），但是网上的教程太粗糙了，不够详细，自己在设置的时候老是提示域名解析有问题，试了好几次，最终，大功告成。现在分享一下经验，希望对你有所帮助。\n一、你应该在.blog.cd注册了自己的博客，在dot.tk申请了免费域名。\n二、在dnspod.com上注册。注册完成之后会有一个首次使用向导。这里是关键！\n①输入自己申请的.tk域名（saiya.tk是本人的域名）\n\n②这一步默认即可\n（因为我的已经设置成功了，不想再重新设置，于是便随手输入了saiiya.tk做示范）\n\n③这个ip地址就是blog.cd的地址，和我填一样就行\n\n④这一步你可以选择否也可以选择其他\n（如果你和我选择的一样，那你得注册腾讯企业邮箱，网址exmail.qq.com。 注册之后输入你申请的域名就会得到形如qqmaile123456a的CNAME验证地址）\n\n⑤点击生成记录即可\n\n⑥到了这一步就完成了一大半了\n（如果你现在点击查看记录，会提示完全无法解析的，先别管它）\n\n三、到dot.tk上修改dns域名解析设置\n①登录后点击修改域名，修改\n\n②\n选择使用自定义dns服务器之后，在点击设定，输入刚刚的那两个dns服务器名称即可，不需要输入ip地址，你也没法输入。前面三个服务器最好添加上。\n\n③\n设置完成后，右下角有个下一步，点击后，当你看到成功更新时，你的设置就成功了！\n不过还差最后一步。\n\n四、到blog.cd上绑定域名\n①登录blog.cd，账户中心，域名绑定，域名绑定\n\n②\n输入不带www.的（saiya.tk）域名以及带www.的（www.saiya.tk）域名（两个哦），这样你的域名有没有www.都能打开了\n\n\n③完成之后就是这样了\n\n这样，就大功告成了！这些设置不会立即生效，据说得半个小时，耐心啊！如果你立马输入你的.tk域名很有可能浏览器给的提示是找不到该页面，因为刚刚设置的域名解析还没正式生效呢。如果你登录dnspod账户，管理页面也会提示dns设置有误，让你到注册域名的地方修改dns服务器，别管它，耐心等待即可。\n如果你想多注册几个.tk域名绑定你的blog.cd博客，那你得相应的多注册几个dnspod，因为免费版的dnspod一个账户只能给一个域名提供域名解析。.tk、blog.cd、dnspod免费网站的最佳组合啊！\n祝你好运！\n","dateCreated":"2011-05-01T16:51:45+00:00","dateModified":"2020-05-13T14:35:18+00:00","datePublished":"2011-05-01T16:51:45+00:00","description":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。 blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。 最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很...","headline":"[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/css/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/css/avatar.jpg"}},"url":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html","keywords":"网站, 域名, 绑定, 解析"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg"},"articleBody":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。\nblog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。\n最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很容易就打开的是一个未激活的的广告网页，而非自己绑定的博客。而dot.tk支持自定义域名解析服务器，于是想使用第三方免费的dns服务器。在网上搜了一下很多人推荐使用免费的DnsPod（dnspod.com），但是网上的教程太粗糙了，不够详细，自己在设置的时候老是提示域名解析有问题，试了好几次，最终，大功告成。现在分享一下经验，希望对你有所帮助。\n一、你应该在.blog.cd注册了自己的博客，在dot.tk申请了免费域名。\n二、在dnspod.com上注册。注册完成之后会有一个首次使用向导。这里是关键！\n①输入自己申请的.tk域名（saiya.tk是本人的域名）\n\n②这一步默认即可\n（因为我的已经设置成功了，不想再重新设置，于是便随手输入了saiiya.tk做示范）\n\n③这个ip地址就是blog.cd的地址，和我填一样就行\n\n④这一步你可以选择否也可以选择其他\n（如果你和我选择的一样，那你得注册腾讯企业邮箱，网址exmail.qq.com。 注册之后输入你申请的域名就会得到形如qqmaile123456a的CNAME验证地址）\n\n⑤点击生成记录即可\n\n⑥到了这一步就完成了一大半了\n（如果你现在点击查看记录，会提示完全无法解析的，先别管它）\n\n三、到dot.tk上修改dns域名解析设置\n①登录后点击修改域名，修改\n\n②\n选择使用自定义dns服务器之后，在点击设定，输入刚刚的那两个dns服务器名称即可，不需要输入ip地址，你也没法输入。前面三个服务器最好添加上。\n\n③\n设置完成后，右下角有个下一步，点击后，当你看到成功更新时，你的设置就成功了！\n不过还差最后一步。\n\n四、到blog.cd上绑定域名\n①登录blog.cd，账户中心，域名绑定，域名绑定\n\n②\n输入不带www.的（saiya.tk）域名以及带www.的（www.saiya.tk）域名（两个哦），这样你的域名有没有www.都能打开了\n\n\n③完成之后就是这样了\n\n这样，就大功告成了！这些设置不会立即生效，据说得半个小时，耐心啊！如果你立马输入你的.tk域名很有可能浏览器给的提示是找不到该页面，因为刚刚设置的域名解析还没正式生效呢。如果你登录dnspod账户，管理页面也会提示dns设置有误，让你到注册域名的地方修改dns服务器，别管它，耐心等待即可。\n如果你想多注册几个.tk域名绑定你的blog.cd博客，那你得相应的多注册几个dnspod，因为免费版的dnspod一个账户只能给一个域名提供域名解析。.tk、blog.cd、dnspod免费网站的最佳组合啊！\n祝你好运！\n","dateCreated":"2011-05-01T16:51:45+00:00","dateModified":"2021-10-30T09:55:05+00:00","datePublished":"2011-05-01T16:51:45+00:00","description":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。 blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。 最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很...","headline":"[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/assets/avatar.jpg"}},"url":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html","keywords":"网站, 域名, 绑定, 解析"}</script>
     <meta name="description" content="如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。 blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。 最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pAG8qMZBOd5uNcrilSRZwn5fUlqNs0-F1V2gJU1r99Nq9b2neeTH_gWXdPN_xL-2nkV2249-K2jJ1HxXLf1_v5oR6Bals3NPjVN_bZAWBru4/blogcd12.JPEG?psid=1">
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pNgVTGyJvzMwtmXc_hHDGlqr8O67eQy4wE8mXBvtCUOlKn4wm2HAguI-uPE2G6LTv1_skpZ5nrtqenM60XKLEHHjKMTL-OofyUIh6MSLTmtQ/blogcd13.jpg?psid=1">
 <meta property="article:published_time" content="2011-05-01T16:51:45.000Z">
-<meta property="article:modified_time" content="2020-05-13T14:35:18.544Z">
+<meta property="article:modified_time" content="2021-10-30T09:55:05.937Z">
 <meta property="article:author" content="Saiya">
 <meta property="article:tag" content="网站">
 <meta property="article:tag" content="域名">
@@ -52,14 +52,14 @@
         
     
     
-        <meta property="og:image" content="//evecalm.com/css/avatar.jpg"/>
+        <meta property="og:image" content="//evecalm.com/assets/avatar.jpg"/>
     
     
     
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-z13dipjnkq3kwxeyue6t5f4pybrc9zi6kkvspwztovty3illgpkal5jpdo4j.min.css">
+<link rel="stylesheet" href="/assets/css/style-zsksbriqt95kebhbg7vfh7q1w5snzamplg3zxzewxylta0nhih6305jtxehk.min.css">
 
     <!--STYLES END-->
     
@@ -111,7 +111,7 @@
             >
         
         
-            <img class="header-picture" src="//evecalm.com/css/avatar.jpg" alt="作者的图片"/>
+            <img class="header-picture" src="//evecalm.com/assets/avatar.jpg" alt="作者的图片"/>
         
         </a>
     
@@ -132,7 +132,7 @@
                     href="/#about"
                     aria-label="阅读有关作者的更多信息"
                 >
-                    <img class="sidebar-profile-picture" src="//evecalm.com/css/avatar.jpg" alt="作者的图片"/>
+                    <img class="sidebar-profile-picture" src="//evecalm.com/assets/avatar.jpg" alt="作者的图片"/>
                 </a>
                 <h4 class="sidebar-profile-name">Saiya</h4>
                 
@@ -312,43 +312,43 @@
         <div class="main-content-wrap">
             <p>如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。</p>
 <p>blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。</p>
-<p>最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很容易就打开的是一个未激活的的广告网页，而非自己绑定的博客。而dot.tk支持自定义域名解析服务器，于是想使用第三方免费的dns服务器。在网上搜了一下很多人推荐使用免费的DnsPod（<a href="http://www.dnspod.com" target="_blank" rel="noopener" title="dnspod">dnspod.com</a>），但是网上的教程太粗糙了，不够详细，自己在设置的时候老是提示域名解析有问题，试了好几次，最终，大功告成。现在分享一下经验，希望对你有所帮助。</p>
+<p>最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很容易就打开的是一个未激活的的广告网页，而非自己绑定的博客。而dot.tk支持自定义域名解析服务器，于是想使用第三方免费的dns服务器。在网上搜了一下很多人推荐使用免费的DnsPod（<a target="_blank" rel="noopener" href="http://www.dnspod.com/" title="dnspod">dnspod.com</a>），但是网上的教程太粗糙了，不够详细，自己在设置的时候老是提示域名解析有问题，试了好几次，最终，大功告成。现在分享一下经验，希望对你有所帮助。</p>
 <p>一、你应该在.blog.cd注册了自己的博客，在dot.tk申请了免费域名。</p>
 <p>二、在dnspod.com上注册。注册完成之后会有一个首次使用向导。这里是关键！</p>
 <p>①输入自己申请的.tk域名（saiya.tk是本人的域名）</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pOYxHRJ5Wf921yyNrvN3hF337i_SmKqUB3psGCUpuq39Q7Wb7q9KzFpYC3eAydDh3MQESXibtOjA9VQGS_w_CdTQFUq3v8AiJu-qcPVoAy0Q/blogcd1.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pOYxHRJ5Wf921yyNrvN3hF337i_SmKqUB3psGCUpuq39Q7Wb7q9KzFpYC3eAydDh3MQESXibtOjA9VQGS_w_CdTQFUq3v8AiJu-qcPVoAy0Q/blogcd1.jpg?psid=1"></p>
 <p>②这一步默认即可</p>
 <p>（因为我的已经设置成功了，不想再重新设置，于是便随手输入了saiiya.tk做示范）</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pjuPXWZMZRBZpzexrnkN7WVwadTSlWvKuCyOBfNdNvHCQXFnAm6y27louisoyFyuQve_WloKbn84qozEx9lc9YPiIFrHB6yeV1TehvQmP0vM/blogcd2.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pjuPXWZMZRBZpzexrnkN7WVwadTSlWvKuCyOBfNdNvHCQXFnAm6y27louisoyFyuQve_WloKbn84qozEx9lc9YPiIFrHB6yeV1TehvQmP0vM/blogcd2.jpg?psid=1"></p>
 <p>③这个ip地址就是blog.cd的地址，和我填一样就行</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pCHFntMYumPyCeD88Uo-uJ-ho-w8M0l8kYhgD7CChI9BKQhCRnGZyDjyOG6t8UNtxznbmN7aVhGp4eX_nk3NFw3SRuo2DBtr6hS1xjQVnlHs/blogcd3.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pCHFntMYumPyCeD88Uo-uJ-ho-w8M0l8kYhgD7CChI9BKQhCRnGZyDjyOG6t8UNtxznbmN7aVhGp4eX_nk3NFw3SRuo2DBtr6hS1xjQVnlHs/blogcd3.jpg?psid=1"></p>
 <p>④这一步你可以选择否也可以选择其他</p>
 <p>（如果你和我选择的一样，那你得注册腾讯企业邮箱，网址exmail.qq.com。 注册之后输入你申请的域名就会得到形如qqmaile123456a的CNAME验证地址）</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pnTWOJSX3ryfkfXHjHElgky14-vqBLeHZXVquvUDeq5WnNd26_dtYfWlm9dpGwGd03HJ2nmyRHM1-8dC6wPONb26bfbIcbQ3n1dw7IKNhozo/blogcd4.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pnTWOJSX3ryfkfXHjHElgky14-vqBLeHZXVquvUDeq5WnNd26_dtYfWlm9dpGwGd03HJ2nmyRHM1-8dC6wPONb26bfbIcbQ3n1dw7IKNhozo/blogcd4.jpg?psid=1"></p>
 <p>⑤点击生成记录即可</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pT0W0nE0ov4aFP-gS3fxOBGkGWO0J5oPC9nOe9rtA4kelAjkq59XwMOILVK0bCZ5V5vT8nkmBeGMLYWW8l5oss2UZrlnkHue3El1LTYTf2RY/blogcd5.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pT0W0nE0ov4aFP-gS3fxOBGkGWO0J5oPC9nOe9rtA4kelAjkq59XwMOILVK0bCZ5V5vT8nkmBeGMLYWW8l5oss2UZrlnkHue3El1LTYTf2RY/blogcd5.jpg?psid=1"></p>
 <p>⑥到了这一步就完成了一大半了</p>
 <p>（如果你现在点击查看记录，会提示完全无法解析的，先别管它）</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pn57XaNwsFq1DLVs_1k0TYu0FMnK9MSESJNBDqUswWmfZv06FuoNb5tRdJVWsgWzvOiGAuRVuCXmSnG_p5ijJPyZ5Fxd8FRlum393XVvDGxg/blogcd6.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pn57XaNwsFq1DLVs_1k0TYu0FMnK9MSESJNBDqUswWmfZv06FuoNb5tRdJVWsgWzvOiGAuRVuCXmSnG_p5ijJPyZ5Fxd8FRlum393XVvDGxg/blogcd6.jpg?psid=1"></p>
 <p>三、到dot.tk上修改dns域名解析设置</p>
 <p>①登录后点击修改域名，修改</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2p7oUa8i9y61d0NXwbn16h9bss0a8p7O15eFoOU3NYNK55aY6GKy0p-QZszwOmpuwMwZivT3lKJyoK-pKsKv3InJnhOZj3yf6267Oa79NmS48/blogcd7.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2p7oUa8i9y61d0NXwbn16h9bss0a8p7O15eFoOU3NYNK55aY6GKy0p-QZszwOmpuwMwZivT3lKJyoK-pKsKv3InJnhOZj3yf6267Oa79NmS48/blogcd7.jpg?psid=1"></p>
 <p>②</p>
 <p>选择使用自定义dns服务器之后，在点击设定，输入刚刚的那两个dns服务器名称即可，不需要输入ip地址，你也没法输入。前面三个服务器最好添加上。</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pIXizKDHPIj1izXoQsl8XMLfDtgZTIyy9cV-qXqPueqfvd3iYqGAfK6z65ScOHqTTco1RuhWdpXPBBFsM0lqASqmIMh-jmEjJs_uM4BC2UG8/blogcd8.JPEG?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pIXizKDHPIj1izXoQsl8XMLfDtgZTIyy9cV-qXqPueqfvd3iYqGAfK6z65ScOHqTTco1RuhWdpXPBBFsM0lqASqmIMh-jmEjJs_uM4BC2UG8/blogcd8.JPEG?psid=1"></p>
 <p>③</p>
 <p>设置完成后，右下角有个下一步，点击后，当你看到成功更新时，你的设置就成功了！</p>
 <p>不过还差最后一步。</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2p9H3HuF4ohSst7zUHCIFoG8ndQsuPOgED6RXJFKzXd1owz3sk1IOi_ydM_eS6S9LylmDL-08ktIHtJb1YnK0ft5TOuWN_nZ70DLepubVW0bg/blogcd9.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2p9H3HuF4ohSst7zUHCIFoG8ndQsuPOgED6RXJFKzXd1owz3sk1IOi_ydM_eS6S9LylmDL-08ktIHtJb1YnK0ft5TOuWN_nZ70DLepubVW0bg/blogcd9.jpg?psid=1"></p>
 <p>四、到blog.cd上绑定域名</p>
 <p>①登录blog.cd，账户中心，域名绑定，域名绑定</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pzNLChLUWh8FUxPcOQ5KqpE0RhWe7RAPUwPiV_y1TLMVr-I1FehGFu0rbLNdpvJERxDQQ2yTOyAwLeRqerlMCRIcj3QVtvYtT_33QKKe0dI4/blogcd10.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pzNLChLUWh8FUxPcOQ5KqpE0RhWe7RAPUwPiV_y1TLMVr-I1FehGFu0rbLNdpvJERxDQQ2yTOyAwLeRqerlMCRIcj3QVtvYtT_33QKKe0dI4/blogcd10.jpg?psid=1"></p>
 <p>②</p>
-<p>输入不带www.的（saiya.tk）域名以及带www.的（<a href="http://www.saiya.tk/" target="_blank" rel="noopener">www.saiya.tk</a>）域名（两个哦），这样你的域名有没有www.都能打开了</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2p1R96INuxQKE1Z1XbrFVvnwmmjvXuId_d1yRhvARretolNLbbAEX1QanmZwHZfMqgDNTFZkoNjTfm-CEJyRd2AylwKH7ok197cg18ZX_Z1RE/blogcd11.JPEG?psid=1" alt=""></p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pAG8qMZBOd5uNcrilSRZwn5fUlqNs0-F1V2gJU1r99Nq9b2neeTH_gWXdPN_xL-2nkV2249-K2jJ1HxXLf1_v5oR6Bals3NPjVN_bZAWBru4/blogcd12.JPEG?psid=1" alt=""></p>
+<p>输入不带www.的（saiya.tk）域名以及带www.的（<a target="_blank" rel="noopener" href="http://www.saiya.tk/">www.saiya.tk</a>）域名（两个哦），这样你的域名有没有www.都能打开了</p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2p1R96INuxQKE1Z1XbrFVvnwmmjvXuId_d1yRhvARretolNLbbAEX1QanmZwHZfMqgDNTFZkoNjTfm-CEJyRd2AylwKH7ok197cg18ZX_Z1RE/blogcd11.JPEG?psid=1"></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pAG8qMZBOd5uNcrilSRZwn5fUlqNs0-F1V2gJU1r99Nq9b2neeTH_gWXdPN_xL-2nkV2249-K2jJ1HxXLf1_v5oR6Bals3NPjVN_bZAWBru4/blogcd12.JPEG?psid=1"></p>
 <p>③完成之后就是这样了</p>
-<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pNgVTGyJvzMwtmXc_hHDGlqr8O67eQy4wE8mXBvtCUOlKn4wm2HAguI-uPE2G6LTv1_skpZ5nrtqenM60XKLEHHjKMTL-OofyUIh6MSLTmtQ/blogcd13.jpg?psid=1" alt=""></p>
+<p><img src="https://yqmfyg.bn1.livefilestore.com/y2pNgVTGyJvzMwtmXc_hHDGlqr8O67eQy4wE8mXBvtCUOlKn4wm2HAguI-uPE2G6LTv1_skpZ5nrtqenM60XKLEHHjKMTL-OofyUIh6MSLTmtQ/blogcd13.jpg?psid=1"></p>
 <p>这样，就大功告成了！这些设置不会立即生效，据说得半个小时，耐心啊！如果你立马输入你的.tk域名很有可能浏览器给的提示是找不到该页面，因为刚刚设置的域名解析还没正式生效呢。如果你登录dnspod账户，管理页面也会提示dns设置有误，让你到注册域名的地方修改dns服务器，别管它，耐心等待即可。</p>
 <p>如果你想多注册几个.tk域名绑定你的blog.cd博客，那你得相应的多注册几个dnspod，因为免费版的dnspod一个账户只能给一个域名提供域名解析。.tk、blog.cd、dnspod免费网站的最佳组合啊！</p>
 <p>祝你好运！</p>
@@ -363,7 +363,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag">域名</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E7%BB%91%E5%AE%9A/" rel="tag">绑定</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a> <a class="tag tag--primary tag--small t-link" href="/tags/%E8%A7%A3%E6%9E%90/" rel="tag">解析</a>
+    <a class="tag tag--primary tag--small t-none-link" href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag">域名</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E7%BB%91%E5%AE%9A/" rel="tag">绑定</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E8%A7%A3%E6%9E%90/" rel="tag">解析</a>
 
             </div>
         
@@ -502,7 +502,7 @@
         
             
                 <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
             
         
@@ -513,7 +513,7 @@
 
                 <footer id="footer" class="main-content-wrap">
     <span class="copyrights">
-        Copyrights &copy; 2020 Saiya. All Rights Reserved.
+        Copyrights &copy; 2021 Saiya. All Rights Reserved.
     </span>
 </footer>
 
@@ -740,7 +740,7 @@
             <i class="fa fa-times"></i>
         </div>
         
-            <img id="about-card-picture" src="//evecalm.com/css/avatar.jpg" alt="作者的图片"/>
+            <img id="about-card-picture" src="//evecalm.com/assets/avatar.jpg" alt="作者的图片"/>
         
             <h4 id="about-card-name">Saiya</h4>
         
@@ -842,7 +842,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p></p> <p>七月の友だち（七月之友）是由日本的熊杏木里演唱的。在前一段时间，小丽不开心时介绍给了她，结果她说很喜欢。到现在，每次听到这首歌的时候就会想起她，也许是因为觉得这首歌和她比较像吧，淡淡的，淡淡的忧伤。</p> <p>在线试听：</p> <p><a href="http://dl.dbank.com/c011a8nxcz" target="_blank" rel="noopener" title="数据银行">音乐下载</a></p> </div>
+                        <div class="media-content hide-xs font-merryweather"><p></p> <p>七月の友だち（七月之友）是由日本的熊杏木里演唱的。在前一段时间，小丽不开心时介绍给了她，结果她说很喜欢。到现在，每次听到这首歌的时候就会想起她，也许是因为觉得这首歌和她比较像吧，淡淡的，淡淡的忧伤。</p> <p>在线试听：</p> <p><a target="_blank" rel="noopener" href="http://dl.dbank.com/c011a8nxcz" title="数据银行">音乐下载</a></p> </div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -865,7 +865,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p></p> <p>《I Cry》是由日本歌手有里知花演唱的。第一次听到这首歌的时候，被美妙的声音吸引，真的是一首很不错的英文歌，歌词也很美！</p> <p><a href="http://dl.dbank.com/c03jlmmbzr" target="_blank" rel="noopener" title="数据银行">音乐下载</a></p> <p>歌词：</p> <p>Every night I find it’s so hard to sleep</p> <p>每一夜我都觉得很难入睡</p> <p>‘Cause I keep thinking of you</p> <p>是因为我很想你</p> <p>And these feelings run deep</p> <p>这种感觉很强烈</p> <p>O...</p></div>
+                        <div class="media-content hide-xs font-merryweather"><p></p> <p>《I Cry》是由日本歌手有里知花演唱的。第一次听到这首歌的时候，被美妙的声音吸引，真的是一首很不错的英文歌，歌词也很美！</p> <p><a target="_blank" rel="noopener" href="http://dl.dbank.com/c03jlmmbzr" title="数据银行">音乐下载</a></p> <p>歌词：</p> <p>Every night I find it’s so hard to sleep</p> <p>每一夜我都觉得很难入睡</p> <p>‘Cause I keep thinking of you</p> <p>是因为我很想你</p> <p>And these feelings run deep</p> <p>这种感觉很强烈</p> <p>O...</p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -888,7 +888,7 @@
                                 
                             </span>
                         </span>
-                        <div class="media-content hide-xs font-merryweather"><p></p> <p>当阳光还没有羞红第一缕朝阳</p> <p>疲惫的心又开始流浪</p> <p>挂在拥挤的公车上</p> <p>满目睡眼惺忪的脸庞</p> <p>窗外人车熙攘</p> <p>可有谁会注意你的悲伤</p> <p>渐少的纯真负重了青春的翅膀</p> <p>梦想</p> <p>还能否让你充满力量</p> <p>将别的校园是最后的天堂</p> <p>努力</p> <p>你能看到多少希望</p> <p>越是准备却越彷徨</p> <p>未来</p> <p>不是可以选择的鱼和熊掌</p> <p>看着前辈的白发苍苍</p> <p>就像看到了自己的模样</p> <p>只是爱情</p> <p>在某个未知的地方</p> <p>依然在生长</p> <p>简单</p> <p>却几乎只能成为一种信仰</p> <p>文/记得 <a href="http://521xuan.diandian.com/" target="_blank" rel="noopener">ht...</a></p></div>
+                        <div class="media-content hide-xs font-merryweather"><p></p> <p>当阳光还没有羞红第一缕朝阳</p> <p>疲惫的心又开始流浪</p> <p>挂在拥挤的公车上</p> <p>满目睡眼惺忪的脸庞</p> <p>窗外人车熙攘</p> <p>可有谁会注意你的悲伤</p> <p>渐少的纯真负重了青春的翅膀</p> <p>梦想</p> <p>还能否让你充满力量</p> <p>将别的校园是最后的天堂</p> <p>努力</p> <p>你能看到多少希望</p> <p>越是准备却越彷徨</p> <p>未来</p> <p>不是可以选择的鱼和熊掌</p> <p>看着前辈的白发苍苍</p> <p>就像看到了自己的模样</p> <p>只是爱情</p> <p>在某个未知的地方</p> <p>依然在生长</p> <p>简单</p> <p>却几乎只能成为一种信仰</p> <p>文/记得 <a target="_blank" rel="noopener" href="http://521xuan.diandian.com/">ht...</a></p></div>
                     </div>
                     <div style="clear:both;"></div>
                     <hr>
@@ -1027,7 +1027,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-gn5ewbtzwjbxf8i1sex3m0ospxwzw9oz1szyp4qtshokdyikvjlnx3tqoppy.min.js"></script>
+<script src="/assets/js/script-afxye6oymok4vvkdgncxiyfkutam8agofo5o1u4hfz9zcemhzskapxbze5uu.min.js"></script>
 
 <!--SCRIPTS END-->
 
