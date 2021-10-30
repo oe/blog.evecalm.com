@@ -28,14 +28,15 @@ jobs:
 
     - name: install deps
       run: yarn
-
     - name: build blog
       run: yarn build
-    - name: copy .gitignore
-      run: cp .gitignore ./public
     - name: Deploy to GitHub Pages
-      uses: Cecilapp/GitHub-Pages-deploy@master
+      uses: Cecilapp/GitHub-Pages-deploy@3.1.0
       env:
-        EMAIL: okarl@outlook.com
-        GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BUILD_DIR: public # folder the action should deploy.
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        email: okarl@outlook.com
+        branch: gh-pages   # optional
+        build_dir: public # folder the action should deploy.
+        jekyll: no
+
