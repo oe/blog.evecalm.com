@@ -17,7 +17,7 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg"},"articleBody":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。\nblog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。\n最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很容易就打开的是一个未激活的的广告网页，而非自己绑定的博客。而dot.tk支持自定义域名解析服务器，于是想使用第三方免费的dns服务器。在网上搜了一下很多人推荐使用免费的DnsPod（dnspod.com），但是网上的教程太粗糙了，不够详细，自己在设置的时候老是提示域名解析有问题，试了好几次，最终，大功告成。现在分享一下经验，希望对你有所帮助。\n一、你应该在.blog.cd注册了自己的博客，在dot.tk申请了免费域名。\n二、在dnspod.com上注册。注册完成之后会有一个首次使用向导。这里是关键！\n①输入自己申请的.tk域名（saiya.tk是本人的域名）\n\n②这一步默认即可\n（因为我的已经设置成功了，不想再重新设置，于是便随手输入了saiiya.tk做示范）\n\n③这个ip地址就是blog.cd的地址，和我填一样就行\n\n④这一步你可以选择否也可以选择其他\n（如果你和我选择的一样，那你得注册腾讯企业邮箱，网址exmail.qq.com。 注册之后输入你申请的域名就会得到形如qqmaile123456a的CNAME验证地址）\n\n⑤点击生成记录即可\n\n⑥到了这一步就完成了一大半了\n（如果你现在点击查看记录，会提示完全无法解析的，先别管它）\n\n三、到dot.tk上修改dns域名解析设置\n①登录后点击修改域名，修改\n\n②\n选择使用自定义dns服务器之后，在点击设定，输入刚刚的那两个dns服务器名称即可，不需要输入ip地址，你也没法输入。前面三个服务器最好添加上。\n\n③\n设置完成后，右下角有个下一步，点击后，当你看到成功更新时，你的设置就成功了！\n不过还差最后一步。\n\n四、到blog.cd上绑定域名\n①登录blog.cd，账户中心，域名绑定，域名绑定\n\n②\n输入不带www.的（saiya.tk）域名以及带www.的（www.saiya.tk）域名（两个哦），这样你的域名有没有www.都能打开了\n\n\n③完成之后就是这样了\n\n这样，就大功告成了！这些设置不会立即生效，据说得半个小时，耐心啊！如果你立马输入你的.tk域名很有可能浏览器给的提示是找不到该页面，因为刚刚设置的域名解析还没正式生效呢。如果你登录dnspod账户，管理页面也会提示dns设置有误，让你到注册域名的地方修改dns服务器，别管它，耐心等待即可。\n如果你想多注册几个.tk域名绑定你的blog.cd博客，那你得相应的多注册几个dnspod，因为免费版的dnspod一个账户只能给一个域名提供域名解析。.tk、blog.cd、dnspod免费网站的最佳组合啊！\n祝你好运！\n","dateCreated":"2011-05-01T16:51:45+00:00","dateModified":"2021-10-30T09:55:05+00:00","datePublished":"2011-05-01T16:51:45+00:00","description":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。 blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。 最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很...","headline":"[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/assets/avatar.jpg"}},"url":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html","keywords":"网站, 域名, 绑定, 解析"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg"},"articleBody":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。\nblog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。\n最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很容易就打开的是一个未激活的的广告网页，而非自己绑定的博客。而dot.tk支持自定义域名解析服务器，于是想使用第三方免费的dns服务器。在网上搜了一下很多人推荐使用免费的DnsPod（dnspod.com），但是网上的教程太粗糙了，不够详细，自己在设置的时候老是提示域名解析有问题，试了好几次，最终，大功告成。现在分享一下经验，希望对你有所帮助。\n一、你应该在.blog.cd注册了自己的博客，在dot.tk申请了免费域名。\n二、在dnspod.com上注册。注册完成之后会有一个首次使用向导。这里是关键！\n①输入自己申请的.tk域名（saiya.tk是本人的域名）\n\n②这一步默认即可\n（因为我的已经设置成功了，不想再重新设置，于是便随手输入了saiiya.tk做示范）\n\n③这个ip地址就是blog.cd的地址，和我填一样就行\n\n④这一步你可以选择否也可以选择其他\n（如果你和我选择的一样，那你得注册腾讯企业邮箱，网址exmail.qq.com。 注册之后输入你申请的域名就会得到形如qqmaile123456a的CNAME验证地址）\n\n⑤点击生成记录即可\n\n⑥到了这一步就完成了一大半了\n（如果你现在点击查看记录，会提示完全无法解析的，先别管它）\n\n三、到dot.tk上修改dns域名解析设置\n①登录后点击修改域名，修改\n\n②\n选择使用自定义dns服务器之后，在点击设定，输入刚刚的那两个dns服务器名称即可，不需要输入ip地址，你也没法输入。前面三个服务器最好添加上。\n\n③\n设置完成后，右下角有个下一步，点击后，当你看到成功更新时，你的设置就成功了！\n不过还差最后一步。\n\n四、到blog.cd上绑定域名\n①登录blog.cd，账户中心，域名绑定，域名绑定\n\n②\n输入不带www.的（saiya.tk）域名以及带www.的（www.saiya.tk）域名（两个哦），这样你的域名有没有www.都能打开了\n\n\n③完成之后就是这样了\n\n这样，就大功告成了！这些设置不会立即生效，据说得半个小时，耐心啊！如果你立马输入你的.tk域名很有可能浏览器给的提示是找不到该页面，因为刚刚设置的域名解析还没正式生效呢。如果你登录dnspod账户，管理页面也会提示dns设置有误，让你到注册域名的地方修改dns服务器，别管它，耐心等待即可。\n如果你想多注册几个.tk域名绑定你的blog.cd博客，那你得相应的多注册几个dnspod，因为免费版的dnspod一个账户只能给一个域名提供域名解析。.tk、blog.cd、dnspod免费网站的最佳组合啊！\n祝你好运！\n","dateCreated":"2011-05-01T16:51:45+00:00","dateModified":"2021-10-31T17:01:39+00:00","datePublished":"2011-05-01T16:51:45+00:00","description":"如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。 blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。 最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很...","headline":"[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/assets/avatar.jpg"}},"url":"https://blog.evecalm.com/2011/05/blog-cd-blog-bind-tk-domain-name-and-use-dnspod-analysis-tutorial.html","keywords":"网站, 域名, 绑定, 解析"}</script>
     <meta name="description" content="如果你在使用其他支持域名绑定的博客也遇到这个问题，也可以看看本教程。 blog.cd是一个不错的wordpress博客，其功能没有什么限制，唯一的不足就是免费空间有点小，只有500M。 最近申请了一个blog.cd博客，因为blog.cd支持域名绑定，于是又在dot.tk上申请了一个免费的.tk顶级域名，并使用了.tk免费提供的域名解析服务绑定了自己的博客，但在完成后测试发现其域名解析极不稳定，很">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[建站]blog.cd博客绑定.tk域名并使用DnsPod解析域名教程">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pAG8qMZBOd5uNcrilSRZwn5fUlqNs0-F1V2gJU1r99Nq9b2neeTH_gWXdPN_xL-2nkV2249-K2jJ1HxXLf1_v5oR6Bals3NPjVN_bZAWBru4/blogcd12.JPEG?psid=1">
 <meta property="og:image" content="https://yqmfyg.bn1.livefilestore.com/y2pNgVTGyJvzMwtmXc_hHDGlqr8O67eQy4wE8mXBvtCUOlKn4wm2HAguI-uPE2G6LTv1_skpZ5nrtqenM60XKLEHHjKMTL-OofyUIh6MSLTmtQ/blogcd13.jpg?psid=1">
 <meta property="article:published_time" content="2011-05-01T16:51:45.000Z">
-<meta property="article:modified_time" content="2021-10-30T09:55:05.937Z">
+<meta property="article:modified_time" content="2021-10-31T17:01:39.058Z">
 <meta property="article:author" content="Saiya">
 <meta property="article:tag" content="网站">
 <meta property="article:tag" content="域名">
@@ -59,7 +59,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-zsksbriqt95kebhbg7vfh7q1w5snzamplg3zxzewxylta0nhih6305jtxehk.min.css">
+<link rel="stylesheet" href="/assets/css/style-rrtwwhrla1hvdakkkhcsuqvj5oo1fctaeubljnb6hhqvppceaaaecfrtqsyt.min.css">
 
     <!--STYLES END-->
     
@@ -1016,7 +1016,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 80 篇文章
+                找到 81 篇文章
             </p>
         </div>
     </div>
@@ -1027,7 +1027,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-afxye6oymok4vvkdgncxiyfkutam8agofo5o1u4hfz9zcemhzskapxbze5uu.min.js"></script>
+<script src="/assets/js/script-mhhqp7wgc6i3wzfhhr0y2iwtyuaifbeqvcs0e7mbcdpymf60bsgntbjhugdd.min.js"></script>
 
 <!--SCRIPTS END-->
 

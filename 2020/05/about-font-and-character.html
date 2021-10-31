@@ -17,7 +17,7 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg"},"articleBody":"最近开发小软件的时候, 发现两个有意思的问题:\n\n如何让时间表示形式 aa:bb 中的 : 垂直居中显示\n在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间\n\n连字针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般的标点字符都有多种变体以适用于不同场景, 总有一款能适合我的吧. \n查阅百科发现, 冒号的确有十多种变体, 如宽度不一样的, 形状奇特的, 位置有偏移的, 等等. 可没有一个符号满足我的这个简单需求. 在尝试中, 偶然发现, 冒号两边是数字时, 冒号自然就垂直居中了, 如下图所示\n\n(如果你想自己验证该现象, 可以在最新的macOS 上安装最新版钉钉, 在输入框中输入上述文字即可)\n一切就豁然开朗了, 这就是连字 现象, 不禁觉得苹果用户体验做的很好, 极大的缓解了强迫症症状.\n连字就是将两个及以上字符合成一个字符, 连字需要在下述两种条件均满足时才会显示出效果.\n\n需要字体支持(至于哪些字符支持连字, 由字体自己控制)\n需要文字渲染引擎支持连字, 操作系统均已支持连字, 但是部分软件可能会将连字功能关闭. 前端Web开发中可以使用css属性 font-variant-ligatures 控制是否启用连字.\n\n编程字体连字的应用其实非常普遍, 对程序员来说影响最大的就是一些编程专用字体了. 所谓编程字体, 就是:\n\n将一些不容易区分的字符(如0oOLIil等)显著区分开\n借助连字特性, 将一些常用的符号组合(如 =&gt;, !=, ==, ===) 合成一个符号提供可读性\n适当调整不同字符之间的间距, 使其容易阅读识别\n\n\n编程字体推荐: ProgrammingFonts代码编辑器(IDE)开启连字功能的方法: How to enable ligatures\n字体大小再回到第二个问题, 其实问题的本质是: 「当我们设置 字体大小 时, 设置的是字体的宽还是高?」\n经过一番试验测量(使用了PixelSnap测量, 该软件为付费用软件, 但已经包含在了SetApp中)后发现:\n\n大部分西文字符在不同字体下, 字体宽度总小于 字体大小 的值(大约为 字体大小 的 0.6 ~ 0.8), 但是高度与 字体大小 一致\n中文字符(包括标点符号,即全角符号)在不同字体基本上宽高均与 字体大小 一致, 此谓 「字正腔圆」\n\n通过查阅资料字体解剖得知, 字体大小 所指的就是字体高度, 字体宽度是随字符及字体而变的\n字体类型在显示时间时, 秒数时刻在变, 不经过特殊设置, 会明显的发现整个时间字符宽度一直在不停变化, 对强迫症来说是一种煎熬. 这时候, 把字体换成一种「等宽字体」即可解决问题.\n一般设置字体时, 可以设置为某一种特定字体, 比如 Helvetica、微软雅黑, 也可以是某一种字体类型(一种字体类型会包含多种字体, 若指定为字体类型, 则由系统底层自行决定使用哪一个字体渲染). 一般字体类型有:\n\n衬线体 serif: 中文字体中也称「白体」, 此类字体会有很多点缀修饰, 如 宋体、楷体. 衬线体由于多了边角修饰, 会相对美观, 但是也多了信息噪音, 容易使用户产生视觉疲劳, 一般建议仅针对需要着重强调的文字(比如 文章标题)采用该类型的字体. 同时由于衬线体的修饰元素不规则, 会产生锯齿现象, 实际使用时应结合反锯齿技术才能达到较好的显示效果.\n无衬线体 sans-serif: 中文字体中也称「黑体」, 与衬线体相对, 该类字体没有多余的修饰, 如 微软雅黑 等. 无衬线体 适合屏幕中大量使用, 不会导致用户产生视觉疲劳问题.\n等宽字体 monospace: 此类字体每个字符宽度一致. 由于东亚的字体的字符本身基本都是等宽的, 所以一般在说等宽字体时, 都是指西文字体. 该字体的可读性较好, 一般在 代码编辑器 及 Terminal 中使用比较普遍.\n\n","dateCreated":"2020-05-17T07:55:42+00:00","dateModified":"2021-10-30T09:55:05+00:00","datePublished":"2020-05-17T07:55:42+00:00","description":"最近开发小软件的时候, 发现两个有意思的问题:  如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间  连字针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一...","headline":"[知识分享]关于字体及字符的小思考","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2020/05/about-font-and-character.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/assets/avatar.jpg"}},"url":"https://blog.evecalm.com/2020/05/about-font-and-character.html","keywords":"字体"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg"},"articleBody":"最近开发小软件的时候, 发现两个有意思的问题:\n\n如何让时间表示形式 aa:bb 中的 : 垂直居中显示\n在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间\n\n连字针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般的标点字符都有多种变体以适用于不同场景, 总有一款能适合我的吧. \n查阅百科发现, 冒号的确有十多种变体, 如宽度不一样的, 形状奇特的, 位置有偏移的, 等等. 可没有一个符号满足我的这个简单需求. 在尝试中, 偶然发现, 冒号两边是数字时, 冒号自然就垂直居中了, 如下图所示\n\n(如果你想自己验证该现象, 可以在最新的macOS 上安装最新版钉钉, 在输入框中输入上述文字即可)\n一切就豁然开朗了, 这就是连字 现象, 不禁觉得苹果用户体验做的很好, 极大的缓解了强迫症症状.\n连字就是将两个及以上字符合成一个字符, 连字需要在下述两种条件均满足时才会显示出效果.\n\n需要字体支持(至于哪些字符支持连字, 由字体自己控制)\n需要文字渲染引擎支持连字, 操作系统均已支持连字, 但是部分软件可能会将连字功能关闭. 前端Web开发中可以使用css属性 font-variant-ligatures 控制是否启用连字.\n\n编程字体连字的应用其实非常普遍, 对程序员来说影响最大的就是一些编程专用字体了. 所谓编程字体, 就是:\n\n将一些不容易区分的字符(如0oOLIil等)显著区分开\n借助连字特性, 将一些常用的符号组合(如 =&gt;, !=, ==, ===) 合成一个符号提供可读性\n适当调整不同字符之间的间距, 使其容易阅读识别\n\n\n编程字体推荐: ProgrammingFonts代码编辑器(IDE)开启连字功能的方法: How to enable ligatures\n字体大小再回到第二个问题, 其实问题的本质是: 「当我们设置 字体大小 时, 设置的是字体的宽还是高?」\n经过一番试验测量(使用了PixelSnap测量, 该软件为付费用软件, 但已经包含在了SetApp中)后发现:\n\n大部分西文字符在不同字体下, 字体宽度总小于 字体大小 的值(大约为 字体大小 的 0.6 ~ 0.8), 但是高度与 字体大小 一致\n中文字符(包括标点符号,即全角符号)在不同字体基本上宽高均与 字体大小 一致, 此谓 「字正腔圆」\n\n通过查阅资料字体解剖得知, 字体大小 所指的就是字体高度, 字体宽度是随字符及字体而变的\n字体类型在显示时间时, 秒数时刻在变, 不经过特殊设置, 会明显的发现整个时间字符宽度一直在不停变化, 对强迫症来说是一种煎熬. 这时候, 把字体换成一种「等宽字体」即可解决问题.\n一般设置字体时, 可以设置为某一种特定字体, 比如 Helvetica、微软雅黑, 也可以是某一种字体类型(一种字体类型会包含多种字体, 若指定为字体类型, 则由系统底层自行决定使用哪一个字体渲染). 一般字体类型有:\n\n衬线体 serif: 中文字体中也称「白体」, 此类字体会有很多点缀修饰, 如 宋体、楷体. 衬线体由于多了边角修饰, 会相对美观, 但是也多了信息噪音, 容易使用户产生视觉疲劳, 一般建议仅针对需要着重强调的文字(比如 文章标题)采用该类型的字体. 同时由于衬线体的修饰元素不规则, 会产生锯齿现象, 实际使用时应结合反锯齿技术才能达到较好的显示效果.\n无衬线体 sans-serif: 中文字体中也称「黑体」, 与衬线体相对, 该类字体没有多余的修饰, 如 微软雅黑 等. 无衬线体 适合屏幕中大量使用, 不会导致用户产生视觉疲劳问题.\n等宽字体 monospace: 此类字体每个字符宽度一致. 由于东亚的字体的字符本身基本都是等宽的, 所以一般在说等宽字体时, 都是指西文字体. 该字体的可读性较好, 一般在 代码编辑器 及 Terminal 中使用比较普遍.\n\n","dateCreated":"2020-05-17T07:55:42+00:00","dateModified":"2021-10-31T17:01:39+00:00","datePublished":"2020-05-17T07:55:42+00:00","description":"最近开发小软件的时候, 发现两个有意思的问题:  如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间  连字针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一...","headline":"[知识分享]关于字体及字符的小思考","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2020/05/about-font-and-character.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/assets/avatar.jpg"}},"url":"https://blog.evecalm.com/2020/05/about-font-and-character.html","keywords":"字体"}</script>
     <meta name="description" content="最近开发小软件的时候, 发现两个有意思的问题:  如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间  连字针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小&#x2F;颜色&#x2F;行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="[知识分享]关于字体及字符的小思考">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://yqlgmg.bn.files.1drv.com/y4mRDAovIeNXMjZ4D6PHmHqwOw0Yu8WcnbjXSaVHJ7AyvKXFNA47Dh7BbS-0-1H95FfZKWbeZyOXoCakLXn34nI5SMcCDPt-aC17Z4UL4UYcosFJQM6BYMzRvimXKfF9HH78xO5hc4cTAyBznTVDiKHhCCQH_liabO4lc8NanghuZJgBk83TjwcMCuyPziG0yoQ3C0rUCd2uKyDh0eBh-SElg">
 <meta property="og:image" content="https://bn1305files.storage.live.com/y4mXcm-u8WWUgw1rDHJZjoBPc6nj3wXvJAO59wIu2ZE4FSCrKfPXAbVittLHpZyiebyqYChqqAo5IrSIUJEfM31jDVsD4U_y4pYLH8Ks3F71M1iwmCef-I-p33yB3tpL7LVoFYXQXsTehfOOXavhZEegnVgF3Vht5d8XQTBEJb9utxijXXWUct0hqbuF4WZe8FlMyFStAmcUF0h6DFzkwsppw/fira-code.svg?psid=1&width=1360&height=2048">
 <meta property="article:published_time" content="2020-05-17T07:55:42.000Z">
-<meta property="article:modified_time" content="2021-10-30T09:55:05.937Z">
+<meta property="article:modified_time" content="2021-10-31T17:01:39.058Z">
 <meta property="article:author" content="Saiya">
 <meta property="article:tag" content="字体">
 <meta name="twitter:card" content="summary">
@@ -45,7 +45,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-zsksbriqt95kebhbg7vfh7q1w5snzamplg3zxzewxylta0nhih6305jtxehk.min.css">
+<link rel="stylesheet" href="/assets/css/style-rrtwwhrla1hvdakkkhcsuqvj5oo1fctaeubljnb6hhqvppceaaaecfrtqsyt.min.css">
 
     <!--STYLES END-->
     
@@ -1003,7 +1003,7 @@
                 data-message-zero="没有找到文章"
                 data-message-one="找到 1 篇文章"
                 data-message-other="找到 {n} 篇文章">
-                找到 80 篇文章
+                找到 81 篇文章
             </p>
         </div>
     </div>
@@ -1014,7 +1014,7 @@
 <div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-afxye6oymok4vvkdgncxiyfkutam8agofo5o1u4hfz9zcemhzskapxbze5uu.min.js"></script>
+<script src="/assets/js/script-mhhqp7wgc6i3wzfhhr0y2iwtyuaifbeqvcs0e7mbcdpymf60bsgntbjhugdd.min.js"></script>
 
 <!--SCRIPTS END-->
 
