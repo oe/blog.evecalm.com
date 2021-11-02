@@ -1,9 +1,9 @@
 var jsDestFolder = './source/assets/js/';
 var cssDestFolder = './source/assets/css/';
-var fontsDestFolder = './source/assets/fonts/';
+// var fontsDestFolder = './source/assets/fonts/';
 
 var fancyboxPath = './node_modules/@fancyapps/fancybox';
-var fontAwesomePath = './node_modules/@fortawesome/fontawesome-free';
+// var fontAwesomePath = './node_modules/@fortawesome/fontawesome-free';
 var jqueryPath = './node_modules/jquery';
 var gitmentPath = './node_modules/gitment';
 var gitalkPath = './node_modules/gitalk';
@@ -39,18 +39,18 @@ module.exports = function(grunt) {
           expand: true
         },
         // font-awesome
-        {
-          src: fontAwesomePath + '/css/all.css',
-          dest: cssDestFolder,
-          flatten: true,
-          expand: true
-        },
-        {
-          src: fontAwesomePath + '/webfonts/*',
-          dest: fontsDestFolder,
-          flatten: true,
-          expand: true
-        },
+        // {
+        //   src: fontAwesomePath + '/css/all.css',
+        //   dest: cssDestFolder,
+        //   flatten: true,
+        //   expand: true
+        // },
+        // {
+        //   src: fontAwesomePath + '/webfonts/*',
+        //   dest: fontsDestFolder,
+        //   flatten: true,
+        //   expand: true
+        // },
         // jquery
         {
           src: jqueryPath + '/dist/jquery.js',
