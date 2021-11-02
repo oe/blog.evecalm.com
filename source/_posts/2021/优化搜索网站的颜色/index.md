@@ -3,6 +3,7 @@ title: 优化搜索网站的颜色
 date: 2021-10-31 11:38:57
 uri: optimize-search-app-color
 tags:
+  - 颜色
 categories: 技术
 ---
 
@@ -26,12 +27,12 @@ categories: 技术
 因为网站背景色会不断变化, 就很容易出现网站中心内容的文字在浅色背景下难以辨认的问题, 虽然给内容区域添加了半透明背景, 但情况依旧没有改善. 于是乎, 我想到将文字颜色设置成主题色的反转色, 以此来增强文字的辨识度, 提升可读性. 这里我使用了一个css 的 `filter` 属性:
   > `filter: invert(100%)`, 详细可 [参考mdn](http://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert())
 
-最终的效果的确令人满意, 但并不是我一开始期望的主题色的反转色, 而是将文字原本的蓝色主色调反转成了某全球知名视频网站的主色调: 金黄色. 阴差阳错的发现, 这种黄色在各种背景图下辨识度都非常好. 虽然这个颜色看来有点不太舒服, 还是将错就错吧, 懒得改了. 下面是最终的效果图.
+最终的效果的确令人满意, 但并非我一开始期望的主题色的反转色, 而是将文字原本的蓝色主色调反转成了某全球知名视频网站的主色调: 金黄色. 阴差阳错的发现, 这种黄色在各种背景图下辨识度都非常好. 虽然这个颜色看来有点不太舒服, 还是将错就错吧, 懒得改了. 下面是最终的效果图.
 
 ![增加反转色之后](./after-add-inverse-color.jpg "增加反转色之后")
 
 相关链接:
-1. <https://search.evecalm.com/>, 可访问以体验效果
+1. <https://search.evecalm.com/>, 可使用 Safari 15 或者 最新的安卓原生浏览器 访问以体验效果
 2. [theme-color.ts](https://github.com/oe/search/blob/e54e50ee18/src/background/theme-color.ts), 核心代码实现
 
 
