@@ -2,27 +2,27 @@
 // --------------------------------------------
 
 // Font families
-$open-sans:            'Open Sans';
-$open-sans-sans-serif: 'Open Sans', sans-serif;
-$merriweather-serif:   'Merriweather', serif;
-$monospace:             Menlo, Consolas, monospace;
+// $open-sans:            'Open Sans';
+// $open-sans-sans-serif: 'Open Sans', sans-serif;
+$merriweather-serif:  inherit;
+// $monospace:             Menlo, Consolas, monospace;
 
-$font-family-base: $open-sans-sans-serif;
+// $font-family-base: $open-sans-sans-serif;
 
 $font-families: (
    // base
-   'headings':          $open-sans-sans-serif,
+//    'headings':          $open-sans-sans-serif,
    // components
-   'code':              $monospace,
-   'caption':           $merriweather-serif,
-   'image-gallery':     $open-sans,
-   'post-header-cover': $merriweather-serif,
-   'post-meta':         $open-sans-sans-serif,
-   'post-content':      $merriweather-serif,
-   'post-excerpt-link': $open-sans-sans-serif,
-   'highlight':         $monospace,
+//    'code':              monospace,
+//    'caption':           $merriweather-serif,
+//    'image-gallery':     $open-sans,
+//    'post-header-cover': $merriweather-serif,
+//    'post-meta':         $open-sans-sans-serif,
+//    'post-content':      $merriweather-serif,
+//    'post-excerpt-link': $open-sans-sans-serif,
+   'highlight':         monospace,
    // layout
-   'sidebar':           $open-sans-sans-serif
+//    'sidebar':           $open-sans-sans-serif
 );
 
 // equal to 15px

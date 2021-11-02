@@ -79,21 +79,21 @@ theme: tranquilpeak
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
-algolia:
-  appId: "1QD7WF16CP"
-  apiKey: "c5f8df1b5eb6749ca8cfb68d3768b703"
-  adminApiKey: ""
-  chunkSize: 5000
-  indexName: "blog-evecalm-com"
-  fields:
-    - title
-    - date
-    - permalink
-    - thumbnailImageUrl
-    - tags
-    - categories
-    - excerpt
-    - excerpt:strip
+# algolia:
+#   appId: "1QD7WF16CP"
+#   apiKey: "c5f8df1b5eb6749ca8cfb68d3768b703"
+#   adminApiKey: ""
+#   chunkSize: 5000
+#   indexName: "blog-evecalm-com"
+#   fields:
+#     - title
+#     - date
+#     - permalink
+#     - thumbnailImageUrl
+#     - tags
+#     - categories
+#     - excerpt
+#     - excerpt:strip
 plugin:
 - hexo-generator-feed
 #Feed Atom

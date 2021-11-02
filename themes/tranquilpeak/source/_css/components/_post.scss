@@ -33,7 +33,7 @@
         font-family:    map-get($font-families, 'post-content');
         color:          map-get($colors, base);
         margin-top:     20px;
-        font-weight:    400;
+        font-weight:    300;
         overflow:       hidden;
         @include prefix('hypens', 'auto', 'webkit' 'moz');
 
