@@ -10,7 +10,7 @@ categories: Tech-Issue
 
 ## 开发问题
 ### 在 Nodejs 中发起HTTP请求遇到 `unable to verify the first certificate`错误
-近期有用于反馈： 同一个API接口，在浏览器、安卓客户端、iOS客户端、小程序里都能正常调用，但是在Nodejs 中却遇到了  `unable to verify the first certificate` 错误。
+近期有用户反馈： 同一个API接口，在浏览器、安卓客户端、iOS客户端、小程序里都能正常调用，但是在Nodejs 中却遇到了  `unable to verify the first certificate` 错误。
 
 经过一番研究，发现这是目标网站证书配置错误导致的问题，在Nodejs这一侧解决的方案也很简单，有两个方法：
 * 使用第三方包 [ssl-root-cas](https://www.npmjs.com/package/ssl-root-cas): `require('https').globalAgent.options.ca = require('ssl-root-cas/latest').create()`  让 Nodejs 能正确校验网站证书
