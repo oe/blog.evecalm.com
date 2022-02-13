@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>夏影の博客</title>
+  <icon>https://blog.evecalm.com/assets/images/favicon.png</icon>
+  
+  <link href="https://blog.evecalm.com/atom.xml" rel="self"/>
+  
+  <link href="https://blog.evecalm.com/"/>
+  <updated>2022-02-13T13:25:49.937Z</updated>
+  <id>https://blog.evecalm.com/</id>
+  
+  <author>
+    <name>Saiya</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tech Issue #2</title>
+    <link href="https://blog.evecalm.com/2022/tech-issue-2.html"/>
+    <id>https://blog.evecalm.com/2022/tech-issue-2.html</id>
+    <published>2022-02-13T09:38:11.000Z</published>
+    <updated>2022-02-13T13:25:49.937Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>距离上一篇issue 已经块两月时间, 断更也主要是因为工作太忙.  由于工作忙碌, 业余也不再有啥有意思的个人项目了. 果然, 摸鱼才是第一创造力🤪</p></blockquote><h2 id="低代码的下一阶段：元编程"><a href="#低代码的下一阶段：元编程" class="headerlink" title="低代码的下一阶段：元编程"></a>低代码的下一阶段：元编程</h2><p>当前各家低码平台(这里讨论的是lowcode 非 <a href="https://github.com/kelseyhightower/nocode">nocode</a> )技术上一般是使用结构由结构化json描述用户通过可视化编辑产生的应用, 然后再通过编译或者运行时动态将json转换成可执行代码, 这种方式技术门槛低, 生成出的产物勉强可用, 但是体验性能堪忧, 相比开发人员开发的应用, 缺陷主要在于:</p><ol><li>固化、臃肿的低代码框架代码: 一个简单的hello world应用可能就有几mb之巨, 大量无用代码难以优化</li><li>冗余的包裹和嵌套: 为方便做逻辑控制、UI布局处理, 在技术实现上, 低码应用会比正常开发的代码多出很多容器、函数嵌套, 进一步损耗性能</li><li>额外的学习成本: 低代码在我们常见的技术之上做了包装, 产生了一套自己的技术体系, 然而这一套技术体系并不是一个行业标准, 你需要为这个低码平台学习一套一次性的知识, 如果你要更换到另一个低码平台, 不好意思你得重新再学习一遍</li><li>难以复用现有的组件库: 在低码平台中, 组件库的开发工作占的比重比较大, 由于低码平台大多是有一套自己私有的组件开发规范, 导致你必须将自己已有的组件库重新包装甚至重写才能在低码平台中使用</li><li>难以实现自定义业务: 由于低码平台内部技术自成体系, 平台不支持的特性你很难用自定义代码实现; 由于其组件实现层层嵌套, 本来简单的样式风格调整在低码平台中也异常困难</li></ol><p>所以现在低码平台面临的状况比较尴尬: 会写代码的人不会用它, 因为会显著降低开发效率; 不会写代码的人很难用起来, 处处遇到技术壁垒, 稍微有点自定义的需求即一筹莫展.</p><p>目前仅垂直领域的低码产品比较成熟, 如面向 地产、电商、OA、运维管理的产品, 特定领域有其特定的使用场景、要解决的问题、固定的交互模式及组件等, 这种平台开发起来要简单很多, 也的确能解决实际问题. 而那些愿景是大而全(什么都能做)的低码平台反而没有什么能实际落地使用的场景, 解决不了任何实际问题, 还处于玩具阶段.</p><p>即使各种低代码平台目前都不成熟, 但它依旧会继续发展、向前进步, 毕竟它的确能解决部分场景的问题、降低成本、提升效率, 未来很诱人. 说回低码的技术上, 目前出现了一些元编程的低码平台, 能有效的解决上述的五个弊端. 所谓低代码元编程, 即将源代码作为低代码可视化编辑器的产物, 而非冗长的结构化JSON对象, 同时也可以直接修改生成的源代码, 可视化编辑器会跟随动态变化. 这样的平台已经有几家了:</p><ul><li><a href="https://github.com/imcuttle/mometa">https://github.com/imcuttle/mometa</a> 由国人业余开发, 基于 vue, 可以阅读一下它的<a href="https://github.com/imcuttle/mometa/blob/master/docs/how-to-work.md">实现原理</a></li><li><a href="https://github.com/BuilderIO/builder">https://github.com/BuilderIO/builder</a> 国外商业公司开发, 支持各种主流框架, 已经商用</li></ul><p>元编程 听起来很玄乎, 但这类产品早就面世了, Adobe 在 2005 发布的 Dreamweaver 即是这种产品: 你可以完全通过可视化界面来开发网页, 也可以直接编辑它生成的代码(它生成的代码和手写代码无异, 甚至质量更高). 另外 Visual Studio / Xcode / Android Studio 等原生客户端IDE自带的可视化开发工具也是元编程的理念. 而低码的元编程与 Dreamweaver 并无本质差异, Dreamweaver 编辑的是原生的标签、属性, 而低码元编程则是要编辑自定义标签(自定义组件)、自定义属性等. 当然低码元编程除了需要使用到最基础的语法分析技术, 还需要解决各类框架、预处理语言的问题, 有更高的技术门槛.</p><h2 id="在产品中更好的使用组件库"><a href="#在产品中更好的使用组件库" class="headerlink" title="在产品中更好的使用组件库"></a>在产品中更好的使用组件库</h2><p>一般在一个设计良好的产品中, 会有统一且一致的设计风格, 这个风格可能和我们现有(或第三方)组件库风格有差异, 而组件库为了更通用更灵活会有多种风格和用法, 但我们通常只会使用组件库的某一种风格或用法, 又或者需要一种新的风格或用法. 这里有一种更好的使用方式, 能大大提高开发效率, 这也是大家很容易想到也很容易忽略的方式:</p><ul><li>针对组件的样式、风格问题, 可以统一编写专门的样式文件去覆盖组件样式, 很多组件库都提供了less 或 sass 变量文件, 可以非常方便地修改整个组件库的样式风格</li><li>针对特定组件的用法问题(如表格组件只使用带边框风格的), 可以统一编写默认属性文件, 去定义组件的默认属性, 如react 支持使用 <a href="https://reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values">defaultProps</a> 来组件属性的默认值, 这样在使用具体组件时则可以省略掉这些本需要反复书写的默认值</li></ul><h3 id="重写NPM包依赖的依赖版本"><a href="#重写NPM包依赖的依赖版本" class="headerlink" title="重写NPM包依赖的依赖版本"></a>重写NPM包依赖的依赖版本</h3><p>日常开发中, 经常会遇到使用的npm包依赖的npm包版本过时了, 此时除了给npm包的作者提PR, 貌似就束手无策了. 其实, 我们可以在项目的package.json中重写依赖的版本, yarn 和 npm (不思进取的npm在 <a href="https://github.com/npm/cli/releases/tag/v8.3.0">8.3 才开始支持</a> ) 分别以不同的方式支持了:</p><p><em>yarn</em>  在package.json 中声明 <code>resolutions</code> 字段,  <a href="https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/">参考文档</a>:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;resolutions&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;package-a&quot;</span>: <span class="string">&quot;2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;package-b&quot;</span>: <span class="string">&quot;5.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;package-c&quot;</span>: <span class="string">&quot;1.5.2&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><em>npm</em> 则使用 <code>overrides</code>  字段, <a href="https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides">官方文档</a>:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;overrides&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;foo&quot;</span>: <span class="string">&quot;1.0.0&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="为何会无法捕获异步函数调用中的错误"><a href="#为何会无法捕获异步函数调用中的错误" class="headerlink" title="为何会无法捕获异步函数调用中的错误"></a>为何会无法捕获异步函数调用中的错误</h2><p>最近在工作中发现一个偶发问题, 一个异步函数明明已经在使用时 try-catch,  但总是无法捕获住其内的异常. 精简后的示例代码如下:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">task</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> someAsyncSubTask()</span><br><span class="line">  &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;unexpected exception&#x27;</span>, e)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>观察了好久才意识到调用 <code>someAsyncSubTask</code>时未添加 <code>await</code>关键字,  导致其根本无法捕获其内抛出的错误.</p><p>这种错误其实可以通过添加下述代码(最好添加到所有代码执行之前)来监控到:</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// nodejs 中</span></span><br><span class="line"><span class="keyword">import</span> process <span class="keyword">from</span> <span class="string">&#x27;process&#x27;</span></span><br><span class="line"><span class="comment">// 未处理的错误</span></span><br><span class="line">process.on(<span class="string">&#x27;uncaughtException&#x27;</span>, <span class="function">(<span class="params">err, origin</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Caught exception:&#x27;</span>, err, <span class="string">&#x27;origin:&#x27;</span>, origin)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 未处理的 promise 异常</span></span><br><span class="line">process.on(<span class="string">&#x27;unhandledRejection&#x27;</span>, <span class="function">(<span class="params">reason, promise</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Unhandled Rejection at:&#x27;</span>, promise, <span class="string">&#x27;reason:&#x27;</span>, reason);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 浏览器中</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;unhandledrejection&quot;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.warn(<span class="string">`UNHANDLED PROMISE REJECTION: <span class="subst">$&#123;event.reason&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><h3 id="Javascript-Booster-VSCode-插件"><a href="#Javascript-Booster-VSCode-插件" class="headerlink" title="Javascript Booster(VSCode 插件)"></a>Javascript Booster(VSCode 插件)</h3><p><a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster">JavaScript Booster - Visual Studio Marketplace</a></p><p>这是一个可以为Javascript/Typescript代码提供书写建议的插件, 可以快速完成一些常见的机械化操作:</p><ul><li>将函数改写为具名/匿名函数</li><li>将代码块提取成独立的函数</li><li>把 if-else 转换为三元表达式(?:)</li><li>将字符串转换为模版字符串(即使用 ``` 包裹)</li><li>将TS的枚举转换为字符串枚举(即为每个枚举赋值为其字符串字面量本身)</li><li>… 还有很多好用的功能, 详情<a href="https://github.com/xsburg/vscode-javascript-booster#features">查看其仓库</a></li></ul><p>Tips: VSCode 中触发代码建议的快捷键是 <code>CMD + .</code>(macOS) / <code>CTRL + .</code>(windows, 没有尝试过, 应该默认是该快捷键😬), 你也可以在VSCode 的设置中搜索 <code>editor.action.quickFix</code> 来修改该快捷键</p><h3 id="Quikka-js-VSCode-插件"><a href="#Quikka-js-VSCode-插件" class="headerlink" title="Quikka.js(VSCode 插件)"></a>Quikka.js(VSCode 插件)</h3><p><a href="https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode">Quokka.js - Visual Studio Marketplace</a></p><p>日常开发Js/Ts 时, 如果要快速测试函数功能, 常见做法是使用chrome开发工具的console 或者 编写一个单独 nodejs 脚本用于测试. 该插件可以在VSCode中快速新建JS/TS 的 playground, 可即时查看执行结果及代码块是否执行到, 能极大的提高开发效率.</p><p>使用方法: 按快捷键 <code>cmd + shift + p</code> (windows下则使用 ctrl + shift + p)打开命令面板, 输入 <code>Quikka</code>, 选择 <code>Quokka.js: New File</code>, 再根据自己需要选择自己需要的语言来新建playground.</p><h2 id="文章分享"><a href="#文章分享" class="headerlink" title="文章分享"></a>文章分享</h2><h3 id="针对Web开发者的rust教程"><a href="#针对Web开发者的rust教程" class="headerlink" title="针对Web开发者的rust教程"></a>针对Web开发者的rust教程</h3><p><a href="https://www.rust-lang.org/">rust</a> 是由 Mozilla 创建的内存安全编程语言, 近年来受欢迎程度逐年攀升, 作为低级语言, 大有替代 C语言的趋势, Linux 和 Android 都已经支持使用 rust 进行内核开发. 作者针对前端开发人员编写了一份rust交互式学习教程, 由浅入深, 很容易上手. 学习 rust  可使用其来开发 <a href="https://rustwasm.github.io/docs/book/">webassembly</a> , 也可以拓展自己的眼界、突破思维局限.</p><p>文章地址: <a href="https://codeamigo.dev/lessons/preview/161">codeamigo</a></p><h3 id="为什么应当将-node-modules-提交到代码仓库中"><a href="#为什么应当将-node-modules-提交到代码仓库中" class="headerlink" title="为什么应当将 node_modules 提交到代码仓库中"></a>为什么应当将 node_modules 提交到代码仓库中</h3><p>Google 的 Chrome DevTools 开发工程师提了以上建议, 理由如下:</p><ul><li>代码克隆下来后 无需 npm  install</li><li>可以保证大家的 node_modules 完全一致, 即使各种包管理工具有lock 文件, 但基于lock 安装的依赖依旧会有细微差异</li><li>添加/更新依赖时可以留意到依赖的变更内容, 能避免依赖包引入不安全的内容(比如最近的 fakerjs 投毒事件, 或者更新一个包却导致了与包不相关的文件产生了变化), 也会留意到依赖对产品包大小的影响</li><li>添加依赖会更加谨慎, 因为它不再被忽略了</li></ul><p>虽然有以上这么多好处, 但是我目前不会采取该策略, 毕竟node_modules 中的内容实在太大了, 而手中的项目也没有如此重要, 工作团队中其他成员也大概也很难接受😄</p><p>文章地址: <a href="https://www.jackfranklin.co.uk/blog/check-in-your-node-dependencies/">Why you should check-in your node dependencies - Jack Franklin</a></p><h3 id="五个迹象表明你应当辞职了"><a href="#五个迹象表明你应当辞职了" class="headerlink" title="五个迹象表明你应当辞职了"></a>五个迹象表明你应当辞职了</h3><p>当你有如下迹象时, 你该考虑了:</p><ul><li>你想成长, 但你无法学习到新知识</li><li>你一直在学习流程性的内容, 而非技能, 被工具绑架了</li><li>不认同公司/产品的价值理念, 与自己的价值观发生冲突</li><li>你的工作导致你不自信(总是遇挫, 或者总被上级/同事否定等)</li><li>你的工作影响到你的身体健康(比如受不了996)</li></ul><p>文章地址: <a href="https://cate.blog/2021/11/29/5-signs-its-time-to-quit-your-job/">5 Signs It’s Time to Quit Your Job – Accidentally in Code</a></p><h3 id="为你的付费软件创建更安全的激活码"><a href="#为你的付费软件创建更安全的激活码" class="headerlink" title="为你的付费软件创建更安全的激活码"></a>为你的付费软件创建更安全的激活码</h3><p>很多软件的激活码就是32位或64位的序列号, 很容易找找到各种破解工具, 可以直接产生随意数量的能正常激活软件的序列号. 作者提出了使用 RSA 非对称加密算法来产生激活码, 这样即使客户端软件被破解(甚至直接开源), 也难以制作出可以随便生成激活码的工具. 本篇文章是讲如何用 Swift 来实现这个思路.</p><p>文章地址: <a href="https://swiftrocks.com/creating-a-license-system-for-paid-apps-in-swift">Creating a licensing system for paid apps in Swift</a></p><h3 id="如何使用MDX、Next-js-构建富有交互的博客"><a href="#如何使用MDX、Next-js-构建富有交互的博客" class="headerlink" title="如何使用MDX、Next.js 构建富有交互的博客"></a>如何使用MDX、Next.js 构建富有交互的博客</h3><p>这个前端开发者的博客非常精美, 博客中有可演示代码效果的 playground, 也有可直接操作的组件. 这篇文章讲他如何做到的. 他的博客其他文章也挺好的, 推荐添加到 rss 订阅列表.</p><p>文章地址:  <a href="https://www.joshwcomeau.com/blog/how-i-built-my-blog/">How I Built my Blog using MDX, Next.js, and React</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;距离上一篇issue 已经块两月时间, 断更也主要是因为工作太忙.  由于工作忙碌, 业余也不再有啥有意思的个人项目了. 果然, 摸鱼才是第一创造力🤪&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;低代码的下一阶段：元编程&quot;&gt;&lt;a href</summary>
+      
+    
+    
+    
+    <category term="Tech-Issue" scheme="https://blog.evecalm.com/categories/Tech-Issue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Tech Issue #1</title>
+    <link href="https://blog.evecalm.com/2021/tech-issue-1.html"/>
+    <id>https://blog.evecalm.com/2021/tech-issue-1.html</id>
+    <published>2021-12-25T08:54:11.000Z</published>
+    <updated>2022-02-13T13:25:49.937Z</updated>
+    
+    <content type="html"><![CDATA[<p>因日常工作忙碌、个人时间太少, 故我将日常工作遇到的问题、上网学到的知识记录下来, 形成下面这样技术类的笔记, 希望能通过这种方式, 能每周能有所记录分享.</p><h2 id="开发问题"><a href="#开发问题" class="headerlink" title="开发问题"></a>开发问题</h2><h3 id="在-Nodejs-中发起HTTP请求遇到-unable-to-verify-the-first-certificate错误"><a href="#在-Nodejs-中发起HTTP请求遇到-unable-to-verify-the-first-certificate错误" class="headerlink" title="在 Nodejs 中发起HTTP请求遇到 unable to verify the first certificate错误"></a>在 Nodejs 中发起HTTP请求遇到 <code>unable to verify the first certificate</code>错误</h3><p>近期有用户反馈： 同一个API接口，在浏览器、安卓客户端、iOS客户端、小程序里都能正常调用，但是在Nodejs 中却遇到了  <code>unable to verify the first certificate</code> 错误。</p><p>经过一番研究，发现这是目标网站证书配置错误导致的问题，在Nodejs这一侧解决的方案也很简单，有两个方法：</p><ul><li>使用第三方包 <a href="https://www.npmjs.com/package/ssl-root-cas">ssl-root-cas</a>: <code>require(&#39;https&#39;).globalAgent.options.ca = require(&#39;ssl-root-cas/latest&#39;).create()</code>  让 Nodejs 能正确校验网站证书</li><li>设置环境变量: <code>process.env[&#39;NODE_TLS_REJECT_UNAUTHORIZED&#39;] = 0</code> ，禁用 Nodejs 对 HTTPS 网站证书的校验。不推荐，有安全风险</li></ul><p>这个问题的根本原因在于网站的证书证书配置错误：证书信息不完整，一般是缺少中级证信息，而 Nodejs 会严格校验证书信息，导致了该错误。其他端不会出问题，则是因为他们会智能的尝试补全缺失的证书信息，反而惯坏了网站的配置管理员😒。</p><p>相关参考资料：</p><ul><li><a href="https://stackoverflow.com/questions/31673587/error-unable-to-verify-the-first-certificate-in-nodejs">https://stackoverflow.com/questions/31673587/error-unable-to-verify-the-first-certificate-in-nodejs</a></li><li><a href="https://www.npmjs.com/package/ssl-root-cas">https://www.npmjs.com/package/ssl-root-cas</a></li><li><a href="https://badssl.com/">https://badssl.com</a> </li></ul><h3 id="一个NPM包如何同时支持小程序和Web"><a href="#一个NPM包如何同时支持小程序和Web" class="headerlink" title="一个NPM包如何同时支持小程序和Web"></a>一个NPM包如何同时支持小程序和Web</h3><p>如果你有一个UI组件包或者一个工具包想要在小程序和Web上都可以用上，这个包大部分代码共享，只有少部分代码针对特定平台编写，那如何通过一个NPM包同时支持Web呢？<br>小程序官方支持在NPM包中通过package.json的<code>miniprogram</code>字段来特别指定包在小程序中的入口文件所在的文件夹（注意，是文件夹而不是文件）,  与标准的 <code>main</code> 字段含义类似。这样我们可以这样来声明package.json, 并保证打包后的目录和声明的一样：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">&quot;name&quot;</span>: <span class="string">&quot;my-fancy-packge&quot;</span>,</span><br><span class="line"><span class="comment">// web 的入口</span></span><br><span class="line"><span class="attr">&quot;main&quot;</span>: <span class="string">&quot;dist/index.js&quot;</span>,</span><br><span class="line"><span class="comment">// 小程序入口，确保有文件 dist/miniapp/index.js</span></span><br><span class="line"><span class="attr">&quot;miniprogram&quot;</span>: <span class="string">&quot;dist/miniapp&quot;</span>,</span><br><span class="line"><span class="attr">&quot;files&quot;</span>: [<span class="string">&quot;dist/**&quot;</span>],</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>参考链接： <a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html</a></p><h2 id="工具分享"><a href="#工具分享" class="headerlink" title="工具分享"></a>工具分享</h2><h3 id="iRingo-解锁完整的-Apple功能和集成服务"><a href="#iRingo-解锁完整的-Apple功能和集成服务" class="headerlink" title="iRingo: 解锁完整的 Apple功能和集成服务"></a>iRingo: 解锁完整的 Apple功能和集成服务</h3><p>苹果的服务和功能因为各种原因会在基于地理位置进行阉割, 使用该配置可绕过相关限制.</p><p>链接: <a href="https://github.com/VirgilClyne/iRingo">iRingo: 解锁完整的 Apple功能和集成服务</a></p><h3 id="Webpack-的替代工具"><a href="#Webpack-的替代工具" class="headerlink" title="Webpack 的替代工具"></a>Webpack 的替代工具</h3><p>Webpack 是前端常用的构建工具, 功能强大、无所不能, 但其配置复杂、性能低下也常被人诟病, 下边推荐一些非主流的构建工具(其实都已经非常出名了)供你选择,  不同场景选择最适合的工具, 能大大提高你的工作效率.</p><ul><li><a href="https://parceljs.org/">Parcel</a>(<a href="https://github.com/parcel-bundler/parcel">GitHub</a>):  更符合直觉构建工具, 使用非常简单(甚至可以做到0配置).  可以用于打包 web 项目、JS库、electron应用、浏览器扩展等, 支持各种前端技术, 非常推荐</li><li><a href="https://rollupjs.org/guide/zh/">rollup.js</a>(<a href="https://github.com/rollup/rollup">GitHub</a>): 轻量级的构建工具, 也支持各种插件, 可用于替代Webpack, 更擅长打包各种库, 性能效率要比Webpack高很多. 最近新起的的构建工具<a href="https://vitejs.dev/">Vite</a>就是基于 rollup 二次封装的.</li><li><a href="https://swc.rs/">SWC</a>(<a href="https://github.com/swc-project/swc">GitHub</a>): 使用 rust 语言 开发Javascript / Typescript 编译工具, 可用于替代 babel / typescript，编译速度是他们的几倍到几十倍. 上面 提到的 Parcel 的 js/ts 编译就是使用 swc</li><li><a href="https://esbuild.github.io/">esbuild</a>(<a href="https://github.com/evanw/esbuild">GitHub</a>): 使用 go 语言开发的 Javascript / Typescript 编译工具，功能与上面的 swc一样，编译速度也非常快。</li><li><a href="https://nx.dev/">Nx</a> (<a href="https://github.com/nrwl/nx">GitHub</a>):  高效快速的打包工具, 原生支持 monorepo, 我暂时还未深入了解</li></ul><h2 id="文章分享"><a href="#文章分享" class="headerlink" title="文章分享"></a>文章分享</h2><h3 id="Against-3X-Speed-抵制三倍速"><a href="#Against-3X-Speed-抵制三倍速" class="headerlink" title="Against 3X Speed - 抵制三倍速"></a>Against 3X Speed - 抵制三倍速</h3><p>我觉得大家(现代人类)注意力越来越涣散, 3x速、快餐文化并不是啥好事,  什么东西都是浅尝辄止、浮于表面，很难长时间集中注意力，也很难专注的去做一件事。<br>3倍速听书，并不会提高你的学习速度，因为人脑需要时间去理解和记忆，3倍速也只会让你听到的东西变成短暂的记忆，很难被你吸收，最后变成过眼云烟。同样的，3倍速看剧也有同样的问题，更糟糕的是，3倍速会让人物的语气、背景乐变得诡异，也将进一步让你难以理解剧情（国产注水电视剧不在讨论之列，4x看国产剧都不过分）、降低看剧的体验。<br>如果你觉得3倍速、看电影解说、听别人讲书籍精华等等快餐式文化消费并没有让你收获更多，那不妨试试 静下来、慢下来，用正常的速度好好看一部剧、看一本书。看的数量、速度并不是我们应当追求的，看的质量才是最重要的。</p><p>原文:  <a href="https://perell.com/essay/against-3x-speed/">Against 3X Speed - 抵制三倍速</a></p><h3 id="我们为什么仍然允许吸烟"><a href="#我们为什么仍然允许吸烟" class="headerlink" title="我们为什么仍然允许吸烟"></a>我们为什么仍然允许吸烟</h3><p>吸烟有害个人身体健康、容易上瘾，且危害社会公共卫生。如果当代有人发现了类似烟草的对身体有害且容易上瘾的产品，想在市场上销售，应当没有国家会允许。那为何我们没有禁止吸烟呢？主要有两个原因：</p><ol><li>经济原因：一方面，大部分国家会对香烟课以重税，香烟为国家带来巨额的财政收入；另一方面，因为吸烟有害身体健康，吸烟者会因吸烟而患上相关致命癌症，寿命会大大减少，也能为社会减少医疗、养老负担（虽然听起来很冷血，但却是事实）。基于上述原因，甚至有人调侃说吸烟的人才是真正的爱国者🤪</li><li>历史原因：吸烟有害健康是很晚才被发现的，那时候香烟已经在全球流行起来，形成了成熟的产业链，受众很多，贸然禁止吸烟会引起极大的社会问题。</li></ol><p>故，现代国家通过重税、限制吸烟场所、香烟包装盒写警示语或贴恐怖图片、禁止香烟广告等措施在逐步限制抽烟。</p><p>原文: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4631133/">美国卫生研究所: Why do we still permit tobacco use?</a></p><h2 id="影音分享"><a href="#影音分享" class="headerlink" title="影音分享"></a>影音分享</h2><ul><li>音乐: <strong>Study Music Project</strong> 系列, 目前共有一百多首曲子, 该系列是由华裔音乐家 <em>Dennis Kuo</em> 创作的一系列轻音乐, 非常适合舒缓放松心情. 收听地址: <a href="https://i.y.qq.com/n2/m/share/details/taoge.html?hosteuin=owEsNK4l7Kni&id=8054496786&appversion=110005&ADTAG=wxfshare&appshare=iphone_wx">QQ音乐</a>, <a href="https://y.music.163.com/m/playlist?app_version=8.6.45&id=5011309788&userid=1809975&creatorId=382957814">网易云音乐</a>, <a href="https://music.apple.com/us/album/study-music-project-6-memory-palace/1378626219">Apple Music</a>.  如果你想了解这个音乐家, 可以查看<a href="https://zhuanlan.zhihu.com/p/52486242">对他的专访</a></li><li>公开课: <a href="https://open.163.com/newview/movie/courseintro?newurl=M6GOB7TT6">哈佛大学公开课：公正-该如何做是好？-网易公开课</a>,  这是一门入门级的政治哲学课程, 能让你对社会的公平正义有一定的认识. 该课程在全球备受好评, 讲师 Michael J. Sandel 的授课过程也非常的生动有趣. 课程上与学生互动很多, 他并不像传统课程那样照本宣科, 也没有给出任何官方、标准的见解, 而是通过不断的提问让学生进行思考、讨论, 所以整个课程是非常浅显易懂的.</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;因日常工作忙碌、个人时间太少, 故我将日常工作遇到的问题、上网学到的知识记录下来, 形成下面这样技术类的笔记, 希望能通过这种方式, 能每周能有所记录分享.&lt;/p&gt;
+&lt;h2 id=&quot;开发问题&quot;&gt;&lt;a href=&quot;#开发问题&quot; class=&quot;headerlink&quot; title</summary>
+      
+    
+    
+    
+    <category term="Tech-Issue" scheme="https://blog.evecalm.com/categories/Tech-Issue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>博客再次重启及优化</title>
+    <link href="https://blog.evecalm.com/2021/restart-blog-in-2021.html"/>
+    <id>https://blog.evecalm.com/2021/restart-blog-in-2021.html</id>
+    <published>2021-11-02T14:48:33.000Z</published>
+    <updated>2022-02-13T13:25:49.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>去年五月我写了一篇博客 <a href="/2020/05/restart-to-blog.html">博客重启更新</a>, 写完没多久, 工作就开始忙起来, 累成狗. 然后再没过多久, 我又换了一份工作(换工作部分原因也是因为原来工作太累), 来到了一个大厂. 万万没想到的是, 大厂更累, 博客也就再次停更, 一年后的现在身体才慢慢适应过来.</p><p>现在, 我将再次启用博客, 不定期更新内容, 记录自己的日常及学习心得, 锻炼自己的书写能力, 也磨砺自己的思维. 文章将依旧以短文为主, 降低读者阅读时间(毕竟在这个年代, 大家的时间都过于宝贵, 精力也越难以长时间集中), 也减少我写作一篇文章的耗时.</p><p>重启的同时, 我也对本博客进行了优化, 将博客页面核心内容加载大小从原来的几百Kb降低到了不到100Kb. </p><p>博客是基于<a href="https://hexo.io/">hexo</a>构建的静态博客, 使用了<a href="https://github.com/LouisBarranqueiro/hexo-theme-tranquilpeak/">tranquilpeak</a>主题, 托管在 Github Pages, 同时还使用了 cloudflare 的免费cdn. 以下是几个优化点, 仅供参考:</p><ol><li>优化博客引用本地图片文件的方式, 使用了hexo插件<a href="https://github.com/oe/hexo-intuitive-image">hexo-intuitive-image</a>. 该插件由我编写, hexo 自带的 <a href="https://hexo.io/docs/asset-folders">Asset Folders</a> 功能过于局限, 不灵活, 引用图片方式也太符合直觉. 在网上搜索、折腾了好久, 没有达到我的期望, 在阅读了hexo源码后, 我才自己写了这么个插件. 该插件还支持让发布后的博客文章从 cdn &lt;jsdelivr.com&gt; 来加载博客图片.</li><li>为图片增加文字标题, 主题 tranquilpeak 构建出的文章并不会显示图片的标题, 对读者不太友好, 这里就在前端js中做了下<a href="https://github.com/oe/blog.evecalm.com/blob/65d6d65f4c/themes/tranquilpeak/source/_js/fancybox.js#L35-L49">手动处理</a>. 效果如下:<br><img src="https://cdn.jsdelivr.net/gh/oe/blog.evecalm.com@gh-pages/2021/image-assets/1ffb04bd923f030f084da63332bb794a.jpg" alt="带标题的图片"></li><li>优化了图片素材的大小, 这里使用了谷歌开发的在线工具<a href="https://squoosh.app/">squoosh</a>来压缩图片. 使用时发现 <code>avif</code> 格式的图片压缩效果惊人, 可以将图片压缩至原图大小的 10% 以内, 图片效果并没有明显变化, 而且比较新的浏览器<a href="https://caniuse.com/?search=avif">均已支持</a>. 于是我将网站背景图额外压缩了 <code>avif</code>、<code>webp</code>(压缩率次之)两种格式的图片</li><li>压缩hexo生成出的 html 页面, 这里使用了插件 <a href="https://github.com/hexojs/hexo-html-minifier">hexo-html-minifier</a></li><li>移除不必要的js, 部分公共库从外部cdn加载</li></ol><p>博客仓库地址为 <a href="https://github.com/oe/blog.evecalm.com">https://github.com/oe/blog.evecalm.com</a>, 感兴趣的可以前往观摩.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;去年五月我写了一篇博客 &lt;a href=&quot;/2020/05/restart-to-blog.html&quot;&gt;博客重启更新&lt;/a&gt;, 写完没多久, 工作就开始忙起来, 累成狗. 然后再没过多久, 我又换了一份工作(换工作部分原因也是因为原来工作太累), 来到了一个大厂. 万万没想</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://blog.evecalm.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="博客" scheme="https://blog.evecalm.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优化搜索网站的颜色</title>
+    <link href="https://blog.evecalm.com/2021/optimize-search-app-color.html"/>
+    <id>https://blog.evecalm.com/2021/optimize-search-app-color.html</id>
+    <published>2021-10-31T03:38:57.000Z</published>
+    <updated>2022-02-13T13:25:49.941Z</updated>
+    
+    <content type="html"><![CDATA[<p>近期对 <a href="https://search.evecalm.com/">综合搜索</a> 网站改版后(简化了版面、增加了动态背景图), 又做了两处和颜色相关的优化.</p><h2 id="主题色-Theme-color"><a href="#主题色-Theme-color" class="headerlink" title="主题色 Theme-color"></a>主题色 Theme-color</h2><p>最新的 Safari 15 已经支持了 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color">Theme-color</a> 特性, 可以用于设置浏览器顶部的地址栏颜色, 使地址栏和网站看起来浑然一体. 于是我又开始折腾起来.</p><p><a href="https://search.evecalm.com/">综合搜索</a> 已经使用了 <a href="https://www.pexels.com/api/">Pexels</a> 提供的免费API来获取背景图片, 并且会定时更新, 我希望主题色能根据背景图而变, 使用背景图的主色调作为主题色, 这样看起来整个效果更加协调. 于是我使用了之前的文章 <a href="https://blog.evecalm.com/2020/06/get-color-from-image.html">如何获取图片上某个像素点的颜色值</a> 中提到的获取图片平均颜色的方法, 将主题色设置为背景图的平均颜色. 下边是添加主题色前后的效果对比.</p><p><img src="https://cdn.jsdelivr.net/gh/oe/blog.evecalm.com@gh-pages/2021/image-assets/05a063dffb4402b0037f102807335f57.jpg" alt="添加主题色之前" title="添加主题色之前"></p><p><img src="https://cdn.jsdelivr.net/gh/oe/blog.evecalm.com@gh-pages/2021/image-assets/0e1a5032a19298ab0649dcd3a34a4e4e.jpg" alt="添加主题色之后" title="添加主题色之后"></p><p>计算图片的平均颜色, 需使用 <a href="http://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas">canvas 技术</a>, 这里面需要注意两点:</p><ol><li>如果图片跨域, 图片需要支持跨域访问: 一般图片不论是否跨域都能使用 <code>img</code> 标签加载, 但是并不一定支持跨域(需要图片请求的响应头包含 <code>Access-Control-Allow-Origin</code> 和 <code>Access-Control-Allow-Methods</code> 等头), 可访问 <a href="https://enable-cors.org/">enable-cors</a> 获取相关信息. 幸好 Pexels 支持跨域了</li><li>canvas 加载的图片的 <code>img</code> 元素需要设置 <code>crossOrigin</code> 属性: 一般设置为空字符串即可, 详情可访问 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-crossorigin">img#attr-crossorigin</a>, 如果通过 js 创建 img 标签来加载图片, 则该属性必须在设置图片 <code>src</code> 之前</li></ol><h2 id="网站文字颜色"><a href="#网站文字颜色" class="headerlink" title="网站文字颜色"></a>网站文字颜色</h2><p>因为网站背景色会不断变化, 就很容易出现网站中心内容的文字在浅色背景下难以辨认的问题, 虽然给内容区域添加了半透明背景, 但情况依旧没有改善. 于是乎, 我想到将文字颜色设置成主题色的反转色, 以此来增强文字的辨识度, 提升可读性. 这里我使用了一个css 的 <code>filter</code> 属性:</p><blockquote><p><code>filter: invert(100%)</code>, 详细可 <a href="http://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/invert()">参考mdn</a></p></blockquote><p>最终的效果的确令人满意, 但并非我一开始期望的主题色的反转色, 而是将文字原本的蓝色主色调反转成了某全球知名视频网站的主色调: 金黄色. 阴差阳错的发现, 这种黄色在各种背景图下辨识度都非常好. 虽然这个颜色看来有点不太舒服, 还是将错就错吧, 懒得改了. 下面是最终的效果图.</p><p><img src="https://cdn.jsdelivr.net/gh/oe/blog.evecalm.com@gh-pages/2021/image-assets/de9df445c77a206d5fcf8e624afe17a9.jpg" alt="增加反转色之后" title="增加反转色之后"></p><p>相关链接:</p><ol><li><a href="https://search.evecalm.com/">https://search.evecalm.com/</a>, 可使用 Safari 15 或者 最新的安卓原生浏览器 访问以体验效果</li><li><a href="https://github.com/oe/search/blob/e54e50ee18/src/background/theme-color.ts">theme-color.ts</a>, 核心代码实现</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;近期对 &lt;a href=&quot;https://search.evecalm.com/&quot;&gt;综合搜索&lt;/a&gt; 网站改版后(简化了版面、增加了动态背景图), 又做了两处和颜色相关的优化.&lt;/p&gt;
+&lt;h2 id=&quot;主题色-Theme-color&quot;&gt;&lt;a href=&quot;#主题色-Theme</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://blog.evecalm.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="颜色" scheme="https://blog.evecalm.com/tags/%E9%A2%9C%E8%89%B2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[学习笔记]如何获取图片上某个像素点的颜色值</title>
+    <link href="https://blog.evecalm.com/2020/06/get-color-from-image.html"/>
+    <id>https://blog.evecalm.com/2020/06/get-color-from-image.html</id>
+    <published>2020-06-22T08:51:34.000Z</published>
+    <updated>2022-02-13T13:25:49.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近浏览 product hunt 时, 发现一个有趣的网站 <a href="https://colorcopypaste.app/">color copy paste</a>: 在首页的图片上, 可以直接点击取色. 这又勾起了我的好奇心: 在网页上如何取到图片像素点的颜色呢?</p><p>一番搜索后, 发现了一个神奇的API: Canvas 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/getImageData"><code>context.getImageData(x, y, width, height)</code></a> 可用于获取图片的像素信息:</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">&#x27;canvas&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> context = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line"><span class="comment">// 假设页面存在ID为 target-image 的图片</span></span><br><span class="line"><span class="keyword">const</span> image = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#target-image&#x27;</span>)</span><br><span class="line"><span class="comment">// 使用图片的原始宽高作为画布的宽高</span></span><br><span class="line">canvas.width = image.naturalWidth</span><br><span class="line">canvas.height = image.naturalHeight</span><br><span class="line">context.drawImage(image, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取图片左上角第一个像素的信息</span></span><br><span class="line"><span class="keyword">const</span> imageData = context.getImageData(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="built_in">console</span>.log(imageData)</span><br><span class="line"><span class="comment">// 以下为示例输出结果</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   data: [255, 0, 0, 255], // 像素信息</span></span><br><span class="line"><span class="comment">//   height: 1,</span></span><br><span class="line"><span class="comment">//   width: 1</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure><p>由上述例子可见, 一个像素点由四个数字描述, 分别为 <code>r</code> <code>g</code> <code>b</code> <code>a</code>, <code>a</code> 为 255 则表示完全不透明即 alpha 通道值为 255/255 = 1.</p><h2 id="如何计算图片平均颜色"><a href="#如何计算图片平均颜色" class="headerlink" title="如何计算图片平均颜色"></a>如何计算图片平均颜色</h2><p>有时候我们需要知道图片的平均颜色, 用于产生对应的占位缩略图, 抑或有其他目的. 计算平均颜色的思路很简单: 分别统计每个像素点的 <code>r</code> <code>g</code> <code>b</code> <code>a</code> 的总值, 再除以像素个数</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接上边的示例代码</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">const</span> imageData = context.getImageData(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height)</span><br><span class="line"><span class="keyword">const</span> imagePixelData = imageData.data</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pixelCount = imagePixelData.length / <span class="number">4</span></span><br><span class="line"><span class="keyword">const</span> averRgba = &#123;<span class="attr">r</span>: <span class="number">0</span>, <span class="attr">g</span>: <span class="number">0</span>, <span class="attr">b</span>: <span class="number">0</span>, <span class="attr">a</span>: <span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; pixelCount; ++i) &#123;</span><br><span class="line">  <span class="keyword">let</span> idx = i * <span class="number">4</span></span><br><span class="line">  averRgba.r += imagePixelData[idx]</span><br><span class="line">  averRgba.g += imagePixelData[idx + <span class="number">1</span>]</span><br><span class="line">  averRgba.b += imagePixelData[idx + <span class="number">2</span>]</span><br><span class="line">  averRgba.a += imagePixelData[idx + <span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">averRgba.r = <span class="built_in">Math</span>.floor(averRgba.r / pixelCount)</span><br><span class="line">averRgba.g = <span class="built_in">Math</span>.floor(averRgba.g / pixelCount)</span><br><span class="line">averRgba.b = <span class="built_in">Math</span>.floor(averRgba.b / pixelCount)</span><br><span class="line">averRgba.a = <span class="built_in">Math</span>.floor(averRgba.a / pixelCount)</span><br><span class="line"></span><br><span class="line"><span class="comment">// css 颜色值</span></span><br><span class="line"><span class="keyword">const</span> cssColor = <span class="string">`rgba(<span class="subst">$&#123;averRgba.r&#125;</span>, <span class="subst">$&#123;averRgba.g&#125;</span>, <span class="subst">$&#123;averRgba.b&#125;</span>, <span class="subst">$&#123;averRgba.a / <span class="number">255</span>&#125;</span>)`</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="如何获取跨域图片的颜色信息"><a href="#如何获取跨域图片的颜色信息" class="headerlink" title="如何获取跨域图片的颜色信息"></a>如何获取跨域图片的颜色信息</h2><p>由于<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/CORS_enabled_image">浏览器的安全策略</a>, 在不经过特殊处理时, canvas 是无法加载跨域图片资源的. 图片资源所在的服务器必须<a href="https://enable-cors.org/server.html">允许跨域请求</a>方可被 canvas 加载</p><h2 id="使用前端技术获取网页上任意位置的颜色"><a href="#使用前端技术获取网页上任意位置的颜色" class="headerlink" title="使用前端技术获取网页上任意位置的颜色"></a>使用前端技术获取网页上任意位置的颜色</h2><p>我想到两个思路, 但都不完美:</p><ol><li>使用库<a href="https://github.com/niklasvh/html2canvas">html2canvas</a> 将网页转化为画布, 再使用上述方法取颜色值. 但这个库对于复杂网页转化有问题, 会出现转换出来的画布样式错误, 视频标签不支持, 图片跨域问题也无法解决</li><li>使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentOrShadowRoot/elementFromPoint"><code>document.elementFromPoint(x, y)</code></a> 获取坐标对应的dom元素, 在使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/getComputedStyle"><code>window.getComputedStyle(element)</code></a> 获取元素实际渲染的样式, 再取背景色或文字颜色. 这个方法就错更远了: 首先 <code>elementFromPoint</code> 取到的可能是透明蒙层元素; 再次 <code>getComputedStyle</code> 拿到样式后也无法确定应该取文字颜色还是背景色, 遇到颜色渐变的束手无策; 最后 对 图片、视频、画布等复杂标签同样无法处理</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近浏览 product hunt 时, 发现一个有趣的网站 &lt;a href=&quot;https://colorcopypaste.app/&quot;&gt;color copy paste&lt;/a&gt;: 在首页的图片上, 可以直接点击取色. 这又勾起了我的好奇心: 在网页上如何取到图片像素点的颜</summary>
+      
+    
+    
+    
+    <category term="知识分享" scheme="https://blog.evecalm.com/categories/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="颜色" scheme="https://blog.evecalm.com/tags/%E9%A2%9C%E8%89%B2/"/>
+    
+    <category term="画布" scheme="https://blog.evecalm.com/tags/%E7%94%BB%E5%B8%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[知识分享]关于字体及字符的小思考</title>
+    <link href="https://blog.evecalm.com/2020/05/about-font-and-character.html"/>
+    <id>https://blog.evecalm.com/2020/05/about-font-and-character.html</id>
+    <published>2020-05-17T07:55:42.000Z</published>
+    <updated>2022-02-13T13:25:49.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近开发小软件的时候, 发现两个有意思的问题:</p><ol><li>如何让时间表示形式 <code>aa:bb</code> 中的 <code>:</code> 垂直居中显示</li><li>在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间</li></ol><h2 id="连字"><a href="#连字" class="headerlink" title="连字"></a>连字</h2><p>针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般的标点字符都有多种变体以适用于不同场景, 总有一款能适合我的吧. </p><p>查阅<a href="https://en.wikipedia.org/wiki/Colon_(punctuation)#Computing">百科</a>发现, 冒号的确有十多种变体, 如宽度不一样的, 形状奇特的, 位置有偏移的, 等等. 可没有一个符号满足我的这个简单需求. 在尝试中, 偶然发现, 冒号两边是数字时, 冒号自然就垂直居中了, 如下图所示</p><p><img src="https://yqlgmg.bn.files.1drv.com/y4mRDAovIeNXMjZ4D6PHmHqwOw0Yu8WcnbjXSaVHJ7AyvKXFNA47Dh7BbS-0-1H95FfZKWbeZyOXoCakLXn34nI5SMcCDPt-aC17Z4UL4UYcosFJQM6BYMzRvimXKfF9HH78xO5hc4cTAyBznTVDiKHhCCQH_liabO4lc8NanghuZJgBk83TjwcMCuyPziG0yoQ3C0rUCd2uKyDh0eBh-SElg" alt="time-colon"></p><p>(如果你想自己验证该现象, 可以在最新的macOS 上安装最新版钉钉, 在输入框中输入上述文字即可)</p><p>一切就豁然开朗了, 这就是<a href="https://zh.wikipedia.org/wiki/%E5%90%88%E5%AD%97">连字</a> 现象, 不禁觉得苹果用户体验做的很好, 极大的缓解了强迫症症状.</p><p>连字就是将两个及以上字符合成一个字符, 连字需要在下述两种条件均满足时才会显示出效果.</p><ul><li>需要字体支持(至于哪些字符支持连字, 由字体自己控制)</li><li>需要文字渲染引擎支持连字, 操作系统均已支持连字, 但是部分软件可能会将连字功能关闭. 前端Web开发中可以使用css属性 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures">font-variant-ligatures</a> 控制是否启用连字.</li></ul><h3 id="编程字体"><a href="#编程字体" class="headerlink" title="编程字体"></a>编程字体</h3><p>连字的应用其实非常普遍, 对程序员来说影响最大的就是一些编程专用字体了. 所谓编程字体, 就是:</p><ul><li>将一些不容易区分的字符(如0oOLIil等)显著区分开</li><li>借助连字特性, 将一些常用的符号组合(如 =&gt;, !=, ==, ===) 合成一个符号提供可读性</li><li>适当调整不同字符之间的间距, 使其容易阅读识别</li></ul><p><img src="https://bn1305files.storage.live.com/y4mXcm-u8WWUgw1rDHJZjoBPc6nj3wXvJAO59wIu2ZE4FSCrKfPXAbVittLHpZyiebyqYChqqAo5IrSIUJEfM31jDVsD4U_y4pYLH8Ks3F71M1iwmCef-I-p33yB3tpL7LVoFYXQXsTehfOOXavhZEegnVgF3Vht5d8XQTBEJb9utxijXXWUct0hqbuF4WZe8FlMyFStAmcUF0h6DFzkwsppw/fira-code.svg?psid=1&width=1360&height=2048" alt="fira code"></p><p>编程字体推荐: <a href="https://github.com/ProgrammingFonts/ProgrammingFonts">ProgrammingFonts</a><br>代码编辑器(IDE)开启连字功能的方法: <a href="https://github.com/tonsky/FiraCode/wiki">How to enable ligatures</a></p><h2 id="字体大小"><a href="#字体大小" class="headerlink" title="字体大小"></a>字体大小</h2><p>再回到第二个问题, 其实问题的本质是: 「当我们设置 字体大小 时, 设置的是字体的宽还是高?」</p><p>经过一番试验测量(使用了<a href="https://getpixelsnap.com/">PixelSnap</a>测量, 该软件为付费用软件, 但已经包含在了<a href="https://go.setapp.com/invite/johm1">SetApp</a>中)后发现:</p><ol><li>大部分西文字符在不同字体下, 字体宽度总小于 字体大小 的值(大约为 字体大小 的 0.6 ~ 0.8), 但是高度与 字体大小 一致</li><li>中文字符(包括标点符号,即全角符号)在不同字体基本上宽高均与 字体大小 一致, 此谓 「字正腔圆」</li></ol><p>通过查阅资料<a href="https://en.wikipedia.org/wiki/Typeface_anatomy">字体解剖</a>得知, 字体大小 所指的就是字体高度, 字体宽度是随字符及字体而变的</p><h2 id="字体类型"><a href="#字体类型" class="headerlink" title="字体类型"></a>字体类型</h2><p>在显示时间时, 秒数时刻在变, 不经过特殊设置, 会明显的发现整个时间字符宽度一直在不停变化, 对强迫症来说是一种煎熬. 这时候, 把字体换成一种「等宽字体」即可解决问题.</p><p>一般设置字体时, 可以设置为某一种特定字体, 比如 <code>Helvetica</code>、<code>微软雅黑</code>, 也可以是某一种字体类型(一种字体类型会包含多种字体, 若指定为字体类型, 则由系统底层自行决定使用哪一个字体渲染). 一般字体类型有:</p><ol><li><a href="https://zh.wikipedia.org/wiki/%E8%A1%AC%E7%BA%BF%E4%BD%93">衬线体</a> <code>serif</code>: 中文字体中也称「白体」, 此类字体会有很多点缀修饰, 如 宋体、楷体. 衬线体由于多了边角修饰, 会相对美观, 但是也多了信息噪音, 容易使用户产生视觉疲劳, 一般建议仅针对需要着重强调的文字(比如 文章标题)采用该类型的字体. 同时由于衬线体的修饰元素不规则, 会产生锯齿现象, 实际使用时应结合反锯齿技术才能达到较好的显示效果.</li><li><a href="https://zh.wikipedia.org/zh-cn/%E6%97%A0%E8%A1%AC%E7%BA%BF%E4%BD%93">无衬线体</a> <code>sans-serif</code>: 中文字体中也称「黑体」, 与衬线体相对, 该类字体没有多余的修饰, 如 微软雅黑 等. 无衬线体 适合屏幕中大量使用, 不会导致用户产生视觉疲劳问题.</li><li><a href="https://zh.wikipedia.org/wiki/%E7%AD%89%E5%AE%BD%E5%AD%97%E4%BD%93">等宽字体</a> <code>monospace</code>: 此类字体每个字符宽度一致. 由于东亚的字体的字符本身基本都是等宽的, 所以一般在说等宽字体时, 都是指西文字体. 该字体的可读性较好, 一般在 代码编辑器 及 Terminal 中使用比较普遍.</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近开发小软件的时候, 发现两个有意思的问题:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;如何让时间表示形式 &lt;code&gt;aa:bb&lt;/code&gt; 中的 &lt;code&gt;:&lt;/code&gt; 垂直居中显示&lt;/li&gt;
+&lt;li&gt;在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好</summary>
+      
+    
+    
+    
+    <category term="知识分享" scheme="https://blog.evecalm.com/categories/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="字体" scheme="https://blog.evecalm.com/tags/%E5%AD%97%E4%BD%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[知识分享]在浏览器中调整百度网盘播放速度的尝试</title>
+    <link href="https://blog.evecalm.com/2020/05/change-playback-rate-in-yunpan.html"/>
+    <id>https://blog.evecalm.com/2020/05/change-playback-rate-in-yunpan.html</id>
+    <published>2020-05-15T14:12:15.000Z</published>
+    <updated>2022-02-13T13:25:49.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近女友使用百度云盘观看学习视频时, 觉得讲师语速太慢, 想调快速度, 然而调速是会员功能. 为了这么一个简单的功能而购买高昂的会员服务, 显然不值得(当然也可以把视频下载下来再用本地播放器倍速, 但又不够方便), 故我做了一番尝试, 最终通过技术手段达成了女友的功能要求. 本文仅做技术研究, 无它, 若有侵犯任何人的权益, 请通过<a href="https://evecalm.com/about/">关于页面</a>中的联系方式联系我处理. </p><p>当代浏览器已经禁用了 Flash, 故在浏览器中播放视频只能使用 <code>video</code> 标签(若有安装浏览器插件, 则有例外情况, 在此不做讨论), 而调整速度使用 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate"><code>playbackRate</code></a> API 即可, 原理上来说很简单.</p><h2 id="第一次尝试"><a href="#第一次尝试" class="headerlink" title="第一次尝试"></a>第一次尝试</h2><p>右键点击播放器, 使用浏览器的审查功能, 快速定位到了 <code>video</code>, 在开发工具的 Console 中执行代码 <code>$0.playbackRate = 2</code>, 视频播放速度加倍, 一切看似OK.</p><p>然而进一步完善时, 发现情况没这么简单. 在 Console 中执行代码 <code>document.querySelector(&#39;video&#39;)</code> 返回为<code>null</code>, 而非一个DOM节点. 通过查找 video 标签所在的父级标签, 发现了如下图所示的 <code>#shadow-root(closed)</code> 标记. 原来视频标签在 <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">Shadow DOM</a> 中, 被隔离开了, 使用JS API还是可以正常访问 Shadow DOM 中内容的.<br><img src="https://bn1305files.storage.live.com/y4mNwrIicpocS0GomtprRAatEHiTOjCxUmRgNlvylm8HkIYsRT82CIfUreq-8D-vneaOMATSK5MO2Fo4SCaUj0n-S9zvLw4YX2cGglmWGbsAR564K8DciFWin8pKr3d1-oX8zRHBP6Xcn1jOkBwArerxvY6CymjA5vx2c1K0hoOk7QZJUje0g-b6CTT-Un3Ej0L4PH3KkHKbwf_j7_7l5u1xQ/baidu-yun-video-dom.png?psid=1&width=441&height=216" alt="shadowRoot"></p><p>但意外情况又发生了, 访问Shadow DOM宿主元素的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot"><code>shadowRoot</code></a> 时, 又返回的了 <code>null</code>. 这时才留意到 <code>#shadow-root(closed)</code> 标记中的 <code>(closed)</code>, 查阅资料后发现: <code>closed</code> 为 ShadowRoot 的 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/mode">mode</a>, 有 <code>open</code> 和 <code>closed</code> 两个值: <code>open</code> 表示 ShadowRoot 可以被JS访问, <code>closed</code> 则相反. 于是还需要进一步尝试.</p><h2 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h2><p>基于以上情况, 我便考虑如何将 <code>closed</code> 改为 <code>open</code>. ShadowRoot 的 <code>mode</code> 属性为只读属性, 无法直接修改, 于是猜测应当可以通过劫持原生API来实现. 再次阅资料后, 应证了我的猜想. 可以通过劫持 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow"><code>attachShadow</code></a> 实现, 于是写下了如下代码进行劫持, 并借助浏览器插件 <a href="https://www.tampermonkey.net/">Tampermonkey</a> 完善了一个用户脚本.</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> originalAttachShadow = Element.prototype.attachShadow</span><br><span class="line">Element.prototype.attachShadow = <span class="function"><span class="keyword">function</span> (<span class="params">args</span>) </span>&#123;</span><br><span class="line">    args.mode = <span class="string">&#x27;open&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> originalAttachShadow.call(<span class="built_in">this</span>, args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>写完用户脚本反复测试时又发现了新状况: 有时候倍速生效, 有时候又不生效 ):- . 进一步猜测是和网络加载速度有关系, 因为执行脚本用户脚本的时视频资源可能还在加载初始化中. 还要继续尝试.</p><h2 id="第三次也是最后一次尝试"><a href="#第三次也是最后一次尝试" class="headerlink" title="第三次也是最后一次尝试"></a>第三次也是最后一次尝试</h2><p>尝试中, 意外发现若将 <code>Element.prototype.attachShadow = null</code>, 网页不会使用Shadow DOM来创建视频标签了(即视频库做了特性检测, 有fallback方案), 此时可简单快速访问到 <code>video</code> 标签, 于是果断放弃了上述尝试, 最后也无缝完善了本功能.</p><p>这里还有两个小点要提一下:</p><ul><li>劫持 <code>attachShadow</code> 的代码应当在使用该API的代码之前执行, 所以应当在 Tampermonkey 的用户脚本设置中修改 Run At 为 <code>document-start</code></li><li>页面中一开始只有一个占位 <code>video</code> 标签做缓冲, 缓冲完之后才会创建播放视频的 <code>video</code> 标签, 可以通过监听父容器DOM节点的 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Mutation_events"><code>DOMNodeInserted</code></a> 事件来判断播放视频的标签是否创建</li></ul><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>在女友的建议下, 我还给播放器增加了倍速控制按钮, 和网页自带的播放器浑然天成. 也发现了网上有其他更简便的解决方案(均未亲自测验):</p><ol><li>使用最新版火狐浏览器, 在火狐浏览器中右击视频, 即可调整播放速度, 此为浏览器自带功能, 使用方便</li><li>直接在浏览器中执行代码调用播放器使用的视频库 <code>videojs</code> 的API控制速度, 但对不懂代码的人来说, 使用不便且无法随意切换播放速度</li></ol><p>我的思路从原生API出发, 更通用(有时候也会更繁琐), 不受浏览器(需要浏览器支持<a href="https://www.zhihu.com/topic/19802381/hot">用户脚本</a>, 现代浏览器均已支持)和使用的JS库限制.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近女友使用百度云盘观看学习视频时, 觉得讲师语速太慢, 想调快速度, 然而调速是会员功能. 为了这么一个简单的功能而购买高昂的会员服务, 显然不值得(当然也可以把视频下载下来再用本地播放器倍速, 但又不够方便), 故我做了一番尝试, 最终通过技术手段达成了女友的功能要求.</summary>
+      
+    
+    
+    
+    <category term="知识分享" scheme="https://blog.evecalm.com/categories/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="软件" scheme="https://blog.evecalm.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="浏览器" scheme="https://blog.evecalm.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[知识分享]博客重启更新</title>
+    <link href="https://blog.evecalm.com/2020/05/restart-to-blog.html"/>
+    <id>https://blog.evecalm.com/2020/05/restart-to-blog.html</id>
+    <published>2020-05-13T16:37:19.000Z</published>
+    <updated>2022-02-13T13:25:49.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近看博客的时候, 发现了一个有趣的网站 <a href="https://www.stefanjudis.com/">Stefan’s web dev journey</a>, 它有一个板块 <a href="https://www.stefanjudis.com/">Today I Learned(TIL)</a> 专用于分享每日学习到的知识. TIL相关文章内容有长有短, 一篇文章一个知识点, 挺有意义的. 回想自己的博客已经多年未更新, 几近荒废, 若不是域名商定期提醒续费域名, 怕是域名也被收回了. 故想借鉴该网站, 每周不定期写几篇文章记录所学所想, 因为工作较忙, 内容会相对简短一些, 主题会大多于软件使用、前端软件开发为主. 希望自己能重试写博客的习惯, 记录有意义的东西, 不论是否还有人阅读.</p><p>重启博客后的第一篇文字, 就来分享下自己获取资讯使用的软件和网站吧.</p><h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><p>平时获取资讯主要通过 rss 阅读软件来订阅聚合多个网站的资讯, 个人使用的是 Mac 电脑 + iPhone, 故推荐的软件也都是苹果平台的软件.</p><p>如果你不了解 rss, 可以先阅读下阮一峰的<a href="https://www.ruanyifeng.com/blog/2006/01/rss.html">这篇介绍文章</a>.</p><ul><li><a href="https://reederapp.com/">Reeder</a> 我正在使用都 rss 阅读软件, 界面美观, 交互体验及功能都很不错, 付费, 支持iOS和Mac</li><li><a href="https://ranchero.com/netnewswire/">NetNewsWire</a> 如果不想付费, 也可使用这款<a href="https://github.com/Ranchero-Software/NetNewsWire">开源</a>免费的 rss 阅读软件, 同样支持 Mac 和 iOS</li></ul><h2 id="资讯网站"><a href="#资讯网站" class="headerlink" title="资讯网站"></a>资讯网站</h2><ul><li><a href="http://jandan.net/">煎蛋</a> 各种奇趣的非主流新闻, rss 地址 <a href="http://feeds2.feedburner.com/jandan">http://feeds2.feedburner.com/jandan</a></li><li><a href="https://xinquji.com/">新趣集</a>  新的产品发现社区, 还聚合了 product hunt 等平台信息, rss 地址 <a href="https://xinquji.com/rss">https://xinquji.com/rss</a></li><li><a href="https://www.solidot.org/">Solidot</a> 奇客的资讯，重要的东西, 每日能看到很多简短的科技资讯, rss 地址 <a href="http://feeds2.feedburner.com/solidot">http://feeds2.feedburner.com/solidot</a></li><li><a href="https://www.zhihu.com/">知乎每日精选</a> 知乎每日官方推荐问答, rss 地址 <a href="http://www.zhihu.com/rss">http://www.zhihu.com/rss</a></li><li><a href="https://tympanus.net/codrops/">Codrops</a> 一个国外的前端技术博客, 更偏向 CSS, 经常会分享一些炫酷的 CSS 特效, rss 地址 <a href="http://feeds2.feedburner.com/tympanus">http://feeds2.feedburner.com/tympanus</a></li><li><a href="http://www.ruanyifeng.com/blog/">阮一峰博客</a> 国内知名的前端大牛博客, rss 地址 <a href="http://www.ruanyifeng.com/blog/atom.xml">http://www.ruanyifeng.com/blog/atom.xml</a></li><li><a href="https://aotu.io/">Aotu.io「凹凸实验室」</a> 京东 Aotu 团队(跨平台小程序框架 Taro 的开发团队)博客, rss 地址 <a href="https://aotu.io/atom.xml">https://aotu.io/atom.xml</a></li></ul><p>注: 以上部分 rss 地址为 Google 服务提供, 故可能需要特殊方式才能访问</p><h2 id="如何查找网站的-rss-地址"><a href="#如何查找网站的-rss-地址" class="headerlink" title="如何查找网站的 rss 地址"></a>如何查找网站的 rss 地址</h2><ul><li>找网页上的这个 rss 图标, 一般长这样: <a href="/atom.xml" class="fa fa-rss" style="color: #c78236; padding: 4px; border: 1px solid; border-radius: 4px"></a>, 点这个图标, 即可访问到 rss 地址</li><li>有时候找不到上述图标, 或者网页信息太多不方便找, 可直接在网页上搜索 rss , 若找到, 点击文字即可</li><li>有的网站不会把 rss 直接暴露出来, 那这个时候, 可以右键单击网页, 点击 「查看网页源码」, 在新开到源码界面中, 搜索 <code>rss</code> 或者 <code>xml</code>, 若网站有提供 rss, 则一般会在 源码中的 <code>head</code> 标签中找到</li><li>上述方法都失败了, 网站也的确未提供 rss, 这时候可使用第三方服务来生成 rss 地址, 可用的服务有 <a href="http://fetchrss.com/">http://fetchrss.com/</a> 、<a href="https://rss.app/">https://rss.app/</a> 等</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近看博客的时候, 发现了一个有趣的网站 &lt;a href=&quot;https://www.stefanjudis.com/&quot;&gt;Stefan’s web dev journey&lt;/a&gt;, 它有一个板块 &lt;a href=&quot;https://www.stefanjudis.com/&quot;&gt;T</summary>
+      
+    
+    
+    
+    <category term="知识分享" scheme="https://blog.evecalm.com/categories/%E7%9F%A5%E8%AF%86%E5%88%86%E4%BA%AB/"/>
+    
+    
+    <category term="软件" scheme="https://blog.evecalm.com/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="分享" scheme="https://blog.evecalm.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[个人作品]Chrome扩展 My Webrequest</title>
+    <link href="https://blog.evecalm.com/2013/11/my-webrequest.html"/>
+    <id>https://blog.evecalm.com/2013/11/my-webrequest.html</id>
+    <published>2013-11-11T07:05:01.000Z</published>
+    <updated>2022-02-13T13:25:49.945Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近业余写了一款Chrome扩展，可以用来屏蔽请求，强制使用加密连接，浏览盗链图，监控web请求，另外还增加了二维码功能。本扩展支持中英文。从开始开发到完成，共花了两个多月的时间。其实，扩展的核心部分半天时间就写完了，选项页的UI花了半个多月的时间，最后是扩展的英文翻译，拖拖拉拉花了一个多月，自己翻译的，可能还有很多语法错误。</p><p>扩展已经发布至Chrome Web Store，记得使用前阅读下选项页的帮助内容。</p><p><strong><a href="https://chrome.google.com/webstore/detail/my-webrequest/ojodgdaaholkmelbddlhnfdgamohijhk?utm_source=chrome-ntp-icon" title="进入Chrome Web Store安装">点此安装</a></strong></p><p><img src="https://yqmfyg.bn1.livefilestore.com/y2pRhSy2kcLPf49ik65LU3VZLpiYX7kDqXSro5IMloJahgkTtF3QdmiPX8D1f3TRdVxAU6ezAQsLpG6yRHAd1Mm9HME7Zm0K6ffMhtfTztYYAo/QQ20131115-1.png?psid=1" alt="My webrequest"></p><p>扩展源码托管在github，<a href="https://github.com/evecalm/MyWebrequest" title="Github">https://github.com/evecalm/MyWebrequest</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近业余写了一款Chrome扩展，可以用来屏蔽请求，强制使用加密连接，浏览盗链图，监控web请求，另外还增加了二维码功能。本扩展支持中英文。从开始开发到完成，共花了两个多月的时间。其实，扩展的核心部分半天时间就写完了，选项页的UI花了半个多月的时间，最后是扩展的英文翻译，拖</summary>
+      
+    
+    
+    
+    <category term="个人作品" scheme="https://blog.evecalm.com/categories/%E4%B8%AA%E4%BA%BA%E4%BD%9C%E5%93%81/"/>
+    
+    
+    <category term="应用" scheme="https://blog.evecalm.com/tags/%E5%BA%94%E7%94%A8/"/>
+    
+    <category term="谷歌浏览器" scheme="https://blog.evecalm.com/tags/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[建站]博客网站减少垃圾留言的简单办法</title>
+    <link href="https://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html"/>
+    <id>https://blog.evecalm.com/2013/09/easy-way-to-decrease-spam-comments.html</id>
+    <published>2013-09-01T07:42:21.000Z</published>
+    <updated>2022-02-13T13:25:49.949Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在流行的博客程序有wordpress，zblog，typecho等等，使用这些流行的程序搭建网站快速方便，但是垃圾留言也同样随之而来。每天查看和清理成百上千条垃圾评论总是一件让人头疼的事情，虽然有垃圾评论检测插件（如wordpress下的Akismet），但不是能百分百检测正确，总有漏网之鱼，也有被误判的，所以即使使用了垃圾评论检测插件，评论队列（包括垃圾评论队列）还是得仔细看一遍。</p><p>那么，有没有什么好办法减少甚至完全屏蔽掉垃圾评论呢？这先得从垃圾评论的留言机制上说起。</p><p>流行的博客程序都有良好的内部结构，功能模块分的都很清晰。例如有专门负责输出rss的文件，专门负责处理提交的评论的文件等等，这些文件相对于网站的位置都是固定的，并且评论表单中用来标识昵称、邮箱及网站输入框的名称都一样！一般提交一条评论所需要的数据除了昵称、邮箱、网站地址及评论外，还需要知道文章的ID，以及这些数据提交到什么地方。而通过以上介绍，只要知道了你网站地址及博客程序类型，就知道了评论表单中几个输入框的标识名称，RSS的地址（wordpress的是http://域名/feed）也知道了，通过解析网站的rss就知道了文章ID，这些数据要提交到的地方当然就是处理评论的文件的地址（wordpress的是http://域名/wp-comments-post.php）了。所以知道了这些发送一条评论就够了，根本无需打开你的文章页面，甚至无需打开浏览器！对于使用C++、.Net编写的刷评论软件，一分钟刷个上百条评论是没有问题的。由于wordpress在全球范围内非常流行，所以使用wordpress搭建的博客经常会有英文、日文、俄文等外文垃圾留言的光顾。</p><p>现在，既然知道了垃圾评论的留言机制，那就可以对症下药了！最简单的办法就是让刷评论的软件找不到评论的提交地址！步骤如下:</p><ol><li><p>将网站根目录下的<code>wp-comments-post.php</code>文件复制一份，随便改一个名字（如abc.php），文件后缀不能改。</p></li><li><p>修改<code>wp-comments-post.php</code>文件，在文件第一行<code>&amp;lt;?php</code> 后换行插入如下代码:</p></li></ol><p><code>die();</code></p><ol start="3"><li>修改当前主题的<code>comments.php</code>文件，该文件位置在<code>[网站根目录]/wp-content/themes/[主题名]</code>,在该文件中找到<code>wp-comments-post.php</code>，将其改成第一步改后的那个名字（这里就是abc.php了）。</li></ol><p>使用改方法能屏蔽掉大部分的垃圾评论。需要注意的是wordpress升级会在网站根目录下再次生成<code>wp-comments-post.php</code>文件，升级后需要将步骤1和2重新操作一遍；切换主题后应按步骤3操作一遍。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;现在流行的博客程序有wordpress，zblog，typecho等等，使用这些流行的程序搭建网站快速方便，但是垃圾留言也同样随之而来。每天查看和清理成百上千条垃圾评论总是一件让人头疼的事情，虽然有垃圾评论检测插件（如wordpress下的Akismet），但不是能百分百检</summary>
+      
+    
+    
+    
+    <category term="建站" scheme="https://blog.evecalm.com/categories/%E5%BB%BA%E7%AB%99/"/>
+    
+    
+    <category term="技巧" scheme="https://blog.evecalm.com/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+    <category term="网站" scheme="https://blog.evecalm.com/tags/%E7%BD%91%E7%AB%99/"/>
+    
+    <category term="垃圾留言" scheme="https://blog.evecalm.com/tags/%E5%9E%83%E5%9C%BE%E7%95%99%E8%A8%80/"/>
+    
+  </entry>
+  
+</feed>
