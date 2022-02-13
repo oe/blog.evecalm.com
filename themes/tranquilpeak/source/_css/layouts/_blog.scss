@@ -5,3 +5,14 @@
     width:    100%;
     height:   100%;
 }
+.headerlink {
+    color: grey;
+    &:before {
+        content: '#';
+        padding-right: 8px;
+    }
+
+    &:hover {
+        color: #333;
+    }
+}
