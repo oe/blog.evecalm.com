@@ -3675,6 +3675,14 @@ blockquote {
   width: 100%;
   height: 100%; }
 
+.headerlink {
+  color: grey; }
+  .headerlink:before {
+    content: '#';
+    padding-right: 8px; }
+  .headerlink:hover {
+    color: #333; }
+
 #bottom-bar {
   display: none;
   position: fixed;
