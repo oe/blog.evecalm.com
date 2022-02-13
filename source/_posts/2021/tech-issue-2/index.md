@@ -88,7 +88,7 @@ process.on('uncaughtException', (err, origin) => {
   console.log('Caught exception:', err, 'origin:', origin)
 })
 
-// 为处理的 promise 异常
+// 未处理的 promise 异常
 process.on('unhandledRejection', (reason, promise) => {
   console.log('Unhandled Rejection at:', promise, 'reason:', reason);
 });
