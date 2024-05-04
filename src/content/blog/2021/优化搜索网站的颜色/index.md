@@ -3,8 +3,9 @@ title: 优化搜索网站的颜色
 date: 2021-10-31 11:38:57
 uri: optimize-search-app-color
 tags:
-  - 颜色
-categories: 技术
+- 颜色
+categories:
+- 技术
 ---
 
 近期对 [综合搜索](https://search.evecalm.com/) 网站改版后(简化了版面、增加了动态背景图), 又做了两处和颜色相关的优化.

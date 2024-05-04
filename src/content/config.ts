@@ -2,7 +2,7 @@ import { z, defineCollection } from 'astro:content'
 
 export interface IBlogPostMeta {
   title: string
-  date: string
+  date: Date
   tags: string[]
   categories: string[]
   uri: string
@@ -10,13 +10,13 @@ export interface IBlogPostMeta {
 
 const blogCollection = defineCollection({
   type: 'content',
-  schema: {
+  schema: z.object({
     title: z.string(),
-    date: z.string(),
-    tags: z.array(z.string()),
+    date: z.date(),
+    tags: z.array(z.string()).optional(),
     categories: z.array(z.string()),
     uri: z.string(),
-  }
+  })
 })
 
 export const collections = {
@@ -30,9 +30,9 @@ export function getPostSlug(post: IBlogPostMeta) {
   const month = createDate.getMonth() + 1;
   let slug = '';
   if (year < 2021) {
-    slug = `${year}/${String(month).padStart(2, '0')}/${post.uri}.html`;
+    slug = `/${year}/${String(month).padStart(2, '0')}/${post.uri}.html`;
   } else {
-    slug = `${year}/${post.uri}.html`;
+    slug = `/${year}/${post.uri}.html`;
   }
   return slug;
 }

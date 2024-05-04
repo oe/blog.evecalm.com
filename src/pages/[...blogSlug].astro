@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import { getPostSlug, type IBlogPostMeta } from '@/content/config';
+import PostLayout from '@/layouts/post.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: {
+      slug: getPostSlug(post.data as IBlogPostMeta)
+    },
+    props: {
+      entry: post
+    }
+  }));
+}
+
+type Props = {
+  entry: {
+    data: IBlogPostMeta;
+    render: () => Promise<{ Content: React.ComponentType }>;
+  };
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<PostLayout title={entry.data.title}>
+  <h1>{entry.data.title}</h1>
+  <Content />
+</PostLayout>

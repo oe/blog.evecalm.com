@@ -2,8 +2,8 @@
 title: "Tech Issue #3"
 date: 2024-05-05 01:15:11
 uri: tech-issue-3
-tags:
-categories: Tech-Issue
+categories: 
+  - Tech-Issue
 ---
 
 > 有两年没更新博客了, 坚持做一件事情真的很需要毅力. 随缘更新, 对最近学到看到的技术相关的内容做一些记录.

@@ -3,7 +3,9 @@ title: "Tech Issue #1"
 date: 2021-12-25 16:54:11
 uri: tech-issue-1
 tags:
-categories: Tech-Issue
+- Nodejs
+categories:
+- Tech-Issue
 ---
 
 因日常工作忙碌、个人时间太少, 故我将日常工作遇到的问题、上网学到的知识记录下来, 形成下面这样技术类的笔记, 希望能通过这种方式, 能每周能有所记录分享.

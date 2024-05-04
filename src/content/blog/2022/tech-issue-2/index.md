@@ -2,8 +2,8 @@
 title: "Tech Issue #2"
 date: 2022-02-13 17:38:11
 uri: tech-issue-2
-tags:
-categories: Tech-Issue
+categories: 
+  - Tech-Issue
 ---
 
 > 距离上一篇issue 已经块两月时间, 断更也主要是因为工作太忙.  由于工作忙碌, 业余也不再有啥有意思的个人项目了. 果然, 摸鱼才是第一创造力🤪
