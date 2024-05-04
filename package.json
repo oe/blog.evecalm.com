@@ -12,7 +12,7 @@
     "postinstall": "cd themes/tranquilpeak && yarn && yarn prod"
   },
   "hexo": {
-    "version": "5.4.0"
+    "version": "5.4.2"
   },
   "dependencies": {
     "truncate-html": "^1.0.3"
