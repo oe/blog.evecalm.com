@@ -11,5 +11,9 @@ export default defineConfig({
   integrations:[
     tailwind(),
     react(),
-  ]
+  ],
+  // trailingSlash: 'never',
+  build: {
+    format: 'preserve',
+  }
 });

@@ -1,0 +1,24 @@
+---
+import { getTagListStaticPaths } from '@/common/tag-list';
+import { type IPageListProps } from '@/common/post-list';
+
+import PostList from '@/layouts/post-list.astro';
+
+export async function getStaticPaths() {
+  return getTagListStaticPaths({
+    type: 'tags',
+    slug: 'tagPostList'
+  });
+}
+
+type Props = IPageListProps;
+
+const { entries, pageNo, totalPage, value } = Astro.props;
+---
+
+<PostList
+  entries={entries}
+  pageNo={pageNo}
+  totalPage={totalPage}
+  uriPrefix={`/categories/${value!}/`}
+/>

@@ -1,0 +1,21 @@
+---
+import { getBlogListStaticPathsInner, type IPageListProps } from '@/common/post-list';
+import PostList from '@/layouts/post-list.astro';
+
+export async function getStaticPaths() {
+  return getBlogListStaticPathsInner({
+    type: 'blog',
+    slug: 'pageList'
+  });
+}
+
+type Props = IPageListProps;
+
+const { entries, pageNo, totalPage } = Astro.props;
+---
+
+<PostList
+  entries={entries}
+  pageNo={pageNo}
+  totalPage={totalPage}
+/>

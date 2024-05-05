@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry } from 'astro:content';
+// import truncate from 'truncate-html';
+// import { renderToString } from 'react-dom/server';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+
+const { Content } = await entry.render();
+
+// const postContent = renderToString(<Content></Content>);
+
+// const excerpt = truncate(postContent, {
+//   length: 50,
+//   excludes: ['img', 'figure']
+// });
+---
+
+<article>
+  <h2>{entry.data.title}</h2>
+  <!-- <div set:html={excerpt} /> -->
+  <Content />
+</article>

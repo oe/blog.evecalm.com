@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog');
   return posts.map((post) => ({
     params: {
-      slug: getPostSlug(post.data as IBlogPostMeta)
+      blogSlug: getPostSlug(post.data as IBlogPostMeta)
     },
     props: {
       entry: post

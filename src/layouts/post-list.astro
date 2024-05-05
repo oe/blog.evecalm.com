@@ -1,0 +1,43 @@
+---
+import { type CollectionEntry } from 'astro:content';
+import Pager from '@/components/pager.astro';
+import PostItem from '@/components/post-item.astro';
+import BaseLayout from '@/layouts/base.astro';
+
+interface Props {
+  /**
+   * 路由前缀
+   */
+  uriPrefix?: string;
+  /**
+   * 当前页文章列表
+   */
+  entries: CollectionEntry<'blog'>[];
+  /**
+   * 页码(从1开始)
+   */
+  pageNo: number;
+  /**
+   * 总页数
+   */
+  totalPage: number;
+}
+
+const { entries, pageNo, totalPage, uriPrefix } = Astro.props;
+---
+
+<BaseLayout title="post list">
+  <main>
+    <section>
+      {
+        entries.map((entry) => (
+          <>
+            <PostItem entry={entry} />
+            <hr />
+          </>
+        ))
+      }
+      <Pager pageNo={pageNo} totalPage={totalPage} uriPrefix={uriPrefix} />
+    </section>
+  </main>
+</BaseLayout>

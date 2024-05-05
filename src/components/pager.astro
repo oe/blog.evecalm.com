@@ -1,0 +1,36 @@
+---
+interface Props {
+  /**
+   * URI 前缀, trailing slash is required
+   */
+  uriPrefix?: string;
+  /**
+   * 当前页码
+   */
+  pageNo: number;
+  /**
+   * 总页数
+   */
+  totalPage: number;
+}
+
+const { pageNo, totalPage, uriPrefix = '/' } = Astro.props;
+
+const hasPrev = pageNo > 1;
+const hasNext = pageNo < totalPage;
+
+const getPrevLink = () => {
+  const prevIndex = pageNo - 1;
+  return prevIndex === 1 ? `${uriPrefix}` : `${uriPrefix}page/${prevIndex}/`;
+};
+---
+
+<div class="flex justify-between">
+  <div>
+    {hasPrev && <a href={getPrevLink()}>上一页</a>}
+    {hasNext && <a href={`${uriPrefix}page/${pageNo + 1}/`}>下一页</a>}
+  </div>
+  <div class="text-gray-500">
+    第 {pageNo} 页，共 {totalPage} 页
+  </div>
+</div>

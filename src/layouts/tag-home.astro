@@ -1,0 +1,44 @@
+---
+import { getGroupedInfo, type ITagType } from '@/common/tag-home';
+import BaseLayout from '@/layouts/base.astro';
+
+interface Props {
+  type: ITagType;
+}
+
+const { type } = Astro.props;
+
+const { names, group } = await getGroupedInfo({ type });
+const uniqueNames = Array.from(names);
+---
+
+<BaseLayout title="Tag">
+  <h1>{type}</h1>
+  <ul class="flex flex-wrap gap-4 mb-8">
+    {
+      uniqueNames.map((name) => (
+        <li>
+          <a href={`#${encodeURI(name)}`}>{name}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <ul>
+    {
+      Object.keys(group).map((name) => (
+        <li>
+          <h2 id={encodeURI(name)}>
+            <a href={`/${type}/${encodeURI(name)}/`}>
+              {name}({group[name].length})
+            </a>
+          </h2>
+          <ul class="list-inside list-disc">
+            {group[name].map((post) => (
+              <li>{post.data.title}</li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
