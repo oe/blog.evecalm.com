@@ -1,26 +1,25 @@
 ---
-import { type CollectionEntry } from 'astro:content';
-// import truncate from 'truncate-html';
-// import { renderToString } from 'react-dom/server';
+import { getPostSlug, type IBlogEntry } from '@/content/config';
+import { getExcerpt } from '@/common/utils';
 
 interface Props {
-  entry: CollectionEntry<'blog'>;
+  entry: IBlogEntry;
 }
 
 const { entry } = Astro.props;
-
-const { Content } = await entry.render();
-
-// const postContent = renderToString(<Content></Content>);
-
-// const excerpt = truncate(postContent, {
-//   length: 50,
-//   excludes: ['img', 'figure']
-// });
+const { compiledContent } = await import(`../content/blog/${entry.id}`);
+const excerpt = await getExcerpt(compiledContent());
+const postSlug = getPostSlug(entry.data);
 ---
 
 <article>
-  <h2>{entry.data.title}</h2>
-  <!-- <div set:html={excerpt} /> -->
-  <Content />
+  <h2>
+    <a href={postSlug}>
+      {entry.data.title}
+    </a>
+  </h2>
+  <div set:html={excerpt} />
+  <p>
+    <a href={postSlug}> 阅读全文 </a>
+  </p>
 </article>

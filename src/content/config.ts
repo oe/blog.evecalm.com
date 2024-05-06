@@ -15,7 +15,7 @@ export type IBlogTagType = Exclude<IBlogMetaType, 'blog'>;
 export interface IBlogPostMeta {
   title: string
   date: Date
-  tags: string[]
+  tags?: string[]
   categories: string[]
   uri: string
 }
@@ -35,7 +35,6 @@ export const collections = {
   blog: blogCollection
 }
 
-
 export function getPostSlug(post: IBlogPostMeta) {
   const createDate = post.date;
   const year = createDate.getFullYear();
@@ -43,9 +42,9 @@ export function getPostSlug(post: IBlogPostMeta) {
   let slug = '';
   // old posts use the old uri format
   if (year < 2021) {
-    slug = `${year}/${String(month).padStart(2, '0')}/${post.uri}`;
+    slug = `/${year}/${String(month).padStart(2, '0')}/${post.uri}`;
   } else {
-    slug = `${year}/${post.uri}`;
+    slug = `/${year}/${post.uri}`;
   }
   return slug;
 }

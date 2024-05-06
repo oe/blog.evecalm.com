@@ -1,5 +1,8 @@
 ---
-import { type CollectionEntry } from 'astro:content';
+/**
+ * post list for blog/ single tag page/ single category page
+ */
+import { type IBlogEntry } from '@/content/config';
 import Pager from '@/components/pager.astro';
 import PostItem from '@/components/post-item.astro';
 import BaseLayout from '@/layouts/base.astro';
@@ -12,7 +15,7 @@ interface Props {
   /**
    * 当前页文章列表
    */
-  entries: CollectionEntry<'blog'>[];
+  entries: IBlogEntry[];
   /**
    * 页码(从1开始)
    */

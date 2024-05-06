@@ -1,4 +1,8 @@
 ---
+/**
+ * tags and categories home page
+ */
+import { getPostSlug } from '@/content/config';
 import { getGroupedInfo, type ITagType } from '@/common/tag-home';
 import BaseLayout from '@/layouts/base.astro';
 
@@ -34,7 +38,11 @@ const uniqueNames = Array.from(names);
           </h2>
           <ul class="list-inside list-disc">
             {group[name].map((post) => (
-              <li>{post.data.title}</li>
+              <li>
+                <a href={getPostSlug(post.data)}>
+                {post.data.title}
+                </a>
+              </li>
             ))}
           </ul>
         </li>
