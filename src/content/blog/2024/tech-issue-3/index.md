@@ -49,7 +49,7 @@ tsconfig.json 中增加 `"sourceMap": true`即可
 
 ### 代码可读性的重要性
 
-![Image.tiff](https://res.craft.do/user/full/04958f91-3bad-456a-1d20-c9dc800f64db/doc/70FB44D6-E9B6-47CA-9C43-C907471E925F/7ebb48cf-fc05-4940-7a0d-3d4848b6546a/SRhIyc6xayuI47MVPgRK4S2lr9cXNUPc8xXccAcg39oz/Image.tiff)
+![quote about code readability](./code-readability.png)
 
 原文: [https://jrsinclair.com/articles/2022/what-if-the-team-hates-my-functional-code/](https://jrsinclair.com/articles/2022/what-if-the-team-hates-my-functional-code/)
 
