@@ -1,7 +1,17 @@
 ---
 import { getCollection } from 'astro:content';
-import { getPostSlug, type IBlogPostMeta } from '@/content/config';
-import PostLayout from '@/layouts/post.astro';
+import {
+  getPostSlug,
+  type IBlogEntry,
+  type IBlogPostMeta
+} from '@/content/config';
+import BaseLayout from '@/layouts/base.astro';
+import {
+  AuthorMeta,
+  TagButton,
+  Divider
+} from '@/components/component-fragment';
+import PostFooter from '@/components/post-footer.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -16,17 +26,33 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  entry: {
-    data: IBlogPostMeta;
-    render: () => Promise<{ Content: React.ComponentType }>;
-  };
+  entry: IBlogEntry;
 };
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<PostLayout title={entry.data.title}>
-  <h1>{entry.data.title}</h1>
-  <Content />
-</PostLayout>
+<BaseLayout title={entry.data.title}>
+  <article
+    class="prose lg:prose-xl max-w-4xl prose-zinc dark:prose-invert mx-auto px-4"
+  >
+    <h1>{entry.data.title}</h1>
+    <AuthorMeta
+      createdAt={entry.data.date}
+      categories={entry.data.categories}
+    />
+    <Content />
+    {
+      entry.data.tags && entry.data.tags.length && (
+        <div>
+          <span class="mr-2 text-slate-400 text-sm">标签 </span>
+          {entry.data.tags.map((n) => (
+            <TagButton name={n} />
+          ))}
+        </div>
+      )
+    }
+  </article>
+  <PostFooter entry={entry} />
+</BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import { getPostSlug, type IBlogEntry } from '@/content/config';
 import { getExcerpt } from '@/common/utils';
+import { AuthorMeta } from './component-fragment'
 
 interface Props {
   entry: IBlogEntry;
@@ -13,17 +14,18 @@ const { entry } = Astro.props;
 const postItem = allPosts.find((post) => post.file.endsWith(entry.id))!;
 
 const excerpt = await getExcerpt(postItem.compiledContent());
-const postSlug = getPostSlug(entry.data);
+const postSlug = getPostSlug(entry.data, true);
 ---
 
-<article>
-  <h2>
+<article class="my-4">
+  <h2 class="text-4xl font-bold mb-2">
     <a href={postSlug}>
       {entry.data.title}
     </a>
   </h2>
-  <div set:html={excerpt} />
-  <p>
+  <AuthorMeta createdAt={entry.data.date} categories={entry.data.categories} />
+  <div class="prose dark:prose-invert" set:html={excerpt} />
+  <div class="text-blue-400 mt-2">
     <a href={postSlug}> 阅读全文 </a>
-  </p>
+  </div>
 </article>

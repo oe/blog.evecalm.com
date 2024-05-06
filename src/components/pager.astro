@@ -25,10 +25,22 @@ const getPrevLink = () => {
 };
 ---
 
-<div class="flex justify-between">
+<div class="flex justify-between my-8">
   <div>
-    {hasPrev && <a href={getPrevLink()}>上一页</a>}
-    {hasNext && <a href={`${uriPrefix}page/${pageNo + 1}/`}>下一页</a>}
+    {
+      hasPrev && (
+        <a href={getPrevLink()} class="mr-4 text-blue-400">
+          上一页
+        </a>
+      )
+    }
+    {
+      hasNext && (
+        <a href={`${uriPrefix}page/${pageNo + 1}/`} class="text-blue-400">
+          下一页
+        </a>
+      )
+    }
   </div>
   <div class="text-gray-500">
     第 {pageNo} 页，共 {totalPage} 页

@@ -1,0 +1,107 @@
+---
+import { type IBlogEntry, getPostSlug } from '@/content/config';
+import { getCollection } from 'astro:content';
+import {
+  MessageCircleMore,
+  Twitter,
+  Facebook,
+  ArrowUpFromLine
+} from 'lucide-react';
+
+interface Props {
+  entry: IBlogEntry;
+}
+
+async function getPrevAndNextEntry(entry: IBlogEntry) {
+  const entries = await getCollection('blog');
+  entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  const index = entries.findIndex((e) => e.id === entry.id);
+  return {
+    prev: entries[index - 1],
+    next: entries[index + 1]
+  };
+}
+
+const { entry } = Astro.props;
+
+const siblings = await getPrevAndNextEntry(entry);
+---
+
+<div class="flex justify-between relative">
+  <div>
+    {
+      siblings.prev && (
+        <a
+          href={getPostSlug(siblings.prev.data, true)}
+          aria-label={siblings.prev.data.title}
+          class="mr-4 hover-tip"
+        >
+          上一篇
+        </a>
+      )
+    }
+    {
+      siblings.next && (
+        <a
+          href={getPostSlug(siblings.next.data, true)}
+          aria-label={siblings.next.data.title}
+          class="hover-tip"
+        >
+          下一篇
+        </a>
+      )
+    }
+  </div>
+
+  <div class="flex items-center gap-4 relative">
+    <a href="#" class="hover-tip" aria-label="滚动到顶部">
+      <ArrowUpFromLine />
+    </a>
+    <a href="#disqus" class="hover-tip" aria-label="评论">
+      <MessageCircleMore />
+    </a>
+    <a
+      href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(Astro.url.href)}`
+      target="_blank"
+      class="hover-tip"
+      aria-label="分享到 Twitter"
+    >
+      <Twitter />
+    </a>
+    <a
+      href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`
+      target="_blank"
+      class="hover-tip"
+      aria-label="分享到 Facebook"
+    >
+      <Facebook />
+    </a>
+  </div>
+</div>
+
+<style is:global>
+  .hover-tip {
+    position: relative;
+
+    &:before {
+      content: attr(aria-label);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      width: max-content;
+      transform: translateX(-50%);
+      padding: 0.5rem;
+      background-color: #333;
+      color: #ddd;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      display: none;
+    }
+
+    &:hover:before {
+      display: block;
+    }
+  }
+</style>

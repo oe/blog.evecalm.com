@@ -30,7 +30,7 @@ export const collections = {
   blog: blogCollection
 }
 
-export function getPostSlug(post: IBlogPostMeta) {
+export function getPostSlug(post: IBlogPostMeta, requireExt = false) {
   const createDate = post.date;
   const year = createDate.getFullYear();
   const month = createDate.getMonth() + 1;
@@ -41,5 +41,5 @@ export function getPostSlug(post: IBlogPostMeta) {
   } else {
     slug = `/${year}/${post.uri}`;
   }
-  return slug;
+  return slug + (requireExt ? '.html' : '');
 }

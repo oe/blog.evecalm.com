@@ -11,3 +11,11 @@ export async function getExcerpt(html: string) {
     excludes: ['img', 'figure', 'iframe', 'video', 'audio', 'pre']
   });
 }
+
+export function getTagListLink(tag: string) {
+  return `/tags/${encodeURI(tag)}/`;
+}
+
+export function getCategoryListLink(category: string) {
+  return `/categories/${encodeURI(category)}/`;
+}

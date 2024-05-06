@@ -1,19 +1,34 @@
 ---
+import Footer from '@/components/footer.astro';
+import { SITE_NAME, AUTHOR } from '@/config';
 interface Props {
-  title: string;
+  title?: string;
+  cover?: string;
 }
 
-const { title } = Astro.props;
+const { title, cover } = Astro.props;
+
+const siteTitle = title ? `${title} - ${SITE_NAME}` : SITE_NAME;
 ---
 
 <html lang="zh-Hans" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="shortcut icon" href="/favicon.png" type="image/png">
-    <title>{title}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>{siteTitle}</title>
+    <meta property="og:type" content="blog" />
+    <meta property="og:title" content={title || SITE_NAME} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:local" content="zh-Hans" />
+    <meta property="og:image" content={cover || AUTHOR.avatar} />
+    <meta property="article:author" content={AUTHOR.name} />
   </head>
-  <body>
+  <body
+    class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 font-sans text-wrap break-words relative"
+  >
     <slot />
+    <Footer />
   </body>
 </html>
