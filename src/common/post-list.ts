@@ -1,5 +1,7 @@
 import { getCollection } from 'astro:content';
-import { type IBlogPostMeta, type IBlogEntry, type IBlogMetaType, PAGE_SIZE } from '@/content/config';
+import { type IBlogPostMeta, type IBlogEntry, type IBlogMetaType } from '@/content/config';
+
+import { POST_PAGE_SIZE } from '@/config';
 
 
 export interface IPageListProps {
@@ -47,7 +49,7 @@ export async function getBlogListStaticPathsInner(options: IStaticPathsOptions) 
     // sort blog by date, newest first
   }).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-  const totalPage = Math.ceil(filteredPosts.length / PAGE_SIZE);
+  const totalPage = Math.ceil(filteredPosts.length / POST_PAGE_SIZE);
   return Array.from({ length: totalPage }).map((_, index) => {
     const pageNo = index + 1;
     return {
@@ -59,7 +61,7 @@ export async function getBlogListStaticPathsInner(options: IStaticPathsOptions) 
         })
       },
       props: {
-        entries: filteredPosts.slice(index * PAGE_SIZE, (index + 1) * PAGE_SIZE),
+        entries: filteredPosts.slice(index * POST_PAGE_SIZE, (index + 1) * POST_PAGE_SIZE),
         pageNo,
         totalPage,
         value: options.value,

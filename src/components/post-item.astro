@@ -6,9 +6,13 @@ interface Props {
   entry: IBlogEntry;
 }
 
+const allPosts = await Astro.glob('../content/blog/**/*.md');
+
 const { entry } = Astro.props;
-const { compiledContent } = await import(`../content/blog/${entry.id}`);
-const excerpt = await getExcerpt(compiledContent());
+
+const postItem = allPosts.find((post) => post.file.endsWith(entry.id))!;
+
+const excerpt = await getExcerpt(postItem.compiledContent());
 const postSlug = getPostSlug(entry.data);
 ---
 

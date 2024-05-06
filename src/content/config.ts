@@ -3,11 +3,6 @@ import { z, defineCollection, type CollectionEntry } from 'astro:content'
 
 export type IBlogEntry = CollectionEntry<'blog'>;
 
-/**
- * 每页显示的博客数量
- */
-export const PAGE_SIZE = 10;
-
 export type IBlogMetaType = 'categories' | 'tags' | 'blog';
 
 export type IBlogTagType = Exclude<IBlogMetaType, 'blog'>;
