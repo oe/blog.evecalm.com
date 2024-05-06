@@ -11,6 +11,11 @@ export interface IBlogPostMeta {
   title: string
   date: Date
   tags?: string[]
+  /**
+   * article description for SEO
+   *  use post excerpt if not provided
+   */
+  description?: string
   categories: string[]
   uri: string
 }
@@ -21,6 +26,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     date: z.date(),
     tags: z.array(z.string()).optional(),
+    description: z.string().optional(),
     categories: z.array(z.string()),
     uri: z.string(),
   })

@@ -79,6 +79,6 @@ interface IStaticPathOptions {
 function getStaticPath(options: IStaticPathOptions) {
   let slug = options.type === 'blog' ? '' : `${options.value!}/`;
   slug += options.pageNo === 1 ? '' : `page/${options.pageNo}/`;
-  return slug;
+  return slug || undefined;
 }
 

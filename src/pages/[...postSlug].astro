@@ -9,7 +9,6 @@ import BaseLayout from '@/layouts/base.astro';
 import {
   AuthorMeta,
   TagButton,
-  Divider
 } from '@/components/component-fragment';
 import PostFooter from '@/components/post-footer.astro';
 
@@ -33,7 +32,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<BaseLayout title={entry.data.title}>
+<BaseLayout title={entry.data.title} description={entry.data.description}>
   <article
     class="prose lg:prose-xl max-w-4xl prose-zinc dark:prose-invert mx-auto px-4"
   >

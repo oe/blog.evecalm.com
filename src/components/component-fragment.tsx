@@ -55,7 +55,7 @@ export function Divider(props: { children: React.ReactNode }) {
         className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"
       ></div>
 
-      <span className="relative z-10 bg-white px-6 dark:bg-slate-800">{props.children}</span>
+      <span className="relative z-1 bg-white px-6 dark:bg-slate-800">{props.children}</span>
     </div>
   )
 }

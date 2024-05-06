@@ -7,7 +7,7 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
-  site: 'https://diff.forth.ink',
+  site: 'https://blog.evecalm.com',
   integrations:[
     tailwind(),
     react(),

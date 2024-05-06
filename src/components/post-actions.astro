@@ -28,7 +28,7 @@ const { entry } = Astro.props;
 const siblings = await getPrevAndNextEntry(entry);
 ---
 
-<div class="flex justify-between relative">
+<div class="flex justify-between mb-4">
   <div>
     {
       siblings.prev && (
@@ -58,7 +58,7 @@ const siblings = await getPrevAndNextEntry(entry);
     <a href="#" class="hover-tip" aria-label="滚动到顶部">
       <ArrowUpFromLine />
     </a>
-    <a href="#disqus" class="hover-tip" aria-label="评论">
+    <a href="#disqus_thread" class="hover-tip" aria-label="评论">
       <MessageCircleMore />
     </a>
     <a
@@ -87,7 +87,7 @@ const siblings = await getPrevAndNextEntry(entry);
     &:before {
       content: attr(aria-label);
       position: absolute;
-      bottom: 110%;
+      bottom: 120%;
       left: 50%;
       width: max-content;
       transform: translateX(-50%);
@@ -96,7 +96,7 @@ const siblings = await getPrevAndNextEntry(entry);
       color: #ddd;
       border-radius: 0.25rem;
       box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-      z-index: 1;
+      z-index: 10;
       display: none;
     }
 
