@@ -20,6 +20,12 @@ const siteDescription = String(description || SITE_DESCRIPTION || '').trim();
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <title>{siteTitle}</title>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_NAME}
+      href={`${Astro.site}atom.xml`}
+    />
     <meta name="description" content={siteDescription} />
     <meta property="og:type" content="blog" />
     <meta property="og:title" content={title || SITE_NAME} />

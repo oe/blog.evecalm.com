@@ -16,9 +16,10 @@ import { DISQUS_SHORTNAME } from '@/config';
 </div>
 <script defer is:inline>
   (function () {
-    function onScroll () {
-      var d = window.document
-      if (d.body.scrollHeight - window.innerHeight - window.scrollY > 400) return
+    var d = window.document;
+    function isNearBottom() {return window.innerHeight + window.scrollY >= d.body.scrollHeight - 400 }
+    function onScroll() {
+      if (!isNearBottom()) return;
       document.removeEventListener('scroll', onScroll);
       if (window.disqus_config) return;
       const r = document.getElementById('disqus_thread');
@@ -31,6 +32,7 @@ import { DISQUS_SHORTNAME } from '@/config';
       s.setAttribute('data-timestamp', Date.now());
       (d.head || d.body).appendChild(s);
     }
+    if (isNearBottom()) { onScroll();return; }
     document.addEventListener('scroll', onScroll, { passive: true });
   })();
 </script>

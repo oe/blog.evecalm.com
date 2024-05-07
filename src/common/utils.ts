@@ -7,7 +7,7 @@ import { createMarkdownProcessor } from '@astrojs/markdown-remark';
  */
 export async function getExcerpt(html: string, stripTags = false) {
   return truncate(html, {
-    length: 300,
+    length: 200,
     stripTags: stripTags,
     excludes: ['img', 'figure', 'iframe', 'video', 'audio', 'pre']
   });
