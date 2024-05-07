@@ -1,19 +1,15 @@
 ---
 import { getPostSlug, type IBlogEntry } from '@/content/config';
-import { getExcerpt } from '@/common/utils';
+import { getMarkdownExcerpt } from '@/common/utils';
 import { AuthorMeta } from './component-fragment';
 
 interface Props {
   entry: IBlogEntry;
 }
 
-const allPosts = await Astro.glob('../content/blog/**/*.md');
-
 const { entry } = Astro.props;
 
-const postItem = allPosts.find((post) => post.file.endsWith(entry.id))!;
-
-const excerpt = await getExcerpt(postItem.compiledContent());
+const excerpt = await getMarkdownExcerpt(entry.body);
 const postSlug = getPostSlug(entry.data, true);
 ---
 

@@ -8,6 +8,7 @@ import {
 import BaseLayout from '@/layouts/base.astro';
 import { AuthorMeta, TagButton } from '@/components/component-fragment';
 import PostFooter from '@/components/post-footer.astro';
+import { getMarkdownExcerpt } from '@/common/utils';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -27,9 +28,11 @@ type Props = {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+const postDescription =
+  entry.data.description || (await getMarkdownExcerpt(entry.body, true));
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout title={entry.data.title} description={postDescription}>
   <article
     class="format lg:format-lg max-w-4xl prose-zinc dark:format-invert mx-auto px-4 mb-4"
   >
@@ -54,16 +57,21 @@ const { Content } = await entry.render();
 </BaseLayout>
 <style is:global lang="scss">
   article {
-    h1, h2, h3,h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6 {
       position: relative;
 
       .icon-link {
         position: absolute;
         left: -1em;
+        opacity: 0;
         &::after {
           content: '🔗';
           font-size: 0.6em;
         }
+      }
+
+      &:hover .icon-link {
+        opacity: 1;
       }
     }
   }

@@ -11,6 +11,7 @@ interface Props {
 const { title, cover, description } = Astro.props;
 
 const siteTitle = title ? `${title} - ${SITE_NAME}` : SITE_NAME;
+const siteDescription = String(description || SITE_DESCRIPTION || '').trim();
 ---
 
 <html lang="zh-Hans" class="scroll-smooth">
@@ -19,12 +20,13 @@ const siteTitle = title ? `${title} - ${SITE_NAME}` : SITE_NAME;
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="shortcut icon" href="/favicon.png" type="image/png" />
     <title>{siteTitle}</title>
-    <meta name="description" content={description || SITE_DESCRIPTION} />
+    <meta name="description" content={siteDescription} />
     <meta property="og:type" content="blog" />
     <meta property="og:title" content={title || SITE_NAME} />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:local" content="zh-Hans" />
+    <meta property="og:description" content={siteDescription} />
     <meta property="og:image" content={cover || AUTHOR.avatar} />
     <meta property="article:author" content={AUTHOR.name} />
     <link rel="canonical" href={Astro.url} />
