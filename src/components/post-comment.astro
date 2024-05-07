@@ -16,15 +16,21 @@ import { DISQUS_SHORTNAME } from '@/config';
 </div>
 <script defer is:inline>
   (function () {
-    const r = document.getElementById('disqus_thread');
-    // @ts-ignore
-    window.disqus_config = function () {
-      this.page.url = r.getAttribute('data-url');
-      this.page.identifier = r.getAttribute('data-identifier');
-    };
-    var d = window.document,s = d.createElement('script');
-    s.src = '//' + r.getAttribute('data-shortname') + '.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', Date.now());
-    (d.head || d.body).appendChild(s);
+    function onScroll () {
+      var d = window.document
+      if (d.body.scrollHeight - window.innerHeight - window.scrollY > 400) return
+      document.removeEventListener('scroll', onScroll);
+      if (window.disqus_config) return;
+      const r = document.getElementById('disqus_thread');
+      window.disqus_config = function () {
+        this.page.url = r.getAttribute('data-url');
+        this.page.identifier = r.getAttribute('data-identifier');
+      };
+      var s = d.createElement('script');
+      s.src = '//' + r.getAttribute('data-shortname') + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', Date.now());
+      (d.head || d.body).appendChild(s);
+    }
+    document.addEventListener('scroll', onScroll, { passive: true });
   })();
 </script>

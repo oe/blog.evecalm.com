@@ -28,8 +28,8 @@ const { entry } = Astro.props;
 const siblings = await getPrevAndNextEntry(entry);
 ---
 
-<div class="flex justify-between mb-4">
-  <div>
+<div class="flex justify-between mb-4 max-xs:flex-col max-xs:gap-4">
+  <div class="max-xs:flex max-xs:justify-between">
     {
       siblings.prev && (
         <a
@@ -54,7 +54,9 @@ const siblings = await getPrevAndNextEntry(entry);
     }
   </div>
 
-  <div class="flex items-center gap-4 relative">
+  <div
+    class="flex items-center gap-4 relative max-xs:justify-between"
+  >
     <a href="#" class="hover-tip" aria-label="滚动到顶部">
       <ArrowUpFromLine />
     </a>

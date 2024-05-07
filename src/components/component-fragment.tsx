@@ -7,15 +7,17 @@ import { getCategoryListLink, getTagListLink } from '@/common/utils';
 dayjs.extend(localizedFormat)
 dayjs.locale('zh-cn');
 
-export interface IPostMetaProps {
-  createdAt: Date;
-  categories: string[];
-}
+
 
 export function CategoryLink(props: { name: string }) {
   return (
     <a href={getCategoryListLink(props.name)}>{props.name}</a>
   );
+}
+
+export interface IPostMetaProps {
+  createdAt: Date;
+  categories: string[];
 }
 
 export function AuthorMeta(props: IPostMetaProps) {

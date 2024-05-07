@@ -1,5 +1,6 @@
 ---
 import Footer from '@/components/footer.astro';
+import Header from '@/components/header.astro';
 import { SITE_NAME, AUTHOR, SITE_DESCRIPTION } from '@/config';
 interface Props {
   title?: string;
@@ -31,6 +32,7 @@ const siteTitle = title ? `${title} - ${SITE_NAME}` : SITE_NAME;
   <body
     class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 font-sans text-wrap break-words relative"
   >
+    <Header />
     <slot />
     <Footer />
   </body>

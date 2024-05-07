@@ -1,7 +1,7 @@
 ---
 import { getPostSlug, type IBlogEntry } from '@/content/config';
 import { getExcerpt } from '@/common/utils';
-import { AuthorMeta } from './component-fragment'
+import { AuthorMeta } from './component-fragment';
 
 interface Props {
   entry: IBlogEntry;
@@ -24,7 +24,7 @@ const postSlug = getPostSlug(entry.data, true);
     </a>
   </h2>
   <AuthorMeta createdAt={entry.data.date} categories={entry.data.categories} />
-  <div class="prose dark:prose-invert" set:html={excerpt} />
+  <div class="format dark:format-invert max-w-full" set:html={excerpt} />
   <div class="text-blue-400 mt-2">
     <a href={postSlug}> 阅读全文 </a>
   </div>

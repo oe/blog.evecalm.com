@@ -16,4 +16,10 @@ type Props = IPageListProps;
 const { entries, pageNo, totalPage, value } = Astro.props;
 ---
 
-<PostList entries={entries} pageNo={pageNo} totalPage={totalPage} uriPrefix={`/categories/${value!}/`} />
+<PostList
+  title={`分类: ${value}`}
+  entries={entries}
+  pageNo={pageNo}
+  totalPage={totalPage}
+  uriPrefix={`/categories/${value!}/`}
+/>

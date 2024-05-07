@@ -17,6 +17,7 @@ const { entries, pageNo, totalPage, value } = Astro.props;
 ---
 
 <PostList
+  title={`标签: ${value}`}
   entries={entries}
   pageNo={pageNo}
   totalPage={totalPage}

@@ -6,10 +6,7 @@ import {
   type IBlogPostMeta
 } from '@/content/config';
 import BaseLayout from '@/layouts/base.astro';
-import {
-  AuthorMeta,
-  TagButton,
-} from '@/components/component-fragment';
+import { AuthorMeta, TagButton } from '@/components/component-fragment';
 import PostFooter from '@/components/post-footer.astro';
 
 export async function getStaticPaths() {
@@ -34,7 +31,7 @@ const { Content } = await entry.render();
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
   <article
-    class="prose lg:prose-xl max-w-4xl prose-zinc dark:prose-invert mx-auto px-4"
+    class="format lg:format-lg max-w-4xl prose-zinc dark:format-invert mx-auto px-4 mb-4"
   >
     <h1>{entry.data.title}</h1>
     <AuthorMeta
@@ -55,3 +52,19 @@ const { Content } = await entry.render();
   </article>
   <PostFooter entry={entry} />
 </BaseLayout>
+<style is:global lang="scss">
+  article {
+    h1, h2, h3,h4, h5, h6 {
+      position: relative;
+
+      .icon-link {
+        position: absolute;
+        left: -1em;
+        &::after {
+          content: '🔗';
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
+</style>

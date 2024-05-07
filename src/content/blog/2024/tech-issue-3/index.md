@@ -11,6 +11,15 @@ categories:
 
 ## Typescript 将字符串枚举转换为字符串联合类型
 
+```ts
+enum Weekday {
+    MONDAY = 'mon',
+    TUESDAY = 'tue',
+    WEDNESDAY = 'wed'
+}
+type WeekdayType = `${Weekday}`
+```
+
 参考: [https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum](https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum)
 
 ## 更新yarn.lock 中的依赖版本
@@ -52,28 +61,6 @@ tsconfig.json 中增加 `"sourceMap": true`即可
 ![quote about code readability](./code-readability.png)
 
 原文: [https://jrsinclair.com/articles/2022/what-if-the-team-hates-my-functional-code/](https://jrsinclair.com/articles/2022/what-if-the-team-hates-my-functional-code/)
-
-get milliseconds relative to the same day’s 00:00:00
-
-```javascript
-function TimeInput(props: any) {
-  const formatValue = (t: number) => {
-    if (typeof t !== 'number') return moment()
-    const d = new Date()
-    d.setHours(0, 0, 0, 0)
-    return moment(d.getTime() + t)
-  }
-
-  const onChange = (v: any) => {
-    const d = moment.isMoment(v) ? v.toDate() : new Date(v)
-    d.setFullYear(1970, 0, 1)
-    // 修正为相对当地的时间毫秒数
-    return d.getTime() - d.getTimezoneOffset() * 60 * 1000
-  }
-
-  return <TimePicker value={formatValue(props.value)} onChange={onChange} disabled={props.disabled} />
-}
-```
 
 ## 你为何不离职
 

@@ -14,7 +14,8 @@ export const SITE_NAME = '夏影の博客'
 export const AUTHOR = {
   name: 'Saiya',
   avatar: '//evecalm.com/assets/avatar.jpg',
-  github: 'https://github.com/oe'
+  github: 'https://github.com/oe',
+  about: 'https://evecalm.com/about',
 }
 
 export const SITE_DESCRIPTION = `夏影の博客，一个记录技术与生活的地方。`
