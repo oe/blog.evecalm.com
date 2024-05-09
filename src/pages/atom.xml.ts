@@ -11,6 +11,7 @@ import sanitizeHtml from 'sanitize-html';
 
 export async function GET(context: APIContext) {
   const blog = await getCollection('blog');
+  
   // sort blog by date, newest first, and get the first 10
   const posts = blog.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 10);
   const items = await Promise.all(posts.map(async (post) => {

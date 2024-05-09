@@ -4,8 +4,29 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="text-center text-slate-500 dark:text-slate-300 my-16">
-  Copyrights © {year}
-  {AUTHOR.name}. All Rights Reserved
+  <div>
+    Copyrights © {year}
+    {AUTHOR.name}. All Rights Reserved
+  </div>
+  <div>
+    <a 
+      href="https://evecalm.com"
+      target="_blank"
+      class="text-slate-500 dark:text-slate-300"
+      >夏影</a
+    > &
+    <a href="https://forth.ink" target="_blank" class="text-slate-500 dark:text-slate-300"
+      >𝗳𝗼𝗿𝘁𝗵𝗶𝗻𝗸</a
+    >
+  </div>
 </footer>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DPSKR82X8Z"></script>
-<script is:inline>window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-DPSKR82X8Z');</script>
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-DPSKR82X8Z"
+></script>
+<script defer is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-DPSKR82X8Z');
+</script>
