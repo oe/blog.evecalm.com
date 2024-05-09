@@ -14,25 +14,35 @@ import { DISQUS_SHORTNAME } from '@/config';
     ></noscript
   >
 </div>
-<script defer is:inline>
+<script>
   (function () {
     var d = window.document;
-    function isNearBottom() {return window.innerHeight + window.scrollY >= d.body.scrollHeight - 400 }
+    function isNearBottom() {
+      return window.innerHeight + window.scrollY >= d.body.scrollHeight - 400;
+    }
     function onScroll() {
       if (!isNearBottom()) return;
       document.removeEventListener('scroll', onScroll);
+      // @ts-ignore
       if (window.disqus_config) return;
-      const r = document.getElementById('disqus_thread');
+      const r = document.getElementById('disqus_thread')!;
+      // @ts-ignore
       window.disqus_config = function () {
+        // @ts-ignore
         this.page.url = r.getAttribute('data-url');
+        // @ts-ignore
         this.page.identifier = r.getAttribute('data-identifier');
       };
       var s = d.createElement('script');
       s.src = '//' + r.getAttribute('data-shortname') + '.disqus.com/embed.js';
+      // @ts-ignore
       s.setAttribute('data-timestamp', Date.now());
       (d.head || d.body).appendChild(s);
     }
-    if (isNearBottom()) { onScroll();return; }
+    if (isNearBottom()) {
+      onScroll();
+      return;
+    }
     document.addEventListener('scroll', onScroll, { passive: true });
   })();
 </script>

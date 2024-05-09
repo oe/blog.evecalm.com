@@ -82,12 +82,12 @@ const postDescription =
     margin-bottom: 0.2em;
   }
 </style>
-<script defer is:inline>
+<script>
   document.body.querySelectorAll('article img').forEach((img) => {
     const title = img.getAttribute('title') || img.getAttribute('alt');
     if (!title) return;
     const figure = document.createElement('figure');
-    img.parentNode.replaceChild(figure, img);
+    img.parentNode!.replaceChild(figure, img);
     figure.appendChild(img);
     img.insertAdjacentHTML(
       'afterend',
