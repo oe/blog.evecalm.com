@@ -5,6 +5,7 @@ export type IBlogEntry = CollectionEntry<'blog'>;
 
 export type IBlogMetaType = 'categories' | 'tags' | 'blog';
 
+
 export type IBlogTagType = Exclude<IBlogMetaType, 'blog'>;
 
 export interface IBlogPostMeta {

@@ -2,7 +2,7 @@
 /**
  * post list for blog/ single tag page/ single category page
  */
-import { type IBlogEntry } from '@/content/config';
+import { type IBlogEntry, type IBlogTagType } from '@/content/config';
 import Pager from '@/components/pager.astro';
 import PostItem from '@/components/post-item.astro';
 import BaseLayout from '@/layouts/base.astro';
@@ -11,7 +11,7 @@ interface Props {
   /**
    * 路由前缀
    */
-  uriPrefix?: string;
+  uriPrefix?: `/${IBlogTagType}/${string}`;
   /**
    * 当前页文章列表
    */
