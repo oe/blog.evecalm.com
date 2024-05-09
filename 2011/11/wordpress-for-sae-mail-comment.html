@@ -1,18 +1,256 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="夏影の博客"><title>[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒 - 夏影の博客</title><meta name="author" content="Saiya"><link rel="icon" href="https://blog.evecalm.com/assets/images/favicon.png"><link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml"><script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg"},"articleBody":"新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。\n对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail-SMTP插件，但是其功能差强人意，并不能实现评论邮件提醒访客，只能提醒站长。而SAE本身就封装了一个邮件函数，使用该函数的范例代码如下\n\n最大可发送1MB大小的邮件（含附件\n\n\n\n\n&lt;?ph\n\n\n$mail = new SaeMail()\n\n\n$mail-&gt;setAttach( array( ‘my_photo’ =&gt; ‘照片的二进制数据’ ) )\n\n\n$ret = $mail-&gt;quickSend( ‘&#x74;&#x6f;&#64;&#115;&#105;&#110;&#97;&#46;&#x63;&#110;‘ , ‘邮件标题’ , ‘邮件内容’ , ‘&#x73;&#109;&#116;&#x70;&#x61;&#x63;&#x63;&#111;&#117;&#x6e;&#116;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;‘ , ‘password’ )\n\n\n\n\n//发送失败时输出错误码和错误信\n\n\nif ($ret === false\n\n\nvar_dump($mail-&gt;errno(), $mail-&gt;errmsg())\n\n\n\n\n$mail-&gt;clean(); // 重用此对\n\n\n$ret = $mail-&gt;quickSend( ‘&#x74;&#111;&#x40;&#x73;&#105;&#x6e;&#x61;&#x2e;&#99;&#110;‘ , ‘邮件标题’ , ‘邮件内容’ , ‘&#115;&#109;&#116;&#112;&#97;&#99;&#99;&#111;&#x75;&#110;&#116;&#64;&#x75;&#110;&#x6b;&#110;&#111;&#x77;&#110;&#46;&#99;&#x6f;&#109;‘ , ‘password’ , ‘smtp.unknown.com’ , 25 ); // 指定smtp和端\n\n\n\n\n//发送失败时输出错误码和错误信\n\n\nif ($ret === false\n\n\nvar_dump($mail-&gt;errno(), $mail-&gt;errmsg())\n\n\n?&amp;gt\n\n\n更多相关说明可以看[官方文档](http://apidoc.sinaapp.com/sae/SaeMail.html\n\n如果你对php比较了解的话，完全可以参照以上代码为自己的Wordpress for SAE添加邮件评论提醒功能，否则的话，可以使用下面的代码(本站的邮件提醒即用以下代码实现的)\n\n//comment_mail_notify(所有的回复都会发邮件通知\n\n\nfunction comment_mail_notify($comment_id) \n\n\n$admin_email = get_bloginfo (‘admin_email’); // $admin_email 可改為你指定的 e-mail\n\n\n$comment = get_comment($comment_id)\n\n\n$comment_author_email = trim($comment-&gt;comment_author_email)\n\n\n$parent_id = $comment-&gt;comment_parent ? $comment-&gt;comment_parent : ‘’\n\n\n$to = $parent_id ? trim(get_comment($parent_id)-&gt;comment_author_email) : ‘’\n\n\n$spam_confirmed = $comment-&gt;comment_approved\n\n\nif (($parent_id != ‘’) &amp;&amp; ($spam_confirmed != ‘spam’) &amp;&amp; ($to != $admin_email)&amp;&amp;isset($_POST[‘comment_mail_notify’])) \n\n\n/* 上面是判断是否发出邮件\n\n\n($spam_confirmed != ‘spam’): 不给垃圾评论发送邮件提醒，必需!\n\n\n($to != $admin_email) : 不发送邮件给站\n\n\n($comment_author_email == $admin_email) : 只有站长评论时才发送邮件提\n\n\nisset($_POST[‘comment_mail_notify’]) :接收邮件提醒的复选框被选中则发送邮\n\n\n以上可视个人情况修\n\n\n*\n\n\n$wp_email = ‘你的邮箱地址’;// . preg_replace(‘#^www.#’, ‘’, strtolower($_SERVER[‘SERVER_NAME’])); // e-mail 發出點, no-reply 可改為可用的 e-mail\n\n\n$subject = ‘您在[‘ . get_option(“blogname”) . ‘]的留言有新回复’\n\n\n$message = \n\n\n&lt;div style=”margin: 1em 40px 1em 40px;background-color:#eef2fa;border:1px solid #d8e3e8;color:#111;padding: 0 15px;-moz-border-radius:5px;-webkit-border-radius:5px;-khtml-border-radius:5px;border-radius:5px;”&amp;gt\n\n\n&lt;p&gt;’ . trim(get_comment($parent_id)-&gt;comment_author) . ‘，您好！&lt;/p&amp;gt\n\n\n&lt;p&gt;您在&lt;strong&gt;《’ . get_the_title($comment-&gt;comment_post_ID) . ‘》&lt;/strong&gt;的留言：&lt;/p&amp;gt\n\n\n&lt;p&gt; ‘ . trim(get_comment($parent_id)-&gt;comment_content) . ‘&lt;/p&amp;gt\n\n\n&lt;p&gt;&lt;strong&gt;’ . trim($comment-&gt;comment_author) . ‘&lt;/strong&gt;给您的回复：&lt;/p&amp;gt\n\n\n&lt;p&gt; ‘ . trim($comment-&gt;comment_content) . ‘&lt;/p&amp;gt\n\n\n&lt;p&gt;您可以点击&lt;a href=”‘ . htmlspecialchars(get_comment_link($parent_id)) . ‘“&gt;查看完整的內容&lt;/a&gt;&lt;/p&amp;gt\n\n\n&lt;p&gt;欢迎再度光临 &lt;a href=”‘ . get_option(‘home’) . ‘“&gt;’ . get_option(‘blogname’) . ‘&lt;/a&gt;&lt;/p&amp;gt\n\n\n&lt;p&gt;来自’ . get_option(‘blogname’) . ‘的诚挚问候.&lt;/p&gt;&lt;/div&amp;gt\n\n\n‘\n\n\n$mail = new SaeMail()\n\n\n$options = array(“from”=&gt;$wp_email, “to”=&gt;$to, “smtp_host”=&gt;’邮箱的smtp服务器地址’,”smtp_username”=&gt;’你的邮箱地址’,”smtp_password”=&gt;’邮箱密码’,”subject”=&gt;$subject,”content”=&gt;$message,”content_type”=&gt;’HTML’)\n\n\n$ret=false\n\n\nif($mail-&gt;setOpt($options)\n\n\n$ret=$mail-&gt;send()\n\n\n\n\n//发送失败时输出错误码和错误信\n\n\nif ($ret === false\n\n\nvar_dump($mail-&gt;errno(), $mail-&gt;errmsg())\n\n\n\n\n\n\nadd_action(‘comment_post’, ‘comment_mail_notify’)\n\n\n// – END —————————————\n\n\n\n\n//在评论框下面添加一个复选框,由访客决定是否接收邮件提醒，默认选\n\n\nfunction add_checkbox() \n\n\necho \n\n\n&lt;input id=”comment_mail_notify” style=”margin-left: 20px;” type=”checkbox” name=”comment_mail_notify” value=”comment_mail_notify” checked=”true” /&gt;&lt;label for=”comment_mail_notify”&gt;邮件通知对方&lt;/label&gt;’\n\n\n\n\nadd_action(‘comment_form’, ‘add_checkbox’)\n\n以上代码转自hanolex，代码相关说明:\n1、需要修改的地方有四处，“你的邮箱地址 ”（两处必须一致），“邮箱的smtp服务器地址”（需邮箱支持smtp，并已启用，smtp地址形如smtp.qq.com）和“邮箱密码\n 2、如果想去掉复选框，可以删除最后七行代码，然后去掉以上代码第八行中的“&amp;&amp;isset($_POST[‘comment_mail_notify’])”\n注意,请不要将以上代码与其他有类似功能的代码或者插件一起启用,会产生冲突导致功能失效.如果你确定要使用本代码,请删除相关代码,停用相关插件,并上传Clean Options插件，清理因启用相关插件而残留下来的信息。\n祝你好运！如还有任何疑问，请留言。\n最后，再次劝告大家，SAE已经修改了云豆赠送规则，完全商业运营了，不再适合普通的小网站，而我在不久的将来也会再次搬家。不过，如果你是一个高级的程序开发者，那么你可以为新浪微博开发一款应用（最好是客户端应用），并申请新浪开发者认证，这样每个月都可以补足一万个豆豆，可以让你在SAE长久呆着，除非新浪再次修改规则。\n","dateCreated":"2011-11-28T13:38:47+00:00","dateModified":"2022-02-13T13:25:49+00:00","datePublished":"2011-11-28T13:38:47+00:00","description":"新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。 对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail...","headline":"[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"},"publisher":{"@type":"Organization","name":"Saiya","sameAs":["https://github.com/oe"],"image":"//evecalm.com/assets/avatar.jpg","logo":{"@type":"ImageObject","url":"//evecalm.com/assets/avatar.jpg"}},"url":"https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html","keywords":"主机, 网站, 邮件"}</script><meta name="description" content="新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。 对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail"><meta property="og:type" content="blog"><meta property="og:title" content="[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒"><meta property="og:url" content="https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"><meta property="og:site_name" content="夏影の博客"><meta property="og:description" content="新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。 对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail"><meta property="og:locale" content="zh_CN"><meta property="article:published_time" content="2011-11-28T13:38:47.000Z"><meta property="article:modified_time" content="2022-02-13T13:25:49.949Z"><meta property="article:author" content="Saiya"><meta property="article:tag" content="主机"><meta property="article:tag" content="网站"><meta property="article:tag" content="邮件"><meta name="twitter:card" content="summary"><meta property="og:image" content="//evecalm.com/assets/avatar.jpg"><link rel="stylesheet" href="/assets/css/style-2isxlzu4vzta7timawk3ygoznjmeacmzsvhlamzn1g6dmbr9vfyjhp2j7tnp.min.css"><script async src="https://www.googletagmanager.com/gtag/js?id=UA-23144132-1"></script><script>window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-23144132-1');</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.min.css" integrity="sha512-ioRJH7yXnyX+7fXTQEKPULWkMn3CqMcapK0NNtCN8q//sW7ZeVFcbMJ9RvX99TwDg6P8rAH2IqUSt2TLab4Xmw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'"></head><body><div id="blog"><header id="header" data-behavior="5"><i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i><div class="header-title"><a class="header-title-link" href="/" aria-label="">夏影の博客</a></div><a class="header-right-picture" href="#about" aria-label="打开链接: /#about"><img class="header-picture" src="//evecalm.com/assets/avatar.jpg" alt="作者的图片"></a></header><nav id="sidebar" data-behavior="5"><div class="sidebar-container"><div class="sidebar-profile"><a href="/#about" aria-label="阅读有关作者的更多信息"><img class="sidebar-profile-picture" src="//evecalm.com/assets/avatar.jpg" alt="作者的图片"></a><h4 class="sidebar-profile-name">Saiya</h4><h5 class="sidebar-profile-bio"><p>with Sunny</p></h5></div><ul class="sidebar-buttons"><li class="sidebar-button"><a class="sidebar-button-link" href="/" rel="noopener" title="首页"><i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i> <span class="sidebar-button-desc">首页</span></a></li><li class="sidebar-button"><a class="sidebar-button-link" href="/categories" rel="noopener" title="分类"><i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i> <span class="sidebar-button-desc">分类</span></a></li><li class="sidebar-button"><a class="sidebar-button-link" href="/tags" rel="noopener" title="标签"><i class="sidebar-button-icon fa fa-tags" aria-hidden="true"></i> <span class="sidebar-button-desc">标签</span></a></li><li class="sidebar-button"><a class="sidebar-button-link" href="/archives" rel="noopener" title="归档"><i class="sidebar-button-icon fa fa-archive" aria-hidden="true"></i> <span class="sidebar-button-desc">归档</span></a></li><li class="sidebar-button"><a class="sidebar-button-link" href="https://evecalm.com/about/" target="_blank" rel="noopener" title="关于"><i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i> <span class="sidebar-button-desc">关于</span></a></li></ul><ul class="sidebar-buttons"><li class="sidebar-button"><a class="sidebar-button-link" href="https://github.com/oe" target="_blank" rel="noopener" title="GitHub"><i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i> <span class="sidebar-button-desc">GitHub</span></a></li></ul><ul class="sidebar-buttons"><li class="sidebar-button"><a class="sidebar-button-link" href="/atom.xml" rel="noopener" title="RSS"><i class="sidebar-button-icon fa fa-rss" aria-hidden="true"></i> <span class="sidebar-button-desc">RSS</span></a></li></ul></div></nav><div id="main" data-behavior="5" class="hasCoverMetaIn"><article class="post"><div class="post-header main-content-wrap text-left"><h1 class="post-title">[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒</h1><div class="post-meta"><time datetime="2011-11-28T13:38:47+00:00">11月 28, 2011 </time><span>发布在 </span><a class="category-link" href="/categories/%E5%BB%BA%E7%AB%99/">建站</a></div></div><div class="post-content markdown"><div class="main-content-wrap"><p>新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。</p><p>对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail-SMTP插件，但是其功能差强人意，并不能实现评论邮件提醒访客，只能提醒站长。而SAE本身就封装了一个邮件函数，使用该函数的范例代码如下</p><blockquote><p>最大可发送1MB大小的邮件（含附件</p></blockquote><blockquote></blockquote><blockquote><p>&lt;?ph</p></blockquote><blockquote><p>$mail = new SaeMail()</p></blockquote><blockquote><p>$mail-&gt;setAttach( array( ‘my_photo’ =&gt; ‘照片的二进制数据’ ) )</p></blockquote><blockquote><p>$ret = $mail-&gt;quickSend( ‘<a href="mailto:&#x74;&#x6f;&#64;&#115;&#105;&#110;&#97;&#46;&#x63;&#110;">&#x74;&#x6f;&#64;&#115;&#105;&#110;&#97;&#46;&#x63;&#110;</a>‘ , ‘邮件标题’ , ‘邮件内容’ , ‘<a href="mailto:&#x73;&#109;&#116;&#x70;&#x61;&#x63;&#x63;&#111;&#117;&#x6e;&#116;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#x73;&#109;&#116;&#x70;&#x61;&#x63;&#x63;&#111;&#117;&#x6e;&#116;&#64;&#x67;&#109;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a>‘ , ‘password’ )</p></blockquote><blockquote></blockquote><blockquote><p>//发送失败时输出错误码和错误信</p></blockquote><blockquote><p>if ($ret === false</p></blockquote><blockquote><p>var_dump($mail-&gt;errno(), $mail-&gt;errmsg())</p></blockquote><blockquote></blockquote><blockquote><p>$mail-&gt;clean(); // 重用此对</p></blockquote><blockquote><p>$ret = $mail-&gt;quickSend( ‘<a href="mailto:&#x74;&#111;&#x40;&#x73;&#105;&#x6e;&#x61;&#x2e;&#99;&#110;">&#x74;&#111;&#x40;&#x73;&#105;&#x6e;&#x61;&#x2e;&#99;&#110;</a>‘ , ‘邮件标题’ , ‘邮件内容’ , ‘<a href="mailto:&#115;&#109;&#116;&#112;&#97;&#99;&#99;&#111;&#x75;&#110;&#116;&#64;&#x75;&#110;&#x6b;&#110;&#111;&#x77;&#110;&#46;&#99;&#x6f;&#109;">&#115;&#109;&#116;&#112;&#97;&#99;&#99;&#111;&#x75;&#110;&#116;&#64;&#x75;&#110;&#x6b;&#110;&#111;&#x77;&#110;&#46;&#99;&#x6f;&#109;</a>‘ , ‘password’ , ‘smtp.unknown.com’ , 25 ); // 指定smtp和端</p></blockquote><blockquote></blockquote><blockquote><p>//发送失败时输出错误码和错误信</p></blockquote><blockquote><p>if ($ret === false</p></blockquote><blockquote><p>var_dump($mail-&gt;errno(), $mail-&gt;errmsg())</p></blockquote><blockquote><p>?&amp;gt</p></blockquote><blockquote><p>更多相关说明可以看[官方文档](<a target="_blank" rel="noopener" href="http://apidoc.sinaapp.com/sae/SaeMail.html">http://apidoc.sinaapp.com/sae/SaeMail.html</a></p></blockquote><p>如果你对php比较了解的话，完全可以参照以上代码为自己的Wordpress for SAE添加邮件评论提醒功能，否则的话，可以使用下面的代码(本站的邮件提醒即用以下代码实现的)</p><blockquote><p>//comment_mail_notify(所有的回复都会发邮件通知</p></blockquote><blockquote><p>function comment_mail_notify($comment_id)</p></blockquote><blockquote><p>$admin_email = get_bloginfo (‘admin_email’); // $admin_email 可改為你指定的 e-mail</p></blockquote><blockquote><p>$comment = get_comment($comment_id)</p></blockquote><blockquote><p>$comment_author_email = trim($comment-&gt;comment_author_email)</p></blockquote><blockquote><p>$parent_id = $comment-&gt;comment_parent ? $comment-&gt;comment_parent : ‘’</p></blockquote><blockquote><p>$to = $parent_id ? trim(get_comment($parent_id)-&gt;comment_author_email) : ‘’</p></blockquote><blockquote><p>$spam_confirmed = $comment-&gt;comment_approved</p></blockquote><blockquote><p>if (($parent_id != ‘’) &amp;&amp; ($spam_confirmed != ‘spam’) &amp;&amp; ($to != $admin_email)&amp;&amp;isset($_POST[‘comment_mail_notify’]))</p></blockquote><blockquote><p>/* 上面是判断是否发出邮件</p></blockquote><blockquote><p>($spam_confirmed != ‘spam’): 不给垃圾评论发送邮件提醒，必需!</p></blockquote><blockquote><p>($to != $admin_email) : 不发送邮件给站</p></blockquote><blockquote><p>($comment_author_email == $admin_email) : 只有站长评论时才发送邮件提</p></blockquote><blockquote><p>isset($_POST[‘comment_mail_notify’]) :接收邮件提醒的复选框被选中则发送邮</p></blockquote><blockquote><p>以上可视个人情况修</p></blockquote><blockquote><p>*</p></blockquote><blockquote><p>$wp_email = ‘你的邮箱地址’;// . preg_replace(‘#^www.#’, ‘’, strtolower($_SERVER[‘SERVER_NAME’])); // e-mail 發出點, no-reply 可改為可用的 e-mail</p></blockquote><blockquote><p>$subject = ‘您在[‘ . get_option(“blogname”) . ‘]的留言有新回复’</p></blockquote><blockquote><p>$message =</p></blockquote><blockquote><p>&lt;div style=”margin: 1em 40px 1em 40px;background-color:#eef2fa;border:1px solid #d8e3e8;color:#111;padding: 0 15px;-moz-border-radius:5px;-webkit-border-radius:5px;-khtml-border-radius:5px;border-radius:5px;”&amp;gt</p></blockquote><blockquote><p>&lt;p&gt;’ . trim(get_comment($parent_id)-&gt;comment_author) . ‘，您好！&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt;您在&lt;strong&gt;《’ . get_the_title($comment-&gt;comment_post_ID) . ‘》&lt;/strong&gt;的留言：&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt; ‘ . trim(get_comment($parent_id)-&gt;comment_content) . ‘&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt;&lt;strong&gt;’ . trim($comment-&gt;comment_author) . ‘&lt;/strong&gt;给您的回复：&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt; ‘ . trim($comment-&gt;comment_content) . ‘&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt;您可以点击&lt;a href=”‘ . htmlspecialchars(get_comment_link($parent_id)) . ‘“&gt;查看完整的內容&lt;/a&gt;&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt;欢迎再度光临 &lt;a href=”‘ . get_option(‘home’) . ‘“&gt;’ . get_option(‘blogname’) . ‘&lt;/a&gt;&lt;/p&amp;gt</p></blockquote><blockquote><p>&lt;p&gt;来自’ . get_option(‘blogname’) . ‘的诚挚问候.&lt;/p&gt;&lt;/div&amp;gt</p></blockquote><blockquote><p>‘</p></blockquote><blockquote><p>$mail = new SaeMail()</p></blockquote><blockquote><p>$options = array(“from”=&gt;$wp_email, “to”=&gt;$to, “smtp_host”=&gt;’邮箱的smtp服务器地址’,”smtp_username”=&gt;’你的邮箱地址’,”smtp_password”=&gt;’邮箱密码’,”subject”=&gt;$subject,”content”=&gt;$message,”content_type”=&gt;’HTML’)</p></blockquote><blockquote><p>$ret=false</p></blockquote><blockquote><p>if($mail-&gt;setOpt($options)</p></blockquote><blockquote><p>$ret=$mail-&gt;send()</p></blockquote><blockquote></blockquote><blockquote><p>//发送失败时输出错误码和错误信</p></blockquote><blockquote><p>if ($ret === false</p></blockquote><blockquote><p>var_dump($mail-&gt;errno(), $mail-&gt;errmsg())</p></blockquote><blockquote></blockquote><blockquote></blockquote><blockquote><p>add_action(‘comment_post’, ‘comment_mail_notify’)</p></blockquote><blockquote><p>// – END —————————————</p></blockquote><blockquote></blockquote><blockquote><p>//在评论框下面添加一个复选框,由访客决定是否接收邮件提醒，默认选</p></blockquote><blockquote><p>function add_checkbox()</p></blockquote><blockquote><p>echo</p></blockquote><blockquote><p>&lt;input id=”comment_mail_notify” style=”margin-left: 20px;” type=”checkbox” name=”comment_mail_notify” value=”comment_mail_notify” checked=”true” /&gt;&lt;label for=”comment_mail_notify”&gt;邮件通知对方&lt;/label&gt;’</p></blockquote><blockquote></blockquote><blockquote><p>add_action(‘comment_form’, ‘add_checkbox’)</p></blockquote><p>以上代码转自<a target="_blank" rel="noopener" href="http://hanolex.org/archives/420.html">hanolex</a>，代码相关说明:</p><p>1、需要修改的地方有四处，“你的邮箱地址 ”（两处必须一致），“邮箱的smtp服务器地址”（需邮箱支持smtp，并已启用，smtp地址形如smtp.qq.com）和“邮箱密码</p><p> 2、如果想去掉复选框，可以删除最后七行代码，然后去掉以上代码第八行中的“&amp;&amp;isset($_POST[‘comment_mail_notify’])”</p><p>注意,请不要将以上代码与其他有类似功能的代码或者插件一起启用,会产生冲突导致功能失效.如果你确定要使用本代码,请删除相关代码,停用相关插件,并上传Clean Options插件，清理因启用相关插件而残留下来的信息。</p><p>祝你好运！如还有任何疑问，请<a href="#respond">留言</a>。</p><p>最后，再次劝告大家，SAE已经修改了云豆赠送规则，完全商业运营了，不再适合普通的小网站，而我在不久的将来也会再次搬家。不过，如果你是一个高级的程序开发者，那么你可以为新浪微博开发一款应用（最好是客户端应用），并申请新浪开发者认证，这样每个月都可以补足一万个豆豆，可以让你在SAE长久呆着，除非新浪再次修改规则。</p></div></div><div id="post-footer" class="post-footer main-content-wrap"><div class="post-footer-tags"><span class="text-color-light text-small">标签</span><br><a class="tag tag--primary tag--small t-none-link" href="/tags/%E4%B8%BB%E6%9C%BA/" rel="tag">主机</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E7%BD%91%E7%AB%99/" rel="tag">网站</a> <a class="tag tag--primary tag--small t-none-link" href="/tags/%E9%82%AE%E4%BB%B6/" rel="tag">邮件</a></div><div class="post-actions-wrap"><nav><ul class="post-actions post-action-nav"><li class="post-action"><a class="post-action-btn btn btn--default tooltip--top" href="/2011/12/microblog-source-of-web.html" data-tooltip="[建站]自定义微博来源，巧用微博增加网站流量" aria-label="上一篇: [建站]自定义微博来源，巧用微博增加网站流量"><i class="fa fa-angle-left" aria-hidden="true"></i> <span class="hide-xs hide-sm text-small icon-ml">上一篇</span></a></li><li class="post-action"><a class="post-action-btn btn btn--default tooltip--top" href="/2011/11/sous-les-branches.html" data-tooltip="[音乐]梦的朵雅-《Sous Les Branches》" aria-label="下一篇: [音乐]梦的朵雅-《Sous Les Branches》"><span class="hide-xs hide-sm text-small icon-mr">下一篇</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Facebook" aria-label="分享到 Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Twitter" aria-label="分享到 Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Weibo" aria-label="分享到 Weibo"><i class="fab fa-weibo" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html&amp;title=[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒" title="分享到 QQ" aria-label="分享到 QQ"><i class="fab fa-qq" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Qzone" aria-label="分享到 Qzone"><i class="fa fa-star" aria-hidden="true"></i></a></li><li class="post-action"><a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Kommentieren"><i class="fa fa-comment"></i></a></li><li class="post-action"><a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben"><i class="fa fa-list" aria-hidden="true"></i></a></li></ul></div><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></div></article><footer id="footer" class="main-content-wrap"><span class="copyrights">Copyrights &copy; 2022 Saiya. All Rights Reserved.</span></footer></div><div id="bottom-bar" class="post-bottom-bar" data-behavior="5"><div class="post-actions-wrap"><nav><ul class="post-actions post-action-nav"><li class="post-action"><a class="post-action-btn btn btn--default tooltip--top" href="/2011/12/microblog-source-of-web.html" data-tooltip="[建站]自定义微博来源，巧用微博增加网站流量" aria-label="上一篇: [建站]自定义微博来源，巧用微博增加网站流量"><i class="fa fa-angle-left" aria-hidden="true"></i> <span class="hide-xs hide-sm text-small icon-ml">上一篇</span></a></li><li class="post-action"><a class="post-action-btn btn btn--default tooltip--top" href="/2011/11/sous-les-branches.html" data-tooltip="[音乐]梦的朵雅-《Sous Les Branches》" aria-label="下一篇: [音乐]梦的朵雅-《Sous Les Branches》"><span class="hide-xs hide-sm text-small icon-mr">下一篇</span> <i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></nav><ul class="post-actions post-action-share"><li class="post-action hide-lg hide-md hide-sm"><a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions" aria-label="Diesen Beitrag teilen"><i class="fa fa-share-alt" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Facebook" aria-label="分享到 Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Twitter" aria-label="分享到 Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Weibo" aria-label="分享到 Weibo"><i class="fab fa-weibo" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html&amp;title=[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒" title="分享到 QQ" aria-label="分享到 QQ"><i class="fab fa-qq" aria-hidden="true"></i></a></li><li class="post-action hide-xs"><a class="post-action-btn btn btn--default" target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" title="分享到 Qzone" aria-label="分享到 Qzone"><i class="fa fa-star" aria-hidden="true"></i></a></li><li class="post-action"><a class="post-action-btn btn btn--default" href="#disqus_thread" aria-label="Kommentieren"><i class="fa fa-comment"></i></a></li><li class="post-action"><a class="post-action-btn btn btn--default" href="#" aria-label="Nach oben"><i class="fa fa-list" aria-hidden="true"></i></a></li></ul></div></div><div id="share-options-bar" class="share-options-bar" data-behavior="5"><i id="btn-close-shareoptions" class="fa fa-times"></i><ul class="share-options"><li class="share-option"><a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" aria-label="分享到 Facebook"><i class="fab fa-facebook" aria-hidden="true"></i><span>分享到 Facebook</span></a></li><li class="share-option"><a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" aria-label="分享到 Twitter"><i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span></a></li><li class="share-option"><a class="share-option-btn" target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" aria-label="分享到 Weibo"><i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span></a></li><li class="share-option"><a class="share-option-btn" target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html&amp;title=[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒" aria-label="分享到 QQ"><i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span></a></li><li class="share-option"><a class="share-option-btn" target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" aria-label="分享到 Qzone"><i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span></a></li></ul></div></div><div id="about"><div id="about-card"><div id="about-btn-close"><i class="fa fa-times"></i></div><img id="about-card-picture" src="//evecalm.com/assets/avatar.jpg" alt="作者的图片"><h4 id="about-card-name">Saiya</h4><div id="about-card-bio"><p>with Sunny</p></div><div id="about-card-job"><i class="fa fa-briefcase"></i><br><p>Frontend Developer</p></div></div></div><picture id="cover"><source srcset="/assets/images/cover.avif" type="image/avif"><source srcset="/assets/images/cover.webp" type="image/webp"><img src="/assets/images/cover.jpg" alt="Alt Text!" style="width: inherit;height: inherit;object-fit: cover;"></picture><script src="/assets/js/script-52bkv1yhvwzrdlav5p0temcbn8ppb2i3cwkhtbzqlsbah5r7rpumbpboafbk.min.js"></script><script>var disqus_config = function() {
-            this.page.url = 'https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html';
-              
-            this.page.identifier = '2011/11/wordpress-for-sae-mail-comment.html';
-              
-          };
-          (function() {
-            var d = document, s = d.createElement('script');
-            var disqus_shortname = 'kalm';
-            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-          })();</script></body></html>
+<!DOCTYPE html><html lang="zh-Hans" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.png" type="image/png"><title>[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒 - 夏影の博客</title><link rel="alternate" type="application/rss+xml" title="夏影の博客" href="https://blog.evecalm.com/atom.xml"><meta name="description" content="新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。 对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail..."><meta property="og:type" content="blog"><meta property="og:title" content="[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒"><meta property="og:url" content="https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"><meta property="og:site_name" content="夏影の博客"><meta property="og:local" content="zh-Hans"><meta property="og:description" content="新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。 对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail..."><meta property="og:image" content="//evecalm.com/assets/avatar.jpg"><meta property="article:author" content="Saiya"><link rel="canonical" href="https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html"><link rel="stylesheet" href="/_astro/_pageList_.rVnnU10n.css">
+<style>@charset "UTF-8";article h1,article h2,article h3,article h4,article h5,article h6{position:relative}article h1 .icon-link,article h2 .icon-link,article h3 .icon-link,article h4 .icon-link,article h5 .icon-link,article h6 .icon-link{position:absolute;left:-1em;opacity:0}article h1 .icon-link:after,article h2 .icon-link:after,article h3 .icon-link:after,article h4 .icon-link:after,article h5 .icon-link:after,article h6 .icon-link:after{content:"🔗";font-size:.6em}article h1:hover .icon-link,article h2:hover .icon-link,article h3:hover .icon-link,article h4:hover .icon-link,article h5:hover .icon-link,article h6:hover .icon-link{opacity:1}.post-title{margin-bottom:.2em}
+.hover-tip{position:relative;&:before{content:attr(aria-label);position:absolute;bottom:120%;left:50%;width:-moz-max-content;width:max-content;transform:translate(-50%);padding:.5rem;background-color:#333;color:#ddd;border-radius:.25rem;box-shadow:0 0 .5rem #0000001a;z-index:10;display:none}&.bottom:before{top:120%;bottom:auto}&:hover:before{display:block}}
+</style></head> <body class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 font-sans text-wrap break-words relative"> <div class="border-b border-slate-100 dark:border-slate-700 mb-4"> <header class="max-w-4xl flex justify-between items-center m-auto py-6 px-4 font-serif text-slate-500 dark:text-slate-400 max-xs:flex-col max-xs:gap-2"> <h1 class="text-xl"> <a href="/">夏影の博客</a> </h1> <ul class="flex gap-4"> <li> <a href="/tags/">分类</a> </li> <li> <a href="/categories/">标签</a> </li> <li> <a href="https://evecalm.com/about" target="_blank">关于</a> </li> <li> <a href="/atom.xml" target="_blank" aria-label="RSS 订阅" class="hover-tip bottom"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg> </a> </li> <li> <a href="https://github.com/oe" target="_blank" aria-label="Github 账户" class="hover-tip bottom"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> </a> </li> </ul> </header> </div>   <article class="format lg:format-lg max-w-4xl prose-zinc dark:format-invert mx-auto px-4 mb-4"> <h1 class="post-title">[建站]Wordpress for 新浪SAE 免插件实现评论邮件提醒</h1> <div class="text-slate-400 text-sm mb-2">2011年11月28日<!-- -->发布在 <a href="/categories/%E5%BB%BA%E7%AB%99/">建站</a></div> <p>新浪SAE可以比较好的运行wordpress，但是由于它不同于一般主机，功能上有些限制，比如不能在wordpress后台直接修改主题代码，不支持wordpress默认的邮件函数，而，官方给出的解释都是出于安全原因。</p>
+<p>对于在线修改wordpress主题及其他代码，可以登录SAE后进入相关应用打开代码管理，即可在线修改所有的代码。对于邮件功能，wordpress for SAE 里有一个WP-Mail-SMTP插件，但是其功能差强人意，并不能实现评论邮件提醒访客，只能提醒站长。而SAE本身就封装了一个邮件函数，使用该函数的范例代码如下</p>
+<blockquote>
+<p>最大可发送1MB大小的邮件（含附件</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>&#x3C;?ph</p>
+</blockquote>
+<blockquote>
+<p>$mail = new SaeMail()</p>
+</blockquote>
+<blockquote>
+<p>$mail->setAttach( array( ‘my_photo’ => ‘照片的二进制数据’ ) )</p>
+</blockquote>
+<blockquote>
+<p>$ret = $mail->quickSend( ‘<a href="mailto:to@sina.cn">to@sina.cn</a>’ , ‘邮件标题’ , ‘邮件内容’ , ‘<a href="mailto:smtpaccount@gmail.com">smtpaccount@gmail.com</a>’ , ‘password’ )</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>//发送失败时输出错误码和错误信</p>
+</blockquote>
+<blockquote>
+<p>if ($ret === false</p>
+</blockquote>
+<blockquote>
+<p>var_dump($mail->errno(), $mail->errmsg())</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>$mail->clean(); // 重用此对</p>
+</blockquote>
+<blockquote>
+<p>$ret = $mail->quickSend( ‘<a href="mailto:to@sina.cn">to@sina.cn</a>’ , ‘邮件标题’ , ‘邮件内容’ , ‘<a href="mailto:smtpaccount@unknown.com">smtpaccount@unknown.com</a>’ , ‘password’ , ‘smtp.unknown.com’ , 25 ); // 指定smtp和端</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>//发送失败时输出错误码和错误信</p>
+</blockquote>
+<blockquote>
+<p>if ($ret === false</p>
+</blockquote>
+<blockquote>
+<p>var_dump($mail->errno(), $mail->errmsg())</p>
+</blockquote>
+<blockquote>
+<p>?&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>更多相关说明可以看[官方文档](<a href="http://apidoc.sinaapp.com/sae/SaeMail.html" rel="noopener nofollow" target="_blank">http://apidoc.sinaapp.com/sae/SaeMail.html</a></p>
+</blockquote>
+<p>如果你对php比较了解的话，完全可以参照以上代码为自己的Wordpress for SAE添加邮件评论提醒功能，否则的话，可以使用下面的代码(本站的邮件提醒即用以下代码实现的)</p>
+<blockquote>
+<p>//comment_mail_notify(所有的回复都会发邮件通知</p>
+</blockquote>
+<blockquote>
+<p>function comment_mail_notify($comment_id)</p>
+</blockquote>
+<blockquote>
+<p>$admin_email = get_bloginfo (‘admin_email’); // $admin_email 可改為你指定的 e-mail</p>
+</blockquote>
+<blockquote>
+<p>$comment = get_comment($comment_id)</p>
+</blockquote>
+<blockquote>
+<p>$comment_author_email = trim($comment->comment_author_email)</p>
+</blockquote>
+<blockquote>
+<p>$parent_id = $comment->comment_parent ? $comment->comment_parent : ”</p>
+</blockquote>
+<blockquote>
+<p>$to = $parent_id ? trim(get_comment($parent_id)->comment_author_email) : ”</p>
+</blockquote>
+<blockquote>
+<p>$spam_confirmed = $comment->comment_approved</p>
+</blockquote>
+<blockquote>
+<p>if (($parent_id != ”) &#x26;&#x26; ($spam_confirmed != ‘spam’) &#x26;&#x26; ($to != $admin_email)&#x26;&#x26;isset($_POST[‘comment_mail_notify’]))</p>
+</blockquote>
+<blockquote>
+<p>/* 上面是判断是否发出邮件</p>
+</blockquote>
+<blockquote>
+<p>($spam_confirmed != ‘spam’): 不给垃圾评论发送邮件提醒，必需!</p>
+</blockquote>
+<blockquote>
+<p>($to != $admin_email) : 不发送邮件给站</p>
+</blockquote>
+<blockquote>
+<p>($comment_author_email == $admin_email) : 只有站长评论时才发送邮件提</p>
+</blockquote>
+<blockquote>
+<p>isset($_POST[‘comment_mail_notify’]) :接收邮件提醒的复选框被选中则发送邮</p>
+</blockquote>
+<blockquote>
+<p>以上可视个人情况修</p>
+</blockquote>
+<blockquote>
+<ul>
+<li></li>
+</ul>
+</blockquote>
+<blockquote>
+<p>$wp_email = ‘你的邮箱地址’;// . preg_replace(’#^<a href="http://www.#" rel="noopener nofollow" target="_blank">www.#</a>’, ”, strtolower($_SERVER[‘SERVER_NAME’])); // e-mail 發出點, no-reply 可改為可用的 e-mail</p>
+</blockquote>
+<blockquote>
+<p>$subject = ‘您在[’ . get_option(“blogname”) . ‘]的留言有新回复’</p>
+</blockquote>
+<blockquote>
+<p>$message =</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;div style=“margin: 1em 40px 1em 40px;background-color:#eef2fa;border:1px solid #d8e3e8;color:#111;padding: 0 15px;-moz-border-radius:5px;-webkit-border-radius:5px;-khtml-border-radius:5px;border-radius:5px;“&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p>’ . trim(get_comment($parent_id)->comment_author) . ‘，您好！&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p>您在&#x3C;strong>《’ . get_the_title($comment->comment_post_ID) . ’》&#x3C;/strong>的留言：&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p> ’ . trim(get_comment($parent_id)->comment_content) . ’&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p>&#x3C;strong>’ . trim($comment->comment_author) . ’&#x3C;/strong>给您的回复：&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p> ’ . trim($comment->comment_content) . ’&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p>您可以点击&#x3C;a href=”’ . htmlspecialchars(get_comment_link($parent_id)) . ’“>查看完整的內容&#x3C;/a>&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p>欢迎再度光临 &#x3C;a href=”’ . get_option(‘home’) . ’”>’ . get_option(‘blogname’) . ’&#x3C;/a>&#x3C;/p&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;p>来自’ . get_option(‘blogname’) . ‘的诚挚问候.&#x3C;/p>&#x3C;/div&#x26;gt</p>
+</blockquote>
+<blockquote>
+<p>’</p>
+</blockquote>
+<blockquote>
+<p>$mail = new SaeMail()</p>
+</blockquote>
+<blockquote>
+<p>$options = array(“from”=>$wp_email, “to”=>$to, “smtp_host”=>‘邮箱的smtp服务器地址’,“smtp_username”=>‘你的邮箱地址’,“smtp_password”=>‘邮箱密码’,“subject”=>$subject,“content”=>$message,“content_type”=>‘HTML’)</p>
+</blockquote>
+<blockquote>
+<p>$ret=false</p>
+</blockquote>
+<blockquote>
+<p>if($mail->setOpt($options)</p>
+</blockquote>
+<blockquote>
+<p>$ret=$mail->send()</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>//发送失败时输出错误码和错误信</p>
+</blockquote>
+<blockquote>
+<p>if ($ret === false</p>
+</blockquote>
+<blockquote>
+<p>var_dump($mail->errno(), $mail->errmsg())</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>add_action(‘comment_post’, ‘comment_mail_notify’)</p>
+</blockquote>
+<blockquote>
+<p>// — END ---------------------------------------</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>//在评论框下面添加一个复选框,由访客决定是否接收邮件提醒，默认选</p>
+</blockquote>
+<blockquote>
+<p>function add_checkbox()</p>
+</blockquote>
+<blockquote>
+<p>echo</p>
+</blockquote>
+<blockquote>
+<p>&#x3C;input id=“comment_mail_notify” style=“margin-left: 20px;” type=“checkbox” name=“comment_mail_notify” value=“comment_mail_notify” checked=“true” />&#x3C;label for=“comment_mail_notify”>邮件通知对方&#x3C;/label>‘</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+<p>add_action(‘comment_form’, ‘add_checkbox’)</p>
+</blockquote>
+<p>以上代码转自<a href="http://hanolex.org/archives/420.html" rel="noopener nofollow" target="_blank">hanolex</a>，代码相关说明:</p>
+<p>1、需要修改的地方有四处，“你的邮箱地址 ”（两处必须一致），“邮箱的smtp服务器地址”（需邮箱支持smtp，并已启用，smtp地址形如smtp.qq.com）和“邮箱密码</p>
+<p> 2、如果想去掉复选框，可以删除最后七行代码，然后去掉以上代码第八行中的“&#x26;&#x26;isset($_POST[‘comment_mail_notify’])”</p>
+<p>注意,请不要将以上代码与其他有类似功能的代码或者插件一起启用,会产生冲突导致功能失效.如果你确定要使用本代码,请删除相关代码,停用相关插件,并上传Clean Options插件，清理因启用相关插件而残留下来的信息。</p>
+<p>祝你好运！如还有任何疑问，请<a href="#respond">留言</a>。</p>
+<p>最后，再次劝告大家，SAE已经修改了云豆赠送规则，完全商业运营了，不再适合普通的小网站，而我在不久的将来也会再次搬家。不过，如果你是一个高级的程序开发者，那么你可以为新浪微博开发一款应用（最好是客户端应用），并申请新浪开发者认证，这样每个月都可以补足一万个豆豆，可以让你在SAE长久呆着，除非新浪再次修改规则。</p> <div> <span class="mr-2 text-slate-400 text-sm">标签 </span> <a class=" bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-full" href="/tags/%E4%B8%BB%E6%9C%BA/">主机</a><a class=" bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-full" href="/tags/%E7%BD%91%E7%AB%99/">网站</a><a class=" bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 px-2 py-1 rounded-full" href="/tags/%E9%82%AE%E4%BB%B6/">邮件</a> </div> </article> <div class="px-4 max-w-4xl mx-auto relative"> <div class="relative flex justify-center py-4"><div class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div><span class="relative z-1 bg-white px-6 dark:bg-slate-800">ஓ๑∗๑ஓ</span></div> <div class="flex justify-between mb-4 max-xs:flex-col max-xs:gap-4"> <div class="max-xs:flex max-xs:justify-between"> <a href="/2011/12/microblog-source-of-web.html" aria-label="[建站]自定义微博来源，巧用微博增加网站流量" class="mr-4 hover-tip">
+上一篇
+</a> <a href="/2011/11/sous-les-branches.html" aria-label="[音乐]梦的朵雅-《Sous Les Branches》" class="hover-tip">
+下一篇
+</a> </div> <div class="flex items-center gap-4 relative max-xs:justify-between"> <a href="#" class="hover-tip" aria-label="滚动到顶部"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-line"><path d="m18 9-6-6-6 6"></path><path d="M12 3v14"></path><path d="M5 21h14"></path></svg> </a> <a href="#disqus_thread" class="hover-tip" aria-label="评论"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg> </a> <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.evecalm.com%2F2011%2F11%2Fwordpress-for-sae-mail-comment.html" target="_blank" class="hover-tip" aria-label="分享到 Twitter"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg> </a> <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.evecalm.com%2F2011%2F11%2Fwordpress-for-sae-mail-comment.html" target="_blank" class="hover-tip" aria-label="分享到 Facebook"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> </a> </div> </div> <div id="disqus_thread" data-shortname="kalm" data-url="https://blog.evecalm.com/2011/11/wordpress-for-sae-mail-comment.html" data-identifier="2011/11/wordpress-for-sae-mail-comment.html"> <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div> <script defer>
+  (function () {
+    var d = window.document;
+    function isNearBottom() {return window.innerHeight + window.scrollY >= d.body.scrollHeight - 400 }
+    function onScroll() {
+      if (!isNearBottom()) return;
+      document.removeEventListener('scroll', onScroll);
+      if (window.disqus_config) return;
+      const r = document.getElementById('disqus_thread');
+      window.disqus_config = function () {
+        this.page.url = r.getAttribute('data-url');
+        this.page.identifier = r.getAttribute('data-identifier');
+      };
+      var s = d.createElement('script');
+      s.src = '//' + r.getAttribute('data-shortname') + '.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', Date.now());
+      (d.head || d.body).appendChild(s);
+    }
+    if (isNearBottom()) { onScroll();return; }
+    document.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script> </div>  <footer class="text-center text-slate-500 dark:text-slate-300 my-16"> <div>
+Copyrights © 2024 Saiya. All Rights Reserved
+</div> <div> <a href="https://evecalm.com" target="_blank" class="text-slate-500 dark:text-slate-300">夏影</a> &
+<a href="https://forth.ink" target="_blank" class="text-slate-500 dark:text-slate-300">𝗳𝗼𝗿𝘁𝗵𝗶𝗻𝗸</a> </div> </footer> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-DPSKR82X8Z"></script> <script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-DPSKR82X8Z');
+</script> </body></html>  <script defer>
+  document.body.querySelectorAll('article img').forEach((img) => {
+    const title = img.getAttribute('title') || img.getAttribute('alt');
+    if (!title) return;
+    const figure = document.createElement('figure');
+    img.parentNode.replaceChild(figure, img);
+    figure.appendChild(img);
+    img.insertAdjacentHTML(
+      'afterend',
+      `<figcaption class="text-center italic">${title}</figcaption>`
+    );
+  });
+</script>
