@@ -1,0 +1,50 @@
+---
+/**
+ * post list for blog/ single tag page/ single category page
+ */
+import { type IBlogEntry } from '@/content/config';
+import Pager from '@/components/pager.astro';
+import PostItem from '@/components/post-item.astro';
+import BaseLayout from '@/layouts/base.astro';
+
+interface Props {
+  /**
+   * 路由前缀
+   */
+  uriPrefix?: string;
+  /**
+   * 当前页文章列表
+   */
+  entries: IBlogEntry[];
+  /**
+   * 页码(从1开始)
+   */
+  pageNo: number;
+  /**
+   * 总页数
+   */
+  totalPage: number;
+  /**
+   * 页面标题
+   */
+  title?: string;
+}
+
+const { title, entries, pageNo, totalPage, uriPrefix } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <main>
+    <section class="max-w-4xl mx-auto px-4">
+      {
+        entries.map((entry) => (
+          <>
+            <PostItem entry={entry} />
+            <hr class="border-slate-100 dark:border-slate-700 mb-6" />
+          </>
+        ))
+      }
+      <Pager pageNo={pageNo} totalPage={totalPage} uriPrefix={uriPrefix} />
+    </section>
+  </main>
+</BaseLayout>

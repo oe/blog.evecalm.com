@@ -1,0 +1,18 @@
+---
+import { type IBlogEntry } from '@/content/config';
+import PostActions from './post-actions.astro';
+import { Divider } from './component-fragment';
+import PostCommonet from './post-comment.astro';
+
+interface Props {
+  entry: IBlogEntry;
+}
+
+const { entry } = Astro.props;
+---
+
+<div class="px-4 max-w-4xl mx-auto relative">
+  <Divider>ஓ๑∗๑ஓ</Divider>
+  <PostActions entry={entry} />
+  <PostCommonet /> 
+</div>

@@ -1,0 +1,27 @@
+---
+import { getPostSlug, type IBlogEntry } from '@/content/config';
+import { getMarkdownExcerpt } from '@/common/utils';
+import { AuthorMeta } from './component-fragment';
+
+interface Props {
+  entry: IBlogEntry;
+}
+
+const { entry } = Astro.props;
+
+const excerpt = await getMarkdownExcerpt(entry.body);
+const postSlug = getPostSlug(entry.data, true);
+---
+
+<article class="my-4">
+  <h2 class="text-3xl font-bold mb-2">
+    <a href={postSlug}>
+      {entry.data.title}
+    </a>
+  </h2>
+  <AuthorMeta createdAt={entry.data.date} categories={entry.data.categories} />
+  <div class="format dark:format-invert max-w-full" set:html={excerpt} />
+  <div class="text-blue-400 mt-2">
+    <a href={postSlug}> 阅读全文 </a>
+  </div>
+</article>

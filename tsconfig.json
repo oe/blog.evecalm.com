@@ -1,0 +1,27 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "jsxImportSource": "react",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@c/*": [
+        "src/common/*"
+      ]
+    },
+  },
+  "include": [
+    "src/**/*",
+    "tailwind.config.mjs"
+  ]
+}

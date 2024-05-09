@@ -1,0 +1,84 @@
+---
+import { type IBlogEntry, getPostSlug } from '@/content/config';
+import { getCollection } from 'astro:content';
+import {
+  MessageCircleMore,
+  Twitter,
+  Facebook,
+  ArrowUpFromLine
+} from 'lucide-react';
+
+interface Props {
+  entry: IBlogEntry;
+}
+
+async function getPrevAndNextEntry(entry: IBlogEntry) {
+  const entries = await getCollection('blog');
+  entries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+  const index = entries.findIndex((e) => e.id === entry.id);
+  return {
+    prev: entries[index - 1],
+    next: entries[index + 1]
+  };
+}
+
+const { entry } = Astro.props;
+
+const siblings = await getPrevAndNextEntry(entry);
+---
+
+<div class="flex justify-between mb-4 max-xs:flex-col max-xs:gap-4">
+  <div class="max-xs:flex max-xs:justify-between">
+    {
+      siblings.prev && (
+        <a
+          href={getPostSlug(siblings.prev.data, true)}
+          aria-label={siblings.prev.data.title}
+          class="mr-4 hover-tip"
+        >
+          上一篇
+        </a>
+      )
+    }
+    {
+      siblings.next && (
+        <a
+          href={getPostSlug(siblings.next.data, true)}
+          aria-label={siblings.next.data.title}
+          class="hover-tip"
+        >
+          下一篇
+        </a>
+      )
+    }
+  </div>
+
+  <div
+    class="flex items-center gap-4 relative max-xs:justify-between"
+  >
+    <a href="#" class="hover-tip" aria-label="滚动到顶部">
+      <ArrowUpFromLine />
+    </a>
+    <a href="#disqus_thread" class="hover-tip" aria-label="评论">
+      <MessageCircleMore />
+    </a>
+    <a
+      href=`https://twitter.com/intent/tweet?text=${encodeURIComponent(Astro.url.href)}`
+      target="_blank"
+      class="hover-tip"
+      aria-label="分享到 Twitter"
+    >
+      <Twitter />
+    </a>
+    <a
+      href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.url.href)}`
+      target="_blank"
+      class="hover-tip"
+      aria-label="分享到 Facebook"
+    >
+      <Facebook />
+    </a>
+  </div>
+</div>
+

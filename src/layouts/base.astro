@@ -1,0 +1,47 @@
+---
+import Footer from '@/components/footer.astro';
+import Header from '@/components/header.astro';
+import { SITE_NAME, AUTHOR, SITE_DESCRIPTION } from '@/config';
+interface Props {
+  title?: string;
+  cover?: string;
+  description?: string;
+}
+
+const { title, cover, description } = Astro.props;
+
+const siteTitle = title ? `${title} - ${SITE_NAME}` : SITE_NAME;
+const siteDescription = String(description || SITE_DESCRIPTION || '').trim();
+---
+
+<html lang="zh-Hans" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <title>{siteTitle}</title>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_NAME}
+      href={`${Astro.site}atom.xml`}
+    />
+    <meta name="description" content={siteDescription} />
+    <meta property="og:type" content="blog" />
+    <meta property="og:title" content={title || SITE_NAME} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:local" content="zh-Hans" />
+    <meta property="og:description" content={siteDescription} />
+    <meta property="og:image" content={cover || AUTHOR.avatar} />
+    <meta property="article:author" content={AUTHOR.name} />
+    <link rel="canonical" href={Astro.url} />
+  </head>
+  <body
+    class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 font-sans text-wrap break-words relative"
+  >
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
