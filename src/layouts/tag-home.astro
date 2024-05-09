@@ -32,7 +32,7 @@ const siteTitle = `全部${typeName[type]}`;
     <input
       autofocus
       class="block py-4 text-2xl w-full outline-none bg-transparent"
-      placeholder=`搜索${typeName[type]}`
+      placeholder=`搜索${typeName[type]} 和 文章标题`
       id="search"
     />
     <ul class="flex flex-wrap gap-4 mb-8">
@@ -50,7 +50,7 @@ const siteTitle = `全部${typeName[type]}`;
           <li>
             <h2
               id={encodeURI(name)}
-              class="js-tag-group text-xl font-medium text-slate-600 dark:text-slate-300 mb-2"
+              class="js-group-title text-xl font-medium text-slate-600 dark:text-slate-300 mb-2"
             >
               <a
                 href={getLink(name)}
@@ -62,7 +62,7 @@ const siteTitle = `全部${typeName[type]}`;
             </h2>
             <ul class="list-inside list-disc pl-4 text-slate-500 dark:text-slate-400 space-y-2 mb-4 bottom-1">
               {group[name].map((post) => (
-                <li>
+                <li class="js-post-item">
                   <a href={getPostSlug(post.data, true)}>{post.data.title}</a>
                 </li>
               ))}
@@ -71,7 +71,10 @@ const siteTitle = `全部${typeName[type]}`;
         ))
       }
     </ul>
-    <div class="text-slate-600 dark:text-slate-400 font-medium hidden" id="empty-tip">
+    <div
+      class="text-slate-600 dark:text-slate-400 font-medium hidden"
+      id="empty-tip"
+    >
       没有找到相关{typeName[type]}
     </div>
   </main>
@@ -86,7 +89,17 @@ const siteTitle = `全部${typeName[type]}`;
 </style>
 
 <script>
-  document.getElementById('search')!.addEventListener('keyup', (e) => {
+  const searchInput = document.getElementById('search')!;
+  let isIMETyping = false;
+  searchInput.addEventListener('compositionstart', () => {
+    isIMETyping = true;
+  });
+  searchInput.addEventListener('compositionend', () => {
+    isIMETyping = false;
+  });
+  searchInput.addEventListener('keyup', (e) => {
+    // prevent search when IME typing
+    if (isIMETyping) return;
     const value = (e.target as HTMLInputElement).value
       .trim()
       .toLocaleLowerCase();
@@ -97,22 +110,38 @@ const siteTitle = `全部${typeName[type]}`;
     const tags = document.querySelectorAll(
       '.js-tag'
     ) as NodeListOf<HTMLLIElement>;
-
+    // search tags
     tags.forEach((tag) => {
       const shouldShow =
         showAll || tag.textContent!.toLocaleLowerCase().includes(value);
       hasSomeItem = hasSomeItem || shouldShow;
       tag.classList.toggle('hidden', !shouldShow);
     });
-
-    const tagGroups = document.querySelectorAll(
-      '.js-tag-group'
+    // posts grouped by tag
+    const tagGroupTitles = document.querySelectorAll(
+      '.js-group-title'
     ) as NodeListOf<HTMLHeadingElement>;
-    tagGroups.forEach((tagGroup) => {
-      const shouldShow =
-        showAll || tagGroup.textContent!.toLocaleLowerCase().includes(value);
-      hasSomeItem = hasSomeItem || shouldShow;
-      tagGroup.parentElement!.classList.toggle('hidden', !shouldShow);
+
+    tagGroupTitles.forEach((tagGroupTitle) => {
+      let groupShouldShow =
+        showAll ||
+        tagGroupTitle.textContent!.toLocaleLowerCase().includes(value);
+      const items =
+        tagGroupTitle.nextElementSibling!.querySelectorAll('.js-post-item');
+      const odlGroupShouldShow = groupShouldShow;
+      items.forEach((item) => {
+        if (odlGroupShouldShow) {
+          item.classList.remove('hidden');
+          return;
+        }
+        const itemShouldShow = item
+          .textContent!.toLocaleLowerCase()
+          .includes(value);
+        groupShouldShow = groupShouldShow || itemShouldShow;
+        item.classList.toggle('hidden', !itemShouldShow);
+      });
+
+      tagGroupTitle.parentElement!.classList.toggle('hidden', !groupShouldShow);
     });
 
     document
