@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>夏影の博客</title><description>夏影の博客，一个记录技术与生活的地方。</description><link>https://blog.evecalm.com/</link><item><title>Tech Issue #3</title><link>https://blog.evecalm.com/2024/tech-issue-3.html</link><guid isPermaLink="true">https://blog.evecalm.com/2024/tech-issue-3.html</guid><pubDate>Sun, 05 May 2024 01:15:11 GMT</pubDate><content:encoded>&lt;blockquote&gt; &lt;p&gt;有两年没更新博客了, 坚持做一件事情真的很需要毅力. 随缘更新, 对最近学到看到的技术相关的内容做一些记录.&lt;/p&gt; &lt;/blockquote&gt; &lt;h2&gt;Typescript 将字符串枚举转换为字符串联合类型&lt;/h2&gt;  &lt;p&gt;参考: &lt;a href=&quot;https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum&quot;&gt;https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum&lt;/a&gt;&lt;/p&gt; &lt;h2&gt;更新yarn.lock 中的依赖版本...&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/pretty-feed.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>夏影の博客</title><description>夏影の博客，一个记录技术与生活的地方。</description><link>https://blog.evecalm.com/</link><item><title>博客从 Hexo 迁移到了 Astro</title><link>https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro.html</link><guid isPermaLink="true">https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro.html</guid><description>将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100.</description><pubDate>Sun, 05 May 2024 01:15:11 GMT</pubDate><content:encoded>&lt;blockquote&gt; &lt;p&gt;前几天心血来潮, 想把日常记录的一些技术笔记在博客中发表出来. 但由于长时间没有维护博客, 之前的 Hexo 博客已经无法正常运行了. 于是, 我决定将博客从 Hexo 迁移到 Astro.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;前端技术一直在升级迭代, 包括框架和库本身、新的技术出现(比如心的js运行时环境)、旧的技术淘汰. 前端项目一般会使用包管理工具以及lock文件来保证项目在不同环境中使用可以运行(包括技术迭代升级), 但...&lt;/p&gt;
+    &lt;br /&gt;
+      &lt;p&gt;
+      &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
+      &lt;a href=&quot;/2024/migrate-blog-from-hexo-to-astro.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
+    &lt;/p&gt;</content:encoded></item><item><title>Tech Issue #3</title><link>https://blog.evecalm.com/2024/tech-issue-3.html</link><guid isPermaLink="true">https://blog.evecalm.com/2024/tech-issue-3.html</guid><pubDate>Sun, 05 May 2024 01:15:11 GMT</pubDate><content:encoded>&lt;blockquote&gt; &lt;p&gt;有两年没更新博客了, 坚持做一件事情真的很需要毅力. 随缘更新, 对最近学到看到的技术相关的内容做一些记录.&lt;/p&gt; &lt;/blockquote&gt; &lt;h2&gt;Typescript 将字符串枚举转换为字符串联合类型&lt;/h2&gt;  &lt;p&gt;参考: &lt;a href=&quot;https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum&quot;&gt;https://stackoverflow.com/questions/52393730/typescript-string-literal-union-type-from-enum&lt;/a&gt;&lt;/p&gt; &lt;h2&gt;更新yarn.lock 中的依赖版本...&lt;/h2&gt;
     &lt;br /&gt;
       &lt;p&gt;
       &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
@@ -43,9 +48,4 @@
       &lt;p&gt;
       &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
       &lt;a href=&quot;/2020/05/restart-to-blog.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item><item><title>[个人作品]Chrome扩展 My Webrequest</title><link>https://blog.evecalm.com/2013/11/my-webrequest.html</link><guid isPermaLink="true">https://blog.evecalm.com/2013/11/my-webrequest.html</guid><pubDate>Mon, 11 Nov 2013 15:05:01 GMT</pubDate><content:encoded>&lt;p&gt;最近业余写了一款Chrome扩展，可以用来屏蔽请求，强制使用加密连接，浏览盗链图，监控web请求，另外还增加了二维码功能。本扩展支持中英文。从开始开发到完成，共花了两个多月的时间。其实，扩展的核心部分半天时间就写完了，选项页的UI花了半个多月的时间，最后是扩展的英文翻译，拖拖拉拉花了一个多月，自己翻译的，可能还有很多语法错误。&lt;/p&gt; &lt;p&gt;扩展已经发布至Chrome Web Store，记得使用前阅读下选项页...&lt;/p&gt;
-    &lt;br /&gt;
-      &lt;p&gt;
-      &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
-      &lt;a href=&quot;/2013/11/my-webrequest.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
     &lt;/p&gt;</content:encoded></item></channel></rss>
