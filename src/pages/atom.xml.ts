@@ -35,6 +35,7 @@ export async function GET(context: APIContext) {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     site: context.site!,
+    stylesheet: '/pretty-feed.xsl',
     items,
   })
 }
