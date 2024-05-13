@@ -1,6 +1,7 @@
 # Blog repo of evecalm.com
 
 ## commands
-- `hexo generate` generate blog
-- `hexo server` preview blog at <http://localhost:4000/>
-- `hexo algolia` update search index
+- `yarn` install dependencies
+- `yarn dev` star dev blog at <http://localhost:4321/>
+- `yarn build` build blog
+- `yarn preview` preview built blog at <http://localhost:4321/>
