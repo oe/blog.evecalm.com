@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import dayjs from 'dayjs';
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import 'dayjs/locale/zh-cn';
@@ -25,10 +26,10 @@ export function AuthorMeta(props: IPostMetaProps) {
     <div className="text-slate-400 text-sm mb-2">
       {dayjs(props.createdAt).format('LL')}
        发布在 {props.categories.map((category, index) => (
-        <>
+         <Fragment key={ category }>
           {index > 0 && ', '}
           <CategoryLink name={category} />
-        </>
+        </Fragment>
       ))}
     </div>
   );
