@@ -36,7 +36,9 @@ const postDescription =
   <article
     class="format lg:format-lg max-w-4xl prose-zinc dark:format-invert mx-auto px-4 mb-4"
   >
-    <h1 class="post-title" transition:name={entry.id}>{entry.data.title}</h1>
+    <h1 class="post-title" transition:name={entry.id}>
+      {entry.data.title}
+    </h1>
     <AuthorMeta
       createdAt={entry.data.date}
       categories={entry.data.categories}

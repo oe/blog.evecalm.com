@@ -14,7 +14,10 @@ const postSlug = getPostSlug(entry.data, true);
 ---
 
 <article class="my-4">
-  <h2 class="text-3xl font-bold mb-2" transition:name={entry.id}>
+  <h2
+    class="text-3xl font-bold mb-2"
+    transition:name={entry.id}
+  >
     <a href={postSlug}>
       {entry.data.title}
     </a>

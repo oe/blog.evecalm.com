@@ -25,6 +25,14 @@ const typeName: Record<ITagType, string> = {
 };
 
 const siteTitle = `全部${typeName[type]}`;
+
+const transitionNames = new Set<string>();
+// to avoid duplicate transition name which will cause transition invalid
+function getTransitionName(id: string) {
+  if (transitionNames.has(id)) return undefined;
+  transitionNames.add(id);
+  return id;
+}
 ---
 
 <BaseLayout title={siteTitle}>
@@ -62,7 +70,10 @@ const siteTitle = `全部${typeName[type]}`;
             </h2>
             <ul class="list-inside list-disc pl-4 text-slate-500 dark:text-slate-400 space-y-2 mb-4 bottom-1">
               {group[name].map((post) => (
-                <li class="js-post-item" transition:name={post.id}>
+                <li
+                  class="js-post-item"
+                  transition:name={getTransitionName(post.id)}
+                >
                   <a href={getPostSlug(post.data, true)}>{post.data.title}</a>
                 </li>
               ))}
