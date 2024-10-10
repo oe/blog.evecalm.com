@@ -100,63 +100,68 @@ function getTransitionName(id: string) {
 </style>
 
 <script>
-  const searchInput = document.getElementById('search')!;
-  let isIMETyping = false;
-  searchInput.addEventListener('compositionstart', () => {
-    isIMETyping = true;
-  });
-  searchInput.addEventListener('compositionend', () => {
-    isIMETyping = false;
-  });
-  searchInput.addEventListener('keyup', (e) => {
-    // prevent search when IME typing
-    if (isIMETyping) return;
-    const value = (e.target as HTMLInputElement).value
-      .trim()
-      .toLocaleLowerCase();
-    const showAll = value === '';
-
-    let hasSomeItem = false;
-
-    const tags = document.querySelectorAll(
-      '.js-tag'
-    ) as NodeListOf<HTMLLIElement>;
-    // search tags
-    tags.forEach((tag) => {
-      const shouldShow =
-        showAll || tag.textContent!.toLocaleLowerCase().includes(value);
-      hasSomeItem = hasSomeItem || shouldShow;
-      tag.classList.toggle('hidden', !shouldShow);
+  document.addEventListener('astro:page-load', () => {
+    const searchInput = document.getElementById('search')!;
+    let isIMETyping = false;
+    searchInput.addEventListener('compositionstart', () => {
+      isIMETyping = true;
     });
-    // posts grouped by tag
-    const tagGroupTitles = document.querySelectorAll(
-      '.js-group-title'
-    ) as NodeListOf<HTMLHeadingElement>;
+    searchInput.addEventListener('compositionend', () => {
+      isIMETyping = false;
+    });
+    searchInput.addEventListener('keyup', (e) => {
+      // prevent search when IME typing
+      if (isIMETyping) return;
+      const value = (e.target as HTMLInputElement).value
+        .trim()
+        .toLocaleLowerCase();
+      const showAll = value === '';
 
-    tagGroupTitles.forEach((tagGroupTitle) => {
-      let groupShouldShow =
-        showAll ||
-        tagGroupTitle.textContent!.toLocaleLowerCase().includes(value);
-      const items =
-        tagGroupTitle.nextElementSibling!.querySelectorAll('.js-post-item');
-      const odlGroupShouldShow = groupShouldShow;
-      items.forEach((item) => {
-        if (odlGroupShouldShow) {
-          item.classList.remove('hidden');
-          return;
-        }
-        const itemShouldShow = item
-          .textContent!.toLocaleLowerCase()
-          .includes(value);
-        groupShouldShow = groupShouldShow || itemShouldShow;
-        item.classList.toggle('hidden', !itemShouldShow);
+      let hasSomeItem = false;
+
+      const tags = document.querySelectorAll(
+        '.js-tag'
+      ) as NodeListOf<HTMLLIElement>;
+      // search tags
+      tags.forEach((tag) => {
+        const shouldShow =
+          showAll || tag.textContent!.toLocaleLowerCase().includes(value);
+        hasSomeItem = hasSomeItem || shouldShow;
+        tag.classList.toggle('hidden', !shouldShow);
+      });
+      // posts grouped by tag
+      const tagGroupTitles = document.querySelectorAll(
+        '.js-group-title'
+      ) as NodeListOf<HTMLHeadingElement>;
+
+      tagGroupTitles.forEach((tagGroupTitle) => {
+        let groupShouldShow =
+          showAll ||
+          tagGroupTitle.textContent!.toLocaleLowerCase().includes(value);
+        const items =
+          tagGroupTitle.nextElementSibling!.querySelectorAll('.js-post-item');
+        const odlGroupShouldShow = groupShouldShow;
+        items.forEach((item) => {
+          if (odlGroupShouldShow) {
+            item.classList.remove('hidden');
+            return;
+          }
+          const itemShouldShow = item
+            .textContent!.toLocaleLowerCase()
+            .includes(value);
+          groupShouldShow = groupShouldShow || itemShouldShow;
+          item.classList.toggle('hidden', !itemShouldShow);
+        });
+
+        tagGroupTitle.parentElement!.classList.toggle(
+          'hidden',
+          !groupShouldShow
+        );
       });
 
-      tagGroupTitle.parentElement!.classList.toggle('hidden', !groupShouldShow);
+      document
+        .getElementById('empty-tip')!
+        .classList.toggle('hidden', hasSomeItem);
     });
-
-    document
-      .getElementById('empty-tip')!
-      .classList.toggle('hidden', hasSomeItem);
   });
 </script>
