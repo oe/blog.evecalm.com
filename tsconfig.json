@@ -21,7 +21,6 @@
     },
   },
   "include": [
-    "src/**/*",
-    "tailwind.config.mjs"
+    "src/**/*"
   ]
 }

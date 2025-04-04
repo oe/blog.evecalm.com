@@ -1,5 +1,5 @@
-import { defineConfig, squooshImageService } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
+import { defineConfig } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react'
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -12,21 +12,22 @@ export default defineConfig({
     rehypePlugins: [
       rehypeSlug,
       [rehypeAutolinkHeadings, { behavior: 'prepend' }],
-      [rehypeExternalLinks, {
-        target: '_blank', rel: ['noopener', 'nofollow'],
-      }]
-    ],
-  },
-  image: {
-    service: squooshImageService(),
+      [
+        rehypeExternalLinks,
+        {
+          target: '_blank',
+          rel: ['noopener', 'nofollow']
+        }
+      ]
+    ]
   },
   site: 'https://blog.evecalm.com',
-  integrations:[
-    tailwind(),
-    react(),
-  ],
+  integrations: [react()],
+  vite: {
+    plugins: [tailwindcss()]
+  },
   // trailingSlash: 'never',
   build: {
-    format: 'preserve',
+    format: 'preserve'
   }
 });

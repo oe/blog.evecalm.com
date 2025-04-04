@@ -22,7 +22,7 @@ export function getCategoryListLink(category: string) {
 }
 
 let cachedMarkdownProcessor: ReturnType<typeof createMarkdownProcessor> | null = null;
-let clearCacheTimeoutId: NodeJS.Timeout | null = null;
+let clearCacheTimeoutId: number = 0;
 function getMarkdownProcessor() {
   clearTimeout(clearCacheTimeoutId || 0);
   if (!cachedMarkdownProcessor) {
