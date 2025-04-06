@@ -30,7 +30,7 @@ function getMarkdownProcessor() {
   }
   clearCacheTimeoutId = setTimeout(() => {
     cachedMarkdownProcessor = null;
-  }, 100);
+  }, 100) as unknown as number;
   return cachedMarkdownProcessor;
 }
 
