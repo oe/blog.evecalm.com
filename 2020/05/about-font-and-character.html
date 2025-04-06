@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hans" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.png" type="image/png"><title>[知识分享]关于字体及字符的小思考 - 夏影の博客</title><link rel="alternate" type="application/rss+xml" title="夏影の博客" href="https://blog.evecalm.com/atom.xml"><meta name="description" content="最近开发小软件的时候, 发现两个有意思的问题: 如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间 连字 针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般..."><meta property="og:type" content="blog"><meta property="og:title" content="[知识分享]关于字体及字符的小思考"><meta property="og:url" content="https://blog.evecalm.com/2020/05/about-font-and-character/"><meta property="og:site_name" content="夏影の博客"><meta property="og:local" content="zh-Hans"><meta property="og:description" content="最近开发小软件的时候, 发现两个有意思的问题: 如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间 连字 针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般..."><meta property="og:image" content="//evecalm.com/assets/avatar.jpg"><meta property="article:author" content="Saiya"><link rel="canonical" href="https://blog.evecalm.com/2020/05/about-font-and-character/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><link rel="stylesheet" href="/_astro/_pageList_.DcGXk42y.css">
+<!DOCTYPE html><html lang="zh-Hans" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.png" type="image/png"><title>[知识分享]关于字体及字符的小思考 - 夏影の博客</title><link rel="alternate" type="application/rss+xml" title="夏影の博客" href="https://blog.evecalm.com/atom.xml"><meta name="description" content="最近开发小软件的时候, 发现两个有意思的问题: 如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间 连字 针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般..."><meta property="og:type" content="blog"><meta property="og:title" content="[知识分享]关于字体及字符的小思考"><meta property="og:url" content="https://blog.evecalm.com/2020/05/about-font-and-character/"><meta property="og:site_name" content="夏影の博客"><meta property="og:local" content="zh-Hans"><meta property="og:description" content="最近开发小软件的时候, 发现两个有意思的问题: 如何让时间表示形式 aa:bb 中的 : 垂直居中显示 在一个300px的容器中显示10个字符, 如何设置字体大小, 使得字体正好填满容器空间 连字 针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般..."><meta property="og:image" content="//evecalm.com/assets/avatar.jpg"><meta property="article:author" content="Saiya"><link rel="canonical" href="https://blog.evecalm.com/2020/05/about-font-and-character/"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2280645987761425" crossorigin="anonymous"></script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><link rel="stylesheet" href="/_astro/_pageList_.DcGXk42y.css">
 <style>@charset "UTF-8";article h1,article h2,article h3,article h4,article h5,article h6{position:relative}article h1 .icon-link,article h2 .icon-link,article h3 .icon-link,article h4 .icon-link,article h5 .icon-link,article h6 .icon-link{position:absolute;left:-1em;opacity:0}article h1 .icon-link:after,article h2 .icon-link:after,article h3 .icon-link:after,article h4 .icon-link:after,article h5 .icon-link:after,article h6 .icon-link:after{content:"🔗";font-size:.6em}article h1:hover .icon-link,article h2:hover .icon-link,article h3:hover .icon-link,article h4:hover .icon-link,article h5:hover .icon-link,article h6:hover .icon-link{opacity:1}.post-title{margin-bottom:.2em}
 </style><style>[data-astro-transition-scope="astro-zc5qi7ok-1"] { view-transition-name: archived_2f\77E5\8BC6\5206\4EAB_2f_5b\5B66\4E60\7B14\8BB0_5d\5173\4E8E\5B57\4F53\53CA\5B57\7B26\7684\5C0F\601D\8003_2emd; }@layer astro { ::view-transition-old(archived_2f\77E5\8BC6\5206\4EAB_2f_5b\5B66\4E60\7B14\8BB0_5d\5173\4E8E\5B57\4F53\53CA\5B57\7B26\7684\5C0F\601D\8003_2emd) { 
 	animation-duration: 180ms;
@@ -36,7 +36,7 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-y4r3tox3-2"] { view-transition-name: header; }@layer astro { ::view-transition-old(header) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-lp6lhgnj-2"] { view-transition-name: header; }@layer astro { ::view-transition-old(header) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -52,27 +52,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-na7s5o5k-3"] { view-transition-name: footer; }@layer astro { ::view-transition-old(footer) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-lpoptpmc-3"] { view-transition-name: footer; }@layer astro { ::view-transition-old(footer) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -88,23 +88,23 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -115,6 +115,12 @@
 </ol>
 <h2 id="连字"><a aria-hidden="true" tabindex="-1" href="#连字"><span class="icon icon-link"></span></a>连字</h2>
 <p>针对第一个问题, 很容想到的就是使用自定义元素绘制两个垂直居中的点, 但是略显麻烦, 且不能利用字体的特性(大小/颜色/行高等). 于是还是想通过字符实现, 因为在 unicode 中有大量字符, 一般的标点字符都有多种变体以适用于不同场景, 总有一款能适合我的吧.</p>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2280645987761425" data-ad-slot="4096334703" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script type="text/javascript">
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <p>查阅<a href="https://en.wikipedia.org/wiki/Colon_(punctuation)#Computing" rel="noopener nofollow" target="_blank">百科</a>发现, 冒号的确有十多种变体, 如宽度不一样的, 形状奇特的, 位置有偏移的, 等等. 可没有一个符号满足我的这个简单需求. 在尝试中, 偶然发现, 冒号两边是数字时, 冒号自然就垂直居中了, 如下图所示</p>
 <p><img src="https://yqlgmg.bn.files.1drv.com/y4mRDAovIeNXMjZ4D6PHmHqwOw0Yu8WcnbjXSaVHJ7AyvKXFNA47Dh7BbS-0-1H95FfZKWbeZyOXoCakLXn34nI5SMcCDPt-aC17Z4UL4UYcosFJQM6BYMzRvimXKfF9HH78xO5hc4cTAyBznTVDiKHhCCQH_liabO4lc8NanghuZJgBk83TjwcMCuyPziG0yoQ3C0rUCd2uKyDh0eBh-SElg" alt="time-colon"></p>
 <p>(如果你想自己验证该现象, 可以在最新的macOS 上安装最新版钉钉, 在输入框中输入上述文字即可)</p>

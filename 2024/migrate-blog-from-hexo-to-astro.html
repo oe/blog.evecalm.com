@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-Hans" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.png" type="image/png"><title>博客从 Hexo 迁移到了 Astro - 夏影の博客</title><link rel="alternate" type="application/rss+xml" title="夏影の博客" href="https://blog.evecalm.com/atom.xml"><meta name="description" content="将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100."><meta property="og:type" content="blog"><meta property="og:title" content="博客从 Hexo 迁移到了 Astro"><meta property="og:url" content="https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro/"><meta property="og:site_name" content="夏影の博客"><meta property="og:local" content="zh-Hans"><meta property="og:description" content="将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100."><meta property="og:image" content="//evecalm.com/assets/avatar.jpg"><meta property="article:author" content="Saiya"><link rel="canonical" href="https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro/"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><link rel="stylesheet" href="/_astro/_pageList_.DcGXk42y.css">
+<!DOCTYPE html><html lang="zh-Hans" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.png" type="image/png"><title>博客从 Hexo 迁移到了 Astro - 夏影の博客</title><link rel="alternate" type="application/rss+xml" title="夏影の博客" href="https://blog.evecalm.com/atom.xml"><meta name="description" content="将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100."><meta property="og:type" content="blog"><meta property="og:title" content="博客从 Hexo 迁移到了 Astro"><meta property="og:url" content="https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro/"><meta property="og:site_name" content="夏影の博客"><meta property="og:local" content="zh-Hans"><meta property="og:description" content="将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100."><meta property="og:image" content="//evecalm.com/assets/avatar.jpg"><meta property="article:author" content="Saiya"><link rel="canonical" href="https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro/"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2280645987761425" crossorigin="anonymous"></script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CMTcOisY.js"></script><link rel="stylesheet" href="/_astro/_pageList_.DcGXk42y.css">
 <style>@charset "UTF-8";article h1,article h2,article h3,article h4,article h5,article h6{position:relative}article h1 .icon-link,article h2 .icon-link,article h3 .icon-link,article h4 .icon-link,article h5 .icon-link,article h6 .icon-link{position:absolute;left:-1em;opacity:0}article h1 .icon-link:after,article h2 .icon-link:after,article h3 .icon-link:after,article h4 .icon-link:after,article h5 .icon-link:after,article h6 .icon-link:after{content:"🔗";font-size:.6em}article h1:hover .icon-link,article h2:hover .icon-link,article h3:hover .icon-link,article h4:hover .icon-link,article h5:hover .icon-link,article h6:hover .icon-link{opacity:1}.post-title{margin-bottom:.2em}
 </style><style>[data-astro-transition-scope="astro-zc5qi7ok-1"] { view-transition-name: _2024_2fmigrate-to-astro_2findex_2emd; }@layer astro { ::view-transition-old(_2024_2fmigrate-to-astro_2findex_2emd) { 
 	animation-duration: 180ms;
@@ -36,7 +36,7 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-y4r3tox3-2"] { view-transition-name: header; }@layer astro { ::view-transition-old(header) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-lp6lhgnj-2"] { view-transition-name: header; }@layer astro { ::view-transition-old(header) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -52,27 +52,27 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y4r3tox3-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y4r3tox3-2"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-na7s5o5k-3"] { view-transition-name: footer; }@layer astro { ::view-transition-old(footer) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-lpoptpmc-3"] { view-transition-name: footer; }@layer astro { ::view-transition-old(footer) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -88,23 +88,23 @@
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-na7s5o5k-3"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-na7s5o5k-3"] { 
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -113,6 +113,12 @@
 </blockquote>
 <p>前端技术一直在升级迭代, 包括框架和库本身、新的技术出现(比如心的js运行时环境)、旧的技术淘汰. 前端项目一般会使用包管理工具以及lock文件来保证项目在不同环境中使用可以运行(包括技术迭代升级), 但也有失效的时候, 比如我博客原来使用的 <a href="https://hexo.io/zh-cn/" rel="noopener nofollow" target="_blank">Hexo</a>. 虽然 Hexo 本身依旧在迭代升级中, 我也不太想去纠结其无法运行的原因了, 我选择了将博客从 Hexo 迁移到 <a href="https://astro.build/" rel="noopener nofollow" target="_blank">Astro</a>, 一款新的静态网站生成器, 个人最近的项目也都在使用它.</p>
 <p>Astro 功能很强大, 它是一个类似 Next.js 的框架, 但更轻量、更灵活, 对内容型(md, mdx)网站支持很好, 支持island架构, 默认使用 SSG, 也可以使用 SSR, 前端框架无关, 可以使用 React, Vue, Svelte 等. 生成的静态网站性能比 Next.js 要高很多.</p>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2280645987761425" data-ad-slot="4096334703" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script type="text/javascript">
+  (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <p>以下是博客从 Hexo 迁移到 Astro 前后的效果的简单对比.</p>
 
 
