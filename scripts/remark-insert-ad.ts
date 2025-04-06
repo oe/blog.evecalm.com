@@ -6,9 +6,6 @@ const adCode = `
   data-ad-slot="4096334703"
   data-ad-format="auto"
   data-full-width-responsive="true"></ins>
-<script type="text/javascript">
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
 `;
 
 // remark-insert-ad.js

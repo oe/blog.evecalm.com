@@ -56,44 +56,49 @@ const postDescription =
     }
   </article>
   <PostFooter entry={entry} />
-</BaseLayout>
-<style is:global lang="scss">
-  article {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      position: relative;
-      .icon-link {
-        position: absolute;
-        left: -1em;
-        opacity: 0;
-        &::after {
-          content: '🔗';
-          font-size: 0.6em;
+
+  <style is:global lang="scss">
+    article {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        position: relative;
+        .icon-link {
+          position: absolute;
+          left: -1em;
+          opacity: 0;
+          &::after {
+            content: '🔗';
+            font-size: 0.6em;
+          }
+        }
+        &:hover .icon-link {
+          opacity: 1;
         }
       }
-      &:hover .icon-link {
-        opacity: 1;
-      }
     }
-  }
-  .post-title {
-    margin-bottom: 0.2em;
-  }
-</style>
-<script>
-  document.body.querySelectorAll('article img').forEach((img) => {
-    const title = img.getAttribute('title') || img.getAttribute('alt');
-    if (!title) return;
-    const figure = document.createElement('figure');
-    img.parentNode!.replaceChild(figure, img);
-    figure.appendChild(img);
-    img.insertAdjacentHTML(
-      'afterend',
-      `<figcaption class="text-center italic">${title}</figcaption>`
-    );
-  });
-</script>
+    .post-title {
+      margin-bottom: 0.2em;
+    }
+  </style>
+  <script type="text/javascript">
+    function initPage() {
+      document.body.querySelectorAll('article img').forEach((img) => {
+        const title = img.getAttribute('title') || img.getAttribute('alt');
+        if (!title) return;
+        const figure = document.createElement('figure');
+        img.parentNode.replaceChild(figure, img);
+        figure.appendChild(img);
+        img.insertAdjacentHTML(
+          'afterend',
+          `<figcaption class="text-center italic">${title}</figcaption>`
+        );
+      });
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+    document.addEventListener('astro:page-load', initPage);
+  </script>
+</BaseLayout>
