@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@plugin "flowbite-typography";
-
+@plugin "@tailwindcss/typography";
+@config "./tailwind.config.js";
 .adsbygoogle {
   @apply shadow-md rounded-md;
 }
