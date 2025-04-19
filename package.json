@@ -14,12 +14,14 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
+    "@resvg/resvg-js": "^2.6.2",
     "astro-embed": "^0.9.0",
     "dayjs": "^1.11.11",
     "lucide-react": "^0.378.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sanitize-html": "^2.13.0",
+    "satori": "^0.12.2",
     "truncate-html": "^1.1.1"
   },
   "devDependencies": {
@@ -40,6 +42,7 @@
     "sass": "^1.76.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.0.17",
+    "tsx": "^4.19.3",
     "typescript": "^5.4.5"
   }
 }
