@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "new": "tsx scripts/create-new-post.ts"
   },
   "hexo": {
     "version": "5.4.2"
@@ -26,15 +27,16 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/markdown-remark": "^6.3.1",
-    "@astrojs/react": "^4.2.3",
+    "@astrojs/markdown-remark": "^6.3.2",
+    "@astrojs/react": "^4.3.0",
     "@biomejs/biome": "^1.5.2",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.2",
+    "@types/node": "^22.15.21",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "@types/sanitize-html": "^2.11.0",
-    "astro": "^5.6.0",
+    "astro": "^5.8.0",
     "lerna-ci": "^2.0.1",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-external-links": "^3.0.0",
