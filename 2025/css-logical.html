@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="zh-Hans" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="shortcut icon" href="/favicon.png" type="image/png"><title>CSS 国际化（RTL）方案探讨 - 夏影の博客</title><link rel="alternate" type="application/rss+xml" title="夏影の博客" href="https://blog.evecalm.com/atom.xml"><meta name="description" content="使用 CSS 逻辑属性和 postcss-logical-polyfill 实现 RTL 语言的优雅支持"><meta property="og:type" content="blog"><meta property="og:title" content="CSS 国际化（RTL）方案探讨"><meta property="og:url" content="https://blog.evecalm.com/2025/css-logical/"><meta property="og:site_name" content="夏影の博客"><meta property="og:local" content="zh-Hans"><meta property="og:description" content="使用 CSS 逻辑属性和 postcss-logical-polyfill 实现 RTL 语言的优雅支持"><meta property="og:image" content="/2025/css-logical.png"><meta property="article:author" content="Saiya"><link rel="canonical" href="https://blog.evecalm.com/2025/css-logical/"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2280645987761425" crossorigin="anonymous"></script><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CtSceO8m.js"></script><link rel="stylesheet" href="/_astro/_pageList_.C5_XtPIo.css">
+<style>@charset "UTF-8";article h1,article h2,article h3,article h4,article h5,article h6{position:relative}article h1 .icon-link,article h2 .icon-link,article h3 .icon-link,article h4 .icon-link,article h5 .icon-link,article h6 .icon-link{position:absolute;left:-1em;opacity:0}article h1 .icon-link:after,article h2 .icon-link:after,article h3 .icon-link:after,article h4 .icon-link:after,article h5 .icon-link:after,article h6 .icon-link:after{content:"🔗";font-size:.6em}article h1:hover .icon-link,article h2:hover .icon-link,article h3:hover .icon-link,article h4:hover .icon-link,article h5:hover .icon-link,article h6:hover .icon-link{opacity:1}.post-title{margin-bottom:.2em}
+</style><style>[data-astro-transition-scope="astro-zc5qi7ok-1"] { view-transition-name: _2025_2fcss-logical_2findex_2emd; }@layer astro { ::view-transition-old(_2025_2fcss-logical_2findex_2emd) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(_2025_2fcss-logical_2findex_2emd) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(_2025_2fcss-logical_2findex_2emd) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(_2025_2fcss-logical_2findex_2emd) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-zc5qi7ok-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-zc5qi7ok-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-zc5qi7ok-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-zc5qi7ok-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-zc5qi7ok-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-zc5qi7ok-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-zc5qi7ok-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-zc5qi7ok-1"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-lp6lhgnj-2"] { view-transition-name: header; }@layer astro { ::view-transition-old(header) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(header) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(header) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(header) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lp6lhgnj-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lp6lhgnj-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-lpoptpmc-3"] { view-transition-name: footer; }@layer astro { ::view-transition-old(footer) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(footer) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(footer) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(footer) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-lpoptpmc-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-lpoptpmc-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head> <body class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 font-sans text-wrap break-words relative"> <div class="border-b border-slate-100 dark:border-slate-700 mb-4"> <header class="max-w-4xl flex justify-between items-center m-auto py-6 px-4 font-serif text-slate-500 dark:text-slate-400 max-xs:flex-col max-xs:gap-2"> <h1 class="text-xl"> <a href="/">夏影の博客</a> </h1> <ul class="flex gap-4"> <li> <a href="/categories/">分类</a> </li> <li> <a href="/tags/">标签</a> </li> <li> <a href="https://evecalm.com/about" target="_blank">关于</a> </li> <li> <a href="/atom.xml" target="_blank" aria-label="RSS 订阅" class="hover-tip bottom"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg> </a> </li> <li> <a href="https://github.com/oe" target="_blank" aria-label="Github 账户" class="hover-tip bottom"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> </a> </li> </ul> </header> </div>   <article class="prose  max-w-4xl prose-zinc dark:prose-invert mx-auto px-4 mb-4"> <h1 class="post-title" data-astro-transition-scope="astro-zc5qi7ok-1"> CSS 国际化（RTL）方案探讨 </h1> <div class="text-slate-400 text-sm mb-2">2025年6月4日<!-- -->发布在 <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></div> <p>随着 Web 国际化需求的增加，如何优雅地支持 RTL（从右到左书写）语言，成为了前端工程中的重要议题。CSS 逻辑属性（Logical Properties）作为现代化的解决方案，正在成为主流趋势。本文将重点探讨 CSS 逻辑属性的使用，以及如何通过 <code>postcss-logical-polyfill</code> 插件实现完美的兼容性支持。</p>
+<h2 id="css-逻辑属性现代-rtl-的首选方案"><a aria-hidden="true" tabindex="-1" href="#css-逻辑属性现代-rtl-的首选方案"><span class="icon icon-link"></span></a>CSS 逻辑属性：现代 RTL 的首选方案</h2>
+<p>CSS 逻辑属性是 CSS 国际化的未来趋势，它使用方向无关的概念来描述布局和间距，特别适用于需要支持多语言方向的现代 Web 应用。</p>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2280645987761425" data-ad-slot="4096334703" data-ad-format="auto" data-full-width-responsive="true"></ins>
+
+<h3 id="基本概念"><a aria-hidden="true" tabindex="-1" href="#基本概念"><span class="icon icon-link"></span></a>基本概念</h3>
+<p>CSS 逻辑属性引入了以下概念：</p>
+<ul>
+<li><strong>inline</strong>: 行内方向（在 LTR 中是左右，在 RTL 中相反）</li>
+<li><strong>block</strong>: 块级方向（通常是上下）</li>
+<li><strong>start/end</strong>: 开始/结束位置（方向相关）</li>
+</ul>
+<p>常用的逻辑属性包括：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* 间距 */</span></span>
+<span class="line"><span style="color:#85E89D">margin-inline-start</span><span style="color:#E1E4E8">: 16px;    </span><span style="color:#6A737D">/* 替代 margin-left */</span></span>
+<span class="line"><span style="color:#85E89D">margin-inline-end</span><span style="color:#E1E4E8">: 16px;      </span><span style="color:#6A737D">/* 替代 margin-right */</span></span>
+<span class="line"><span style="color:#85E89D">padding-block-start</span><span style="color:#E1E4E8">: 8px;     </span><span style="color:#6A737D">/* 替代 padding-top */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* 边框 */</span></span>
+<span class="line"><span style="color:#85E89D">border-inline-start</span><span style="color:#E1E4E8">: 1px solid </span><span style="color:#FDAEB7;font-style:italic">#ccc;</span><span style="color:#6A737D">  /* 替代 border-left */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* 定位 */</span></span>
+<span class="line"><span style="color:#85E89D">inset-inline-start</span><span style="color:#E1E4E8">: 0;        </span><span style="color:#6A737D">/* 替代 left */</span></span>
+<span class="line"><span style="color:#85E89D">inset-inline-end</span><span style="color:#E1E4E8">: 0;          </span><span style="color:#6A737D">/* 替代 right */</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* 文本对齐 */</span></span>
+<span class="line"><span style="color:#85E89D">text-align</span><span style="color:#E1E4E8">: start;            </span><span style="color:#6A737D">/* 替代 text-align: left */</span></span></code></pre>
+<h3 id="-优点"><a aria-hidden="true" tabindex="-1" href="#-优点"><span class="icon icon-link"></span></a>✅ 优点</h3>
+<ul>
+<li><strong>语义化</strong>：写法更符合逻辑，方向无关，行为可预期</li>
+<li><strong>自动适配</strong>：在 <code>dir="rtl"</code> 环境下自动翻转，无需额外代码</li>
+<li><strong>支持垂直文本</strong>：完美配合 <code>writing-mode</code> 属性</li>
+<li><strong>原生支持</strong>：无需构建工具，现代浏览器原生支持</li>
+</ul>
+<h3 id="兼容性现状"><a aria-hidden="true" tabindex="-1" href="#兼容性现状"><span class="icon icon-link"></span></a>兼容性现状</h3>
+<ul>
+<li><strong>主流逻辑属性</strong>（如 <code>margin-inline-*</code>, <code>padding-inline-*</code>）在现代浏览器中支持良好</li>
+<li><strong>Chrome/Edge</strong>: 89+, <strong>Firefox</strong>: 66+, <strong>Safari</strong>: 15+, <strong>Opera</strong>: 76+</li>
+<li>查看最新兼容性：<a href="https://caniuse.com/css-logical-props" rel="noopener nofollow" target="_blank">Can I Use - CSS Logical Properties</a></li>
+</ul>
+<h3 id="️-兼容性注意事项"><a aria-hidden="true" tabindex="-1" href="#️-兼容性注意事项"><span class="icon icon-link"></span></a>⚠️ 兼容性注意事项</h3>
+<p>部分较新的逻辑属性/值兼容性仍有限制，如渐变方向的逻辑值：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* 兼容性较差 */</span></span>
+<span class="line"><span style="color:#E1E4E8">background: linear-gradient(to </span><span style="color:#85E89D">inline-end</span><span style="color:#E1E4E8">, red, blue);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* 推荐的兼容写法 */</span></span>
+<span class="line"><span style="color:#B392F0">:root</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#FFAB70">  --gradient-dir</span><span style="color:#E1E4E8">: to </span><span style="color:#79B8FF">right</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">dir</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"rtl"</span><span style="color:#E1E4E8">] {</span></span>
+<span class="line"><span style="color:#FFAB70">  --gradient-dir</span><span style="color:#E1E4E8">: to </span><span style="color:#79B8FF">left</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#B392F0">.bg</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  background</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">linear-gradient</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--gradient-dir</span><span style="color:#E1E4E8">), </span><span style="color:#79B8FF">red</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="-完美解决方案使用-postcss-logical-polyfill"><a aria-hidden="true" tabindex="-1" href="#-完美解决方案使用-postcss-logical-polyfill"><span class="icon icon-link"></span></a>🚀 完美解决方案：使用 <code>postcss-logical-polyfill</code></h2>
+<p>当你希望在项目中使用语义化的逻辑属性，但又需要兼容旧浏览器时，<a href="https://github.com/oe/postcss-logical-polyfill" rel="noopener nofollow" target="_blank"><code>postcss-logical-polyfill</code></a> 提供了完美的解决方案。</p>
+<p>这是一个专门为 CSS 逻辑属性设计的 PostCSS 插件，它能够：</p>
+<ul>
+<li>🎯 <strong>自动生成 polyfill</strong>：将逻辑属性转换为物理属性，并生成对应的 RTL 样式</li>
+<li>🔄 <strong>保留原始代码</strong>：可以选择保留逻辑属性，实现渐进增强</li>
+<li>📦 <strong>一次构建</strong>：无需分别构建 LTR/RTL 两份样式文件</li>
+<li>🎨 <strong>灵活配置</strong>：支持多种输出模式和自定义配置</li>
+</ul>
+<h3 id="安装和使用"><a aria-hidden="true" tabindex="-1" href="#安装和使用"><span class="icon icon-link"></span></a>安装和使用</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> postcss-logical-polyfill</span><span style="color:#79B8FF"> --save-dev</span></span></code></pre>
+<p>基本配置：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// postcss.config.js</span></span>
+<span class="line"><span style="color:#79B8FF">module</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">exports</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  plugins: [</span></span>
+<span class="line"><span style="color:#B392F0">    require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'postcss-logical-polyfill'</span><span style="color:#E1E4E8">)({</span></span>
+<span class="line"><span style="color:#6A737D">      // 保留逻辑属性，实现渐进增强</span></span>
+<span class="line"><span style="color:#E1E4E8">      preserve: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#6A737D">      // 生成 RTL 样式</span></span>
+<span class="line"><span style="color:#E1E4E8">      dir: </span><span style="color:#9ECBFF">'ltr'</span></span>
+<span class="line"><span style="color:#E1E4E8">    })</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="转换示例"><a aria-hidden="true" tabindex="-1" href="#转换示例"><span class="icon icon-link"></span></a>转换示例</h3>
+<p>输入的 CSS：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-inline-start</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-inline</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-inline-start</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> blue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  text-align</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">start</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">dir</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"rtl"</span><span style="color:#E1E4E8">] </span><span style="color:#B392F0">.content</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  text-align</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">end</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>经过 <code>postcss-logical-polyfill</code> 处理后：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">dir</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"ltr"</span><span style="color:#E1E4E8">] </span><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-right</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> blue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  text-align</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">left</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">/* 自动生成的 RTL 样式 */</span></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">dir</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"rtl"</span><span style="color:#E1E4E8">] </span><span style="color:#B392F0">.card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-right</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  padding-right</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">none</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  border-right</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">px</span><span style="color:#79B8FF"> solid</span><span style="color:#79B8FF"> blue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  text-align</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">right</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#B392F0">dir</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"rtl"</span><span style="color:#E1E4E8">] </span><span style="color:#B392F0">.content</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  text-align</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">left</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="-主要优势"><a aria-hidden="true" tabindex="-1" href="#-主要优势"><span class="icon icon-link"></span></a>✅ 主要优势</h3>
+<ul>
+<li><strong>开发体验优秀</strong>：可以完全使用语义化的逻辑属性进行开发</li>
+<li><strong>兼容性完美</strong>：自动生成物理属性 fallback，支持所有浏览器</li>
+<li><strong>渐进增强</strong>：现代浏览器优先使用逻辑属性，旧浏览器使用物理属性</li>
+<li><strong>构建简单</strong>：一次构建即可同时支持 LTR 和 RTL</li>
+<li><strong>性能优化</strong>：支持按需生成，避免不必要的样式冗余</li>
+</ul>
+<hr>
+<h2 id="其他方案对比"><a aria-hidden="true" tabindex="-1" href="#其他方案对比"><span class="icon icon-link"></span></a>其他方案对比</h2>
+<h3 id="postcss-rtlcss适合已有项目快速接入"><a aria-hidden="true" tabindex="-1" href="#postcss-rtlcss适合已有项目快速接入"><span class="icon icon-link"></span></a>postcss-rtlcss：适合已有项目快速接入</h3>
+<p>对于已经上线的项目，<a href="https://github.com/vkalinichev/postcss-rtl" rel="noopener nofollow" target="_blank"><code>postcss-rtlcss</code></a> 仍然是一个不错的选择：</p>
+<ul>
+<li>✅ 无需修改现有 CSS 代码</li>
+<li>✅ 自动镜像翻转样式</li>
+<li>⚠️ 需要使用物理属性编写，语义化程度较低</li>
+<li>⚠️ 转换结果可能不符合预期, 需要特殊处理</li>
+</ul>
+<h3 id="postcss-logical需要分别构建"><a aria-hidden="true" tabindex="-1" href="#postcss-logical需要分别构建"><span class="icon icon-link"></span></a>postcss-logical：需要分别构建</h3>
+<p><a href="https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-logical" rel="noopener nofollow" target="_blank"><code>postcss-logical</code></a> 虽然也支持逻辑属性转换，但有一些限制：</p>
+<ul>
+<li>✅ 支持逻辑属性语法</li>
+<li>⚠️ 需要分别构建 LTR 和 RTL 两份样式文件</li>
+<li>⚠️ 不支持运行时方向切换</li>
+</ul>
+<hr>
+<h2 id="-其他-rtl-实践推荐"><a aria-hidden="true" tabindex="-1" href="#-其他-rtl-实践推荐"><span class="icon icon-link"></span></a>🚀 其他 RTL 实践推荐</h2>
+<h3 id="1-使用-dir-作为状态变量统一控制"><a aria-hidden="true" tabindex="-1" href="#1-使用-dir-作为状态变量统一控制"><span class="icon icon-link"></span></a>1. 使用 <code>dir</code> 作为状态变量统一控制</h3>
+<ul>
+<li>在 HTML 根节点标记 <code>dir="rtl"</code></li>
+<li>在组件中使用 <code>:dir(rtl)</code>、<code>[dir="rtl"]</code> 区分样式逻辑, 注意 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:dir" rel="noopener nofollow" target="_blank"><code>:dir()</code></a> 选择器的兼容性比较差</li>
+</ul>
+<h3 id="2-样式控制策略标准属性与类选择器并用"><a aria-hidden="true" tabindex="-1" href="#2-样式控制策略标准属性与类选择器并用"><span class="icon icon-link"></span></a>2. 样式控制策略：标准属性与类选择器并用</h3>
+<p>使用 [dir=“rtl”] 是 HTML 和 CSS 官方推荐的方式，语义明确，对 SEO 和可访问性友好，适合全局或区域性方向控制</p>
+<p>在组件库或样式隔离需求中，也可以使用类名（如 .is-rtl）来明确作用域，避免样式冲突</p>
+<p>两者可结合使用，按需选型html</p>
+<ul>
+<li>
+<p>例如：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="html"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">body</span><span style="color:#B392F0"> class</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"is-rtl"</span><span style="color:#E1E4E8">></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#B392F0">.is-rtl</span><span style="color:#B392F0"> .card</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-left</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">auto</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  margin-right</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+</li>
+</ul>
+<h3 id="3-tailwindcss-中使用-dir-插件支持-rtl"><a aria-hidden="true" tabindex="-1" href="#3-tailwindcss-中使用-dir-插件支持-rtl"><span class="icon icon-link"></span></a>3. TailwindCSS 中使用 <code>dir</code> 插件支持 RTL</h3>
+<ul>
+<li>参考：<a href="https://github.com/20lives/tailwindcss-dir" rel="noopener nofollow" target="_blank">tailwindcss-rtl plugin</a></li>
+</ul>
+<hr>
+<h2 id="结语"><a aria-hidden="true" tabindex="-1" href="#结语"><span class="icon icon-link"></span></a>结语</h2>
+<p>CSS 国际化方案的选择应根据项目现状和目标平台做取舍：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>方案</th><th>最适合的场景</th></tr></thead><tbody><tr><td>postcss-logical-polyfill</td><td>想使用逻辑属性 + 保证兼容性（推荐）</td></tr><tr><td>原生逻辑属性</td><td>新项目，现代浏览器优先</td></tr><tr><td>postcss-rtlcss</td><td>快速为已有项目提供 RTL 支持</td></tr><tr><td>postcss-logical</td><td>分别构建两份样式文件</td></tr></tbody></table>
+<p><strong>推荐方案</strong>：对于大多数项目，建议使用 <code>postcss-logical-polyfill</code> + CSS 逻辑属性的组合方案。这样既能享受语义化编码的好处，又能确保完美的浏览器兼容性，而且构建过程简单高效。</p>
+<p>未来随着逻辑属性在浏览器中的普及，<strong>原生支持将成为主流方向</strong>。而 <code>postcss-logical-polyfill</code> 正好为这个过渡期提供了完美的桥梁。</p>  </article> <div class="px-4 max-w-4xl mx-auto relative"> <div class="relative flex justify-center py-4"><div class="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-transparent bg-gradient-to-r from-transparent via-gray-500 to-transparent opacity-75"></div><span class="relative z-1 bg-white px-6 dark:bg-slate-800">ஓ๑∗๑ஓ</span></div> <div class="flex justify-between mb-4 max-xs:flex-col max-xs:gap-4"> <div class="max-xs:flex max-xs:justify-between">  <a href="/2024/migrate-blog-from-hexo-to-astro.html" aria-label="博客从 Hexo 迁移到了 Astro" class="hover-tip">
+下一篇
+</a> </div> <div class="flex items-center gap-4 relative max-xs:justify-between"> <a href="#" class="hover-tip" aria-label="滚动到顶部"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-from-line"><path d="m18 9-6-6-6 6"></path><path d="M12 3v14"></path><path d="M5 21h14"></path></svg> </a> <a href="#disqus_thread" class="hover-tip" aria-label="评论"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-more"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path><path d="M8 12h.01"></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg> </a> <a href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fblog.evecalm.com%2F2025%2Fcss-logical%2F" target="_blank" class="hover-tip" aria-label="分享到 Twitter"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg> </a> <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.evecalm.com%2F2025%2Fcss-logical%2F" target="_blank" class="hover-tip" aria-label="分享到 Facebook"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg> </a> </div> </div> <div id="disqus_thread" data-shortname="kalm" data-url="https://blog.evecalm.com/2025/css-logical/" data-identifier="2025/css-logical/"> <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div> <script type="module">(function(){var t=window.document;function r(){return window.innerHeight+window.scrollY>=t.body.scrollHeight-400}function e(){if(!r()||(document.removeEventListener("scroll",e),window.disqus_config))return;const i=document.getElementById("disqus_thread");window.disqus_config=function(){this.page.url=i.getAttribute("data-url"),this.page.identifier=i.getAttribute("data-identifier")};var n=t.createElement("script");n.src="//"+i.getAttribute("data-shortname")+".disqus.com/embed.js",n.setAttribute("data-timestamp",Date.now()),(t.head||t.body).appendChild(n)}if(r()){e();return}document.addEventListener("scroll",e,{passive:!0})})();</script> </div>  <script type="text/javascript">
+    function initPage() {
+      document.body.querySelectorAll('article img').forEach((img) => {
+        const title = img.getAttribute('title') || img.getAttribute('alt');
+        if (!title) return;
+        const figure = document.createElement('figure');
+        img.parentNode.replaceChild(figure, img);
+        figure.appendChild(img);
+        img.insertAdjacentHTML(
+          'afterend',
+          `<figcaption class="text-center italic">${title}</figcaption>`
+        );
+      });
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+    document.addEventListener('astro:page-load', initPage);
+  </script>  <footer class="text-center text-slate-500 dark:text-slate-300 my-16"> <div>
+Copyrights © 2025 Saiya. All Rights Reserved
+</div> <div> <a href="https://evecalm.com" target="_blank" class="text-slate-500 dark:text-slate-300">夏影</a> &
+<a href="https://forth.ink" target="_blank" class="text-slate-500 dark:text-slate-300">𝗳𝗼𝗿𝘁𝗵𝗶𝗻𝗸</a> </div> </footer> <script defer src="https://www.googletagmanager.com/gtag/js?id=G-DPSKR82X8Z"></script> <script defer>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'G-DPSKR82X8Z');
+</script> </body></html>

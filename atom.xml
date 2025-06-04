@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/pretty-feed.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>夏影の博客</title><description>夏影の博客，一个记录技术与生活的地方。</description><link>https://blog.evecalm.com/</link><item><title>博客从 Hexo 迁移到了 Astro</title><link>https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro.html</link><guid isPermaLink="true">https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro.html</guid><description>将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100.</description><pubDate>Sun, 05 May 2024 01:15:11 GMT</pubDate><content:encoded>&lt;blockquote&gt; &lt;p&gt;前几天心血来潮, 想把日常记录的一些技术笔记在博客中发表出来. 但由于长时间没有维护博客, 之前的 Hexo 博客已经无法正常运行了. 于是, 我决定将博客从 Hexo 迁移到 Astro.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;前端技术一直在升级迭代, 包括框架和库本身、新的技术出现(比如心的js运行时环境)、旧的技术淘汰. 前端项目一般会使用包管理工具以及lock文件来保证项目在不同环境中使用可以运行(包括技术迭代升级), 但...&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/pretty-feed.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>夏影の博客</title><description>夏影の博客，一个记录技术与生活的地方。</description><link>https://blog.evecalm.com/</link><item><title>CSS 国际化（RTL）方案探讨</title><link>https://blog.evecalm.com/2025/css-logical.html</link><guid isPermaLink="true">https://blog.evecalm.com/2025/css-logical.html</guid><description>使用 CSS 逻辑属性和 postcss-logical-polyfill 实现 RTL 语言的优雅支持</description><pubDate>Wed, 04 Jun 2025 23:39:30 GMT</pubDate><content:encoded>&lt;p&gt;随着 Web 国际化需求的增加，如何优雅地支持 RTL（从右到左书写）语言，成为了前端工程中的重要议题。CSS 逻辑属性（Logical Properties）作为现代化的解决方案，正在成为主流趋势。本文将重点探讨 CSS 逻辑属性的使用，以及如何通过 &lt;code&gt;postcss-logical-polyfill&lt;/code&gt; 插件实现完美的兼容性支持。&lt;/p&gt; &lt;h2&gt;CSS 逻辑属性：现代 RTL 的首选方案&lt;/h2&gt; &lt;p&gt;CSS 逻辑属性是 CS...&lt;/p&gt;
+    &lt;br /&gt;
+      &lt;p&gt;
+      &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
+      &lt;a href=&quot;/2025/css-logical.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
+    &lt;/p&gt;</content:encoded></item><item><title>博客从 Hexo 迁移到了 Astro</title><link>https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro.html</link><guid isPermaLink="true">https://blog.evecalm.com/2024/migrate-blog-from-hexo-to-astro.html</guid><description>将博客从 Hexo 迁移到 Astro 的简易说明, lighthouse 评分四个 100.</description><pubDate>Sun, 05 May 2024 01:15:11 GMT</pubDate><content:encoded>&lt;blockquote&gt; &lt;p&gt;前几天心血来潮, 想把日常记录的一些技术笔记在博客中发表出来. 但由于长时间没有维护博客, 之前的 Hexo 博客已经无法正常运行了. 于是, 我决定将博客从 Hexo 迁移到 Astro.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;前端技术一直在升级迭代, 包括框架和库本身、新的技术出现(比如心的js运行时环境)、旧的技术淘汰. 前端项目一般会使用包管理工具以及lock文件来保证项目在不同环境中使用可以运行(包括技术迭代升级), 但...&lt;/p&gt;
     &lt;br /&gt;
       &lt;p&gt;
       &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
@@ -43,9 +48,4 @@
       &lt;p&gt;
       &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
       &lt;a href=&quot;/2020/05/change-playback-rate-in-yunpan.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item><item><title>[知识分享]博客重启更新</title><link>https://blog.evecalm.com/2020/05/restart-to-blog.html</link><guid isPermaLink="true">https://blog.evecalm.com/2020/05/restart-to-blog.html</guid><pubDate>Thu, 14 May 2020 00:37:19 GMT</pubDate><content:encoded>&lt;p&gt;最近看博客的时候, 发现了一个有趣的网站 &lt;a href=&quot;https://www.stefanjudis.com/&quot;&gt;Stefan’s web dev journey&lt;/a&gt;, 它有一个板块 &lt;a href=&quot;https://www.stefanjudis.com/&quot;&gt;Today I Learned(TIL)&lt;/a&gt; 专用于分享每日学习到的知识. TIL相关文章内容有长有短, 一篇文章一个知识点, 挺有意义的. 回想自己的博客已经多年未更新, 几近荒废, 若不是域名商定期提醒续费域名, 怕是域名也被收回了. 故想借鉴该网站, 每周不定期写几篇文章记录所学所想, 因...&lt;/p&gt;
-    &lt;br /&gt;
-      &lt;p&gt;
-      &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
-      &lt;a href=&quot;/2020/05/restart-to-blog.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
     &lt;/p&gt;</content:encoded></item></channel></rss>
