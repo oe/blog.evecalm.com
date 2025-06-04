@@ -27,7 +27,15 @@ export default defineConfig({
   site: 'https://blog.evecalm.com',
   integrations: [react()],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['@resvg/resvg-js']
+    },
+    build: {
+      rollupOptions: {
+        external: ['@resvg/resvg-js']
+      }
+    }
   },
   // trailingSlash: 'never',
   build: {
