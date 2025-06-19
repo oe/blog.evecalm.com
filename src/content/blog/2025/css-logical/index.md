@@ -99,12 +99,7 @@ npm install postcss-logical-polyfill --save-dev
 // postcss.config.js
 module.exports = {
   plugins: [
-    require('postcss-logical-polyfill')({
-      // 保留逻辑属性，实现渐进增强
-      preserve: true,
-      // 生成 RTL 样式
-      dir: 'ltr'
-    })
+    require('postcss-logical-polyfill')()
   ]
 }
 ```
