@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/pretty-feed.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>夏影の博客</title><description>夏影の博客，一个记录技术与生活的地方。</description><link>https://blog.evecalm.com/</link><item><title>CSS 国际化（RTL）方案探讨</title><link>https://blog.evecalm.com/2025/css-logical.html</link><guid isPermaLink="true">https://blog.evecalm.com/2025/css-logical.html</guid><description>使用 CSS 逻辑属性和 postcss-logical-polyfill 实现 RTL 语言的优雅支持</description><pubDate>Wed, 04 Jun 2025 23:39:30 GMT</pubDate><content:encoded>&lt;p&gt;随着 Web 国际化需求的增加，如何优雅地支持 RTL（从右到左书写）语言，成为了前端工程中的重要议题。CSS 逻辑属性（Logical Properties）作为现代化的解决方案，正在成为主流趋势。本文将重点探讨 CSS 逻辑属性的使用，以及如何通过 &lt;code&gt;postcss-logical-polyfill&lt;/code&gt; 插件实现完美的兼容性支持。&lt;/p&gt; &lt;h2&gt;CSS 逻辑属性：现代 RTL 的首选方案&lt;/h2&gt; &lt;p&gt;CSS 逻辑属性是 CS...&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="/pretty-feed.xsl" type="text/xsl"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>夏影の博客</title><description>夏影の博客，一个记录技术与生活的地方。</description><link>https://blog.evecalm.com/</link><item><title>好奇心周报#1 - 宇宙真的用的是同一把尺子吗？</title><link>https://blog.evecalm.com/2026/is-the-universe-using-the-same-ruler.html</link><guid isPermaLink="true">https://blog.evecalm.com/2026/is-the-universe-using-the-same-ruler.html</guid><pubDate>Wed, 14 Jan 2026 23:11:17 GMT</pubDate><content:encoded>&lt;blockquote&gt; &lt;p&gt;一瓶饮料为什么偏偏是 473ml？ 一秒钟在地球和火星上真的一样长吗？ 热量被辐射到宇宙深处之后，是”消失”了吗？&lt;/p&gt; &lt;p&gt;这些问题乍一看风马牛不相及，但它们其实都在反复拷问一件事：我们日常使用的单位、尺度和直觉，到底是宇宙的真相，还是人类在特定环境下形成的错觉？&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;&lt;em&gt;《好奇心周报》是将我过去一段时间部分的好奇心问题整理而来的文章, 看时间、心情随缘整理, 希望能坚持下去。受文章篇幅所限, 并不会每个问题...&lt;/em&gt;&lt;/p&gt;
+    &lt;br /&gt;
+      &lt;p&gt;
+      &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
+      &lt;a href=&quot;/2026/is-the-universe-using-the-same-ruler.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
+    &lt;/p&gt;</content:encoded></item><item><title>CSS 国际化（RTL）方案探讨</title><link>https://blog.evecalm.com/2025/css-logical.html</link><guid isPermaLink="true">https://blog.evecalm.com/2025/css-logical.html</guid><description>使用 CSS 逻辑属性和 postcss-logical-polyfill 实现 RTL 语言的优雅支持</description><pubDate>Wed, 04 Jun 2025 23:39:30 GMT</pubDate><content:encoded>&lt;p&gt;随着 Web 国际化需求的增加，如何优雅地支持 RTL（从右到左书写）语言，成为了前端工程中的重要议题。CSS 逻辑属性（Logical Properties）作为现代化的解决方案，正在成为主流趋势。本文将重点探讨 CSS 逻辑属性的使用，以及如何通过 &lt;code&gt;postcss-logical-polyfill&lt;/code&gt; 插件实现完美的兼容性支持。&lt;/p&gt; &lt;h2&gt;CSS 逻辑属性：现代 RTL 的首选方案&lt;/h2&gt; &lt;p&gt;CSS 逻辑属性是 CS...&lt;/p&gt;
     &lt;br /&gt;
       &lt;p&gt;
       &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
@@ -43,9 +48,4 @@
       &lt;p&gt;
       &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
       &lt;a href=&quot;/2020/05/about-font-and-character.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
-    &lt;/p&gt;</content:encoded></item><item><title>[知识分享]在浏览器中调整百度网盘播放速度的尝试</title><link>https://blog.evecalm.com/2020/05/change-playback-rate-in-yunpan.html</link><guid isPermaLink="true">https://blog.evecalm.com/2020/05/change-playback-rate-in-yunpan.html</guid><pubDate>Fri, 15 May 2020 22:12:15 GMT</pubDate><content:encoded>&lt;p&gt;最近女友使用百度云盘观看学习视频时, 觉得讲师语速太慢, 想调快速度, 然而调速是会员功能. 为了这么一个简单的功能而购买高昂的会员服务, 显然不值得(当然也可以把视频下载下来再用本地播放器倍速, 但又不够方便), 故我做了一番尝试, 最终通过技术手段达成了女友的功能要求. 本文仅做技术研究, 无它, 若有侵犯任何人的权益, 请通过&lt;a href=&quot;https://evecalm.com/about/&quot;&gt;关于页面&lt;/a&gt;中的联系方式联系我处理.&lt;/p&gt; &lt;p&gt;当代浏览器已经禁用了 Flash...&lt;/p&gt;
-    &lt;br /&gt;
-      &lt;p&gt;
-      &lt;strong&gt;Notice: 因使用的框架 Astro 暂时无法解决rss 中图片地址问题, 故此处截取文章部分内容.&lt;/strong&gt;&lt;br /&gt;
-      &lt;a href=&quot;/2020/05/change-playback-rate-in-yunpan.html&quot;&gt;完整内容, 请阅读原文&lt;/a&gt;
     &lt;/p&gt;</content:encoded></item></channel></rss>
